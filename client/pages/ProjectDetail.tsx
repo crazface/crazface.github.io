@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProjectById, Project } from "@/lib/projects";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { Header } from "@/components/Header";
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
@@ -60,21 +61,23 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="glass rounded-lg p-8 text-center max-w-md">
-          <h1 className="text-heading-2 text-text-primary mb-4">
-            Project Not Found
-          </h1>
-          <p className="text-body text-text-secondary mb-6">
-            The project you're looking for doesn't exist or has been moved.
-          </p>
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 text-small font-medium text-text-primary hover:bg-white/80 hover:shadow-glass transition-all duration-200 focus-visible"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Work
-          </Link>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="grid-container pt-24 flex items-center justify-center">
+          <div className="glass rounded-lg p-8 text-center max-w-md">
+            <h1 className="text-3xl font-black text-foreground mb-4">
+              Project Not Found
+            </h1>
+            <p className="text-lg text-muted-foreground mb-6">
+              The project you're looking for doesn't exist or has been moved.
+            </p>
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 text-lg font-bold text-foreground hover:bg-white/80 hover:shadow-glass transition-all duration-200 focus-visible"
+            >
+              Back to Work
+            </Link>
+          </div>
         </div>
       </div>
     );
@@ -82,19 +85,11 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="grid-container py-6 border-b border-border backdrop-blur-sm bg-background/80 sticky top-0 z-50">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-small font-medium text-text-primary hover:bg-white/80 hover:shadow-glass transition-all duration-200 focus-visible w-fit"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Work
-        </Link>
-      </nav>
+      {/* Header */}
+      <Header />
 
       {/* Hero Section */}
-      <section className="grid-container pt-12 pb-20">
+      <section className="grid-container pt-24 pb-20">
         <div
           className={`
             animate-slide-up
@@ -114,10 +109,10 @@ export default function ProjectDetail() {
           {/* Project Header */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <h1 className="text-display text-text-primary mb-4">
+              <h1 className="text-5xl font-black leading-none tracking-tight text-foreground mb-4">
                 {project.title}
               </h1>
-              <p className="text-body text-text-secondary leading-relaxed">
+              <p className="text-lg font-normal leading-relaxed text-muted-foreground">
                 {project.description ||
                   "A comprehensive look at this creative project, exploring the process, challenges, and outcomes that shaped the final result."}
               </p>
@@ -125,44 +120,42 @@ export default function ProjectDetail() {
 
             {/* Project Meta */}
             <div className="glass rounded-lg p-6 h-fit">
-              <h3 className="text-heading-3 text-text-primary mb-4">
+              <h3 className="text-2xl font-black text-foreground mb-4">
                 Project Details
               </h3>
               <div className="space-y-4">
                 <div>
-                  <dt className="text-small font-medium text-text-secondary mb-1">
+                  <dt className="text-sm font-bold text-muted-foreground mb-1">
                     Role
                   </dt>
-                  <dd className="text-body text-text-primary">
+                  <dd className="text-lg text-foreground">
                     {project.role || "Creative Director"}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-small font-medium text-text-secondary mb-1">
+                  <dt className="text-sm font-bold text-muted-foreground mb-1">
                     Year
                   </dt>
-                  <dd className="text-body text-text-primary">
-                    {project.year}
-                  </dd>
+                  <dd className="text-lg text-foreground">{project.year}</dd>
                 </div>
                 <div>
-                  <dt className="text-small font-medium text-text-secondary mb-1">
+                  <dt className="text-sm font-bold text-muted-foreground mb-1">
                     Type
                   </dt>
-                  <dd className="text-body text-text-primary capitalize">
+                  <dd className="text-lg text-foreground capitalize">
                     {project.type}
                   </dd>
                 </div>
                 {project.tools && (
                   <div>
-                    <dt className="text-small font-medium text-text-secondary mb-2">
+                    <dt className="text-sm font-bold text-muted-foreground mb-2">
                       Tools
                     </dt>
                     <dd className="flex flex-wrap gap-2">
                       {project.tools.map((tool) => (
                         <span
                           key={tool}
-                          className="px-3 py-1 rounded-full text-xs bg-white/50 text-text-primary border border-white/20"
+                          className="px-3 py-1 rounded-full text-xs bg-white/50 text-foreground border border-white/20"
                         >
                           {tool}
                         </span>
@@ -179,21 +172,23 @@ export default function ProjectDetail() {
       {/* Process Section */}
       <section className="grid-container pb-20">
         <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
-          <h2 className="text-heading-2 text-text-primary mb-8">Process</h2>
+          <h2 className="text-3xl font-black text-foreground mb-8">Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="glass rounded-lg p-8">
-              <h3 className="text-heading-3 text-text-primary mb-4">Problem</h3>
-              <p className="text-body text-text-secondary leading-relaxed">
+              <h3 className="text-2xl font-black text-foreground mb-4">
+                Problem
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Every project begins with understanding the core challenge. This
                 project required balancing creative expression with functional
                 requirements while maintaining brand consistency.
               </p>
             </div>
             <div className="glass rounded-lg p-8">
-              <h3 className="text-heading-3 text-text-primary mb-4">
+              <h3 className="text-2xl font-black text-foreground mb-4">
                 Solution
               </h3>
-              <p className="text-body text-text-secondary leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Through iterative design and close collaboration, we developed a
                 comprehensive approach that addressed all stakeholder needs
                 while pushing creative boundaries.
@@ -206,7 +201,7 @@ export default function ProjectDetail() {
       {/* Gallery Section */}
       <section className="grid-container pb-20">
         <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
-          <h2 className="text-heading-2 text-text-primary mb-8">Gallery</h2>
+          <h2 className="text-3xl font-black text-foreground mb-8">Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Placeholder gallery items */}
             {[1, 2, 3, 4, 5, 6].map((item) => (
@@ -231,19 +226,20 @@ export default function ProjectDetail() {
           className="glass rounded-lg p-12 text-center animate-slide-up"
           style={{ animationDelay: "0.4s" }}
         >
-          <h2 className="text-heading-2 text-text-primary mb-4">
+          <h2 className="text-3xl font-black text-foreground mb-4">
             Interested in working together?
           </h2>
-          <p className="text-body text-text-secondary mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             I'm always excited to collaborate on new projects and bring creative
             visions to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-body font-medium text-white transition-all duration-200 focus-visible"
+              className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-black text-white transition-all duration-200 focus-visible"
               style={{
-                backgroundColor: "var(--project-primary, hsl(var(--primary)))",
+                backgroundColor:
+                  "var(--project-primary, hsl(var(--primary)))",
               }}
             >
               Get in Touch
@@ -251,7 +247,7 @@ export default function ProjectDetail() {
             </Link>
             <Link
               to="/"
-              className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-body font-medium text-text-primary hover:bg-white/80 hover:shadow-glass transition-all duration-200 focus-visible"
+              className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-white/80 hover:shadow-glass transition-all duration-200 focus-visible"
             >
               View More Work
             </Link>
