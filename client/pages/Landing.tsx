@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
+import { WorkBanner } from "@/components/WorkBanner";
 import { ArrowRight, Sparkles, Palette, Camera, Video } from "lucide-react";
 
 export default function Landing() {
@@ -12,14 +13,14 @@ export default function Landing() {
       <section className="grid-container pt-32 pb-20">
         <div className="max-w-4xl mx-auto text-center">
           <div className="animate-slide-up">
-            <h1 className="text-6xl md:text-7xl font-black leading-none tracking-tight text-foreground mb-6">
+            <h1 className="text-6xl md:text-7xl font-black leading-none tracking-tight text-foreground mb-6 text-shadow-hero">
               Charlie Stamp
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-2xl md:text-3xl font-bold text-muted-foreground mb-8 leading-relaxed text-shadow-strong">
               Creative Director & Visual Storyteller
             </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-              Crafting compelling visual narratives through brand identity, video editing, and photography. 
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed text-shadow-medium">
+              Crafting compelling visual narratives through brand identity, video editing, and photography.
               Let's bring your creative vision to life.
             </p>
 
