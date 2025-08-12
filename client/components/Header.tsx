@@ -16,7 +16,7 @@ export function Header() {
           {/* Navigation */}
           <nav className="flex items-center gap-8">
             <Link
-              to="/"
+              to="/work"
               className="text-lg font-bold text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1"
             >
               My Work
