@@ -245,7 +245,7 @@ export default function ProjectDetail() {
               <ExternalLink className="w-4 h-4" />
             </Link>
             <Link
-              to="/"
+              to="/work"
               className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-white/80 hover:shadow-glass transition-all duration-200 focus-visible"
             >
               View More Work
