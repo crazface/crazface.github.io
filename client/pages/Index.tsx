@@ -43,7 +43,7 @@ export default function Index() {
           {/* Projects Grid */}
           <div
             className={`
-              grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto
+              grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto
               transition-all duration-500 ease-out
               ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
             `}
