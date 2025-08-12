@@ -22,7 +22,7 @@ export function AppTile({ project }: AppTileProps) {
           transition-all duration-500 ease-out cursor-pointer
           ${
             isHovered
-              ? "transform scale-110 -translate-y-4 rotate-2"
+              ? "transform scale-110 -translate-y-4"
               : "hover:scale-105"
           }
         `}
