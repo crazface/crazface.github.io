@@ -63,14 +63,14 @@ export function ProjectTile({ project }: ProjectTileProps) {
             ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}
           `}
         >
-          <h3 className="text-heading-3 text-white mb-1">
+          <h3 className="text-2xl font-semibold leading-snug tracking-tight text-white mb-1">
             {project.title}
           </h3>
-          <p className="text-small text-white/80">
+          <p className="text-sm font-normal leading-relaxed text-white/80">
             {project.year}
           </p>
           {project.description && (
-            <p className="text-small text-white/70 mt-2 line-clamp-2">
+            <p className="text-sm font-normal leading-relaxed text-white/70 mt-2 line-clamp-2">
               {project.description}
             </p>
           )}
