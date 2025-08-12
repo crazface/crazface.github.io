@@ -37,10 +37,10 @@ export default function Index() {
             ${isLoaded ? 'opacity-100' : 'opacity-0'}
           `}
         >
-          <h1 className="text-display text-text-primary mb-4">
+          <h1 className="text-5xl font-bold leading-none tracking-tight text-text-primary mb-4">
             Work
           </h1>
-          <p className="text-body text-text-secondary max-w-2xl">
+          <p className="text-lg font-normal leading-relaxed text-text-secondary max-w-2xl">
             Branding, video, photography — selected projects
           </p>
         </div>
