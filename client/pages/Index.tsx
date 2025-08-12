@@ -117,15 +117,15 @@ export default function Index() {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm font-normal leading-relaxed text-muted-foreground">
           <p>© 2025 — All rights reserved</p>
           <div className="flex gap-6">
-            <a 
-              href="/about" 
-              className="hover:text-text-primary transition-colors duration-200 focus-visible"
+            <a
+              href="/about"
+              className="hover:text-foreground transition-colors duration-200 focus-visible"
             >
               About
             </a>
-            <a 
-              href="/contact" 
-              className="hover:text-text-primary transition-colors duration-200 focus-visible"
+            <a
+              href="/contact"
+              className="hover:text-foreground transition-colors duration-200 focus-visible"
             >
               Contact
             </a>
