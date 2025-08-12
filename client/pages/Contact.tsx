@@ -189,7 +189,7 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 bg-black text-white rounded-lg px-8 py-4 text-lg font-black hover:bg-gray-800 transition-all duration-200 focus-visible"
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-lg px-8 py-4 text-lg font-black hover:bg-primary/90 transition-all duration-200 focus-visible"
               >
                 Send Message
               </button>
