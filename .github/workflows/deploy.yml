@@ -19,15 +19,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+
+      # Install deps at repo root
+      - name: Install
+        run: npm ci
+
+      # Build the client app (root is set in vite.config.ts)
+      - name: Build
+        run: npm run build
+
+      # Optional: SPA routing support (deep links won't 404)
+      - name: Copy 404 for SPA routing
+        run: cp dist/index.html dist/404.html
+
+      # Upload the built static site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist   # <-- Vite’s default output
+          path: dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest

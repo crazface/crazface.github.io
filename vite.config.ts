@@ -3,8 +3,17 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { createServer } from "./server";
 
-// https://vitejs.dev/config/
+// Vite for GitHub Pages (user site): base should be "/"
+// App source is in ./client, public assets in ./public
 export default defineConfig(({ mode }) => ({
+  // The app lives in /client
+  root: path.resolve(__dirname, "client"),
+
+  // User site lives at the domain root
+  base: "/",
+
+  publicDir: path.resolve(__dirname, "public"),
+
   server: {
     host: "::",
     port: 8080,
@@ -13,10 +22,19 @@ export default defineConfig(({ mode }) => ({
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
+
   build: {
-    outDir: "dist/spa",
+    // Emit build to repo root /dist so Actions can upload it
+    outDir: path.resolve(__dirname, "dist"),
+    emptyOutDir: true,
   },
-  plugins: [react(), expressPlugin()],
+
+  plugins: [
+    react(),
+    // keep the express app ONLY during dev (vite serve)
+    ...(mode === "serve" ? [expressPlugin()] : []),
+  ],
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
@@ -28,11 +46,9 @@ export default defineConfig(({ mode }) => ({
 function expressPlugin(): Plugin {
   return {
     name: "express-plugin",
-    apply: "serve", // Only apply during development (serve mode)
+    apply: "serve", // dev only
     configureServer(server) {
       const app = createServer();
-
-      // Add Express app as middleware to Vite dev server
       server.middlewares.use(app);
     },
   };
