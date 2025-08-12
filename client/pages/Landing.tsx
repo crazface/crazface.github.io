@@ -70,18 +70,21 @@ export default function Landing() {
             <div
               className="glass rounded-lg p-8 text-center hover:shadow-glass-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-slide-up"
               style={{
-                animationDelay: "0.6s",
+                animationDelay: "0.3s",
                 boxShadow: '0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1)'
               }}
             >
               <div
                 className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
-                style={{ boxShadow: '0 8px 24px rgba(245, 230, 211, 0.4)' }}
+                style={{
+                  boxShadow: '0 8px 24px rgba(245, 230, 211, 0.4)',
+                  filter: 'drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))'
+                }}
               >
                 <Palette className="w-8 h-8 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4 text-shadow-medium">Graphic Design</h3>
-              <p className="text-muted-foreground leading-relaxed text-shadow-soft">
+              <h3 className="text-2xl font-black text-foreground mb-4">Graphic Design</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 Brand identities, visual systems, and compelling designs that communicate your message with clarity and impact.
               </p>
             </div>
@@ -90,18 +93,21 @@ export default function Landing() {
             <div
               className="glass rounded-lg p-8 text-center hover:shadow-glass-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-slide-up"
               style={{
-                animationDelay: "0.7s",
+                animationDelay: "0.4s",
                 boxShadow: '0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1)'
               }}
             >
               <div
                 className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
-                style={{ boxShadow: '0 8px 24px rgba(245, 230, 211, 0.4)' }}
+                style={{
+                  boxShadow: '0 8px 24px rgba(245, 230, 211, 0.4)',
+                  filter: 'drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))'
+                }}
               >
                 <Video className="w-8 h-8 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4 text-shadow-medium">Video Editing</h3>
-              <p className="text-muted-foreground leading-relaxed text-shadow-soft">
+              <h3 className="text-2xl font-black text-foreground mb-4">Video Editing</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 Dynamic video content, from commercials to music videos, crafted with precision and creative flair.
               </p>
             </div>
@@ -110,18 +116,21 @@ export default function Landing() {
             <div
               className="glass rounded-lg p-8 text-center hover:shadow-glass-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-slide-up"
               style={{
-                animationDelay: "0.8s",
+                animationDelay: "0.5s",
                 boxShadow: '0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1)'
               }}
             >
               <div
                 className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
-                style={{ boxShadow: '0 8px 24px rgba(245, 230, 211, 0.4)' }}
+                style={{
+                  boxShadow: '0 8px 24px rgba(245, 230, 211, 0.4)',
+                  filter: 'drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))'
+                }}
               >
                 <Camera className="w-8 h-8 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4 text-shadow-medium">Photography</h3>
-              <p className="text-muted-foreground leading-relaxed text-shadow-soft">
+              <h3 className="text-2xl font-black text-foreground mb-4">Photography</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 Capturing moments that tell stories, from portraits to landscapes, with artistic vision and technical excellence.
               </p>
             </div>
