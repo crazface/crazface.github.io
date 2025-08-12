@@ -1,137 +1,86 @@
 import { useState, useEffect } from 'react';
-import { ProjectTile } from '@/components/ProjectTile';
-import { projects, Project } from '@/lib/projects';
+import { Header } from '@/components/Header';
+import { CategorySelector } from '@/components/CategorySelector';
+import { AppTile } from '@/components/AppTile';
+import { projects, categories, getProjectsByType, Project } from '@/lib/projects';
 
 export default function Index() {
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
-  const [activeFilter, setActiveFilter] = useState<'all' | Project['type']>('all');
+  const [activeCategory, setActiveCategory] = useState<Project['type']>('Graphic Design');
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
-  const handleFilter = (filter: 'all' | Project['type']) => {
-    setActiveFilter(filter);
-    if (filter === 'all') {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(projects.filter(project => project.type === filter));
-    }
-  };
-
-  const filterOptions = [
-    { value: 'all', label: 'All Work' },
-    { value: 'branding', label: 'Branding' },
-    { value: 'video', label: 'Video' },
-    { value: 'photography', label: 'Photography' }
-  ] as const;
+  useEffect(() => {
+    const filtered = getProjectsByType(activeCategory);
+    setFilteredProjects(filtered);
+  }, [activeCategory]);
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="grid-container pt-20 pb-12">
-        <div
-          className={`
-            animate-slide-up
-            ${isLoaded ? 'opacity-100' : 'opacity-0'}
-          `}
-        >
-          <h1 className="text-5xl font-bold leading-none tracking-tight text-foreground mb-4">
-            Work
-          </h1>
-          <p className="text-lg font-normal leading-relaxed text-muted-foreground max-w-2xl">
-            Branding, video, photography — selected projects
-          </p>
-        </div>
-      </section>
+      {/* Header */}
+      <Header />
 
-      {/* Filter Section */}
-      <section className="grid-container mb-12">
-        <div
-          className={`
-            flex flex-wrap gap-3 animate-slide-up
-            ${isLoaded ? 'opacity-100' : 'opacity-0'}
-          `}
-          style={{ animationDelay: '0.1s' }}
-        >
-          {filterOptions.map((option) => (
-            <button
-              key={option.value}
-              onClick={() => handleFilter(option.value)}
-              className={`
-                glass rounded-full px-6 py-3 text-sm font-medium
-                transition-all duration-200 ease-out focus-visible
-                ${activeFilter === option.value
-                  ? 'bg-primary text-primary-foreground shadow-glass-lg'
-                  : 'text-foreground hover:bg-white/80 hover:shadow-glass'
-                }
-              `}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* Projects Grid */}
-      <section className="grid-container pb-section">
-        <div
-          className={`
-            grid-12 auto-rows-max animate-slide-up
-            ${isLoaded ? 'opacity-100' : 'opacity-0'}
-          `}
-          style={{ animationDelay: '0.2s' }}
-        >
-          {filteredProjects.map((project, index) => (
-            <div
-              key={project.id}
-              className="animate-scale-in"
-              style={{ 
-                animationDelay: `${0.3 + (index * 0.1)}s`,
-                animationFillMode: 'both'
-              }}
-            >
-              <ProjectTile project={project} />
-            </div>
-          ))}
-        </div>
-
-        {/* Empty State */}
-        {filteredProjects.length === 0 && (
-          <div className="col-span-full flex flex-col items-center justify-center py-20 animate-fade-in">
-            <div className="glass rounded-lg p-8 text-center max-w-md">
-              <h3 className="text-2xl font-semibold leading-snug tracking-tight text-foreground mb-2">
-              No projects found
-            </h3>
-            <p className="text-lg font-normal leading-relaxed text-muted-foreground">
-                Try adjusting your filters to see more work.
-              </p>
-            </div>
+      {/* Main Content */}
+      <main className="pt-24 pb-20">
+        <div className="grid-container">
+          {/* Category Selector */}
+          <div
+            className={`
+              transition-all duration-500 ease-out
+              ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+            `}
+          >
+            <CategorySelector
+              categories={categories}
+              activeCategory={activeCategory}
+              onCategoryChange={(category) => setActiveCategory(category as Project['type'])}
+            />
           </div>
-        )}
-      </section>
 
-      {/* Footer */}
-      <footer className="grid-container py-12 border-t border-border">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm font-normal leading-relaxed text-muted-foreground">
-          <p>© 2025 — All rights reserved</p>
-          <div className="flex gap-6">
-            <a
-              href="/about"
-              className="hover:text-foreground transition-colors duration-200 focus-visible"
-            >
-              About
-            </a>
-            <a
-              href="/contact"
-              className="hover:text-foreground transition-colors duration-200 focus-visible"
-            >
-              Contact
-            </a>
+          {/* Projects Grid */}
+          <div
+            className={`
+              grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto
+              transition-all duration-500 ease-out
+              ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+            `}
+            style={{ animationDelay: '0.2s' }}
+          >
+            {filteredProjects.map((project, index) => (
+              <div
+                key={project.id}
+                className="animate-scale-in"
+                style={{ 
+                  animationDelay: `${0.3 + (index * 0.1)}s`,
+                  animationFillMode: 'both'
+                }}
+              >
+                <AppTile project={project} />
+              </div>
+            ))}
+
+            {/* Empty State */}
+            {filteredProjects.length === 0 && (
+              <div className="col-span-full flex items-center justify-center py-20">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-muted rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                    <div className="w-8 h-8 bg-muted-foreground/20 rounded-lg" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    No projects found
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Check back soon for new work in this category.
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      </footer>
+      </main>
     </div>
   );
 }
