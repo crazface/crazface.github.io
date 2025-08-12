@@ -30,29 +30,27 @@ export default function Landing() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/work"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-full px-8 py-4 text-lg font-black hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-xl text-shadow-medium"
-                style={{ boxShadow: '0 8px 24px rgba(245, 230, 211, 0.3), 0 4px 12px rgba(0,0,0,0.2)' }}
+                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-full px-8 py-4 text-lg font-black hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-xl"
+                style={{
+                  boxShadow: '0 8px 24px rgba(245, 230, 211, 0.3), 0 4px 12px rgba(0,0,0,0.2)',
+                  filter: 'drop-shadow(0 0 12px rgba(245, 230, 211, 0.4))'
+                }}
               >
                 View My Work
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 hover:shadow-glass transition-all duration-300 hover:scale-105 hover:-translate-y-1 text-shadow-medium"
+                className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 hover:shadow-glass transition-all duration-300 hover:scale-105 hover:-translate-y-1"
                 style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }}
               >
                 Get in Touch
                 <Sparkles className="w-5 h-5" />
               </Link>
             </div>
-          </div>
-
-          {/* Work Banner */}
-          <div className="animate-slide-up" style={{ animationDelay: "0.4s" }}>
-            <WorkBanner />
           </div>
         </div>
       </section>
