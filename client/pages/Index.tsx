@@ -63,8 +63,8 @@ export default function Index() {
                 glass rounded-full px-6 py-3 text-sm font-medium
                 transition-all duration-200 ease-out focus-visible
                 ${activeFilter === option.value
-                  ? 'bg-text-primary text-white shadow-glass-lg'
-                  : 'text-text-primary hover:bg-white/80 hover:shadow-glass'
+                  ? 'bg-primary text-primary-foreground shadow-glass-lg'
+                  : 'text-foreground hover:bg-white/80 hover:shadow-glass'
                 }
               `}
             >
