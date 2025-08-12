@@ -35,8 +35,7 @@ export default function Landing() {
                 to="/work"
                 className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-full px-8 py-4 text-lg font-black hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-xl"
                 style={{
-                  boxShadow: '0 8px 24px rgba(245, 230, 211, 0.3), 0 4px 12px rgba(0,0,0,0.2)',
-                  filter: 'drop-shadow(0 0 12px rgba(245, 230, 211, 0.4))'
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.2)'
                 }}
               >
                 View My Work
