@@ -78,10 +78,6 @@ export default {
         'glass': {
           'tint': 'var(--glass-tint)',
           'stroke': 'var(--glass-stroke)',
-        },
-        'text': {
-          'primary': 'var(--text-primary)',
-          'secondary': 'var(--text-secondary)',
         }
       },
       backdropBlur: {
