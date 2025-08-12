@@ -6,7 +6,7 @@ export function Header() {
       <div className="grid-container py-6">
         <div className="flex items-center justify-between">
           {/* Logo/Name */}
-          <Link to="/" className="text-2xl font-bold text-foreground hover:text-foreground/80 transition-colors">
+          <Link to="/" className="text-3xl font-black text-foreground hover:text-foreground/80 transition-all duration-300 hover:scale-105">
             Charlie Stamp
           </Link>
 
