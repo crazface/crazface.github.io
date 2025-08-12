@@ -9,6 +9,9 @@ interface AppTileProps {
 export function AppTile({ project }: AppTileProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Use 16:9 aspect ratio for Video Editing projects
+  const aspectRatioClass = project.type === "Video Editing" ? "aspect-video" : "aspect-square";
+
   return (
     <Link
       to={`/project/${project.id}`}
@@ -18,7 +21,7 @@ export function AppTile({ project }: AppTileProps) {
     >
       <div
         className={`
-          relative w-full aspect-square rounded-[2.5rem] overflow-hidden
+          relative w-full ${aspectRatioClass} rounded-[2.5rem] overflow-hidden
           transition-all duration-500 ease-out cursor-pointer
           ${
             isHovered
