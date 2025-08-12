@@ -9,8 +9,8 @@
    */
   :root {
     /* Base background and text colors */
-    --background: 242 244 247; /* #F2F4F7 */
-    --foreground: 17 17 17; /* #111111 */
+    --background: 216 223 234; /* #F2F4F7 converted to HSL */
+    --foreground: 0 0% 7%; /* #111111 converted to HSL */
 
     /* Text hierarchy */
     --text-primary: #111111;
@@ -21,8 +21,8 @@
     --glass-stroke: rgba(0, 0, 0, 0.06);
 
     /* Card and UI components */
-    --card: 255 255 255;
-    --card-foreground: 17 17 17;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 255 255 255;
     --popover-foreground: 17 17 17;
