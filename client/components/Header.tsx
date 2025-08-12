@@ -17,19 +17,19 @@ export function Header() {
           <nav className="flex items-center gap-8">
             <Link
               to="/work"
-              className="text-lg font-bold text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+              className="text-lg font-bold text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1 text-shadow-soft"
             >
               My Work
             </Link>
             <Link
               to="/about"
-              className="text-lg font-bold text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+              className="text-lg font-bold text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1 text-shadow-soft"
             >
               About me
             </Link>
             <Link
               to="/contact"
-              className="text-lg font-bold text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+              className="text-lg font-bold text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1 text-shadow-soft"
             >
               Contact me
             </Link>
