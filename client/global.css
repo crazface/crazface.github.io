@@ -4,94 +4,85 @@
 
 @layer base {
   /**
-   * Tailwind CSS theme
-   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
-   * A different format will require also updating the theme in tailwind.config.ts.
-  */
+   * Apple Glass x Wii Menu Portfolio Theme
+   * Colors are defined as requested in the design spec
+   */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base background and text colors */
+    --background: 242 244 247; /* #F2F4F7 */
+    --foreground: 17 17 17; /* #111111 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Text hierarchy */
+    --text-primary: #111111;
+    --text-secondary: #555555;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Glass morphism system */
+    --glass-tint: rgba(255, 255, 255, 0.6);
+    --glass-stroke: rgba(0, 0, 0, 0.06);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Card and UI components */
+    --card: 255 255 255;
+    --card-foreground: 17 17 17;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --popover: 255 255 255;
+    --popover-foreground: 17 17 17;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --primary: 17 17 17;
+    --primary-foreground: 255 255 255;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --secondary: 245 245 245;
+    --secondary-foreground: 17 17 17;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --muted: 248 250 252;
+    --muted-foreground: 85 85 85;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --accent: 245 245 245;
+    --accent-foreground: 17 17 17;
 
-    --radius: 0.5rem;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
 
-    --sidebar-background: 0 0% 98%;
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 17 17 17;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 1.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 17 17 17;
+    --foreground: 255 255 255;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --glass-tint: rgba(0, 0, 0, 0.4);
+    --glass-stroke: rgba(255, 255, 255, 0.1);
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --card: 24 24 27;
+    --card-foreground: 255 255 255;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --popover: 24 24 27;
+    --popover-foreground: 255 255 255;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --primary: 255 255 255;
+    --primary-foreground: 17 17 17;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --secondary: 39 39 42;
+    --secondary-foreground: 255 255 255;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --muted: 39 39 42;
+    --muted-foreground: 161 161 170;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --accent: 39 39 42;
+    --accent-foreground: 255 255 255;
+
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+
+    --border: 39 39 42;
+    --input: 39 39 42;
+    --ring: 212 212 216;
   }
 }
 
@@ -100,7 +91,157 @@
     @apply border-border;
   }
 
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom cursor for interactive elements */
+  .cursor-interactive {
+    cursor: none;
+  }
+
+  /* Reduced motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Glass morphism base component */
+  .glass {
+    background: var(--glass-tint);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-stroke);
+  }
+
+  /* Project tile glass effect */
+  .tile-glass {
+    @apply glass shadow-glass;
+    transition: all 0.08s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .tile-glass:hover {
+    @apply shadow-tile-hover;
+    transform: scale(1.03);
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--glass-stroke);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.12);
+  }
+
+  /* Focus styles for accessibility */
+  .focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  /* Typography utility classes */
+  .text-display {
+    @apply text-display font-bold leading-none tracking-tight;
+  }
+
+  .text-heading-1 {
+    @apply text-h1 font-bold leading-tight tracking-tight;
+  }
+
+  .text-heading-2 {
+    @apply text-h2 font-semibold leading-tight tracking-tight;
+  }
+
+  .text-heading-3 {
+    @apply text-h3 font-semibold leading-snug tracking-tight;
+  }
+
+  .text-body {
+    @apply text-body font-normal leading-relaxed;
+  }
+
+  .text-small {
+    @apply text-small font-normal leading-relaxed;
+  }
+}
+
+@layer utilities {
+  /* Grid system utilities */
+  .grid-container {
+    @apply mx-auto max-w-grid px-gutter;
+  }
+
+  .grid-12 {
+    @apply grid grid-cols-4 gap-gutter;
+  }
+
+  @media (min-width: 768px) {
+    .grid-12 {
+      @apply grid-cols-6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-12 {
+      @apply grid-cols-8;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .grid-12 {
+      @apply grid-cols-12;
+    }
+  }
+
+  /* Aspect ratio utilities for project tiles */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fade-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 }
