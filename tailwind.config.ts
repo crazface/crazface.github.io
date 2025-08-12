@@ -13,6 +13,34 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "SF Pro Display", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
+      },
+      fontSize: {
+        'display': ['3rem', { lineHeight: '1.1', letterSpacing: '0' }], // 48px
+        'h1': ['3rem', { lineHeight: '1.1', letterSpacing: '0' }], // 48px
+        'h2': ['2rem', { lineHeight: '1.2', letterSpacing: '0' }], // 32px
+        'h3': ['1.5rem', { lineHeight: '1.3', letterSpacing: '0' }], // 24px
+        'body': ['1.125rem', { lineHeight: '1.5', letterSpacing: '0.1px' }], // 18px
+        'small': ['0.875rem', { lineHeight: '1.4', letterSpacing: '0.1px' }], // 14px
+      },
+      fontWeight: {
+        normal: '400',
+        semibold: '600',
+        bold: '700',
+      },
+      maxWidth: {
+        'grid': '1200px',
+      },
+      spacing: {
+        'gutter': '1.5rem', // 24px
+        'section': '4.5rem', // 72px
+      },
+      borderRadius: {
+        'lg': '1.5rem', // 24px
+        'md': 'calc(var(--radius) - 2px)',
+        'sm': '0.75rem', // 12px
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,43 +75,57 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        'glass': {
+          'tint': 'var(--glass-tint)',
+          'stroke': 'var(--glass-stroke)',
         },
+        'text': {
+          'primary': 'var(--text-primary)',
+          'secondary': 'var(--text-secondary)',
+        }
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      backdropBlur: {
+        'glass': '20px',
       },
-      keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
+      boxShadow: {
+        'glass': '0 8px 32px rgba(0, 0, 0, 0.08)',
+        'glass-lg': '0 16px 64px rgba(0, 0, 0, 0.12)',
+        'tile-hover': '0 12px 48px rgba(0, 0, 0, 0.15)',
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+        "scale-in": "scale-in 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
+        "slide-up": "slide-up 0.35s cubic-bezier(0.22, 1, 0.36, 1)",
+        "tile-hover": "tile-hover 0.08s cubic-bezier(0.22, 1, 0.36, 1)",
+        "tile-hover-out": "tile-hover-out 0.12s cubic-bezier(0.22, 1, 0.36, 1)",
+      },
+      keyframes: {
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        "slide-up": {
+          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "tile-hover": {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.03)" },
+        },
+        "tile-hover-out": {
+          "0%": { transform: "scale(1.03)" },
+          "100%": { transform: "scale(1)" },
+        },
+      },
+      gridTemplateColumns: {
+        '12': 'repeat(12, minmax(0, 1fr))',
+        '8': 'repeat(8, minmax(0, 1fr))',
+        '6': 'repeat(6, minmax(0, 1fr))',
+        '4': 'repeat(4, minmax(0, 1fr))',
       },
     },
   },
