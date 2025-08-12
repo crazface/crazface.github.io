@@ -41,19 +41,11 @@ export function HeroBanner() {
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
         <div className="max-w-4xl mx-auto">
-          <div 
+          <div
             key={currentProject.id}
             className="animate-fade-in"
           >
-            <div className="text-white/80 text-sm font-bold uppercase tracking-wider mb-2">
-              Featured {currentProject.type}
-            </div>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-              {currentProject.title}
-            </h2>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-              {currentProject.description || 'Explore this creative project showcasing innovative design and visual storytelling.'}
-            </p>
+            <div className="text-white/80 text-sm font-bold uppercase tracking-wider mb-2" />
             <Link
               to={`/project/${currentProject.id}`}
               className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm text-white rounded-full px-8 py-4 text-lg font-black hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30"
