@@ -96,7 +96,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* Dotted background pattern */
-    background-image: radial-gradient(circle, rgba(245, 230, 211, 0.15) 1px, transparent 1px);
+    background-image: radial-gradient(
+      circle,
+      rgba(245, 230, 211, 0.15) 1px,
+      transparent 1px
+    );
     background-size: 20px 20px;
   }
 
@@ -129,24 +133,24 @@
 
   /* Enhanced text shadows for depth */
   .text-shadow-soft {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   .text-shadow-medium {
-    text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
 
   .text-shadow-strong {
     text-shadow:
-      0 4px 8px rgba(0,0,0,0.5),
-      0 8px 16px rgba(0,0,0,0.2);
+      0 4px 8px rgba(0, 0, 0, 0.5),
+      0 8px 16px rgba(0, 0, 0, 0.2);
   }
 
   .text-shadow-hero {
     text-shadow:
-      0 4px 12px rgba(0,0,0,0.6),
-      0 8px 24px rgba(0,0,0,0.3),
-      0 16px 32px rgba(0,0,0,0.1);
+      0 4px 12px rgba(0, 0, 0, 0.6),
+      0 8px 24px rgba(0, 0, 0, 0.3),
+      0 16px 32px rgba(0, 0, 0, 0.1);
   }
 
   /* Bubble animation */

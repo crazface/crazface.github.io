@@ -25,8 +25,9 @@ export default function Landing() {
               Creative Director & Visual Storyteller
             </p>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-              Crafting compelling visual narratives through brand identity, video editing, and photography.
-              Let's bring your creative vision to life.
+              Crafting compelling visual narratives through brand identity,
+              video editing, and photography. Let's bring your creative vision
+              to life.
             </p>
 
             {/* CTA Buttons */}
@@ -35,7 +36,7 @@ export default function Landing() {
                 to="/work"
                 className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-full px-8 py-4 text-lg font-black hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-xl"
                 style={{
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.2)'
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
                 }}
               >
                 View My Work
@@ -44,7 +45,7 @@ export default function Landing() {
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 hover:shadow-glass transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-                style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }}
+                style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.2)" }}
               >
                 Get in Touch
                 <Sparkles className="w-5 h-5" />
@@ -57,10 +58,16 @@ export default function Landing() {
       {/* Services Section */}
       <section className="grid-container pb-20">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            <h2 className="text-4xl font-black text-foreground mb-4">What I Do</h2>
+          <div
+            className="text-center mb-16 animate-slide-up"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <h2 className="text-4xl font-black text-foreground mb-4">
+              What I Do
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Specializing in three key areas of creative design and visual storytelling
+              Specializing in three key areas of creative design and visual
+              storytelling
             </p>
           </div>
 
@@ -70,21 +77,25 @@ export default function Landing() {
               className="glass rounded-lg p-8 text-center hover:shadow-glass-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-slide-up"
               style={{
                 animationDelay: "0.3s",
-                boxShadow: '0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1)'
+                boxShadow:
+                  "0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1)",
               }}
             >
               <div
                 className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
                 style={{
-                  boxShadow: '0 8px 24px rgba(245, 230, 211, 0.4)',
-                  filter: 'drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))'
+                  boxShadow: "0 8px 24px rgba(245, 230, 211, 0.4)",
+                  filter: "drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))",
                 }}
               >
                 <Palette className="w-8 h-8 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">Graphic Design</h3>
+              <h3 className="text-2xl font-black text-foreground mb-4">
+                Graphic Design
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Brand identities, visual systems, and compelling designs that communicate your message with clarity and impact.
+                Brand identities, visual systems, and compelling designs that
+                communicate your message with clarity and impact.
               </p>
             </div>
 
@@ -93,21 +104,25 @@ export default function Landing() {
               className="glass rounded-lg p-8 text-center hover:shadow-glass-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-slide-up"
               style={{
                 animationDelay: "0.4s",
-                boxShadow: '0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1)'
+                boxShadow:
+                  "0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1)",
               }}
             >
               <div
                 className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
                 style={{
-                  boxShadow: '0 8px 24px rgba(245, 230, 211, 0.4)',
-                  filter: 'drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))'
+                  boxShadow: "0 8px 24px rgba(245, 230, 211, 0.4)",
+                  filter: "drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))",
                 }}
               >
                 <Video className="w-8 h-8 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">Video Editing</h3>
+              <h3 className="text-2xl font-black text-foreground mb-4">
+                Video Editing
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Dynamic video content, from commercials to music videos, crafted with precision and creative flair.
+                Dynamic video content, from commercials to music videos, crafted
+                with precision and creative flair.
               </p>
             </div>
 
@@ -116,21 +131,25 @@ export default function Landing() {
               className="glass rounded-lg p-8 text-center hover:shadow-glass-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-slide-up"
               style={{
                 animationDelay: "0.5s",
-                boxShadow: '0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1)'
+                boxShadow:
+                  "0 12px 32px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.1)",
               }}
             >
               <div
                 className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
                 style={{
-                  boxShadow: '0 8px 24px rgba(245, 230, 211, 0.4)',
-                  filter: 'drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))'
+                  boxShadow: "0 8px 24px rgba(245, 230, 211, 0.4)",
+                  filter: "drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))",
                 }}
               >
                 <Camera className="w-8 h-8 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">Photography</h3>
+              <h3 className="text-2xl font-black text-foreground mb-4">
+                Photography
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Capturing moments that tell stories, from portraits to landscapes, with artistic vision and technical excellence.
+                Capturing moments that tell stories, from portraits to
+                landscapes, with artistic vision and technical excellence.
               </p>
             </div>
           </div>
@@ -143,20 +162,26 @@ export default function Landing() {
           <div className="animate-slide-up" style={{ animationDelay: "0.6s" }}>
             <div
               className="glass rounded-lg p-12"
-              style={{ boxShadow: '0 16px 48px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.1)' }}
+              style={{
+                boxShadow:
+                  "0 16px 48px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.1)",
+              }}
             >
-              <h2 className="text-4xl font-black text-foreground mb-6">Ready to Create Something Amazing?</h2>
+              <h2 className="text-4xl font-black text-foreground mb-6">
+                Ready to Create Something Amazing?
+              </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                Whether you need a complete brand identity, compelling video content, or stunning photography,
-                I'm here to bring your vision to life with creativity and precision.
+                Whether you need a complete brand identity, compelling video
+                content, or stunning photography, I'm here to bring your vision
+                to life with creativity and precision.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/work"
                   className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-300 hover:scale-105"
                   style={{
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
-                    filter: 'drop-shadow(0 0 8px rgba(245, 230, 211, 0.3))'
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
+                    filter: "drop-shadow(0 0 8px rgba(245, 230, 211, 0.3))",
                   }}
                 >
                   Explore My Portfolio
@@ -165,7 +190,7 @@ export default function Landing() {
                 <Link
                   to="/about"
                   className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-300 hover:scale-105"
-                  style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}
+                  style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}
                 >
                   Learn More About Me
                 </Link>

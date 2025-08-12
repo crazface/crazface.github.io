@@ -4,7 +4,7 @@ export function Header() {
   const location = useLocation();
 
   const isActive = (path: string) => {
-    if (path === '/work' && location.pathname === '/') return false; // Landing page shouldn't highlight work
+    if (path === "/work" && location.pathname === "/") return false; // Landing page shouldn't highlight work
     return location.pathname === path || location.pathname.startsWith(path);
   };
 
@@ -26,15 +26,21 @@ export function Header() {
               to="/work"
               className={`
                 text-lg font-bold transition-all duration-300 hover:scale-110 hover:-translate-y-1 relative
-                ${isActive('/work')
-                  ? 'text-primary'
-                  : 'text-muted-foreground hover:text-foreground'
+                ${
+                  isActive("/work")
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 }
               `}
-              style={isActive('/work') ? {
-                textShadow: '0 0 20px rgba(245, 230, 211, 0.8), 0 0 40px rgba(245, 230, 211, 0.4)',
-                filter: 'drop-shadow(0 0 8px rgba(245, 230, 211, 0.6))'
-              } : {}}
+              style={
+                isActive("/work")
+                  ? {
+                      textShadow:
+                        "0 0 20px rgba(245, 230, 211, 0.8), 0 0 40px rgba(245, 230, 211, 0.4)",
+                      filter: "drop-shadow(0 0 8px rgba(245, 230, 211, 0.6))",
+                    }
+                  : {}
+              }
             >
               My Work
             </Link>
@@ -42,15 +48,21 @@ export function Header() {
               to="/about"
               className={`
                 text-lg font-bold transition-all duration-300 hover:scale-110 hover:-translate-y-1 relative
-                ${isActive('/about')
-                  ? 'text-primary'
-                  : 'text-muted-foreground hover:text-foreground'
+                ${
+                  isActive("/about")
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 }
               `}
-              style={isActive('/about') ? {
-                textShadow: '0 0 20px rgba(245, 230, 211, 0.8), 0 0 40px rgba(245, 230, 211, 0.4)',
-                filter: 'drop-shadow(0 0 8px rgba(245, 230, 211, 0.6))'
-              } : {}}
+              style={
+                isActive("/about")
+                  ? {
+                      textShadow:
+                        "0 0 20px rgba(245, 230, 211, 0.8), 0 0 40px rgba(245, 230, 211, 0.4)",
+                      filter: "drop-shadow(0 0 8px rgba(245, 230, 211, 0.6))",
+                    }
+                  : {}
+              }
             >
               About me
             </Link>
@@ -58,15 +70,21 @@ export function Header() {
               to="/contact"
               className={`
                 text-lg font-bold transition-all duration-300 hover:scale-110 hover:-translate-y-1 relative
-                ${isActive('/contact')
-                  ? 'text-primary'
-                  : 'text-muted-foreground hover:text-foreground'
+                ${
+                  isActive("/contact")
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
                 }
               `}
-              style={isActive('/contact') ? {
-                textShadow: '0 0 20px rgba(245, 230, 211, 0.8), 0 0 40px rgba(245, 230, 211, 0.4)',
-                filter: 'drop-shadow(0 0 8px rgba(245, 230, 211, 0.6))'
-              } : {}}
+              style={
+                isActive("/contact")
+                  ? {
+                      textShadow:
+                        "0 0 20px rgba(245, 230, 211, 0.8), 0 0 40px rgba(245, 230, 211, 0.4)",
+                      filter: "drop-shadow(0 0 8px rgba(245, 230, 211, 0.6))",
+                    }
+                  : {}
+              }
             >
               Contact me
             </Link>

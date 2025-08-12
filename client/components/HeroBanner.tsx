@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { projects } from '@/lib/projects';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { projects } from "@/lib/projects";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function HeroBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+
   // Auto-advance the banner every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % projects.length);
     }, 5000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
@@ -28,23 +28,20 @@ export function HeroBanner() {
   return (
     <div className="relative w-full h-96 md:h-[500px] overflow-hidden">
       {/* Background with project colors */}
-      <div 
+      <div
         className="absolute inset-0 transition-all duration-1000 ease-out"
         style={{
-          background: `linear-gradient(135deg, ${currentProject.colors?.primary || '#6366f1'} 0%, ${currentProject.colors?.secondary || '#8b5cf6'} 100%)`
+          background: `linear-gradient(135deg, ${currentProject.colors?.primary || "#6366f1"} 0%, ${currentProject.colors?.secondary || "#8b5cf6"} 100%)`,
         }}
       />
-      
+
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/40" />
-      
+
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
         <div className="max-w-4xl mx-auto">
-          <div
-            key={currentProject.id}
-            className="animate-fade-in"
-          >
+          <div key={currentProject.id} className="animate-fade-in">
             <div className="text-white/80 text-sm font-bold uppercase tracking-wider mb-2" />
             <Link
               to={`/project/${currentProject.id}`}
@@ -63,7 +60,7 @@ export function HeroBanner() {
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
-      
+
       <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 hover:scale-110"
@@ -79,9 +76,10 @@ export function HeroBanner() {
             onClick={() => setCurrentIndex(index)}
             className={`
               w-3 h-3 rounded-full transition-all duration-300
-              ${index === currentIndex 
-                ? 'bg-white shadow-lg scale-125' 
-                : 'bg-white/50 hover:bg-white/70'
+              ${
+                index === currentIndex
+                  ? "bg-white shadow-lg scale-125"
+                  : "bg-white/50 hover:bg-white/70"
               }
             `}
           />
