@@ -141,28 +141,31 @@ export default function Landing() {
       {/* Featured Work Teaser */}
       <section className="grid-container pb-20">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="animate-slide-up" style={{ animationDelay: "0.9s" }}>
+          <div className="animate-slide-up" style={{ animationDelay: "0.6s" }}>
             <div
               className="glass rounded-lg p-12"
               style={{ boxShadow: '0 16px 48px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.1)' }}
             >
-              <h2 className="text-4xl font-black text-foreground mb-6 text-shadow-strong">Ready to Create Something Amazing?</h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed text-shadow-medium">
+              <h2 className="text-4xl font-black text-foreground mb-6">Ready to Create Something Amazing?</h2>
+              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
                 Whether you need a complete brand identity, compelling video content, or stunning photography,
                 I'm here to bring your vision to life with creativity and precision.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/work"
-                  className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-300 hover:scale-105 text-shadow-medium"
-                  style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}
+                  className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-300 hover:scale-105"
+                  style={{
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                    filter: 'drop-shadow(0 0 8px rgba(245, 230, 211, 0.3))'
+                  }}
                 >
                   Explore My Portfolio
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
                   to="/about"
-                  className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-300 hover:scale-105 text-shadow-medium"
+                  className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-300 hover:scale-105"
                   style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}
                 >
                   Learn More About Me
