@@ -61,8 +61,8 @@ export function CategorySelector({
           disabled={!canGoNext}
           className={`p-1 rounded-full transition-all duration-200 ${
             canGoNext
-              ? "text-white hover:bg-white/10"
-              : "text-white/30 cursor-not-allowed"
+              ? "text-primary-foreground hover:bg-primary-foreground/10"
+              : "text-primary-foreground/30 cursor-not-allowed"
           }`}
         >
           <ChevronRight className="w-5 h-5" />
