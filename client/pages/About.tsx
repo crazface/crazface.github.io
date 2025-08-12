@@ -64,7 +64,7 @@ export default function About() {
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     "Brand Identity",
-                    "Art Direction", 
+                    "Art Direction",
                     "Video Editing",
                     "Photography",
                     "Creative Strategy",

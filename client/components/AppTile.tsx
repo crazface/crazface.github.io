@@ -10,7 +10,8 @@ export function AppTile({ project }: AppTileProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   // Use 16:9 aspect ratio for Video Editing projects
-  const aspectRatioClass = project.type === "Video Editing" ? "aspect-video" : "aspect-square";
+  const aspectRatioClass =
+    project.type === "Video Editing" ? "aspect-video" : "aspect-square";
 
   return (
     <Link
@@ -24,9 +25,7 @@ export function AppTile({ project }: AppTileProps) {
           relative w-full ${aspectRatioClass} rounded-[2.5rem] overflow-hidden
           transition-all duration-500 ease-out cursor-pointer
           ${
-            isHovered
-              ? "transform scale-110 -translate-y-4"
-              : "hover:scale-105"
+            isHovered ? "transform scale-110 -translate-y-4" : "hover:scale-105"
           }
         `}
         style={{
@@ -105,7 +104,6 @@ export function AppTile({ project }: AppTileProps) {
             </div>
           </div>
         </div>
-
 
         {/* Extra bubble effects on hover */}
         {isHovered && (
