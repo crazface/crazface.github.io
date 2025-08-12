@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
-import { WorkBanner } from "@/components/WorkBanner";
+import { HeroBanner } from "@/components/HeroBanner";
 import { ArrowRight, Sparkles, Palette, Camera, Video } from "lucide-react";
 
 export default function Landing() {
@@ -9,17 +9,22 @@ export default function Landing() {
       {/* Header */}
       <Header />
 
-      {/* Hero Section */}
-      <section className="grid-container pt-32 pb-20">
+      {/* Hero Banner - Full width at top */}
+      <div className="pt-20">
+        <HeroBanner />
+      </div>
+
+      {/* Intro Section */}
+      <section className="grid-container py-20">
         <div className="max-w-4xl mx-auto text-center">
           <div className="animate-slide-up">
-            <h1 className="text-6xl md:text-7xl font-black leading-none tracking-tight text-foreground mb-6 text-shadow-hero">
+            <h1 className="text-6xl md:text-7xl font-black leading-none tracking-tight text-foreground mb-6">
               Charlie Stamp
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-muted-foreground mb-8 leading-relaxed text-shadow-strong">
+            <p className="text-2xl md:text-3xl font-bold text-muted-foreground mb-8 leading-relaxed">
               Creative Director & Visual Storyteller
             </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed text-shadow-medium">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
               Crafting compelling visual narratives through brand identity, video editing, and photography.
               Let's bring your creative vision to life.
             </p>
