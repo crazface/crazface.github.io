@@ -51,9 +51,13 @@ export default function Index() {
           {/* Projects Grid */}
           <div
             className={`
-              grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto
+              grid gap-6 lg:gap-8 max-w-5xl mx-auto
               transition-all duration-500 ease-out
               ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+              ${activeCategory === 'Video Editing'
+                ? 'grid-cols-1 md:grid-cols-2'
+                : 'grid-cols-2 lg:grid-cols-3'
+              }
             `}
             style={{ animationDelay: "0.2s" }}
           >
