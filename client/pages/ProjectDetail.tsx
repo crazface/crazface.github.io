@@ -1,7 +1,7 @@
-import { useParams, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { getProjectById, Project } from '@/lib/projects';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getProjectById, Project } from "@/lib/projects";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
@@ -20,10 +20,10 @@ export default function ProjectDetail() {
     if (project?.colors) {
       // Apply project theming to the page
       const root = document.documentElement;
-      root.style.setProperty('--project-primary', project.colors.primary);
-      root.style.setProperty('--project-secondary', project.colors.secondary);
-      root.style.setProperty('--project-accent', project.colors.accent);
-      
+      root.style.setProperty("--project-primary", project.colors.primary);
+      root.style.setProperty("--project-secondary", project.colors.secondary);
+      root.style.setProperty("--project-accent", project.colors.accent);
+
       // Set background gradient
       document.body.style.background = `
         linear-gradient(
@@ -37,11 +37,11 @@ export default function ProjectDetail() {
 
     // Cleanup on unmount
     return () => {
-      document.body.style.background = '';
+      document.body.style.background = "";
       const root = document.documentElement;
-      root.style.removeProperty('--project-primary');
-      root.style.removeProperty('--project-secondary');
-      root.style.removeProperty('--project-accent');
+      root.style.removeProperty("--project-primary");
+      root.style.removeProperty("--project-secondary");
+      root.style.removeProperty("--project-accent");
     };
   }, [project]);
 
@@ -62,7 +62,9 @@ export default function ProjectDetail() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="glass rounded-lg p-8 text-center max-w-md">
-          <h1 className="text-heading-2 text-text-primary mb-4">Project Not Found</h1>
+          <h1 className="text-heading-2 text-text-primary mb-4">
+            Project Not Found
+          </h1>
           <p className="text-body text-text-secondary mb-6">
             The project you're looking for doesn't exist or has been moved.
           </p>
@@ -96,7 +98,7 @@ export default function ProjectDetail() {
         <div
           className={`
             animate-slide-up
-            ${isLoaded ? 'opacity-100' : 'opacity-0'}
+            ${isLoaded ? "opacity-100" : "opacity-0"}
           `}
         >
           {/* Hero Image */}
@@ -116,29 +118,46 @@ export default function ProjectDetail() {
                 {project.title}
               </h1>
               <p className="text-body text-text-secondary leading-relaxed">
-                {project.description || 'A comprehensive look at this creative project, exploring the process, challenges, and outcomes that shaped the final result.'}
+                {project.description ||
+                  "A comprehensive look at this creative project, exploring the process, challenges, and outcomes that shaped the final result."}
               </p>
             </div>
 
             {/* Project Meta */}
             <div className="glass rounded-lg p-6 h-fit">
-              <h3 className="text-heading-3 text-text-primary mb-4">Project Details</h3>
+              <h3 className="text-heading-3 text-text-primary mb-4">
+                Project Details
+              </h3>
               <div className="space-y-4">
                 <div>
-                  <dt className="text-small font-medium text-text-secondary mb-1">Role</dt>
-                  <dd className="text-body text-text-primary">{project.role || 'Creative Director'}</dd>
+                  <dt className="text-small font-medium text-text-secondary mb-1">
+                    Role
+                  </dt>
+                  <dd className="text-body text-text-primary">
+                    {project.role || "Creative Director"}
+                  </dd>
                 </div>
                 <div>
-                  <dt className="text-small font-medium text-text-secondary mb-1">Year</dt>
-                  <dd className="text-body text-text-primary">{project.year}</dd>
+                  <dt className="text-small font-medium text-text-secondary mb-1">
+                    Year
+                  </dt>
+                  <dd className="text-body text-text-primary">
+                    {project.year}
+                  </dd>
                 </div>
                 <div>
-                  <dt className="text-small font-medium text-text-secondary mb-1">Type</dt>
-                  <dd className="text-body text-text-primary capitalize">{project.type}</dd>
+                  <dt className="text-small font-medium text-text-secondary mb-1">
+                    Type
+                  </dt>
+                  <dd className="text-body text-text-primary capitalize">
+                    {project.type}
+                  </dd>
                 </div>
                 {project.tools && (
                   <div>
-                    <dt className="text-small font-medium text-text-secondary mb-2">Tools</dt>
+                    <dt className="text-small font-medium text-text-secondary mb-2">
+                      Tools
+                    </dt>
                     <dd className="flex flex-wrap gap-2">
                       {project.tools.map((tool) => (
                         <span
@@ -159,22 +178,25 @@ export default function ProjectDetail() {
 
       {/* Process Section */}
       <section className="grid-container pb-20">
-        <div
-          className="animate-slide-up"
-          style={{ animationDelay: '0.2s' }}
-        >
+        <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
           <h2 className="text-heading-2 text-text-primary mb-8">Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="glass rounded-lg p-8">
               <h3 className="text-heading-3 text-text-primary mb-4">Problem</h3>
               <p className="text-body text-text-secondary leading-relaxed">
-                Every project begins with understanding the core challenge. This project required balancing creative expression with functional requirements while maintaining brand consistency.
+                Every project begins with understanding the core challenge. This
+                project required balancing creative expression with functional
+                requirements while maintaining brand consistency.
               </p>
             </div>
             <div className="glass rounded-lg p-8">
-              <h3 className="text-heading-3 text-text-primary mb-4">Solution</h3>
+              <h3 className="text-heading-3 text-text-primary mb-4">
+                Solution
+              </h3>
               <p className="text-body text-text-secondary leading-relaxed">
-                Through iterative design and close collaboration, we developed a comprehensive approach that addressed all stakeholder needs while pushing creative boundaries.
+                Through iterative design and close collaboration, we developed a
+                comprehensive approach that addressed all stakeholder needs
+                while pushing creative boundaries.
               </p>
             </div>
           </div>
@@ -183,10 +205,7 @@ export default function ProjectDetail() {
 
       {/* Gallery Section */}
       <section className="grid-container pb-20">
-        <div
-          className="animate-slide-up"
-          style={{ animationDelay: '0.3s' }}
-        >
+        <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
           <h2 className="text-heading-2 text-text-primary mb-8">Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Placeholder gallery items */}
@@ -210,17 +229,22 @@ export default function ProjectDetail() {
       <section className="grid-container pb-section">
         <div
           className="glass rounded-lg p-12 text-center animate-slide-up"
-          style={{ animationDelay: '0.4s' }}
+          style={{ animationDelay: "0.4s" }}
         >
-          <h2 className="text-heading-2 text-text-primary mb-4">Interested in working together?</h2>
+          <h2 className="text-heading-2 text-text-primary mb-4">
+            Interested in working together?
+          </h2>
           <p className="text-body text-text-secondary mb-8 max-w-2xl mx-auto">
-            I'm always excited to collaborate on new projects and bring creative visions to life.
+            I'm always excited to collaborate on new projects and bring creative
+            visions to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-body font-medium text-white transition-all duration-200 focus-visible"
-              style={{ backgroundColor: 'var(--project-primary, hsl(var(--primary)))' }}
+              style={{
+                backgroundColor: "var(--project-primary, hsl(var(--primary)))",
+              }}
             >
               Get in Touch
               <ExternalLink className="w-4 h-4" />

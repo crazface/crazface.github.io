@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CategorySelectorProps {
   categories: string[];
@@ -6,7 +6,11 @@ interface CategorySelectorProps {
   onCategoryChange: (category: string) => void;
 }
 
-export function CategorySelector({ categories, activeCategory, onCategoryChange }: CategorySelectorProps) {
+export function CategorySelector({
+  categories,
+  activeCategory,
+  onCategoryChange,
+}: CategorySelectorProps) {
   const currentIndex = categories.indexOf(activeCategory);
   const canGoPrevious = currentIndex > 0;
   const canGoNext = currentIndex < categories.length - 1;
@@ -33,32 +37,32 @@ export function CategorySelector({ categories, activeCategory, onCategoryChange 
             0 8px 16px -8px rgba(0,0,0,0.3),
             inset 0 1px 0 rgba(255,255,255,0.1),
             inset 0 -1px 0 rgba(0,0,0,0.2)
-          `
+          `,
         }}
       >
         <button
           onClick={handlePrevious}
           disabled={!canGoPrevious}
           className={`p-1 rounded-full transition-all duration-200 ${
-            canGoPrevious 
-              ? 'text-white hover:bg-white/10' 
-              : 'text-white/30 cursor-not-allowed'
+            canGoPrevious
+              ? "text-white hover:bg-white/10"
+              : "text-white/30 cursor-not-allowed"
           }`}
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
-        
+
         <span className="text-white font-black text-xl px-6 min-w-[160px] text-center drop-shadow-lg">
           {activeCategory}
         </span>
-        
+
         <button
           onClick={handleNext}
           disabled={!canGoNext}
           className={`p-1 rounded-full transition-all duration-200 ${
-            canGoNext 
-              ? 'text-white hover:bg-white/10' 
-              : 'text-white/30 cursor-not-allowed'
+            canGoNext
+              ? "text-white hover:bg-white/10"
+              : "text-white/30 cursor-not-allowed"
           }`}
         >
           <ChevronRight className="w-5 h-5" />

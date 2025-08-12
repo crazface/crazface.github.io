@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
@@ -6,7 +6,10 @@ export function Header() {
       <div className="grid-container py-6">
         <div className="flex items-center justify-between">
           {/* Logo/Name */}
-          <Link to="/" className="text-3xl font-black text-foreground hover:text-foreground/80 transition-all duration-300 hover:scale-105">
+          <Link
+            to="/"
+            className="text-3xl font-black text-foreground hover:text-foreground/80 transition-all duration-300 hover:scale-105"
+          >
             Charlie Stamp
           </Link>
 

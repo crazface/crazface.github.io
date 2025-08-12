@@ -1,24 +1,26 @@
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Mail, Send, ExternalLink } from 'lucide-react';
-import { useState } from 'react';
+import { Link } from "react-router-dom";
+import { ArrowLeft, Mail, Send, ExternalLink } from "lucide-react";
+import { useState } from "react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -44,19 +46,28 @@ export default function Contact() {
               Let's work together
             </h1>
             <p className="text-body text-text-secondary max-w-2xl mx-auto leading-relaxed">
-              I'm always excited to collaborate on new projects and bring creative visions to life. 
-              Whether you have a specific brief or just want to explore possibilities, let's start a conversation.
+              I'm always excited to collaborate on new projects and bring
+              creative visions to life. Whether you have a specific brief or
+              just want to explore possibilities, let's start a conversation.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <div
+              className="animate-slide-up"
+              style={{ animationDelay: "0.1s" }}
+            >
               <div className="glass rounded-lg p-8">
-                <h2 className="text-heading-2 text-text-primary mb-6">Send a Message</h2>
+                <h2 className="text-heading-2 text-text-primary mb-6">
+                  Send a Message
+                </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-small font-medium text-text-secondary mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-small font-medium text-text-secondary mb-2"
+                    >
                       Name
                     </label>
                     <input
@@ -71,7 +82,10 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-small font-medium text-text-secondary mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-small font-medium text-text-secondary mb-2"
+                    >
                       Email
                     </label>
                     <input
@@ -86,7 +100,10 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-small font-medium text-text-secondary mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-small font-medium text-text-secondary mb-2"
+                    >
                       Message
                     </label>
                     <textarea
@@ -112,10 +129,15 @@ export default function Contact() {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <div
+              className="space-y-8 animate-slide-up"
+              style={{ animationDelay: "0.2s" }}
+            >
               {/* Direct Contact */}
               <div className="glass rounded-lg p-8">
-                <h3 className="text-heading-3 text-text-primary mb-4">Direct Contact</h3>
+                <h3 className="text-heading-3 text-text-primary mb-4">
+                  Direct Contact
+                </h3>
                 <a
                   href="mailto:hello@example.com"
                   className="inline-flex items-center gap-3 text-body text-text-secondary hover:text-text-primary transition-colors duration-200 focus-visible"
@@ -127,22 +149,26 @@ export default function Contact() {
 
               {/* Response Time */}
               <div className="glass rounded-lg p-8">
-                <h3 className="text-heading-3 text-text-primary mb-4">Response Time</h3>
+                <h3 className="text-heading-3 text-text-primary mb-4">
+                  Response Time
+                </h3>
                 <p className="text-body text-text-secondary leading-relaxed">
-                  I typically respond to all inquiries within 24-48 hours. For urgent projects, 
-                  feel free to mention it in your message.
+                  I typically respond to all inquiries within 24-48 hours. For
+                  urgent projects, feel free to mention it in your message.
                 </p>
               </div>
 
               {/* Social Links */}
               <div className="glass rounded-lg p-8">
-                <h3 className="text-heading-3 text-text-primary mb-4">Connect</h3>
+                <h3 className="text-heading-3 text-text-primary mb-4">
+                  Connect
+                </h3>
                 <div className="space-y-3">
                   {[
-                    { name: 'LinkedIn', url: '#', handle: '@yourhandle' },
-                    { name: 'Instagram', url: '#', handle: '@yourhandle' },
-                    { name: 'Dribbble', url: '#', handle: '@yourhandle' },
-                    { name: 'Behance', url: '#', handle: '@yourhandle' }
+                    { name: "LinkedIn", url: "#", handle: "@yourhandle" },
+                    { name: "Instagram", url: "#", handle: "@yourhandle" },
+                    { name: "Dribbble", url: "#", handle: "@yourhandle" },
+                    { name: "Behance", url: "#", handle: "@yourhandle" },
                   ].map((social) => (
                     <a
                       key={social.name}
@@ -151,7 +177,9 @@ export default function Contact() {
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span>{social.name}</span>
-                      <span className="text-small text-text-secondary/70">{social.handle}</span>
+                      <span className="text-small text-text-secondary/70">
+                        {social.handle}
+                      </span>
                     </a>
                   ))}
                 </div>

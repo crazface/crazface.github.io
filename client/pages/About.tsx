@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Download, Mail } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { ArrowLeft, Download, Mail } from "lucide-react";
 
 export default function About() {
   return (
@@ -34,55 +34,75 @@ export default function About() {
 
             {/* Content Column */}
             <div className="flex flex-col justify-center space-y-8">
-              <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
+              <div
+                className="animate-slide-up"
+                style={{ animationDelay: "0.1s" }}
+              >
                 <h1 className="text-display text-text-primary mb-4">
                   Creative Director
                 </h1>
                 <p className="text-body text-text-secondary leading-relaxed mb-6">
-                  I'm a multidisciplinary creative director with over 8 years of experience crafting compelling visual narratives. 
-                  My work spans brand identity, motion graphics, and photography, always with a focus on authentic storytelling.
+                  I'm a multidisciplinary creative director with over 8 years of
+                  experience crafting compelling visual narratives. My work
+                  spans brand identity, motion graphics, and photography, always
+                  with a focus on authentic storytelling.
                 </p>
                 <p className="text-body text-text-secondary leading-relaxed mb-6">
-                  I believe great design happens at the intersection of strategic thinking and creative intuition. 
-                  Whether working with startups or established brands, I bring the same passion for excellence and attention to detail.
+                  I believe great design happens at the intersection of
+                  strategic thinking and creative intuition. Whether working
+                  with startups or established brands, I bring the same passion
+                  for excellence and attention to detail.
                 </p>
                 <p className="text-body text-text-secondary leading-relaxed">
-                  When I'm not designing, you'll find me exploring new cities with my camera, experimenting in the kitchen, 
-                  or getting lost in a good book.
+                  When I'm not designing, you'll find me exploring new cities
+                  with my camera, experimenting in the kitchen, or getting lost
+                  in a good book.
                 </p>
               </div>
 
               {/* Specialties */}
-              <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                <h3 className="text-heading-3 text-text-primary mb-4">Specialties</h3>
+              <div
+                className="animate-slide-up"
+                style={{ animationDelay: "0.2s" }}
+              >
+                <h3 className="text-heading-3 text-text-primary mb-4">
+                  Specialties
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    'Brand Identity',
-                    'Art Direction',
-                    'Motion Graphics',
-                    'Photography',
-                    'Creative Strategy',
-                    'Digital Design'
+                    "Brand Identity",
+                    "Art Direction",
+                    "Motion Graphics",
+                    "Photography",
+                    "Creative Strategy",
+                    "Digital Design",
                   ].map((specialty) => (
                     <div key={specialty} className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-text-primary" />
-                      <span className="text-body text-text-secondary">{specialty}</span>
+                      <span className="text-body text-text-secondary">
+                        {specialty}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Tools */}
-              <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
-                <h3 className="text-heading-3 text-text-primary mb-4">Tools & Technologies</h3>
+              <div
+                className="animate-slide-up"
+                style={{ animationDelay: "0.3s" }}
+              >
+                <h3 className="text-heading-3 text-text-primary mb-4">
+                  Tools & Technologies
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    'Adobe Creative Suite',
-                    'Figma',
-                    'After Effects',
-                    'Cinema 4D',
-                    'Webflow',
-                    'Framer'
+                    "Adobe Creative Suite",
+                    "Figma",
+                    "After Effects",
+                    "Cinema 4D",
+                    "Webflow",
+                    "Framer",
                   ].map((tool) => (
                     <span
                       key={tool}
@@ -95,7 +115,10 @@ export default function About() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="animate-slide-up flex flex-col sm:flex-row gap-4" style={{ animationDelay: '0.4s' }}>
+              <div
+                className="animate-slide-up flex flex-col sm:flex-row gap-4"
+                style={{ animationDelay: "0.4s" }}
+              >
                 <button className="inline-flex items-center justify-center gap-2 bg-text-primary text-white rounded-full px-8 py-4 text-body font-medium hover:bg-text-primary/90 transition-all duration-200 focus-visible">
                   <Download className="w-4 h-4" />
                   Download CV

@@ -12,7 +12,6 @@
     --background: 35 25% 92%; /* Warm beige background */
     --foreground: 0 0% 7%; /* #111111 converted to HSL */
 
-
     /* Glass morphism system */
     --glass-tint: rgba(255, 255, 255, 0.6);
     --glass-stroke: rgba(0, 0, 0, 0.06);
@@ -49,7 +48,6 @@
   .dark {
     --background: 0 0% 7%;
     --foreground: 0 0% 100%;
-
 
     --glass-tint: rgba(0, 0, 0, 0.4);
     --glass-stroke: rgba(255, 255, 255, 0.1);
@@ -120,18 +118,27 @@
   /* 3D Text Effects */
   .text-stroke {
     text-shadow:
-      1px 1px 0 rgba(0,0,0,0.3),
-      2px 2px 0 rgba(0,0,0,0.2),
-      3px 3px 0 rgba(0,0,0,0.1),
-      0 0 10px rgba(0,0,0,0.3);
+      1px 1px 0 rgba(0, 0, 0, 0.3),
+      2px 2px 0 rgba(0, 0, 0, 0.2),
+      3px 3px 0 rgba(0, 0, 0, 0.1),
+      0 0 10px rgba(0, 0, 0, 0.3);
   }
 
   /* Bubble animation */
   @keyframes bubble-float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    25% { transform: translateY(-10px) rotate(1deg); }
-    50% { transform: translateY(-5px) rotate(-1deg); }
-    75% { transform: translateY(-15px) rotate(0.5deg); }
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(-1deg);
+    }
+    75% {
+      transform: translateY(-15px) rotate(0.5deg);
+    }
   }
 
   .bubble-float {
@@ -181,7 +188,6 @@
   .focus-visible {
     @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
   }
-
 }
 
 @layer utilities {

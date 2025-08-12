@@ -1,5 +1,5 @@
-import { useEffect, useState, ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState, ReactNode } from "react";
+import { useLocation } from "react-router-dom";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ export function PageTransition({ children }: PageTransitionProps) {
   useEffect(() => {
     if (displayChildren !== children) {
       setIsLoading(true);
-      
+
       const timeout = setTimeout(() => {
         setDisplayChildren(children);
         setIsLoading(false);
@@ -34,7 +34,7 @@ export function PageTransition({ children }: PageTransitionProps) {
       <div
         className={`
           transition-all duration-300 ease-out
-          ${isLoading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}
+          ${isLoading ? "opacity-0 scale-95" : "opacity-100 scale-100"}
         `}
       >
         {displayChildren}

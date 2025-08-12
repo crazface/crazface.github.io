@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Project } from '@/lib/projects';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Project } from "@/lib/projects";
 
 interface ProjectTileProps {
   project: Project;
@@ -8,12 +8,14 @@ interface ProjectTileProps {
 
 export function ProjectTile({ project }: ProjectTileProps) {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   const gridSpanClass = `col-span-${project.gridSpan.cols} row-span-${project.gridSpan.rows}`;
-  const aspectRatioClass = 
-    project.type === 'branding' ? 'aspect-square' :
-    project.type === 'video' ? 'aspect-video' :
-    'aspect-portrait';
+  const aspectRatioClass =
+    project.type === "branding"
+      ? "aspect-square"
+      : project.type === "video"
+        ? "aspect-video"
+        : "aspect-portrait";
 
   return (
     <Link
@@ -51,16 +53,17 @@ export function ProjectTile({ project }: ProjectTileProps) {
         className={`
           absolute inset-0 z-10 flex flex-col justify-end p-6
           transition-all duration-300 ease-out
-          ${isHovered 
-            ? 'bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-100' 
-            : 'opacity-0'
+          ${
+            isHovered
+              ? "bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-100"
+              : "opacity-0"
           }
         `}
       >
         <div
           className={`
             transform transition-all duration-300 ease-out
-            ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}
+            ${isHovered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
           `}
         >
           <h3 className="text-2xl font-semibold leading-snug tracking-tight text-white mb-1">
@@ -81,10 +84,10 @@ export function ProjectTile({ project }: ProjectTileProps) {
       <div
         className={`
           absolute inset-0 -z-10 rounded-lg blur-xl opacity-0 transition-opacity duration-300
-          ${isHovered ? 'opacity-20' : 'opacity-0'}
+          ${isHovered ? "opacity-20" : "opacity-0"}
         `}
         style={{
-          background: `linear-gradient(135deg, ${project.colors?.primary || '#6366f1'}, ${project.colors?.secondary || '#8b5cf6'})`
+          background: `linear-gradient(135deg, ${project.colors?.primary || "#6366f1"}, ${project.colors?.secondary || "#8b5cf6"})`,
         }}
       />
     </Link>

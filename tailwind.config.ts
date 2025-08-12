@@ -14,32 +14,39 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "SF Pro Display", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif"],
+        sans: [
+          "Inter",
+          "SF Pro Display",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "system-ui",
+          "sans-serif",
+        ],
       },
       fontSize: {
-        'display': ['3rem', { lineHeight: '1.1', letterSpacing: '0' }], // 48px
-        'h1': ['3rem', { lineHeight: '1.1', letterSpacing: '0' }], // 48px
-        'h2': ['2rem', { lineHeight: '1.2', letterSpacing: '0' }], // 32px
-        'h3': ['1.5rem', { lineHeight: '1.3', letterSpacing: '0' }], // 24px
-        'body': ['1.125rem', { lineHeight: '1.5', letterSpacing: '0.1px' }], // 18px
-        'small': ['0.875rem', { lineHeight: '1.4', letterSpacing: '0.1px' }], // 14px
+        display: ["3rem", { lineHeight: "1.1", letterSpacing: "0" }], // 48px
+        h1: ["3rem", { lineHeight: "1.1", letterSpacing: "0" }], // 48px
+        h2: ["2rem", { lineHeight: "1.2", letterSpacing: "0" }], // 32px
+        h3: ["1.5rem", { lineHeight: "1.3", letterSpacing: "0" }], // 24px
+        body: ["1.125rem", { lineHeight: "1.5", letterSpacing: "0.1px" }], // 18px
+        small: ["0.875rem", { lineHeight: "1.4", letterSpacing: "0.1px" }], // 14px
       },
       fontWeight: {
-        normal: '400',
-        semibold: '600',
-        bold: '700',
+        normal: "400",
+        semibold: "600",
+        bold: "700",
       },
       maxWidth: {
-        'grid': '1200px',
+        grid: "1200px",
       },
       spacing: {
-        'gutter': '1.5rem', // 24px
-        'section': '4.5rem', // 72px
+        gutter: "1.5rem", // 24px
+        section: "4.5rem", // 72px
       },
       borderRadius: {
-        'lg': '1.5rem', // 24px
-        'md': 'calc(var(--radius) - 2px)',
-        'sm': '0.75rem', // 12px
+        lg: "1.5rem", // 24px
+        md: "calc(var(--radius) - 2px)",
+        sm: "0.75rem", // 12px
       },
       colors: {
         border: "hsl(var(--border))",
@@ -75,18 +82,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        'glass': {
-          'tint': 'var(--glass-tint)',
-          'stroke': 'var(--glass-stroke)',
-        }
+        glass: {
+          tint: "var(--glass-tint)",
+          stroke: "var(--glass-stroke)",
+        },
       },
       backdropBlur: {
-        'glass': '20px',
+        glass: "20px",
       },
       boxShadow: {
-        'glass': '0 8px 32px rgba(0, 0, 0, 0.08)',
-        'glass-lg': '0 16px 64px rgba(0, 0, 0, 0.12)',
-        'tile-hover': '0 12px 48px rgba(0, 0, 0, 0.15)',
+        glass: "0 8px 32px rgba(0, 0, 0, 0.08)",
+        "glass-lg": "0 16px 64px rgba(0, 0, 0, 0.12)",
+        "tile-hover": "0 12px 48px rgba(0, 0, 0, 0.15)",
       },
       animation: {
         "fade-in": "fade-in 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
@@ -118,32 +125,32 @@ export default {
         },
       },
       gridTemplateColumns: {
-        '12': 'repeat(12, minmax(0, 1fr))',
-        '8': 'repeat(8, minmax(0, 1fr))',
-        '6': 'repeat(6, minmax(0, 1fr))',
-        '4': 'repeat(4, minmax(0, 1fr))',
+        "12": "repeat(12, minmax(0, 1fr))",
+        "8": "repeat(8, minmax(0, 1fr))",
+        "6": "repeat(6, minmax(0, 1fr))",
+        "4": "repeat(4, minmax(0, 1fr))",
       },
       gridColumn: {
-        'span-1': 'span 1 / span 1',
-        'span-2': 'span 2 / span 2',
-        'span-3': 'span 3 / span 3',
-        'span-4': 'span 4 / span 4',
-        'span-5': 'span 5 / span 5',
-        'span-6': 'span 6 / span 6',
-        'span-7': 'span 7 / span 7',
-        'span-8': 'span 8 / span 8',
-        'span-9': 'span 9 / span 9',
-        'span-10': 'span 10 / span 10',
-        'span-11': 'span 11 / span 11',
-        'span-12': 'span 12 / span 12',
+        "span-1": "span 1 / span 1",
+        "span-2": "span 2 / span 2",
+        "span-3": "span 3 / span 3",
+        "span-4": "span 4 / span 4",
+        "span-5": "span 5 / span 5",
+        "span-6": "span 6 / span 6",
+        "span-7": "span 7 / span 7",
+        "span-8": "span 8 / span 8",
+        "span-9": "span 9 / span 9",
+        "span-10": "span 10 / span 10",
+        "span-11": "span 11 / span 11",
+        "span-12": "span 12 / span 12",
       },
       gridRow: {
-        'span-1': 'span 1 / span 1',
-        'span-2': 'span 2 / span 2',
-        'span-3': 'span 3 / span 3',
-        'span-4': 'span 4 / span 4',
-        'span-5': 'span 5 / span 5',
-        'span-6': 'span 6 / span 6',
+        "span-1": "span 1 / span 1",
+        "span-2": "span 2 / span 2",
+        "span-3": "span 3 / span 3",
+        "span-4": "span 4 / span 4",
+        "span-5": "span 5 / span 5",
+        "span-6": "span 6 / span 6",
       },
     },
   },

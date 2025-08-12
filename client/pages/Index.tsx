@@ -1,11 +1,17 @@
-import { useState, useEffect } from 'react';
-import { Header } from '@/components/Header';
-import { CategorySelector } from '@/components/CategorySelector';
-import { AppTile } from '@/components/AppTile';
-import { projects, categories, getProjectsByType, Project } from '@/lib/projects';
+import { useState, useEffect } from "react";
+import { Header } from "@/components/Header";
+import { CategorySelector } from "@/components/CategorySelector";
+import { AppTile } from "@/components/AppTile";
+import {
+  projects,
+  categories,
+  getProjectsByType,
+  Project,
+} from "@/lib/projects";
 
 export default function Index() {
-  const [activeCategory, setActiveCategory] = useState<Project['type']>('Graphic Design');
+  const [activeCategory, setActiveCategory] =
+    useState<Project["type"]>("Graphic Design");
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -30,13 +36,15 @@ export default function Index() {
           <div
             className={`
               transition-all duration-500 ease-out
-              ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+              ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
             `}
           >
             <CategorySelector
               categories={categories}
               activeCategory={activeCategory}
-              onCategoryChange={(category) => setActiveCategory(category as Project['type'])}
+              onCategoryChange={(category) =>
+                setActiveCategory(category as Project["type"])
+              }
             />
           </div>
 
@@ -45,17 +53,17 @@ export default function Index() {
             className={`
               grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto
               transition-all duration-500 ease-out
-              ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+              ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
             `}
-            style={{ animationDelay: '0.2s' }}
+            style={{ animationDelay: "0.2s" }}
           >
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
                 className="animate-scale-in bubble-float"
                 style={{
-                  animationDelay: `${0.3 + (index * 0.1)}s, ${index * 0.5}s`,
-                  animationFillMode: 'both'
+                  animationDelay: `${0.3 + index * 0.1}s, ${index * 0.5}s`,
+                  animationFillMode: "both",
                 }}
               >
                 <AppTile project={project} />

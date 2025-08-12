@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -33,16 +33,16 @@ export function CustomCursor() {
       }
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    document.addEventListener('mouseenter', handleMouseEnter);
-    document.addEventListener('mouseover', handleMouseOver);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseenter", handleMouseEnter);
+    document.addEventListener("mouseover", handleMouseOver);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      document.removeEventListener('mouseenter', handleMouseEnter);
-      document.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseenter", handleMouseEnter);
+      document.removeEventListener("mouseover", handleMouseOver);
     };
   }, []);
 
@@ -51,8 +51,8 @@ export function CustomCursor() {
       className={`
         fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference
         transition-all duration-150 ease-out
-        ${isVisible ? 'opacity-100' : 'opacity-0'}
-        ${isHovering ? 'scale-150' : 'scale-100'}
+        ${isVisible ? "opacity-100" : "opacity-0"}
+        ${isHovering ? "scale-150" : "scale-100"}
       `}
       style={{
         transform: `translate(${mousePosition.x - 8}px, ${mousePosition.y - 8}px) scale(${isHovering ? 1.5 : 1})`,
@@ -62,7 +62,7 @@ export function CustomCursor() {
         className={`
           w-4 h-4 rounded-full bg-white
           transition-all duration-150 ease-out
-          ${isHovering ? 'scale-100 bg-opacity-80' : 'scale-75 bg-opacity-60'}
+          ${isHovering ? "scale-100 bg-opacity-80" : "scale-75 bg-opacity-60"}
         `}
       />
     </div>
