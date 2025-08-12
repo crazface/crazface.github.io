@@ -101,10 +101,10 @@ export default function Index() {
         {filteredProjects.length === 0 && (
           <div className="col-span-full flex flex-col items-center justify-center py-20 animate-fade-in">
             <div className="glass rounded-lg p-8 text-center max-w-md">
-              <h3 className="text-2xl font-semibold leading-snug tracking-tight text-text-primary mb-2">
+              <h3 className="text-2xl font-semibold leading-snug tracking-tight text-foreground mb-2">
               No projects found
             </h3>
-            <p className="text-lg font-normal leading-relaxed text-text-secondary">
+            <p className="text-lg font-normal leading-relaxed text-muted-foreground">
                 Try adjusting your filters to see more work.
               </p>
             </div>
