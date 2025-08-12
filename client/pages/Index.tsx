@@ -52,9 +52,9 @@ export default function Index() {
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
-                className="animate-scale-in"
-                style={{ 
-                  animationDelay: `${0.3 + (index * 0.1)}s`,
+                className="animate-scale-in bubble-float"
+                style={{
+                  animationDelay: `${0.3 + (index * 0.1)}s, ${index * 0.5}s`,
                   animationFillMode: 'both'
                 }}
               >
