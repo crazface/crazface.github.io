@@ -30,7 +30,7 @@ export function CategorySelector({
   return (
     <div className="flex items-center justify-center mb-12">
       <div
-        className="flex items-center bg-black rounded-full px-6 py-4 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+        className="flex items-center bg-primary rounded-full px-6 py-4 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
         style={{
           boxShadow: `
             0 20px 40px -12px rgba(0,0,0,0.4),
