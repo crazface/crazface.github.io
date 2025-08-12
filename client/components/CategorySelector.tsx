@@ -52,7 +52,7 @@ export function CategorySelector({
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        <span className="text-white font-black text-xl px-6 min-w-[160px] text-center drop-shadow-lg">
+        <span className="text-primary-foreground font-black text-xl px-6 min-w-[160px] text-center drop-shadow-lg">
           {activeCategory}
         </span>
 
