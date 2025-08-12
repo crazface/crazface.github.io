@@ -117,6 +117,28 @@
 }
 
 @layer components {
+  /* 3D Text Effects */
+  .text-stroke {
+    text-shadow:
+      1px 1px 0 rgba(0,0,0,0.3),
+      2px 2px 0 rgba(0,0,0,0.2),
+      3px 3px 0 rgba(0,0,0,0.1),
+      0 0 10px rgba(0,0,0,0.3);
+  }
+
+  /* Bubble animation */
+  @keyframes bubble-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-5px) rotate(-1deg); }
+    75% { transform: translateY(-15px) rotate(0.5deg); }
+  }
+
+  .bubble-float {
+    animation: bubble-float 4s ease-in-out infinite;
+  }
+
+  /* Enhanced glass effect with more depth */
   /* Glass morphism base component */
   .glass {
     background: var(--glass-tint);
