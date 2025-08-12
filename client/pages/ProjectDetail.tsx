@@ -72,7 +72,7 @@ export default function ProjectDetail() {
               The project you're looking for doesn't exist or has been moved.
             </p>
             <Link
-              to="/"
+              to="/work"
               className="inline-flex items-center gap-2 glass rounded-full px-6 py-3 text-lg font-bold text-foreground hover:bg-white/80 hover:shadow-glass transition-all duration-200 focus-visible"
             >
               Back to Work
