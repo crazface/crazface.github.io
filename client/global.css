@@ -12,9 +12,6 @@
     --background: 216 223 234; /* #F2F4F7 converted to HSL */
     --foreground: 0 0% 7%; /* #111111 converted to HSL */
 
-    /* Text hierarchy */
-    --text-primary: #111111;
-    --text-secondary: #555555;
 
     /* Glass morphism system */
     --glass-tint: rgba(255, 255, 255, 0.6);
