@@ -8,7 +8,7 @@ export function Header() {
           {/* Logo/Name */}
           <Link
             to="/"
-            className="text-3xl font-black text-foreground hover:text-foreground/80 transition-all duration-300 hover:scale-105"
+            className="text-3xl font-black text-foreground hover:text-foreground/80 transition-all duration-300 hover:scale-105 text-shadow-medium"
           >
             Charlie Stamp
           </Link>
