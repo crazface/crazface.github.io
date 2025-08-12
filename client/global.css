@@ -165,30 +165,6 @@
     @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
   }
 
-  /* Typography utility classes */
-  .text-display {
-    @apply text-5xl font-bold leading-none tracking-tight;
-  }
-
-  .text-heading-1 {
-    @apply text-5xl font-bold leading-tight tracking-tight;
-  }
-
-  .text-heading-2 {
-    @apply text-3xl font-semibold leading-tight tracking-tight;
-  }
-
-  .text-heading-3 {
-    @apply text-2xl font-semibold leading-snug tracking-tight;
-  }
-
-  .text-body {
-    @apply text-lg font-normal leading-relaxed;
-  }
-
-  .text-small {
-    @apply text-sm font-normal leading-relaxed;
-  }
 }
 
 @layer utilities {
