@@ -88,7 +88,7 @@ export default function Contact() {
                 </a>
                 <a
                   href="#"
-                  className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:bg-gray-800 transition-colors"
+                  className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground hover:bg-primary/80 transition-colors"
                   aria-label="Portfolio"
                 >
                   <svg
