@@ -60,7 +60,7 @@ export default function Index() {
               key={option.value}
               onClick={() => handleFilter(option.value)}
               className={`
-                glass rounded-full px-6 py-3 text-small font-medium
+                glass rounded-full px-6 py-3 text-sm font-medium
                 transition-all duration-200 ease-out focus-visible
                 ${activeFilter === option.value
                   ? 'bg-text-primary text-white shadow-glass-lg'
