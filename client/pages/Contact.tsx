@@ -50,15 +50,15 @@ export default function Contact() {
               className="glass rounded-lg p-8 text-center animate-slide-up"
               style={{ animationDelay: "0.1s" }}
             >
-              <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-8 h-8 text-primary-foreground" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-2">
                 Email
               </h3>
               <a
                 href="mailto:charlie@charliestamp.com"
-                className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+                className="text-lg text-foreground hover:text-primary transition-colors"
               >
                 charlie@charliestamp.com
               </a>
