@@ -13,34 +13,34 @@
     --foreground: 42 78% 83%; /* Warm beige foreground #f5e6d3 */
 
     /* Glass morphism system */
-    --glass-tint: rgba(255, 255, 255, 0.6);
-    --glass-stroke: rgba(0, 0, 0, 0.06);
+    --glass-tint: rgba(245, 230, 211, 0.1);
+    --glass-stroke: rgba(245, 230, 211, 0.15);
 
     /* Card and UI components */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 7%;
+    --card: 0 0% 12%;
+    --card-foreground: 42 78% 83%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 7%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 42 78% 83%;
 
-    --primary: 0 0% 7%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 42 78% 83%; /* Beige primary */
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 7%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 42 78% 83%;
 
-    --muted: 210 40% 98%;
-    --muted-foreground: 0 0% 33%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 42 35% 65%;
 
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 7%;
+    --accent: 0 0% 16%;
+    --accent-foreground: 42 78% 83%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 0 0% 7%;
+    --border: 0 0% 20%;
+    --input: 0 0% 16%;
+    --ring: 42 78% 83%;
 
     --radius: 1.5rem;
   }
