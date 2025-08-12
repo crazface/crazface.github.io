@@ -17,29 +17,29 @@
     --glass-stroke: rgba(245, 230, 211, 0.15);
 
     /* Card and UI components */
-    --card: 0 0% 12%;
+    --card: 0 0% 16%;
     --card-foreground: 42 78% 83%;
 
-    --popover: 0 0% 12%;
+    --popover: 0 0% 16%;
     --popover-foreground: 42 78% 83%;
 
     --primary: 42 78% 83%; /* Beige primary */
-    --primary-foreground: 0 0% 8%;
+    --primary-foreground: 0 0% 12%;
 
-    --secondary: 0 0% 16%;
+    --secondary: 0 0% 20%;
     --secondary-foreground: 42 78% 83%;
 
-    --muted: 0 0% 16%;
+    --muted: 0 0% 20%;
     --muted-foreground: 42 35% 65%;
 
-    --accent: 0 0% 16%;
+    --accent: 0 0% 20%;
     --accent-foreground: 42 78% 83%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 16%;
+    --border: 0 0% 24%;
+    --input: 0 0% 20%;
     --ring: 42 78% 83%;
 
     --radius: 1.5rem;
