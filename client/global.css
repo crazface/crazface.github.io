@@ -9,8 +9,8 @@
    */
   :root {
     /* Base background and text colors */
-    --background: 35 25% 92%; /* Warm beige background */
-    --foreground: 0 0% 7%; /* #111111 converted to HSL */
+    --background: 0 0% 8%; /* Black background */
+    --foreground: 42 78% 83%; /* Warm beige foreground #f5e6d3 */
 
     /* Glass morphism system */
     --glass-tint: rgba(255, 255, 255, 0.6);
