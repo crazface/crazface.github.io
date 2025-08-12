@@ -25,7 +25,17 @@ export function CategorySelector({ categories, activeCategory, onCategoryChange 
 
   return (
     <div className="flex items-center justify-center mb-12">
-      <div className="flex items-center bg-black rounded-full px-6 py-3 shadow-lg">
+      <div
+        className="flex items-center bg-black rounded-full px-6 py-4 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+        style={{
+          boxShadow: `
+            0 20px 40px -12px rgba(0,0,0,0.4),
+            0 8px 16px -8px rgba(0,0,0,0.3),
+            inset 0 1px 0 rgba(255,255,255,0.1),
+            inset 0 -1px 0 rgba(0,0,0,0.2)
+          `
+        }}
+      >
         <button
           onClick={handlePrevious}
           disabled={!canGoPrevious}
