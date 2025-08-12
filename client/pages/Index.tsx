@@ -114,7 +114,7 @@ export default function Index() {
 
       {/* Footer */}
       <footer className="grid-container py-12 border-t border-border">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-small text-text-secondary">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm font-normal leading-relaxed text-text-secondary">
           <p>© 2025 — All rights reserved</p>
           <div className="flex gap-6">
             <a 
