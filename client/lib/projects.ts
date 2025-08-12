@@ -1,9 +1,10 @@
 export interface Project {
   id: string;
   title: string;
-  type: 'branding' | 'video' | 'photography';
+  type: 'Graphic Design' | 'Web Design' | 'Branding' | 'Photography';
   year: string;
   image: string;
+  appIcon?: string;
   description?: string;
   role?: string;
   tools?: string[];
@@ -12,110 +13,102 @@ export interface Project {
     secondary: string;
     accent: string;
   };
-  gridSpan: {
-    cols: number;
-    rows: number;
-  };
 }
 
 export const projects: Project[] = [
   {
-    id: 'brand-project-one',
-    title: 'Brand Project One',
-    type: 'branding',
+    id: 'brand-identity-system',
+    title: 'Brand Identity',
+    type: 'Graphic Design',
     year: '2025',
     image: '/placeholder.svg',
-    description: 'A comprehensive brand identity for a modern tech startup',
-    role: 'Brand Designer',
+    description: 'Complete brand identity system for modern tech startup',
+    role: 'Creative Director',
     tools: ['Adobe Illustrator', 'Figma', 'After Effects'],
     colors: {
-      primary: '#6366f1',
-      secondary: '#8b5cf6',
-      accent: '#06b6d4'
-    },
-    gridSpan: { cols: 3, rows: 3 }
+      primary: '#1a1a1a',
+      secondary: '#ff6b6b',
+      accent: '#4ecdc4'
+    }
   },
   {
-    id: 'short-film-trailer',
-    title: 'Short Film Trailer',
-    type: 'video',
+    id: 'huel-rebrand',
+    title: 'Huel',
+    type: 'Branding',
     year: '2025',
     image: '/placeholder.svg',
-    description: 'Cinematic trailer for an independent short film',
-    role: 'Director & Editor',
-    tools: ['Premiere Pro', 'After Effects', 'DaVinci Resolve'],
+    description: 'Complete rebrand for nutrition company',
+    role: 'Brand Designer',
+    tools: ['Adobe Creative Suite', 'Sketch'],
     colors: {
-      primary: '#f59e0b',
-      secondary: '#ef4444',
-      accent: '#10b981'
-    },
-    gridSpan: { cols: 6, rows: 3 }
+      primary: '#ff4500',
+      secondary: '#ff6b35',
+      accent: '#ff8c42'
+    }
   },
   {
-    id: 'portrait-series',
-    title: 'Portrait Series',
-    type: 'photography',
+    id: 'eco-app',
+    title: 'EcoTrack',
+    type: 'Web Design',
     year: '2024',
     image: '/placeholder.svg',
-    description: 'Intimate portraits exploring identity and expression',
-    role: 'Photographer',
-    tools: ['Canon R5', 'Lightroom', 'Photoshop'],
+    description: 'Sustainability tracking mobile application',
+    role: 'UI/UX Designer',
+    tools: ['Figma', 'Principle', 'Adobe XD'],
     colors: {
-      primary: '#ec4899',
-      secondary: '#f97316',
-      accent: '#8b5cf6'
-    },
-    gridSpan: { cols: 3, rows: 4 }
+      primary: '#22c55e',
+      secondary: '#16a34a',
+      accent: '#dcfce7'
+    }
   },
   {
-    id: 'digital-campaign',
-    title: 'Digital Campaign',
-    type: 'branding',
+    id: 'coffee-brand',
+    title: 'Pak Co.',
+    type: 'Graphic Design',
     year: '2024',
     image: '/placeholder.svg',
-    description: 'Multi-platform digital campaign for sustainable fashion',
-    role: 'Creative Director',
-    tools: ['Figma', 'Adobe CC', 'Notion'],
+    description: 'Artisan coffee roasting company brand identity',
+    role: 'Brand Designer',
+    tools: ['Illustrator', 'Photoshop', 'InDesign'],
     colors: {
-      primary: '#10b981',
-      secondary: '#059669',
-      accent: '#06b6d4'
-    },
-    gridSpan: { cols: 3, rows: 3 }
+      primary: '#8b4513',
+      secondary: '#d2691e',
+      accent: '#f4a460'
+    }
   },
   {
-    id: 'motion-graphics',
-    title: 'Motion Graphics Reel',
-    type: 'video',
+    id: 'design-tools',
+    title: 'DesignKit',
+    type: 'Web Design',
     year: '2024',
     image: '/placeholder.svg',
-    description: 'Collection of motion graphics and animations',
-    role: 'Motion Designer',
-    tools: ['After Effects', 'Cinema 4D', 'Blender'],
+    description: 'Design tool and resource platform',
+    role: 'Product Designer',
+    tools: ['Figma', 'React', 'Framer'],
     colors: {
-      primary: '#8b5cf6',
-      secondary: '#a855f7',
-      accent: '#ec4899'
-    },
-    gridSpan: { cols: 6, rows: 3 }
+      primary: '#06b6d4',
+      secondary: '#0891b2',
+      accent: '#67e8f9'
+    }
   },
   {
-    id: 'architecture-photography',
-    title: 'Architecture Study',
-    type: 'photography',
+    id: 'crypto-wallet',
+    title: 'CoinVault',
+    type: 'Web Design',
     year: '2024',
     image: '/placeholder.svg',
-    description: 'Geometric exploration of modern architecture',
-    role: 'Photographer',
-    tools: ['Sony A7R IV', 'Capture One', 'Photoshop'],
+    description: 'Cryptocurrency wallet and trading platform',
+    role: 'UI Designer',
+    tools: ['Figma', 'Principle', 'Lottie'],
     colors: {
-      primary: '#374151',
-      secondary: '#6b7280',
-      accent: '#06b6d4'
-    },
-    gridSpan: { cols: 3, rows: 4 }
+      primary: '#1e293b',
+      secondary: '#334155',
+      accent: '#64748b'
+    }
   }
 ];
+
+export const categories = ['Graphic Design', 'Web Design', 'Branding', 'Photography'];
 
 export function getProjectsByType(type: Project['type']): Project[] {
   return projects.filter(project => project.type === type);
