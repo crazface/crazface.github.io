@@ -75,7 +75,7 @@ export default function Contact() {
               <div className="flex justify-center gap-4">
                 <a
                   href="#"
-                  className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white hover:bg-gray-800 transition-colors"
+                  className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground hover:bg-primary/80 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <svg
