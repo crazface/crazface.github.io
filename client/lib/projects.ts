@@ -105,6 +105,66 @@ export const projects: Project[] = [
       secondary: '#334155',
       accent: '#64748b'
     }
+  },
+  {
+    id: 'music-app',
+    title: 'SoundWave',
+    type: 'Graphic Design',
+    year: '2024',
+    image: '/placeholder.svg',
+    description: 'Music streaming app interface design',
+    role: 'UI/UX Designer',
+    tools: ['Figma', 'Principle'],
+    colors: {
+      primary: '#8b5cf6',
+      secondary: '#a855f7',
+      accent: '#c4b5fd'
+    }
+  },
+  {
+    id: 'fitness-tracker',
+    title: 'FitLife',
+    type: 'Graphic Design',
+    year: '2023',
+    image: '/placeholder.svg',
+    description: 'Fitness tracking and wellness app',
+    role: 'Product Designer',
+    tools: ['Sketch', 'InVision'],
+    colors: {
+      primary: '#ef4444',
+      secondary: '#f87171',
+      accent: '#fca5a5'
+    }
+  },
+  {
+    id: 'travel-app',
+    title: 'Wanderlust',
+    type: 'Graphic Design',
+    year: '2023',
+    image: '/placeholder.svg',
+    description: 'Travel planning and booking platform',
+    role: 'Creative Director',
+    tools: ['Adobe XD', 'Photoshop'],
+    colors: {
+      primary: '#0ea5e9',
+      secondary: '#38bdf8',
+      accent: '#7dd3fc'
+    }
+  },
+  {
+    id: 'food-delivery',
+    title: 'QuickBite',
+    type: 'Graphic Design',
+    year: '2023',
+    image: '/placeholder.svg',
+    description: 'Food delivery service app design',
+    role: 'UI Designer',
+    tools: ['Figma', 'After Effects'],
+    colors: {
+      primary: '#f59e0b',
+      secondary: '#fbbf24',
+      accent: '#fcd34d'
+    }
   }
 ];
 
