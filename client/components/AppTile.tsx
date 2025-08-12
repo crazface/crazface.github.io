@@ -103,16 +103,6 @@ export function AppTile({ project }: AppTileProps) {
           </div>
         </div>
 
-        {/* Magical Shine Effect */}
-        <div
-          className={`
-            absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent
-            transform -translate-x-full -translate-y-full rotate-45 z-30
-            transition-transform duration-1000 ease-out
-            ${isHovered ? "translate-x-full translate-y-full" : ""}
-          `}
-          style={{ width: "200%", height: "200%" }}
-        />
 
         {/* Extra bubble effects on hover */}
         {isHovered && (
