@@ -29,6 +29,10 @@
     --secondary: 0 0% 20%;
     --secondary-foreground: 42 78% 83%;
 
+    /* Orange accent color for highlights */
+    --accent: 24 95% 53%; /* Vibrant orange #ff6b35 */
+    --accent-foreground: 0 0% 100%;
+
     --muted: 0 0% 20%;
     --muted-foreground: 42 35% 65%;
 
