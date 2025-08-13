@@ -12,19 +12,15 @@ export function CategorySelector({
   onCategoryChange,
 }: CategorySelectorProps) {
   const currentIndex = categories.indexOf(activeCategory);
-  const canGoPrevious = currentIndex > 0;
-  const canGoNext = currentIndex < categories.length - 1;
 
   const handlePrevious = () => {
-    if (canGoPrevious) {
-      onCategoryChange(categories[currentIndex - 1]);
-    }
+    const previousIndex = currentIndex === 0 ? categories.length - 1 : currentIndex - 1;
+    onCategoryChange(categories[previousIndex]);
   };
 
   const handleNext = () => {
-    if (canGoNext) {
-      onCategoryChange(categories[currentIndex + 1]);
-    }
+    const nextIndex = currentIndex === categories.length - 1 ? 0 : currentIndex + 1;
+    onCategoryChange(categories[nextIndex]);
   };
 
   return (
