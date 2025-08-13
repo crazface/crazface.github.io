@@ -9,39 +9,39 @@
    */
   :root {
     /* Base background and text colors */
-    --background: 251 37% 8%; /* Darker, more subtle purple */
-    --foreground: 42 78% 83%; /* Warm beige foreground #f5e6d3 */
+    --background: 0 30% 15%; /* Rich maroon background #3d2626 */
+    --foreground: 37 36% 85%; /* Warm beige foreground #e8dcc7 */
 
     /* Glass morphism system */
-    --glass-tint: rgba(245, 230, 211, 0.1);
-    --glass-stroke: rgba(245, 230, 211, 0.15);
+    --glass-tint: rgba(232, 220, 199, 0.1);
+    --glass-stroke: rgba(232, 220, 199, 0.15);
 
     /* Card and UI components */
-    --card: 251 37% 12%; /* Darker version */
-    --card-foreground: 42 78% 83%;
+    --card: 0 25% 20%; /* Lighter maroon for cards */
+    --card-foreground: 37 36% 85%;
 
-    --popover: 251 37% 12%;
-    --popover-foreground: 42 78% 83%;
+    --popover: 0 25% 20%;
+    --popover-foreground: 37 36% 85%;
 
-    --primary: 42 78% 83%; /* Beige primary */
-    --primary-foreground: 251 37% 8%;
+    --primary: 37 36% 85%; /* Warm beige primary */
+    --primary-foreground: 0 30% 15%;
 
-    --secondary: 251 37% 16%; /* Darker version */
-    --secondary-foreground: 42 78% 83%;
+    --secondary: 25 28% 28%; /* Warm brown secondary */
+    --secondary-foreground: 37 36% 85%;
 
-    /* Orange accent color for highlights */
-    --accent: 24 95% 53%; /* Vibrant orange #ff6b35 */
-    --accent-foreground: 0 0% 100%;
+    /* Mature accent color - warm amber/gold */
+    --accent: 35 65% 55%; /* Warm amber #c49a6b */
+    --accent-foreground: 0 30% 15%;
 
-    --muted: 251 37% 16%; /* Darker version */
-    --muted-foreground: 42 35% 65%;
+    --muted: 25 20% 32%; /* Muted brown */
+    --muted-foreground: 37 25% 70%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 251 37% 20%; /* Darker border */
-    --input: 251 37% 12%;
-    --ring: 42 78% 83%;
+    --border: 25 25% 35%; /* Brown border */
+    --input: 0 25% 20%;
+    --ring: 37 36% 85%;
 
     --radius: 1.5rem;
   }
