@@ -9,7 +9,7 @@
    */
   :root {
     /* Base background and text colors */
-    --background: 0 30% 15%; /* Rich maroon background #3d2626 */
+    --background: 25 48% 15%; /* Rich brown background #371d16 */
     --foreground: 37 36% 85%; /* Warm beige foreground #e8dcc7 */
 
     /* Glass morphism system */
@@ -17,7 +17,7 @@
     --glass-stroke: rgba(232, 220, 199, 0.15);
 
     /* Card and UI components */
-    --card: 0 25% 20%; /* Lighter maroon for cards */
+    --card: 25 48% 20%; /* Lighter brown for cards */
     --card-foreground: 37 36% 85%;
 
     --popover: 0 25% 20%;
