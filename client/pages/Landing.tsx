@@ -82,13 +82,13 @@ export default function Landing() {
               }}
             >
               <div
-                className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6"
                 style={{
-                  boxShadow: "0 8px 24px rgba(245, 230, 211, 0.4)",
-                  filter: "drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))",
+                  boxShadow: "0 8px 24px rgba(255, 107, 53, 0.4)",
+                  filter: "drop-shadow(0 0 12px rgba(255, 107, 53, 0.3))",
                 }}
               >
-                <Palette className="w-8 h-8 text-primary-foreground" />
+                <Palette className="w-8 h-8 text-accent-foreground" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">
                 Graphic Design
@@ -109,13 +109,13 @@ export default function Landing() {
               }}
             >
               <div
-                className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-accent/80 rounded-full flex items-center justify-center mx-auto mb-6"
                 style={{
-                  boxShadow: "0 8px 24px rgba(245, 230, 211, 0.4)",
-                  filter: "drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))",
+                  boxShadow: "0 8px 24px rgba(255, 107, 53, 0.35)",
+                  filter: "drop-shadow(0 0 12px rgba(255, 107, 53, 0.25))",
                 }}
               >
-                <Video className="w-8 h-8 text-primary-foreground" />
+                <Video className="w-8 h-8 text-accent-foreground" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">
                 Video Editing
@@ -136,13 +136,13 @@ export default function Landing() {
               }}
             >
               <div
-                className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-accent/60 rounded-full flex items-center justify-center mx-auto mb-6"
                 style={{
-                  boxShadow: "0 8px 24px rgba(245, 230, 211, 0.4)",
-                  filter: "drop-shadow(0 0 12px rgba(245, 230, 211, 0.3))",
+                  boxShadow: "0 8px 24px rgba(255, 107, 53, 0.3)",
+                  filter: "drop-shadow(0 0 12px rgba(255, 107, 53, 0.2))",
                 }}
               >
-                <Camera className="w-8 h-8 text-primary-foreground" />
+                <Camera className="w-8 h-8 text-accent-foreground" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">
                 Photography
