@@ -193,11 +193,9 @@ export default function Landing() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/work"
-                  className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-full px-8 py-4 text-lg font-black hover:bg-accent/90 transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 glass border border-foreground/20 rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-300 hover:scale-105"
                   style={{
-                    boxShadow:
-                      "0 8px 24px rgba(196,154,107,0.3), 0 4px 12px rgba(196,154,107,0.2)",
-                    filter: "drop-shadow(0 0 12px rgba(196,154,107,0.4))",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
                   }}
                 >
                   Explore My Portfolio
