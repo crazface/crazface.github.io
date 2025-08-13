@@ -148,11 +148,16 @@ export default function Landing() {
               <div
                 className="w-16 h-16 bg-accent/60 rounded-3xl flex items-center justify-center mx-auto mb-6"
                 style={{
-                  boxShadow: "0 8px 24px rgba(255, 107, 53, 0.3)",
-                  filter: "drop-shadow(0 0 12px rgba(255, 107, 53, 0.2))",
+                  boxShadow: "0 8px 24px rgba(196, 154, 107, 0.3)",
+                  filter: "drop-shadow(0 0 12px rgba(196, 154, 107, 0.2))",
                 }}
               >
-                <Camera className="w-8 h-8 text-accent-foreground" />
+                <img
+                  src="/images/service-icon-photography.svg"
+                  alt="Photography"
+                  className="w-8 h-8 text-accent-foreground"
+                  style={{ filter: 'invert(1)' }}
+                />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">
                 Photography
