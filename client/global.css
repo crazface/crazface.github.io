@@ -20,27 +20,27 @@
     --card: 25 48% 20%; /* Lighter brown for cards */
     --card-foreground: 37 36% 85%;
 
-    --popover: 0 25% 20%;
+    --popover: 25 48% 20%;
     --popover-foreground: 37 36% 85%;
 
     --primary: 37 36% 85%; /* Warm beige primary */
-    --primary-foreground: 0 30% 15%;
+    --primary-foreground: 25 48% 15%;
 
-    --secondary: 25 28% 28%; /* Warm brown secondary */
+    --secondary: 25 45% 25%; /* Warm brown secondary */
     --secondary-foreground: 37 36% 85%;
 
     /* Mature accent color - warm amber/gold */
     --accent: 35 65% 55%; /* Warm amber #c49a6b */
-    --accent-foreground: 0 30% 15%;
+    --accent-foreground: 25 48% 15%;
 
-    --muted: 25 20% 32%; /* Muted brown */
+    --muted: 25 40% 30%; /* Muted brown */
     --muted-foreground: 37 25% 70%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 25% 35%; /* Brown border */
-    --input: 0 25% 20%;
+    --border: 25 35% 35%; /* Brown border */
+    --input: 25 48% 20%;
     --ring: 37 36% 85%;
 
     --radius: 1.5rem;
