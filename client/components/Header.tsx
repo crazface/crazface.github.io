@@ -15,7 +15,16 @@ export function Header() {
           {/* Logo/Name */}
           <Link
             to="/"
-            className="text-3xl font-black text-foreground hover:text-foreground/80 transition-all duration-300 hover:scale-105"
+            className="text-3xl font-black text-foreground hover:text-accent transition-all duration-300 hover:scale-105"
+            style={{
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              (e.target as HTMLElement).style.filter = "drop-shadow(0 0 12px rgba(255, 107, 53, 0.4))";
+            }}
+            onMouseLeave={(e) => {
+              (e.target as HTMLElement).style.filter = "none";
+            }}
           >
             Charlie Stamp
           </Link>
