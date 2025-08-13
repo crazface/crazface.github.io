@@ -36,7 +36,7 @@ export function AppTile({ project }: AppTileProps) {
         }}
       >
         {/* Top highlight for 3D effect */}
-        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/40 via-white/20 to-transparent rounded-t-[2.5rem]" />
+        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/40 via-white/20 to-transparent rounded-t-[3.5rem]" />
 
         {/* Side highlights */}
         <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white/20 to-transparent" />
