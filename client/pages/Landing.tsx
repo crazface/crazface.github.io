@@ -44,7 +44,7 @@ export default function Landing() {
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 hover:shadow-glass transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+                className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-body font-semibold text-foreground hover:bg-foreground/10 hover:shadow-glass transition-all duration-300 hover:scale-105 hover:-translate-y-1"
                 style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.2)" }}
               >
                 Get in Touch
