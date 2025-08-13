@@ -82,7 +82,7 @@ export default function Landing() {
               }}
             >
               <div
-                className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-accent rounded-3xl flex items-center justify-center mx-auto mb-6"
                 style={{
                   boxShadow: "0 8px 24px rgba(255, 107, 53, 0.4)",
                   filter: "drop-shadow(0 0 12px rgba(255, 107, 53, 0.3))",
@@ -109,7 +109,7 @@ export default function Landing() {
               }}
             >
               <div
-                className="w-16 h-16 bg-accent/80 rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-accent/80 rounded-3xl flex items-center justify-center mx-auto mb-6"
                 style={{
                   boxShadow: "0 8px 24px rgba(255, 107, 53, 0.35)",
                   filter: "drop-shadow(0 0 12px rgba(255, 107, 53, 0.25))",
@@ -136,7 +136,7 @@ export default function Landing() {
               }}
             >
               <div
-                className="w-16 h-16 bg-accent/60 rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-accent/60 rounded-3xl flex items-center justify-center mx-auto mb-6"
                 style={{
                   boxShadow: "0 8px 24px rgba(255, 107, 53, 0.3)",
                   filter: "drop-shadow(0 0 12px rgba(255, 107, 53, 0.2))",
