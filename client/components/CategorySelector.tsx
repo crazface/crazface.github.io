@@ -38,12 +38,7 @@ export function CategorySelector({
       >
         <button
           onClick={handlePrevious}
-          disabled={!canGoPrevious}
-          className={`p-1 rounded-full transition-all duration-200 ${
-            canGoPrevious
-              ? "text-primary-foreground hover:bg-primary-foreground/10"
-              : "text-primary-foreground/30 cursor-not-allowed"
-          }`}
+          className="p-1 rounded-full transition-all duration-200 text-primary-foreground hover:bg-primary-foreground/10"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -54,12 +49,7 @@ export function CategorySelector({
 
         <button
           onClick={handleNext}
-          disabled={!canGoNext}
-          className={`p-1 rounded-full transition-all duration-200 ${
-            canGoNext
-              ? "text-primary-foreground hover:bg-primary-foreground/10"
-              : "text-primary-foreground/30 cursor-not-allowed"
-          }`}
+          className="p-1 rounded-full transition-all duration-200 text-primary-foreground hover:bg-primary-foreground/10"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
