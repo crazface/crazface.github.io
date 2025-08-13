@@ -9,7 +9,7 @@
    */
   :root {
     /* Base background and text colors */
-    --background: 251 37% 13%; /* #1a1723 */
+    --background: 251 37% 8%; /* Darker, more subtle purple */
     --foreground: 42 78% 83%; /* Warm beige foreground #f5e6d3 */
 
     /* Glass morphism system */
@@ -17,30 +17,30 @@
     --glass-stroke: rgba(245, 230, 211, 0.15);
 
     /* Card and UI components */
-    --card: 251 37% 17%; /* Lighter version of #1a1723 */
+    --card: 251 37% 12%; /* Darker version */
     --card-foreground: 42 78% 83%;
 
-    --popover: 251 37% 17%;
+    --popover: 251 37% 12%;
     --popover-foreground: 42 78% 83%;
 
     --primary: 42 78% 83%; /* Beige primary */
-    --primary-foreground: 251 37% 13%;
+    --primary-foreground: 251 37% 8%;
 
-    --secondary: 251 37% 22%; /* Lighter version of #1a1723 */
+    --secondary: 251 37% 16%; /* Darker version */
     --secondary-foreground: 42 78% 83%;
 
     /* Orange accent color for highlights */
     --accent: 24 95% 53%; /* Vibrant orange #ff6b35 */
     --accent-foreground: 0 0% 100%;
 
-    --muted: 251 37% 22%; /* Lighter version of #1a1723 */
+    --muted: 251 37% 16%; /* Darker version */
     --muted-foreground: 42 35% 65%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 251 37% 26%; /* Even lighter version of #1a1723 */
-    --input: 251 37% 17%;
+    --border: 251 37% 20%; /* Darker border */
+    --input: 251 37% 12%;
     --ring: 42 78% 83%;
 
     --radius: 1.5rem;
