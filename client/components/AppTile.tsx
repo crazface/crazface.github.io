@@ -68,16 +68,7 @@ export function AppTile({ project }: AppTileProps) {
             />
           ) : (
             <div className="text-center">
-              <div className="text-white font-black text-2xl mb-2 leading-tight drop-shadow-lg text-stroke">
-                {project.title.split(" ").map((word, i) => (
-                  <div key={i} className="leading-none">
-                    {word}
-                  </div>
-                ))}
-              </div>
-              <div className="text-white/90 text-sm font-black uppercase tracking-wider drop-shadow-md">
-                {project.type}
-              </div>
+              <div className="text-white font-black text-2xl mb-2 leading-tight drop-shadow-lg text-stroke" />
             </div>
           )}
         </div>
