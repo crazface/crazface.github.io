@@ -116,18 +116,21 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply text-foreground font-sans;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Dotted background pattern */
-    background-image: radial-gradient(
-      circle,
-      rgba(245, 230, 211, 0.15) 1px,
-      transparent 1px
-    );
-    background-size: 20px 20px;
+    /* Subtle dotted background pattern overlay */
+    background-image:
+      linear-gradient(135deg, hsl(251, 37%, 8%) 0%, hsl(251, 37%, 10%) 50%, hsl(251, 37%, 7%) 100%),
+      radial-gradient(
+        circle,
+        rgba(245, 230, 211, 0.04) 1px,
+        transparent 1px
+      );
+    background-size: 100% 100%, 24px 24px;
+    background-attachment: fixed, scroll;
   }
 
   /* Custom cursor for interactive elements */
