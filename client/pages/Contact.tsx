@@ -181,10 +181,9 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-lg px-8 py-4 text-lg font-black hover:bg-accent/90 transition-all duration-200 focus-visible"
+                className="w-full inline-flex items-center justify-center gap-2 glass border border-foreground/20 rounded-lg px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-200 focus-visible"
                 style={{
-                  boxShadow: "0 8px 24px rgba(196,154,107,0.25)",
-                  filter: "drop-shadow(0 0 8px rgba(196,154,107,0.3))",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
                 }}
               >
                 Send Message
