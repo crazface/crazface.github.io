@@ -144,10 +144,9 @@ export default function Landing() {
               }}
             >
               <div
-                className="w-16 h-16 bg-accent/60 rounded-3xl flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-muted rounded-3xl flex items-center justify-center mx-auto mb-6"
                 style={{
-                  boxShadow: "0 8px 24px rgba(196, 154, 107, 0.3)",
-                  filter: "drop-shadow(0 0 12px rgba(196, 154, 107, 0.2))",
+                  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
                 }}
               >
                 <img
