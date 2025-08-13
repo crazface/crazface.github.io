@@ -34,7 +34,7 @@ export default function Landing() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/work"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-full px-8 py-4 text-lg font-black hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-xl"
+                className="inline-flex items-center justify-center gap-2 glass border border-foreground/20 rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
                 style={{
                   boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
                 }}
