@@ -179,7 +179,7 @@ export default function Landing() {
                   "0 16px 48px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.1)",
               }}
             >
-              <h2 className="text-4xl font-black text-foreground mb-6">
+              <h2 className="text-4xl font-title font-bold text-foreground mb-6">
                 Ready to Create Something Amazing?
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-3xl leading-relaxed">
