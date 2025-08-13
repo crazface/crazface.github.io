@@ -18,7 +18,7 @@ export default function Landing() {
       <section className="grid-container py-20">
         <div className="max-w-6xl">
           <div className="animate-slide-up">
-            <h1 className="text-6xl md:text-7xl font-black leading-none tracking-tight text-foreground mb-6">
+            <h1 className="text-6xl md:text-7xl font-title font-bold leading-none tracking-tight text-foreground mb-6">
               Charlie Stamp
             </h1>
             <p className="text-2xl md:text-3xl font-bold text-muted-foreground mb-8 leading-relaxed max-w-4xl">
