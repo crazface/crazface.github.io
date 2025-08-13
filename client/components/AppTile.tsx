@@ -23,16 +23,15 @@ export function AppTile({ project }: AppTileProps) {
       <div
         className={`
           relative w-full ${aspectRatioClass} rounded-[4.5rem] overflow-hidden
-          transition-all duration-500 ease-out cursor-pointer
+          transition-all duration-500 ease-out cursor-pointer bg-gradient-to-br from-slate-800 to-slate-900
           ${
             isHovered ? "transform scale-110 -translate-y-4" : "hover:scale-105"
           }
         `}
         style={{
-          background: `linear-gradient(135deg, ${project.colors?.primary || "#6366f1"}, ${project.colors?.secondary || "#8b5cf6"})`,
           boxShadow: isHovered
-            ? `0 25px 50px -12px ${project.colors?.primary}40, 0 8px 16px -8px ${project.colors?.primary}60, inset 0 1px 0 rgba(255,255,255,0.3)`
-            : `0 20px 40px -12px ${project.colors?.primary}30, 0 8px 16px -8px ${project.colors?.primary}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
+            ? "0 25px 50px -12px rgba(0,0,0,0.4), 0 8px 16px -8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)"
+            : "0 20px 40px -12px rgba(0,0,0,0.3), 0 8px 16px -8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05)",
         }}
       >
         {/* Top highlight for 3D effect */}
