@@ -50,7 +50,7 @@ export function Header() {
                 text-lg font-bold transition-all duration-300 hover:scale-110 hover:-translate-y-1 relative
                 ${
                   isActive("/about")
-                    ? "text-primary"
+                    ? "text-accent"
                     : "text-muted-foreground hover:text-foreground"
                 }
               `}
@@ -58,8 +58,8 @@ export function Header() {
                 isActive("/about")
                   ? {
                       textShadow:
-                        "0 0 20px rgba(245, 230, 211, 0.8), 0 0 40px rgba(245, 230, 211, 0.4)",
-                      filter: "drop-shadow(0 0 8px rgba(245, 230, 211, 0.6))",
+                        "0 0 20px rgba(255, 107, 53, 0.8), 0 0 40px rgba(255, 107, 53, 0.4)",
+                      filter: "drop-shadow(0 0 8px rgba(255, 107, 53, 0.6))",
                     }
                   : {}
               }
