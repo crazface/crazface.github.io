@@ -57,13 +57,15 @@ export function AppTile({ project }: AppTileProps) {
           }}
         />
 
-        {/* App Icon Content */}
-        <div className="absolute inset-0 flex items-center justify-center p-8 z-10" />
-        {project.appIcon && (
+        {/* SVG Image Content - Primary Visual */}
+        {(project.appIcon || project.image) && (
           <img
-            src={project.appIcon}
+            src={project.appIcon || project.image}
             alt={project.title}
-            className="absolute inset-0 w-full h-full object-contain drop-shadow-lg z-10"
+            className="absolute inset-0 w-full h-full object-contain drop-shadow-xl z-10"
+            style={{
+              filter: "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))"
+            }}
           />
         )}
 
