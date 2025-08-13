@@ -16,22 +16,22 @@ export default function Landing() {
 
       {/* Intro Section */}
       <section className="grid-container py-20">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl">
           <div className="animate-slide-up">
             <h1 className="text-6xl md:text-7xl font-black leading-none tracking-tight text-foreground mb-6">
               Charlie Stamp
             </h1>
-            <p className="text-2xl md:text-3xl font-bold text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-2xl md:text-3xl font-bold text-muted-foreground mb-8 leading-relaxed max-w-4xl">
               Creative Director & Visual Storyteller
             </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-3xl mb-12 leading-relaxed">
               Crafting compelling visual narratives through brand identity,
               video editing, and photography. Let's bring your creative vision
               to life.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/work"
                 className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-full px-8 py-4 text-lg font-black hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-xl"
