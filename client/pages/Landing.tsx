@@ -180,7 +180,8 @@ export default function Landing() {
                   to="/work"
                   className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-full px-8 py-4 text-lg font-black hover:bg-accent/90 transition-all duration-300 hover:scale-105"
                   style={{
-                    boxShadow: "0 8px 24px rgba(255,107,53,0.3), 0 4px 12px rgba(255,107,53,0.2)",
+                    boxShadow:
+                      "0 8px 24px rgba(255,107,53,0.3), 0 4px 12px rgba(255,107,53,0.2)",
                     filter: "drop-shadow(0 0 12px rgba(255,107,53,0.4))",
                   }}
                 >

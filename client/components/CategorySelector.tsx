@@ -14,12 +14,14 @@ export function CategorySelector({
   const currentIndex = categories.indexOf(activeCategory);
 
   const handlePrevious = () => {
-    const previousIndex = currentIndex === 0 ? categories.length - 1 : currentIndex - 1;
+    const previousIndex =
+      currentIndex === 0 ? categories.length - 1 : currentIndex - 1;
     onCategoryChange(categories[previousIndex]);
   };
 
   const handleNext = () => {
-    const nextIndex = currentIndex === categories.length - 1 ? 0 : currentIndex + 1;
+    const nextIndex =
+      currentIndex === categories.length - 1 ? 0 : currentIndex + 1;
     onCategoryChange(categories[nextIndex]);
   };
 
