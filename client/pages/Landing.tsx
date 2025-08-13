@@ -62,7 +62,7 @@ export default function Landing() {
             className="mb-16 animate-slide-up"
             style={{ animationDelay: "0.2s" }}
           >
-            <h2 className="text-4xl font-black text-foreground mb-4">
+            <h2 className="text-4xl font-title font-bold text-foreground mb-4">
               What I Do
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl">
