@@ -158,7 +158,7 @@ export default function Landing() {
 
       {/* Featured Work Teaser */}
       <section className="grid-container pb-20">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl">
           <div className="animate-slide-up" style={{ animationDelay: "0.6s" }}>
             <div
               className="glass rounded-lg p-12"
@@ -170,12 +170,12 @@ export default function Landing() {
               <h2 className="text-4xl font-black text-foreground mb-6">
                 Ready to Create Something Amazing?
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-8 max-w-3xl leading-relaxed">
                 Whether you need a complete brand identity, compelling video
                 content, or stunning photography, I'm here to bring your vision
                 to life with creativity and precision.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/work"
                   className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-full px-8 py-4 text-lg font-black hover:bg-accent/90 transition-all duration-300 hover:scale-105"
