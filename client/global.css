@@ -181,8 +181,8 @@
 
   /* Custom font classes */
   .font-title {
-    font-family: "Fredoka", "Inter", sans-serif;
-    font-weight: 600;
+    font-family: "Rakkas", cursive;
+    font-weight: 400;
   }
 
   .font-body {
@@ -190,8 +190,8 @@
   }
 
   .font-stamp {
-    font-family: "Zilla Slab", serif;
-    font-weight: 700;
+    font-family: "Rakkas", cursive;
+    font-weight: 400;
   }
 
   html {
