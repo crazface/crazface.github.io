@@ -59,19 +59,14 @@ export function AppTile({ project }: AppTileProps) {
         />
 
         {/* App Icon Content */}
-        <div className="absolute inset-0 flex items-center justify-center p-8 z-10">
-          {project.appIcon ? (
-            <img
-              src={project.appIcon}
-              alt={project.title}
-              className="w-full h-full object-contain drop-shadow-lg"
-            />
-          ) : (
-            <div className="text-center">
-              <div className="text-white font-black text-2xl mb-2 leading-tight drop-shadow-lg text-stroke" />
-            </div>
-          )}
-        </div>
+        <div className="absolute inset-0 flex items-center justify-center p-8 z-10" />
+        {project.appIcon && (
+          <img
+            src={project.appIcon}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-contain drop-shadow-lg z-10"
+          />
+        )}
 
         {/* Hover Overlay with Bounce Effect */}
         <div
