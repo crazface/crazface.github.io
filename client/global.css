@@ -189,6 +189,11 @@
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
+  .font-stamp {
+    font-family: "Zilla Slab", serif;
+    font-weight: 700;
+  }
+
   html {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     scroll-behavior: smooth;
