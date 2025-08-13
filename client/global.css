@@ -9,39 +9,39 @@
    */
   :root {
     /* Base background and text colors */
-    --background: 40 15% 20%; /* Warm beige background #372e29 */
-    --foreground: 40 20% 92%; /* Clean light beige foreground #f2efec */
+    --background: 42 25% 88%; /* Light sand beige background #f0ebe4 */
+    --foreground: 40 15% 15%; /* Dark beige text for contrast #2d2722 */
 
     /* Glass morphism system */
-    --glass-tint: rgba(242, 239, 236, 0.1);
-    --glass-stroke: rgba(242, 239, 236, 0.15);
+    --glass-tint: rgba(255, 255, 255, 0.3);
+    --glass-stroke: rgba(45, 39, 34, 0.1);
 
     /* Card and UI components */
-    --card: 40 15% 28%; /* Lighter beige for cards */
-    --card-foreground: 40 20% 92%;
+    --card: 42 20% 92%; /* Light beige for cards */
+    --card-foreground: 40 15% 15%;
 
-    --popover: 40 15% 28%;
-    --popover-foreground: 40 20% 92%;
+    --popover: 42 20% 92%;
+    --popover-foreground: 40 15% 15%;
 
-    --primary: 40 20% 92%; /* Clean light primary */
-    --primary-foreground: 40 15% 20%;
+    --primary: 40 15% 15%; /* Dark beige primary */
+    --primary-foreground: 42 25% 88%;
 
-    --secondary: 40 12% 32%; /* Muted beige secondary */
-    --secondary-foreground: 40 20% 92%;
+    --secondary: 42 15% 82%; /* Light muted beige secondary */
+    --secondary-foreground: 40 15% 15%;
 
     /* Neutral accent that works with vibrant colors */
-    --accent: 40 12% 65%; /* Neutral beige #b5a89c */
-    --accent-foreground: 40 15% 20%;
+    --accent: 40 15% 70%; /* Neutral light beige #c2b5a8 */
+    --accent-foreground: 40 15% 15%;
 
-    --muted: 40 10% 38%; /* Muted beige */
-    --muted-foreground: 40 15% 75%;
+    --muted: 42 10% 78%; /* Light muted beige */
+    --muted-foreground: 40 15% 35%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 12% 40%; /* Beige border */
-    --input: 40 15% 28%;
-    --ring: 40 20% 92%;
+    --border: 40 15% 75%; /* Light beige border */
+    --input: 42 20% 92%;
+    --ring: 40 15% 15%;
 
     --radius: 1.5rem;
   }
@@ -90,7 +90,7 @@
       "Segoe UI",
       "Roboto",
       sans-serif;
-    background: linear-gradient(135deg, hsl(40, 15%, 16%) 0%, hsl(40, 18%, 18%) 50%, hsl(40, 12%, 14%) 100%);
+    background: linear-gradient(135deg, hsl(42, 25%, 88%) 0%, hsl(42, 30%, 90%) 50%, hsl(42, 20%, 86%) 100%);
     background-attachment: fixed;
     position: relative;
   }
@@ -113,15 +113,15 @@
         0deg,
         transparent,
         transparent 1px,
-        rgba(242, 239, 236, 0.02) 1px,
-        rgba(242, 239, 236, 0.02) 2px
+        rgba(45, 39, 34, 0.02) 1px,
+        rgba(45, 39, 34, 0.02) 2px
       ),
       repeating-linear-gradient(
         90deg,
         transparent,
         transparent 1px,
-        rgba(242, 239, 236, 0.015) 1px,
-        rgba(242, 239, 236, 0.015) 2px
+        rgba(45, 39, 34, 0.015) 1px,
+        rgba(45, 39, 34, 0.015) 2px
       );
     background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 3px 3px, 3px 3px;
     pointer-events: none;
@@ -145,9 +145,9 @@
       repeating-radial-gradient(
         circle at 50% 50%,
         transparent 0px,
-        rgba(242, 239, 236, 0.01) 1px,
+        rgba(45, 39, 34, 0.01) 1px,
         transparent 2px,
-        rgba(242, 239, 236, 0.015) 3px,
+        rgba(45, 39, 34, 0.015) 3px,
         transparent 4px
       );
     background-size: 100% 100%, 100% 100%, 100% 100%, 4px 4px;
@@ -202,10 +202,10 @@
     -moz-osx-font-smoothing: grayscale;
     /* Subtle dotted background pattern overlay */
     background-image:
-      linear-gradient(135deg, hsl(40, 15%, 20%) 0%, hsl(40, 18%, 22%) 50%, hsl(40, 12%, 18%) 100%),
+      linear-gradient(135deg, hsl(42, 25%, 88%) 0%, hsl(42, 30%, 90%) 50%, hsl(42, 20%, 86%) 100%),
       radial-gradient(
         circle,
-        rgba(242, 239, 236, 0.08) 1px,
+        rgba(45, 39, 34, 0.06) 1px,
         transparent 1px
       );
     background-size: 100% 100%, 24px 24px;
@@ -311,7 +311,7 @@
     left: -3px;
     right: -3px;
     bottom: -3px;
-    background: radial-gradient(ellipse at center, rgba(242, 239, 236, 0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
     border-radius: inherit;
     z-index: -1;
     filter: blur(12px);
