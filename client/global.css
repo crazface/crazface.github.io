@@ -9,39 +9,39 @@
    */
   :root {
     /* Base background and text colors */
-    --background: 25 48% 15%; /* Rich brown background #371d16 */
-    --foreground: 37 36% 85%; /* Warm beige foreground #e8dcc7 */
+    --background: 215 25% 16%; /* Cool greyish-blue background #232a36 */
+    --foreground: 210 40% 92%; /* Clean light grey-blue foreground #ebeef2 */
 
     /* Glass morphism system */
-    --glass-tint: rgba(232, 220, 199, 0.1);
-    --glass-stroke: rgba(232, 220, 199, 0.15);
+    --glass-tint: rgba(235, 238, 242, 0.1);
+    --glass-stroke: rgba(235, 238, 242, 0.15);
 
     /* Card and UI components */
-    --card: 25 48% 20%; /* Lighter brown for cards */
-    --card-foreground: 37 36% 85%;
+    --card: 215 25% 22%; /* Lighter greyish-blue for cards */
+    --card-foreground: 210 40% 92%;
 
-    --popover: 25 48% 20%;
-    --popover-foreground: 37 36% 85%;
+    --popover: 215 25% 22%;
+    --popover-foreground: 210 40% 92%;
 
-    --primary: 37 36% 85%; /* Warm beige primary */
-    --primary-foreground: 25 48% 15%;
+    --primary: 210 40% 92%; /* Clean light primary */
+    --primary-foreground: 215 25% 16%;
 
-    --secondary: 25 45% 25%; /* Warm brown secondary */
-    --secondary-foreground: 37 36% 85%;
+    --secondary: 215 20% 28%; /* Muted greyish-blue secondary */
+    --secondary-foreground: 210 40% 92%;
 
-    /* Mature accent color - warm amber/gold */
-    --accent: 35 65% 55%; /* Warm amber #c49a6b */
-    --accent-foreground: 25 48% 15%;
+    /* Neutral accent that works with vibrant colors */
+    --accent: 210 15% 65%; /* Neutral grey-blue #9ca5b5 */
+    --accent-foreground: 215 25% 16%;
 
-    --muted: 25 40% 30%; /* Muted brown */
-    --muted-foreground: 37 25% 70%;
+    --muted: 215 15% 32%; /* Muted grey-blue */
+    --muted-foreground: 210 25% 75%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 25 35% 35%; /* Brown border */
-    --input: 25 48% 20%;
-    --ring: 37 36% 85%;
+    --border: 215 20% 35%; /* Grey-blue border */
+    --input: 215 25% 22%;
+    --ring: 210 40% 92%;
 
     --radius: 1.5rem;
   }
