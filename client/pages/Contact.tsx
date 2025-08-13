@@ -183,8 +183,8 @@ export default function Contact() {
                 type="submit"
                 className="w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground rounded-lg px-8 py-4 text-lg font-black hover:bg-accent/90 transition-all duration-200 focus-visible"
                 style={{
-                  boxShadow: "0 8px 24px rgba(255,107,53,0.25)",
-                  filter: "drop-shadow(0 0 8px rgba(255,107,53,0.3))",
+                  boxShadow: "0 8px 24px rgba(196,154,107,0.25)",
+                  filter: "drop-shadow(0 0 8px rgba(196,154,107,0.3))",
                 }}
               >
                 Send Message
