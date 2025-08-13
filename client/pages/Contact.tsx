@@ -50,7 +50,7 @@ export default function Contact() {
               className="glass rounded-lg p-8 text-center animate-slide-up"
               style={{ animationDelay: "0.1s" }}
             >
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary rounded-3xl flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-8 h-8 text-primary-foreground" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-2">
@@ -75,7 +75,7 @@ export default function Contact() {
               <div className="flex justify-center gap-4">
                 <a
                   href="#"
-                  className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground hover:bg-primary/80 transition-colors"
+                  className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground hover:bg-primary/80 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <svg
@@ -88,7 +88,7 @@ export default function Contact() {
                 </a>
                 <a
                   href="#"
-                  className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground hover:bg-primary/80 transition-colors"
+                  className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground hover:bg-primary/80 transition-colors"
                   aria-label="Portfolio"
                 >
                   <svg
@@ -107,7 +107,7 @@ export default function Contact() {
                 </a>
                 <a
                   href="#"
-                  className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground hover:bg-primary/80 transition-colors"
+                  className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground hover:bg-primary/80 transition-colors"
                   aria-label="Instagram"
                 >
                   <svg
