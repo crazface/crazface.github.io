@@ -9,39 +9,39 @@
    */
   :root {
     /* Base background and text colors */
-    --background: 215 25% 16%; /* Cool greyish-blue background #232a36 */
-    --foreground: 210 40% 92%; /* Clean light grey-blue foreground #ebeef2 */
+    --background: 40 15% 20%; /* Warm beige background #372e29 */
+    --foreground: 40 20% 92%; /* Clean light beige foreground #f2efec */
 
     /* Glass morphism system */
-    --glass-tint: rgba(235, 238, 242, 0.1);
-    --glass-stroke: rgba(235, 238, 242, 0.15);
+    --glass-tint: rgba(242, 239, 236, 0.1);
+    --glass-stroke: rgba(242, 239, 236, 0.15);
 
     /* Card and UI components */
-    --card: 215 25% 22%; /* Lighter greyish-blue for cards */
-    --card-foreground: 210 40% 92%;
+    --card: 40 15% 28%; /* Lighter beige for cards */
+    --card-foreground: 40 20% 92%;
 
-    --popover: 215 25% 22%;
-    --popover-foreground: 210 40% 92%;
+    --popover: 40 15% 28%;
+    --popover-foreground: 40 20% 92%;
 
-    --primary: 210 40% 92%; /* Clean light primary */
-    --primary-foreground: 215 25% 16%;
+    --primary: 40 20% 92%; /* Clean light primary */
+    --primary-foreground: 40 15% 20%;
 
-    --secondary: 215 20% 28%; /* Muted greyish-blue secondary */
-    --secondary-foreground: 210 40% 92%;
+    --secondary: 40 12% 32%; /* Muted beige secondary */
+    --secondary-foreground: 40 20% 92%;
 
     /* Neutral accent that works with vibrant colors */
-    --accent: 210 15% 65%; /* Neutral grey-blue #9ca5b5 */
-    --accent-foreground: 215 25% 16%;
+    --accent: 40 12% 65%; /* Neutral beige #b5a89c */
+    --accent-foreground: 40 15% 20%;
 
-    --muted: 215 15% 32%; /* Muted grey-blue */
-    --muted-foreground: 210 25% 75%;
+    --muted: 40 10% 38%; /* Muted beige */
+    --muted-foreground: 40 15% 75%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 20% 35%; /* Grey-blue border */
-    --input: 215 25% 22%;
-    --ring: 210 40% 92%;
+    --border: 40 12% 40%; /* Beige border */
+    --input: 40 15% 28%;
+    --ring: 40 20% 92%;
 
     --radius: 1.5rem;
   }
@@ -90,7 +90,7 @@
       "Segoe UI",
       "Roboto",
       sans-serif;
-    background: linear-gradient(135deg, hsl(251, 37%, 8%) 0%, hsl(251, 37%, 10%) 50%, hsl(251, 37%, 7%) 100%);
+    background: linear-gradient(135deg, hsl(40, 15%, 16%) 0%, hsl(40, 18%, 18%) 50%, hsl(40, 12%, 14%) 100%);
     background-attachment: fixed;
     position: relative;
   }
@@ -113,15 +113,15 @@
         0deg,
         transparent,
         transparent 1px,
-        rgba(235, 238, 242, 0.02) 1px,
-        rgba(235, 238, 242, 0.02) 2px
+        rgba(242, 239, 236, 0.02) 1px,
+        rgba(242, 239, 236, 0.02) 2px
       ),
       repeating-linear-gradient(
         90deg,
         transparent,
         transparent 1px,
-        rgba(235, 238, 242, 0.015) 1px,
-        rgba(235, 238, 242, 0.015) 2px
+        rgba(242, 239, 236, 0.015) 1px,
+        rgba(242, 239, 236, 0.015) 2px
       );
     background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 3px 3px, 3px 3px;
     pointer-events: none;
@@ -145,9 +145,9 @@
       repeating-radial-gradient(
         circle at 50% 50%,
         transparent 0px,
-        rgba(235, 238, 242, 0.01) 1px,
+        rgba(242, 239, 236, 0.01) 1px,
         transparent 2px,
-        rgba(235, 238, 242, 0.015) 3px,
+        rgba(242, 239, 236, 0.015) 3px,
         transparent 4px
       );
     background-size: 100% 100%, 100% 100%, 100% 100%, 4px 4px;
@@ -202,10 +202,10 @@
     -moz-osx-font-smoothing: grayscale;
     /* Subtle dotted background pattern overlay */
     background-image:
-      linear-gradient(135deg, hsl(215, 25%, 16%) 0%, hsl(215, 20%, 19%) 50%, hsl(215, 30%, 13%) 100%),
+      linear-gradient(135deg, hsl(40, 15%, 20%) 0%, hsl(40, 18%, 22%) 50%, hsl(40, 12%, 18%) 100%),
       radial-gradient(
         circle,
-        rgba(235, 238, 242, 0.08) 1px,
+        rgba(242, 239, 236, 0.08) 1px,
         transparent 1px
       );
     background-size: 100% 100%, 24px 24px;
@@ -311,7 +311,7 @@
     left: -3px;
     right: -3px;
     bottom: -3px;
-    background: radial-gradient(ellipse at center, rgba(235, 238, 242, 0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(242, 239, 236, 0.12) 0%, transparent 70%);
     border-radius: inherit;
     z-index: -1;
     filter: blur(12px);
