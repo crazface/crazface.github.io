@@ -125,7 +125,7 @@ export default function Landing() {
                   style={{ filter: 'invert(1)' }}
                 />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">
+              <h3 className="text-2xl font-title font-bold text-foreground mb-4">
                 Video Editing
               </h3>
               <p className="text-muted-foreground leading-relaxed">
