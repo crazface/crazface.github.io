@@ -269,6 +269,21 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-stroke);
+    position: relative;
+  }
+
+  .glass::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: radial-gradient(ellipse at center, rgba(232, 220, 199, 0.08) 0%, transparent 70%);
+    border-radius: inherit;
+    z-index: -1;
+    filter: blur(12px);
+    opacity: 0.5;
   }
 
   /* Project tile glass effect */
