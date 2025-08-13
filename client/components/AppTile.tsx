@@ -22,7 +22,7 @@ export function AppTile({ project }: AppTileProps) {
     >
       <div
         className={`
-          relative w-full ${aspectRatioClass} rounded-[2.5rem] overflow-hidden
+          relative w-full ${aspectRatioClass} rounded-[3.5rem] overflow-hidden
           transition-all duration-500 ease-out cursor-pointer
           ${
             isHovered ? "transform scale-110 -translate-y-4" : "hover:scale-105"
