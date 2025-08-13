@@ -57,15 +57,15 @@ export default function Landing() {
 
       {/* Services Section */}
       <section className="grid-container pb-20">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl">
           <div
-            className="text-center mb-16 animate-slide-up"
+            className="mb-16 animate-slide-up"
             style={{ animationDelay: "0.2s" }}
           >
             <h2 className="text-4xl font-black text-foreground mb-4">
               What I Do
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl">
               Specializing in three key areas of creative design and visual
               storytelling
             </p>
