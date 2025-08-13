@@ -179,6 +179,16 @@
     filter: blur(2px);
   }
 
+  /* Custom font classes */
+  .font-title {
+    font-family: "Fredoka", "Inter", sans-serif;
+    font-weight: 600;
+  }
+
+  .font-body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
   html {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     scroll-behavior: smooth;
