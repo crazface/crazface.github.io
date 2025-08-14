@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Header } from "@/components/Header";
 import { CategorySelector } from "@/components/CategorySelector";
 import { AppTile } from "@/components/AppTile";
@@ -12,16 +12,21 @@ import {
 export default function Work() {
   const [activeCategory, setActiveCategory] =
     useState<Project["type"]>("Graphic Design");
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
+
+  // Memoize filtered projects to prevent unnecessary re-renders
+  const filteredProjects = useMemo(() => {
+    return getProjectsByType(activeCategory);
+  }, [activeCategory]);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
+  // Only trigger animation key change when category actually changes
   useEffect(() => {
-    const filtered = getProjectsByType(activeCategory);
-    setFilteredProjects(filtered);
+    setAnimationKey(prev => prev + 1);
   }, [activeCategory]);
 
   return (
@@ -64,10 +69,10 @@ export default function Work() {
           >
             {filteredProjects.map((project, index) => (
               <div
-                key={project.id}
-                className="animate-scale-in bubble-float"
+                key={`${project.id}-${animationKey}`}
+                className="animate-scale-in"
                 style={{
-                  animationDelay: `${0.3 + index * 0.1}s, ${index * 0.5}s`,
+                  animationDelay: `${0.3 + index * 0.1}s`,
                   animationFillMode: "both",
                 }}
               >
