@@ -31,7 +31,9 @@ export function HeroBanner() {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + slideshowImages.length) % slideshowImages.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + slideshowImages.length) % slideshowImages.length,
+    );
   };
 
   const currentImage = slideshowImages[currentIndex];
@@ -56,7 +58,8 @@ export function HeroBanner() {
               to={`/project/${currentProject.id}`}
               className="inline-flex items-center justify-center gap-2 bg-white/40 backdrop-blur-md text-white rounded-full px-12 py-5 text-xl font-black hover:bg-white/60 hover:text-black transition-all duration-300 hover:scale-110 border-2 border-white/50 shadow-2xl"
               style={{
-                boxShadow: "0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.2)"
+                boxShadow:
+                  "0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.2)",
               }}
             >
               View Project
@@ -107,7 +110,7 @@ export function HeroBanner() {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
-          opacity: 0.9
+          opacity: 0.9,
         }}
       />
 
