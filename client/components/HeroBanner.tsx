@@ -54,7 +54,10 @@ export function HeroBanner() {
             <div className="text-white/80 text-sm font-bold uppercase tracking-wider mb-2" />
             <Link
               to={`/project/${currentProject.id}`}
-              className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm text-white rounded-full px-8 py-4 text-lg font-black hover:bg-white/30 transition-all duration-300 hover:scale-105 border border-white/30"
+              className="inline-flex items-center justify-center gap-2 bg-white/40 backdrop-blur-md text-white rounded-full px-12 py-5 text-xl font-black hover:bg-white/60 hover:text-black transition-all duration-300 hover:scale-110 border-2 border-white/50 shadow-2xl"
+              style={{
+                boxShadow: "0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.2)"
+              }}
             >
               View Project
             </Link>
