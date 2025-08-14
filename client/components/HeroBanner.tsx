@@ -36,7 +36,7 @@ export function HeroBanner() {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center text-center px-6 -mt-px pb-[199px]">
+      <div className="relative z-10 h-full flex items-center justify-center text-center px-6 -mt-[3px] pb-[199px]">
         <div className="max-w-4xl mx-auto">
           <div key={currentProject.id} className="animate-fade-in">
             <div className="text-white/80 text-sm font-bold uppercase tracking-wider mb-2" />
@@ -86,9 +86,9 @@ export function HeroBanner() {
       {/* Background Image - shows current project image */}
       <div
         key={`bg-${currentProject.id}`}
-        className="absolute -top-[34px] -left-[5px] right-0 bottom-0 w-[2005px] pointer-events-none transition-all duration-1000 ease-out"
+        className="absolute top-px left-0 right-0 bottom-0 w-[2005px] pointer-events-none transition-all duration-1000 ease-out"
         style={{
-          backgroundImage: currentProject.image ? `url(${currentProject.image})` : "url(https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F899cbfa26eb74d69a887518b0d22cf50)",
+          backgroundImage: "url(https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa33c12abedad4fa397d36070c4794f89)",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
