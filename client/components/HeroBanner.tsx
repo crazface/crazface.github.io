@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { projects } from "@/lib/projects";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Slideshow images - replace these URLs with your uploaded images
+// Slideshow images - cycling through your uploaded images
 const slideshowImages = [
-  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F899cbfa26eb74d69a887518b0d22cf50", // Replace with your first image
-  "UPLOAD_YOUR_SECOND_IMAGE_HERE", // Replace with your second image URL
-  "UPLOAD_YOUR_THIRD_IMAGE_HERE", // Replace with your third image URL
-  "UPLOAD_YOUR_FOURTH_IMAGE_HERE", // Replace with your fourth image URL
-  "UPLOAD_YOUR_FIFTH_IMAGE_HERE", // Replace with your fifth image URL
+  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0c46a5189a454baeab8168bdbbbda7cd",
+  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5b48b2e2a302445086152ef3f955c4b7",
+  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fbcaaa978b06e46eaad1dbdeeed5dee4e",
+  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F899cbfa26eb74d69a887518b0d22cf50",
+  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa33c12abedad4fa397d36070c4794f89",
+  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F19cf46053bd24a5893dc8071a2ba72d0",
+  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fae5bb5f46447457f98e19d44628af8de",
 ];
 
 export function HeroBanner() {
