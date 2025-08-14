@@ -86,9 +86,11 @@ export function HeroBanner() {
         ))}
       </div>
 
+      {/* Bottom gradient fade to beige */}
+      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#f0ebe4] via-[#f0ebe4]/80 to-transparent pointer-events-none z-30" />
+
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
     </div>
   );
 }
