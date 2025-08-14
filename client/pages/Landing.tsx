@@ -15,11 +15,11 @@ export default function Landing() {
       </div>
 
       {/* Intro Section */}
-      <section className="grid-container py-20 -mt-[360px] relative z-40">
+      <section className="grid-container py-20 -mt-[350px] relative z-40">
         <div className="max-w-6xl">
           <div className="animate-slide-up">
             <h1 className="text-7xl md:text-8xl font-title font-bold leading-none tracking-tight text-foreground mb-6">
-              CHARLIE STAMP
+              <span style={{ fontFamily: 'Moret, sans-serif' }}>CHARLIE STAMP</span>
             </h1>
             <p className="text-2xl md:text-3xl font-bold text-muted-foreground mb-8 leading-relaxed max-w-4xl">
               Creative Director & Visual Storyteller
