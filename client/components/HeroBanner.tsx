@@ -26,7 +26,7 @@ export function HeroBanner() {
   const currentProject = projects[currentIndex];
 
   return (
-    <div className="relative w-full h-[450px] md:h-[600px] lg:h-[650px] overflow-hidden">
+    <div className="relative w-full h-[550px] md:h-[700px] lg:h-[800px] overflow-hidden">
       {/* Background with project colors */}
       <div
         className="absolute inset-0 transition-all duration-1000 ease-out"
@@ -87,7 +87,7 @@ export function HeroBanner() {
       </div>
 
       {/* Bottom gradient fade to beige */}
-      <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-background via-background/80 via-background/40 to-transparent pointer-events-none z-30" />
+      <div className="absolute bottom-0 left-0 w-full h-96 bg-gradient-to-t from-background via-background/90 via-background/60 via-background/30 to-transparent pointer-events-none z-30" />
 
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
