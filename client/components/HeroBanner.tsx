@@ -3,27 +3,37 @@ import { Link } from "react-router-dom";
 import { projects } from "@/lib/projects";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+// Slideshow images - replace these URLs with your uploaded images
+const slideshowImages = [
+  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F899cbfa26eb74d69a887518b0d22cf50", // Replace with your first image
+  "UPLOAD_YOUR_SECOND_IMAGE_HERE", // Replace with your second image URL
+  "UPLOAD_YOUR_THIRD_IMAGE_HERE", // Replace with your third image URL
+  "UPLOAD_YOUR_FOURTH_IMAGE_HERE", // Replace with your fourth image URL
+  "UPLOAD_YOUR_FIFTH_IMAGE_HERE", // Replace with your fifth image URL
+];
+
 export function HeroBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-advance the banner every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % projects.length);
+      setCurrentIndex((prev) => (prev + 1) % slideshowImages.length);
     }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
+    setCurrentIndex((prev) => (prev + 1) % slideshowImages.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    setCurrentIndex((prev) => (prev - 1 + slideshowImages.length) % slideshowImages.length);
   };
 
-  const currentProject = projects[currentIndex];
+  const currentImage = slideshowImages[currentIndex];
+  const currentProject = projects[0]; // Use first project for button link
 
   return (
     <div className="relative w-full h-[650px] md:h-[850px] lg:h-[950px] overflow-hidden">
@@ -31,7 +41,7 @@ export function HeroBanner() {
       <div
         className="absolute inset-0 transition-all duration-1000 ease-out"
         style={{
-          background: `linear-gradient(135deg, ${currentProject.colors?.primary || "#6366f1"}20 0%, ${currentProject.colors?.secondary || "#8b5cf6"}20 100%)`,
+          background: `linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 100%)`,
         }}
       />
 
@@ -67,7 +77,7 @@ export function HeroBanner() {
 
       {/* Progress indicators */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {projects.map((_, index) => (
+        {slideshowImages.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
@@ -83,16 +93,16 @@ export function HeroBanner() {
         ))}
       </div>
 
-      {/* Dynamic Background Image - changes with each project */}
+      {/* Dynamic Background Image - cycles through slideshow images */}
       <div
-        key={`bg-${currentProject.id}`}
+        key={`slide-${currentIndex}`}
         className="absolute top-px left-0 right-0 bottom-0 w-[2005px] pointer-events-none transition-all duration-1000 ease-out"
         style={{
-          backgroundImage: "url(https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F899cbfa26eb74d69a887518b0d22cf50)",
+          backgroundImage: `url(${currentImage})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
-          opacity: 0.8
+          opacity: 0.9
         }}
       />
 
