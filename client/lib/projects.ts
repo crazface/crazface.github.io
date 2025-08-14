@@ -176,6 +176,38 @@ export const projects: Project[] = [
       accent: "#6b7280",
     },
   },
+  {
+    id: "tech-startup-logo",
+    title: "TechFlow",
+    type: "Graphic Design",
+    year: "2025",
+    image: "/images/hero-banner-project-1.svg",
+    appIcon: "/images/placeholder.svg",
+    description: "Modern logo design for innovative tech startup",
+    role: "Logo Designer",
+    tools: ["Adobe Illustrator", "Figma"],
+    colors: {
+      primary: "#3b82f6",
+      secondary: "#1d4ed8",
+      accent: "#60a5fa",
+    },
+  },
+  {
+    id: "restaurant-branding",
+    title: "Bella Vista",
+    type: "Graphic Design",
+    year: "2025",
+    image: "/images/hero-banner-project-2.svg",
+    appIcon: "/images/placeholder.svg",
+    description: "Complete branding package for upscale restaurant",
+    role: "Brand Designer",
+    tools: ["Adobe Creative Suite", "InDesign"],
+    colors: {
+      primary: "#dc2626",
+      secondary: "#991b1b",
+      accent: "#f87171",
+    },
+  },
 ];
 
 export const categories = ["Graphic Design", "Video Editing", "Photography"];
