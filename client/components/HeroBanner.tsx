@@ -35,11 +35,8 @@ export function HeroBanner() {
         }}
       />
 
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-black/40" />
-
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
+      <div className="relative z-10 h-full flex items-center justify-center text-center px-6 -mt-px pb-[199px]">
         <div className="max-w-4xl mx-auto">
           <div key={currentProject.id} className="animate-fade-in">
             <div className="text-white/80 text-sm font-bold uppercase tracking-wider mb-2" />
@@ -85,6 +82,17 @@ export function HeroBanner() {
           />
         ))}
       </div>
+
+      {/* Background Image */}
+      <div
+        className="absolute -top-[34px] -left-[5px] right-0 bottom-0 w-[2005px] pointer-events-none"
+        style={{
+          backgroundImage: "url(https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F899cbfa26eb74d69a887518b0d22cf50)",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover"
+        }}
+      />
 
       {/* Bottom gradient fade to beige */}
       <div className="absolute bottom-0 left-0 w-full h-[418px] bg-gradient-to-t from-background via-background/95 via-background/80 via-background/50 via-background/20 to-transparent pointer-events-none z-30" />
