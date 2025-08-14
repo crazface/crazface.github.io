@@ -50,17 +50,17 @@ export function HeroBanner() {
         </div>
       </div>
 
-      {/* Navigation arrows */}
+      {/* Navigation arrows - positioned to align with View Project button */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 hover:scale-110"
+        className="absolute left-4 top-[40%] -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 hover:scale-110"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 hover:scale-110"
+        className="absolute right-4 top-[40%] -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 hover:scale-110"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -83,14 +83,16 @@ export function HeroBanner() {
         ))}
       </div>
 
-      {/* Background Image */}
+      {/* Background Image - shows current project image */}
       <div
-        className="absolute -top-[34px] -left-[5px] right-0 bottom-0 w-[2005px] pointer-events-none"
+        key={`bg-${currentProject.id}`}
+        className="absolute -top-[34px] -left-[5px] right-0 bottom-0 w-[2005px] pointer-events-none transition-all duration-1000 ease-out"
         style={{
-          backgroundImage: "url(https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F899cbfa26eb74d69a887518b0d22cf50)",
+          backgroundImage: currentProject.image ? `url(${currentProject.image})` : "url(https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F899cbfa26eb74d69a887518b0d22cf50)",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          backgroundSize: "cover"
+          backgroundSize: "cover",
+          opacity: 0.7
         }}
       />
 
