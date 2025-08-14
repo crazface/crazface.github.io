@@ -27,11 +27,11 @@ export function HeroBanner() {
 
   return (
     <div className="relative w-full h-[650px] md:h-[850px] lg:h-[950px] overflow-hidden">
-      {/* Background with project colors */}
+      {/* Subtle background gradient as fallback */}
       <div
         className="absolute inset-0 transition-all duration-1000 ease-out"
         style={{
-          background: `linear-gradient(135deg, ${currentProject.colors?.primary || "#6366f1"} 0%, ${currentProject.colors?.secondary || "#8b5cf6"} 100%)`,
+          background: `linear-gradient(135deg, ${currentProject.colors?.primary || "#6366f1"}20 0%, ${currentProject.colors?.secondary || "#8b5cf6"}20 100%)`,
         }}
       />
 
@@ -83,16 +83,16 @@ export function HeroBanner() {
         ))}
       </div>
 
-      {/* Background Image - shows current project image */}
+      {/* Dynamic Background Image - changes with each project */}
       <div
         key={`bg-${currentProject.id}`}
         className="absolute top-px left-0 right-0 bottom-0 w-[2005px] pointer-events-none transition-all duration-1000 ease-out"
         style={{
-          backgroundImage: "url(https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa33c12abedad4fa397d36070c4794f89)",
+          backgroundImage: `url(${currentProject.image})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
-          opacity: 0.7
+          opacity: 0.8
         }}
       />
 
