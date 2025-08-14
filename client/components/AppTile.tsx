@@ -30,19 +30,25 @@ export function AppTile({ project }: AppTileProps) {
         `}
         style={{
           boxShadow: isHovered
-            ? "0 25px 50px -12px rgba(0,0,0,0.4), 0 8px 16px -8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)"
-            : "0 20px 40px -12px rgba(0,0,0,0.3), 0 8px 16px -8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05)",
+            ? "0 30px 60px -12px rgba(0,0,0,0.5), 0 12px 24px -8px rgba(0,0,0,0.4), inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)"
+            : "0 20px 40px -12px rgba(0,0,0,0.3), 0 8px 16px -8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(0,0,0,0.05)",
         }}
       >
-        {/* Top highlight for 3D effect */}
-        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/40 via-white/20 to-transparent rounded-t-[4.5rem]" />
+        {/* Enhanced top highlight for glossy effect */}
+        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/50 via-white/25 to-transparent rounded-t-[4.5rem]" />
 
-        {/* Side highlights */}
-        <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white/20 to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-black/10 to-transparent" />
+        {/* Additional glossy shine overlay */}
+        <div className="absolute top-6 left-6 right-6 h-1/3 bg-gradient-to-br from-white/30 via-white/10 to-transparent rounded-full blur-sm" />
 
-        {/* Bottom shadow for depth */}
-        <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/20 via-black/10 to-transparent" />
+        {/* Enhanced side highlights */}
+        <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-white/25 via-white/10 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-black/15 via-black/5 to-transparent" />
+
+        {/* Enhanced bottom shadow for depth */}
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 via-black/15 to-transparent rounded-b-[4.5rem]" />
+
+        {/* Inner shadow for realism */}
+        <div className="absolute inset-0 rounded-[4.5rem] shadow-inner" style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.1)' }} />
 
         {/* Bubble texture overlay */}
         <div
@@ -64,7 +70,9 @@ export function AppTile({ project }: AppTileProps) {
             alt={project.title}
             className="absolute inset-0 w-full h-full object-contain drop-shadow-xl z-10"
             style={{
-              filter: "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))"
+              filter: isHovered
+                ? "drop-shadow(0 15px 35px rgba(0,0,0,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.3)) drop-shadow(0 1px 3px rgba(255,255,255,0.2))"
+                : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))"
             }}
           />
         )}
