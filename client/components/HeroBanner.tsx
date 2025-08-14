@@ -104,7 +104,7 @@ export function HeroBanner() {
       {/* Dynamic Background Image - cycles through slideshow images */}
       <div
         key={`slide-${currentIndex}`}
-        className="absolute top-1 left-0.5 right-0 bottom-0 w-[1997px] pointer-events-none transition-all duration-1000 ease-out"
+        className="absolute inset-0 w-full h-full pointer-events-none transition-all duration-1000 ease-out"
         style={{
           backgroundImage: `url(${currentImage})`,
           backgroundRepeat: "no-repeat",
