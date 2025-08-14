@@ -182,7 +182,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2025",
     image: "/images/hero-banner-project-1.svg",
-    appIcon: "UPLOAD_YOUR_IMAGE_HERE_1", // Replace this with your uploaded image URL
+    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0465afe7575f43219f2168ad9b16ab15",
     description: "Modern logo design for innovative tech startup",
     role: "Logo Designer",
     tools: ["Adobe Illustrator", "Figma"],
@@ -198,7 +198,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2025",
     image: "/images/hero-banner-project-2.svg",
-    appIcon: "UPLOAD_YOUR_IMAGE_HERE_2", // Replace this with your uploaded image URL
+    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F55176dffb7e640618937b93cbbd983ea",
     description: "Complete branding package for upscale restaurant",
     role: "Brand Designer",
     tools: ["Adobe Creative Suite", "InDesign"],
