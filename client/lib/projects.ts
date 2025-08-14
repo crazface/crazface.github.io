@@ -22,7 +22,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2025",
     image: "/images/hero-banner-project-1.svg",
-    appIcon: "/images/app-icon-brand.svg",
+    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe71f4c1a27344269bdb189d9fcb983fc",
     description: "Complete brand identity system for modern tech startup",
     role: "Creative Director",
     tools: ["Adobe Illustrator", "Figma", "After Effects"],
