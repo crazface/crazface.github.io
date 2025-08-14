@@ -100,7 +100,7 @@ export function HeroBanner() {
         key={`slide-${currentIndex}`}
         className="absolute top-1 left-0.5 right-0 bottom-0 w-[1997px] pointer-events-none transition-all duration-1000 ease-out"
         style={{
-          backgroundImage: "url(https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa33c12abedad4fa397d36070c4794f89)",
+          backgroundImage: `url(${currentImage})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "cover",
