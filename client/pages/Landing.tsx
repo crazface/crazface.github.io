@@ -15,7 +15,7 @@ export default function Landing() {
       </div>
 
       {/* Intro Section */}
-      <section className="grid-container py-20 -mt-48 relative z-40">
+      <section className="grid-container py-20 -mt-80 relative z-40">
         <div className="max-w-6xl">
           <div className="animate-slide-up">
             <h1 className="text-6xl md:text-7xl font-title font-bold leading-none tracking-tight text-foreground mb-6">
