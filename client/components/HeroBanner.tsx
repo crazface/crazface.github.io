@@ -26,7 +26,7 @@ export function HeroBanner() {
   const currentProject = projects[currentIndex];
 
   return (
-    <div className="relative w-full h-[500px] md:h-[700px] lg:h-[800px] overflow-hidden">
+    <div className="relative w-full h-[450px] md:h-[600px] lg:h-[650px] overflow-hidden">
       {/* Background with project colors */}
       <div
         className="absolute inset-0 transition-all duration-1000 ease-out"
