@@ -90,13 +90,18 @@
       "Segoe UI",
       "Roboto",
       sans-serif;
-    background: linear-gradient(135deg, hsl(42, 25%, 88%) 0%, hsl(42, 30%, 90%) 50%, hsl(42, 20%, 86%) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(42, 25%, 88%) 0%,
+      hsl(42, 30%, 90%) 50%,
+      hsl(42, 20%, 86%) 100%
+    );
     background-attachment: fixed;
     position: relative;
   }
 
   body::before {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
@@ -104,18 +109,34 @@
     height: 100%;
     background-image:
       /* Bloom effect - large soft glows with fun colors */
-      radial-gradient(ellipse 800px 600px at 20% 30%, rgba(147, 197, 253, 0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 600px 800px at 80% 70%, rgba(196, 181, 253, 0.05) 0%, transparent 70%),
-      radial-gradient(ellipse 400px 400px at 50% 20%, rgba(134, 239, 172, 0.04) 0%, transparent 60%),
-      radial-gradient(ellipse 500px 300px at 30% 80%, rgba(252, 165, 165, 0.04) 0%, transparent 65%),
-      /* Fine grain noise texture */
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 1px,
-        rgba(45, 39, 34, 0.02) 1px,
-        rgba(45, 39, 34, 0.02) 2px
+      radial-gradient(
+        ellipse 800px 600px at 20% 30%,
+        rgba(147, 197, 253, 0.06) 0%,
+        transparent 70%
       ),
+      radial-gradient(
+        ellipse 600px 800px at 80% 70%,
+        rgba(196, 181, 253, 0.05) 0%,
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 400px 400px at 50% 20%,
+        rgba(134, 239, 172, 0.04) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 500px 300px at 30% 80%,
+        rgba(252, 165, 165, 0.04) 0%,
+        transparent 65%
+      ),
+      /* Fine grain noise texture */
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 1px,
+          rgba(45, 39, 34, 0.02) 1px,
+          rgba(45, 39, 34, 0.02) 2px
+        ),
       repeating-linear-gradient(
         90deg,
         transparent,
@@ -123,14 +144,20 @@
         rgba(45, 39, 34, 0.015) 1px,
         rgba(45, 39, 34, 0.015) 2px
       );
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 3px 3px, 3px 3px;
+    background-size:
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      3px 3px,
+      3px 3px;
     pointer-events: none;
     z-index: -1;
     filter: blur(0.5px);
   }
 
   body::after {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
@@ -138,19 +165,35 @@
     height: 100%;
     background-image:
       /* Additional bloom layer with fun vibrant touches */
-      radial-gradient(ellipse 1000px 400px at 60% 10%, rgba(251, 191, 36, 0.03) 0%, transparent 80%),
-      radial-gradient(ellipse 300px 600px at 10% 50%, rgba(34, 197, 94, 0.03) 0%, transparent 75%),
-      radial-gradient(ellipse 700px 300px at 90% 90%, rgba(244, 114, 182, 0.025) 0%, transparent 70%),
+      radial-gradient(
+        ellipse 1000px 400px at 60% 10%,
+        rgba(251, 191, 36, 0.03) 0%,
+        transparent 80%
+      ),
+      radial-gradient(
+        ellipse 300px 600px at 10% 50%,
+        rgba(34, 197, 94, 0.03) 0%,
+        transparent 75%
+      ),
+      radial-gradient(
+        ellipse 700px 300px at 90% 90%,
+        rgba(244, 114, 182, 0.025) 0%,
+        transparent 70%
+      ),
       /* Film grain noise */
-      repeating-radial-gradient(
-        circle at 50% 50%,
-        transparent 0px,
-        rgba(45, 39, 34, 0.01) 1px,
-        transparent 2px,
-        rgba(45, 39, 34, 0.015) 3px,
-        transparent 4px
-      );
-    background-size: 100% 100%, 100% 100%, 100% 100%, 4px 4px;
+        repeating-radial-gradient(
+          circle at 50% 50%,
+          transparent 0px,
+          rgba(45, 39, 34, 0.01) 1px,
+          transparent 2px,
+          rgba(45, 39, 34, 0.015) 3px,
+          transparent 4px
+        );
+    background-size:
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      4px 4px;
     pointer-events: none;
     z-index: -1;
     mix-blend-mode: soft-light;
@@ -163,16 +206,28 @@
   }
 
   #root::before {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background:
-      radial-gradient(circle 400px at 25% 25%, rgba(147, 197, 253, 0.04), transparent),
-      radial-gradient(circle 300px at 75% 75%, rgba(196, 181, 253, 0.03), transparent),
-      radial-gradient(circle 500px at 50% 10%, rgba(134, 239, 172, 0.03), transparent);
+      radial-gradient(
+        circle 400px at 25% 25%,
+        rgba(147, 197, 253, 0.04),
+        transparent
+      ),
+      radial-gradient(
+        circle 300px at 75% 75%,
+        rgba(196, 181, 253, 0.03),
+        transparent
+      ),
+      radial-gradient(
+        circle 500px at 50% 10%,
+        rgba(134, 239, 172, 0.03),
+        transparent
+      );
     pointer-events: none;
     z-index: 1;
     mix-blend-mode: overlay;
@@ -186,7 +241,11 @@
   }
 
   .font-body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
   }
 
   .font-stamp {
@@ -207,13 +266,16 @@
     -moz-osx-font-smoothing: grayscale;
     /* Subtle dotted background pattern overlay */
     background-image:
-      linear-gradient(135deg, hsl(42, 25%, 88%) 0%, hsl(42, 30%, 90%) 50%, hsl(42, 20%, 86%) 100%),
-      radial-gradient(
-        circle,
-        rgba(45, 39, 34, 0.06) 1px,
-        transparent 1px
-      );
-    background-size: 100% 100%, 24px 24px;
+      linear-gradient(
+        135deg,
+        hsl(42, 25%, 88%) 0%,
+        hsl(42, 30%, 90%) 50%,
+        hsl(42, 20%, 86%) 100%
+      ),
+      radial-gradient(circle, rgba(45, 39, 34, 0.06) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      24px 24px;
     background-attachment: fixed, scroll;
   }
 
@@ -310,13 +372,17 @@
   }
 
   .glass::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -3px;
     left: -3px;
     right: -3px;
     bottom: -3px;
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 70%
+    );
     border-radius: inherit;
     z-index: -1;
     filter: blur(12px);

@@ -26,7 +26,7 @@ export default function Work() {
 
   // Only trigger animation key change when category actually changes
   useEffect(() => {
-    setAnimationKey(prev => prev + 1);
+    setAnimationKey((prev) => prev + 1);
   }, [activeCategory]);
 
   return (

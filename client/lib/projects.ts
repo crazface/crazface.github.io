@@ -22,7 +22,8 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2025",
     image: "/images/hero-banner-project-1.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe71f4c1a27344269bdb189d9fcb983fc",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe71f4c1a27344269bdb189d9fcb983fc",
     description: "Complete brand identity system for modern tech startup",
     role: "Creative Director",
     tools: ["Adobe Illustrator", "Figma", "After Effects"],
@@ -38,7 +39,8 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2025",
     image: "/images/hero-banner-project-2.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd9a90c35e888472095e8298ac0e7aef6",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd9a90c35e888472095e8298ac0e7aef6",
     description: "Complete rebrand for nutrition company",
     role: "Brand Designer",
     tools: ["Adobe Creative Suite", "Sketch"],
@@ -54,7 +56,8 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2024",
     image: "/images/hero-banner-project-3.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F4d36a9c00a5748b09d8b629aad9c9e19",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F4d36a9c00a5748b09d8b629aad9c9e19",
     description: "Artisan coffee roasting company brand identity",
     role: "Brand Designer",
     tools: ["Illustrator", "Photoshop", "InDesign"],
@@ -70,7 +73,8 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2024",
     image: "/images/brand-identity-1.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0cf5f83875634d468081c91fb3dab076",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0cf5f83875634d468081c91fb3dab076",
     description: "Music streaming app interface design",
     role: "UI/UX Designer",
     tools: ["Figma", "Principle"],
@@ -182,7 +186,8 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2025",
     image: "/images/hero-banner-project-1.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0465afe7575f43219f2168ad9b16ab15",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0465afe7575f43219f2168ad9b16ab15",
     description: "Modern logo design for innovative tech startup",
     role: "Logo Designer",
     tools: ["Adobe Illustrator", "Figma"],
@@ -198,7 +203,8 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2025",
     image: "/images/hero-banner-project-2.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F55176dffb7e640618937b93cbbd983ea",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F55176dffb7e640618937b93cbbd983ea",
     description: "Complete branding package for upscale restaurant",
     role: "Brand Designer",
     tools: ["Adobe Creative Suite", "InDesign"],

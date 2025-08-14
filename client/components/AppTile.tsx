@@ -48,7 +48,10 @@ export function AppTile({ project }: AppTileProps) {
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 via-black/15 to-transparent rounded-b-[4.5rem]" />
 
         {/* Inner shadow for realism */}
-        <div className="absolute inset-0 rounded-[4.5rem] shadow-inner" style={{ boxShadow: 'inset 0 2px 8px rgba(0,0,0,0.1)' }} />
+        <div
+          className="absolute inset-0 rounded-[4.5rem] shadow-inner"
+          style={{ boxShadow: "inset 0 2px 8px rgba(0,0,0,0.1)" }}
+        />
 
         {/* Bubble texture overlay */}
         <div
@@ -72,7 +75,7 @@ export function AppTile({ project }: AppTileProps) {
             style={{
               filter: isHovered
                 ? "drop-shadow(0 15px 35px rgba(0,0,0,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.3)) drop-shadow(0 1px 3px rgba(255,255,255,0.2))"
-                : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))"
+                : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))",
             }}
           />
         )}

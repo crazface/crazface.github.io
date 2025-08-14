@@ -91,7 +91,7 @@ export default function Landing() {
                   src="/images/service-icon-graphic-design.svg"
                   alt="Graphic Design"
                   className="w-8 h-8 text-accent-foreground"
-                  style={{ filter: 'invert(1)' }}
+                  style={{ filter: "invert(1)" }}
                 />
               </div>
               <h3 className="text-2xl font-title font-bold text-foreground mb-4">
@@ -122,7 +122,7 @@ export default function Landing() {
                   src="/images/service-icon-video-editing.svg"
                   alt="Video Editing"
                   className="w-8 h-8 text-accent-foreground"
-                  style={{ filter: 'invert(1)' }}
+                  style={{ filter: "invert(1)" }}
                 />
               </div>
               <h3 className="text-2xl font-title font-bold text-foreground mb-4">
@@ -153,7 +153,7 @@ export default function Landing() {
                   src="/images/service-icon-photography.svg"
                   alt="Photography"
                   className="w-8 h-8 text-accent-foreground"
-                  style={{ filter: 'invert(1)' }}
+                  style={{ filter: "invert(1)" }}
                 />
               </div>
               <h3 className="text-2xl font-title font-bold text-foreground mb-4">
