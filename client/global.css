@@ -238,6 +238,7 @@
   .font-title {
     font-family: "Moret", serif;
     font-weight: 400;
+    font-style: normal;
   }
 
   .font-body {
@@ -251,6 +252,7 @@
   .font-stamp {
     font-family: "Moret", serif;
     font-weight: 400;
+    font-style: normal;
   }
 
   html {
