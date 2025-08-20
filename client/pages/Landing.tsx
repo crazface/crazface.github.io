@@ -19,7 +19,7 @@ export default function Landing() {
         <div className="max-w-6xl">
           <div className="animate-slide-up">
             <h1 className="text-7xl md:text-8xl font-title font-bold leading-none tracking-tight text-foreground mb-6">
-              <span style={{ fontFamily: "Moret, sans-serif" }}>
+              <span style={{ fontFamily: "Moret, sans-serif", fontStyle: "normal" }}>
                 CHARLIE STAMP
               </span>
             </h1>
