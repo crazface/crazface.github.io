@@ -68,7 +68,7 @@ export function HeroBanner() {
             alt={`Slide ${currentIndex + 1}`}
             className="w-full h-full object-cover transition-all duration-1000 ease-out"
             style={{
-              transform: isHovered ? "scale(1.05)" : "scale(1)",
+              transform: "scale(1)",
             }}
           />
           {/* Overlay for better readability */}
