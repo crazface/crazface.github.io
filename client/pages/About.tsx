@@ -14,7 +14,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Image Column */}
             <div className="relative h-full">
-              <div className="rounded-lg overflow-hidden h-full" style={{ border: 'none' }}>
+              <div className="rounded-lg overflow-hidden h-full min-h-[600px]" style={{ border: 'none' }}>
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1d12dbfc45804341a5fc33ed11caeb37"
                   alt="About photo"
