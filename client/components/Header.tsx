@@ -17,9 +17,7 @@ export function Header() {
             to="/"
             className="text-3xl font-stamp text-foreground hover:text-foreground/80 transition-all duration-300 hover:scale-105"
           >
-            <span>
-              Charlie Stamp
-            </span>
+            <span>Charlie Stamp</span>
           </Link>
 
           {/* Navigation */}

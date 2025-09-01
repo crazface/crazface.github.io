@@ -53,7 +53,8 @@ export function HeroBanner() {
       <div
         className="relative w-full max-w-6xl aspect-video tile-glass rounded-[3rem] overflow-hidden group cursor-pointer"
         style={{
-          boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25), 0 10px 20px -5px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.05)",
+          boxShadow:
+            "0 25px 50px -12px rgba(0,0,0,0.25), 0 10px 20px -5px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.05)",
           transform: "scale(1)", // Override tile-glass hover scaling
         }}
         onMouseEnter={(e) => {
@@ -74,7 +75,6 @@ export function HeroBanner() {
           {/* Overlay for better readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </div>
-
 
         {/* Navigation arrows */}
         <button
@@ -104,7 +104,8 @@ export function HeroBanner() {
                 Creative Portfolio
               </h2>
               <p className="text-white/80 text-lg mb-6 max-w-2xl">
-                Explore my latest work in brand identity, video editing, and photography
+                Explore my latest work in brand identity, video editing, and
+                photography
               </p>
             </div>
 
@@ -147,7 +148,8 @@ export function HeroBanner() {
             ${isHovered ? "opacity-30" : "opacity-0"}
           `}
           style={{
-            background: "linear-gradient(135deg, rgba(103, 94, 76, 0.4), rgba(103, 94, 76, 0.2))",
+            background:
+              "linear-gradient(135deg, rgba(103, 94, 76, 0.4), rgba(103, 94, 76, 0.2))",
           }}
         />
       </div>

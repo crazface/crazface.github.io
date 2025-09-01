@@ -264,7 +264,12 @@ export const projects: Project[] = [
   },
 ];
 
-export const categories = ["Graphic Design", "Video Editing", "Photography", "3D Projects"];
+export const categories = [
+  "Graphic Design",
+  "Video Editing",
+  "Photography",
+  "3D Projects",
+];
 
 export function getProjectsByType(type: Project["type"]): Project[] {
   return projects.filter((project) => project.type === type);
