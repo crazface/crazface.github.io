@@ -10,7 +10,7 @@ export default function Landing() {
       <Header />
 
       {/* Hero Banner - Full width at top */}
-      <div className="pt-16">
+      <div className="pt-4">
         <HeroBanner />
       </div>
 
