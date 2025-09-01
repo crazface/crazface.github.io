@@ -217,7 +217,7 @@ export const projects: Project[] = [
   {
     id: "3d-product-visualization",
     title: "Product Render",
-    type: "3D",
+    type: "3D Projects",
     year: "2025",
     image: "/images/hero-banner-project-1.svg",
     appIcon: "/images/app-icon-brand.svg",
@@ -233,7 +233,7 @@ export const projects: Project[] = [
   {
     id: "architectural-rendering",
     title: "Architecture",
-    type: "3D",
+    type: "3D Projects",
     year: "2024",
     image: "/images/hero-banner-project-2.svg",
     appIcon: "/images/app-icon-brand.svg",
@@ -249,7 +249,7 @@ export const projects: Project[] = [
   {
     id: "character-modeling",
     title: "Character Design",
-    type: "3D",
+    type: "3D Projects",
     year: "2024",
     image: "/images/hero-banner-project-3.svg",
     appIcon: "/images/app-icon-brand.svg",
@@ -264,7 +264,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const categories = ["Graphic Design", "Video Editing", "Photography", "3D"];
+export const categories = ["Graphic Design", "Video Editing", "Photography", "3D Projects"];
 
 export function getProjectsByType(type: Project["type"]): Project[] {
   return projects.filter((project) => project.type === type);
