@@ -10,21 +10,49 @@ export default function About() {
 
       {/* About Content */}
       <section className="grid-container pt-32 pb-section">
-        <div className="animate-slide-up space-y-12">
-          {/* Image and Creative Director Content */}
+        <div className="animate-slide-up">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Image Column */}
-            <div className="relative">
-              <div className="rounded-lg overflow-hidden w-full h-[500px]" style={{ border: 'none' }}>
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ffedbd18bca4d4f88bca6c4738e0908f6"
-                  alt="About photo"
-                  className="w-full h-full object-contain"
-                />
+            {/* Left Column - Image and Specialties */}
+            <div className="space-y-8">
+              <div className="relative">
+                <div className="rounded-lg overflow-hidden w-full h-[500px]" style={{ border: 'none' }}>
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ffedbd18bca4d4f88bca6c4738e0908f6"
+                    alt="About photo"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Specialties under image */}
+              <div
+                className="animate-slide-up"
+                style={{ animationDelay: "0.3s" }}
+              >
+                <h3 className="text-2xl font-black leading-snug tracking-tight text-foreground mb-4">
+                  Specialties
+                </h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    "Brand Identity",
+                    "Art Direction",
+                    "Video Editing",
+                    "Photography",
+                    "Creative Strategy",
+                    "Digital Design",
+                  ].map((specialty) => (
+                    <div key={specialty} className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-foreground" />
+                      <span className="text-lg font-normal leading-relaxed text-muted-foreground">
+                        {specialty}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Content Column */}
+            {/* Right Column - Creative Director Content and Tools */}
             <div className="space-y-8">
               <div
                 className="animate-slide-up"
@@ -52,10 +80,37 @@ export default function About() {
                 </p>
               </div>
 
+              {/* Tools under Creative Director content */}
+              <div
+                className="animate-slide-up"
+                style={{ animationDelay: "0.4s" }}
+              >
+                <h3 className="text-2xl font-black leading-snug tracking-tight text-foreground mb-4">
+                  Tools & Technologies
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Adobe Creative Suite",
+                    "Figma",
+                    "After Effects",
+                    "Premiere Pro",
+                    "Final Cut Pro",
+                    "Lightroom",
+                  ].map((tool) => (
+                    <span
+                      key={tool}
+                      className="glass rounded-full px-4 py-2 text-sm font-medium text-foreground"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
               {/* CTA Buttons */}
               <div
                 className="animate-slide-up flex flex-col sm:flex-row gap-4"
-                style={{ animationDelay: "0.2s" }}
+                style={{ animationDelay: "0.5s" }}
               >
                 <button className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-full px-8 py-4 text-lg font-bold hover:bg-primary/90 transition-all duration-200 focus-visible">
                   <Download className="w-4 h-4" />
@@ -69,60 +124,6 @@ export default function About() {
                   Get in Touch
                 </Link>
               </div>
-            </div>
-          </div>
-
-          {/* Full Width Specialties */}
-          <div
-            className="animate-slide-up"
-            style={{ animationDelay: "0.3s" }}
-          >
-            <h3 className="text-2xl font-black leading-snug tracking-tight text-foreground mb-6">
-              Specialties
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                "Brand Identity",
-                "Art Direction",
-                "Video Editing",
-                "Photography",
-                "Creative Strategy",
-                "Digital Design",
-              ].map((specialty) => (
-                <div key={specialty} className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-foreground" />
-                  <span className="text-lg font-normal leading-relaxed text-muted-foreground">
-                    {specialty}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Full Width Tools */}
-          <div
-            className="animate-slide-up"
-            style={{ animationDelay: "0.4s" }}
-          >
-            <h3 className="text-2xl font-black leading-snug tracking-tight text-foreground mb-6">
-              Tools & Technologies
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {[
-                "Adobe Creative Suite",
-                "Figma",
-                "After Effects",
-                "Premiere Pro",
-                "Final Cut Pro",
-                "Lightroom",
-              ].map((tool) => (
-                <span
-                  key={tool}
-                  className="glass rounded-full px-4 py-2 text-sm font-medium text-foreground"
-                >
-                  {tool}
-                </span>
-              ))}
             </div>
           </div>
         </div>
