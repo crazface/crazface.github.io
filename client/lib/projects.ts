@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  type: "Graphic Design" | "Video Editing" | "Photography" | "3D";
+  type: "Graphic Design" | "Video Editing" | "Photography" | "3D Projects";
   year: string;
   image: string;
   appIcon?: string;
