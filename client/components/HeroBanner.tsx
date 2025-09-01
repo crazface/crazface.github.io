@@ -54,6 +54,10 @@ export function HeroBanner() {
         className="relative w-full max-w-6xl aspect-video tile-glass rounded-[3rem] overflow-hidden group cursor-pointer"
         style={{
           boxShadow: "0 20px 40px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.05)",
+          transform: "scale(1)", // Override tile-glass hover scaling
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "scale(1)"; // Force scale to remain 1
         }}
       >
         {/* Background Image */}
