@@ -1,5 +1,3 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
 interface CategorySelectorProps {
   categories: string[];
   activeCategory: string;
@@ -11,50 +9,30 @@ export function CategorySelector({
   activeCategory,
   onCategoryChange,
 }: CategorySelectorProps) {
-  const currentIndex = categories.indexOf(activeCategory);
-
-  const handlePrevious = () => {
-    const previousIndex =
-      currentIndex === 0 ? categories.length - 1 : currentIndex - 1;
-    onCategoryChange(categories[previousIndex]);
-  };
-
-  const handleNext = () => {
-    const nextIndex =
-      currentIndex === categories.length - 1 ? 0 : currentIndex + 1;
-    onCategoryChange(categories[nextIndex]);
-  };
-
   return (
     <div className="flex items-center justify-center mb-12">
-      <div
-        className="flex items-center bg-primary rounded-full px-6 py-4 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-        style={{
-          boxShadow: `
-            0 20px 40px -12px rgba(0,0,0,0.4),
-            0 8px 16px -8px rgba(0,0,0,0.3),
-            inset 0 1px 0 rgba(255,255,255,0.1),
-            inset 0 -1px 0 rgba(0,0,0,0.2)
-          `,
-        }}
-      >
-        <button
-          onClick={handlePrevious}
-          className="p-1 rounded-full transition-all duration-200 text-primary-foreground hover:bg-primary-foreground/10"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-
-        <span className="text-primary-foreground font-black text-xl px-6 min-w-[160px] text-center drop-shadow-lg">
-          {activeCategory}
-        </span>
-
-        <button
-          onClick={handleNext}
-          className="p-1 rounded-full transition-all duration-200 text-primary-foreground hover:bg-primary-foreground/10"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
+      <div className="flex items-center gap-1 glass rounded-full p-2">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => onCategoryChange(category)}
+            className={`
+              px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300
+              ${
+                activeCategory === category
+                  ? "bg-primary text-primary-foreground shadow-lg scale-105"
+                  : "text-foreground hover:bg-foreground/10 hover:scale-105"
+              }
+            `}
+            style={{
+              boxShadow: activeCategory === category
+                ? "0 8px 16px -4px rgba(0,0,0,0.3), 0 4px 8px -2px rgba(0,0,0,0.2)"
+                : "none",
+            }}
+          >
+            {category}
+          </button>
+        ))}
       </div>
     </div>
   );
