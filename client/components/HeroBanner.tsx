@@ -75,12 +75,6 @@ export function HeroBanner() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </div>
 
-        {/* Media Type Badge */}
-        <div className="absolute top-4 right-4 z-20">
-          <span className="glass rounded-full px-3 py-1.5 text-sm font-medium text-white backdrop-blur-md">
-            Gallery
-          </span>
-        </div>
 
         {/* Navigation arrows */}
         <button
@@ -114,17 +108,28 @@ export function HeroBanner() {
               </p>
             </div>
 
-            {/* CTA Button */}
-            <Link
-              to={`/project/${currentProject.id}`}
-              className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 text-white font-semibold hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20"
-              style={{
-                boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
-              }}
-            >
-              <Play className="w-5 h-5" />
-              View Project
-            </Link>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                to={`/project/${currentProject.id}`}
+                className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 text-white font-semibold hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20"
+                style={{
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+                }}
+              >
+                <Play className="w-5 h-5" />
+                View Project
+              </Link>
+              <Link
+                to="/work"
+                className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 text-white font-semibold hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20"
+                style={{
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+                }}
+              >
+                My Work
+              </Link>
+            </div>
           </div>
         </div>
 

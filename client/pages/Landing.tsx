@@ -10,12 +10,12 @@ export default function Landing() {
       <Header />
 
       {/* Hero Banner - Full width at top */}
-      <div className="pt-20">
+      <div className="pt-16">
         <HeroBanner />
       </div>
 
       {/* Intro Section */}
-      <section className="grid-container py-20 -mt-[350px] relative z-40">
+      <section className="grid-container py-20 -mt-[200px] relative z-40">
         <div className="max-w-6xl">
           <div className="animate-slide-up">
             <h1 className="text-7xl md:text-8xl font-title font-bold leading-none tracking-tight text-foreground mb-6">
