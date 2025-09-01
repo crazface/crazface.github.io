@@ -14,9 +14,9 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Image Column */}
             <div className="relative">
-              <div className="glass rounded-lg overflow-hidden aspect-[3/4] shadow-glass-lg">
+              <div className="glass rounded-lg overflow-hidden aspect-[3/4]">
                 <img
-                  src="/placeholder.svg"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1d12dbfc45804341a5fc33ed11caeb37"
                   alt="About photo"
                   className="w-full h-full object-cover"
                 />
