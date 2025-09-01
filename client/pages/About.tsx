@@ -17,7 +17,7 @@ export default function About() {
               <div className="relative">
                 <div className="rounded-lg overflow-hidden w-full h-[500px]" style={{ border: 'none' }}>
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ffedbd18bca4d4f88bca6c4738e0908f6"
+                    src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe81b7ac7dfb94ba7b069bb4b5a5528dd"
                     alt="About photo"
                     className="w-full h-full object-contain"
                   />
