@@ -20,8 +20,6 @@ export default function About() {
                   alt="About photo"
                   className="w-full h-full object-cover"
                 />
-                {/* Subtle grain overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/5" />
               </div>
             </div>
 
