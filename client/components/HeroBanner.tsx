@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "@/lib/projects";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 
 // Slideshow images - cycling through your uploaded images
 const slideshowImages = [
@@ -15,6 +15,7 @@ const slideshowImages = [
 
 export function HeroBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   // Auto-advance the banner every 5 seconds
   useEffect(() => {
@@ -39,85 +40,126 @@ export function HeroBanner() {
   const currentProject = projects[0]; // Use first project for button link
 
   return (
-    <div className="relative w-full h-[650px] md:h-[850px] lg:h-[950px] overflow-hidden">
+    <div className="relative w-full h-[650px] md:h-[850px] lg:h-[950px] flex items-center justify-center px-6">
       {/* Subtle background gradient as fallback */}
       <div
-        className="absolute inset-0 transition-all duration-1000 ease-out"
+        className="absolute inset-0"
         style={{
-          background: `linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 100%)`,
+          background: `linear-gradient(135deg, rgba(240,240,235,0.5) 0%, rgba(240,240,235,0.8) 100%)`,
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center text-center px-6 pb-[199px] mt-8">
-        <div className="max-w-4xl mx-auto">
-          <div key={currentProject.id} className="animate-fade-in">
-            <div className="text-white/80 text-sm font-bold uppercase tracking-wider mb-2" />
+      {/* Widget Container */}
+      <div
+        className="relative w-full max-w-4xl aspect-video tile-glass rounded-xl overflow-hidden group cursor-pointer"
+        style={{
+          boxShadow: isHovered
+            ? "0 25px 50px -12px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1)"
+            : "0 20px 40px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.05)",
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            key={`slide-${currentIndex}`}
+            src={currentImage}
+            alt={`Slide ${currentIndex + 1}`}
+            className="w-full h-full object-cover transition-all duration-1000 ease-out"
+            style={{
+              transform: isHovered ? "scale(1.05)" : "scale(1)",
+            }}
+          />
+          {/* Overlay for better readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        </div>
+
+        {/* Media Type Badge */}
+        <div className="absolute top-4 right-4 z-20">
+          <span className="glass rounded-full px-3 py-1.5 text-sm font-medium text-white backdrop-blur-md">
+            Gallery
+          </span>
+        </div>
+
+        {/* Navigation arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 glass rounded-full p-3 text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 glass rounded-full p-3 text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+
+        {/* Content Overlay */}
+        <div className="absolute inset-0 z-10 flex flex-col justify-end p-8">
+          <div
+            className={`
+              transform transition-all duration-500 ease-out
+              ${isHovered ? "translate-y-0 opacity-100" : "translate-y-2 opacity-90"}
+            `}
+          >
+            <div className="mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">
+                Creative Portfolio
+              </h2>
+              <p className="text-white/80 text-lg mb-6 max-w-2xl">
+                Explore my latest work in brand identity, video editing, and photography
+              </p>
+            </div>
+
+            {/* CTA Button */}
             <Link
               to={`/project/${currentProject.id}`}
-              className="inline-flex items-center justify-center gap-2 bg-white/40 backdrop-blur-md text-white rounded-full px-12 py-5 text-xl font-black hover:bg-white/60 hover:text-black transition-all duration-300 hover:scale-110 border-2 border-white/50 shadow-2xl"
+              className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 text-white font-semibold hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20"
               style={{
-                boxShadow:
-                  "0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.2)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
               }}
             >
+              <Play className="w-5 h-5" />
               View Project
             </Link>
           </div>
         </div>
+
+        {/* Progress indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {slideshowImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`
+                w-2 h-2 rounded-full transition-all duration-300
+                ${
+                  index === currentIndex
+                    ? "bg-white w-8"
+                    : "bg-white/50 hover:bg-white/70"
+                }
+              `}
+            />
+          ))}
+        </div>
+
+        {/* Glow effect on hover */}
+        <div
+          className={`
+            absolute inset-0 -z-10 rounded-xl blur-xl transition-opacity duration-300
+            ${isHovered ? "opacity-30" : "opacity-0"}
+          `}
+          style={{
+            background: "linear-gradient(135deg, rgba(103, 94, 76, 0.4), rgba(103, 94, 76, 0.2))",
+          }}
+        />
       </div>
 
-      {/* Navigation arrows - positioned to align with View Project button */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-[40%] -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 hover:scale-110"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-[40%] -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 hover:scale-110"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
-
-      {/* Progress indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {slideshowImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`
-              w-3 h-3 rounded-full transition-all duration-300
-              ${
-                index === currentIndex
-                  ? "bg-white shadow-lg scale-125"
-                  : "bg-white/50 hover:bg-white/70"
-              }
-            `}
-          />
-        ))}
-      </div>
-
-      {/* Dynamic Background Image - cycles through slideshow images */}
-      <div
-        key={`slide-${currentIndex}`}
-        className="absolute inset-0 w-full h-full pointer-events-none transition-all duration-1000 ease-out"
-        style={{
-          backgroundImage: `url(${currentImage})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          opacity: 0.9,
-        }}
-      />
-
-      {/* Bottom gradient fade to beige */}
-      <div className="absolute bottom-0 left-0 w-full h-[418px] bg-gradient-to-t from-background via-background/95 via-background/80 via-background/50 via-background/20 to-transparent pointer-events-none z-30" />
-
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+      {/* Bottom fade to maintain section transition */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-30" />
     </div>
   );
 }
