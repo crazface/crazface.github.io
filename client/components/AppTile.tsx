@@ -83,7 +83,7 @@ export function AppTile({ project }: AppTileProps) {
         {/* Hover Overlay with Bounce Effect */}
         <div
           className={`
-            absolute inset-0 bg-black/30 flex items-end p-6 z-20
+            absolute inset-0 bg-black/30 flex items-end p-6 pb-8 z-20
             transition-all duration-500 ease-out
             ${isHovered ? "opacity-100" : "opacity-0"}
           `}
