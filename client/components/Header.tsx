@@ -17,7 +17,7 @@ export function Header() {
             to="/"
             className="text-3xl font-stamp text-foreground hover:text-foreground/80 transition-all duration-300 hover:scale-105"
           >
-            <span style={{ fontFamily: "Moret, serif", fontStyle: "normal", fontWeight: 600 }}>
+            <span>
               Charlie Stamp
             </span>
           </Link>
