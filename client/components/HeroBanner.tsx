@@ -40,7 +40,7 @@ export function HeroBanner() {
   const currentProject = projects[0]; // Use first project for button link
 
   return (
-    <div className="relative w-full h-[650px] md:h-[850px] lg:h-[950px] flex items-center justify-center px-6">
+    <div className="relative w-full h-[750px] md:h-[950px] lg:h-[1100px] flex items-center justify-center px-6">
       {/* Subtle background gradient as fallback */}
       <div
         className="absolute inset-0"
@@ -51,7 +51,7 @@ export function HeroBanner() {
 
       {/* Widget Container */}
       <div
-        className="relative w-full max-w-4xl aspect-video tile-glass rounded-xl overflow-hidden group cursor-pointer"
+        className="relative w-full max-w-6xl aspect-video tile-glass rounded-2xl overflow-hidden group cursor-pointer"
         style={{
           boxShadow: isHovered
             ? "0 25px 50px -12px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1)"
