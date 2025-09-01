@@ -51,14 +51,10 @@ export function HeroBanner() {
 
       {/* Widget Container */}
       <div
-        className="relative w-full max-w-6xl aspect-video tile-glass rounded-2xl overflow-hidden group cursor-pointer"
+        className="relative w-full max-w-6xl aspect-video tile-glass rounded-[3rem] overflow-hidden group cursor-pointer"
         style={{
-          boxShadow: isHovered
-            ? "0 25px 50px -12px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1)"
-            : "0 20px 40px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.05)",
+          boxShadow: "0 20px 40px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.05)",
         }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         {/* Background Image */}
         <div className="absolute inset-0">
