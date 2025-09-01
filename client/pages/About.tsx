@@ -10,7 +10,8 @@ export default function About() {
 
       {/* About Content */}
       <section className="grid-container pt-32 pb-section">
-        <div className="animate-slide-up">
+        <div className="animate-slide-up space-y-12">
+          {/* Image and Creative Director Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Image Column */}
             <div className="relative">
@@ -51,64 +52,10 @@ export default function About() {
                 </p>
               </div>
 
-              {/* Specialties */}
-              <div
-                className="animate-slide-up"
-                style={{ animationDelay: "0.2s" }}
-              >
-                <h3 className="text-2xl font-black leading-snug tracking-tight text-foreground mb-4">
-                  Specialties
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    "Brand Identity",
-                    "Art Direction",
-                    "Video Editing",
-                    "Photography",
-                    "Creative Strategy",
-                    "Digital Design",
-                  ].map((specialty) => (
-                    <div key={specialty} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-foreground" />
-                      <span className="text-lg font-normal leading-relaxed text-muted-foreground">
-                        {specialty}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Tools */}
-              <div
-                className="animate-slide-up"
-                style={{ animationDelay: "0.3s" }}
-              >
-                <h3 className="text-2xl font-black leading-snug tracking-tight text-foreground mb-4">
-                  Tools & Technologies
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Adobe Creative Suite",
-                    "Figma",
-                    "After Effects",
-                    "Premiere Pro",
-                    "Final Cut Pro",
-                    "Lightroom",
-                  ].map((tool) => (
-                    <span
-                      key={tool}
-                      className="glass rounded-full px-4 py-2 text-sm font-medium text-foreground"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               {/* CTA Buttons */}
               <div
                 className="animate-slide-up flex flex-col sm:flex-row gap-4"
-                style={{ animationDelay: "0.4s" }}
+                style={{ animationDelay: "0.2s" }}
               >
                 <button className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-full px-8 py-4 text-lg font-bold hover:bg-primary/90 transition-all duration-200 focus-visible">
                   <Download className="w-4 h-4" />
@@ -122,6 +69,60 @@ export default function About() {
                   Get in Touch
                 </Link>
               </div>
+            </div>
+          </div>
+
+          {/* Full Width Specialties */}
+          <div
+            className="animate-slide-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <h3 className="text-2xl font-black leading-snug tracking-tight text-foreground mb-6">
+              Specialties
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                "Brand Identity",
+                "Art Direction",
+                "Video Editing",
+                "Photography",
+                "Creative Strategy",
+                "Digital Design",
+              ].map((specialty) => (
+                <div key={specialty} className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-foreground" />
+                  <span className="text-lg font-normal leading-relaxed text-muted-foreground">
+                    {specialty}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Full Width Tools */}
+          <div
+            className="animate-slide-up"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <h3 className="text-2xl font-black leading-snug tracking-tight text-foreground mb-6">
+              Tools & Technologies
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Adobe Creative Suite",
+                "Figma",
+                "After Effects",
+                "Premiere Pro",
+                "Final Cut Pro",
+                "Lightroom",
+              ].map((tool) => (
+                <span
+                  key={tool}
+                  className="glass rounded-full px-4 py-2 text-sm font-medium text-foreground"
+                >
+                  {tool}
+                </span>
+              ))}
             </div>
           </div>
         </div>
