@@ -35,7 +35,7 @@ export default function Work() {
       <Header />
 
       {/* Main Content */}
-      <main className="pt-24 pb-20">
+      <main className="pt-32 pb-20">
         <div className="grid-container">
           {/* Category Selector */}
           <div

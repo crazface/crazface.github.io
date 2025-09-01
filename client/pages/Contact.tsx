@@ -30,7 +30,7 @@ export default function Contact() {
       <Header />
 
       {/* Contact Content */}
-      <section className="grid-container pt-24 pb-section">
+      <section className="grid-container pt-32 pb-section">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 animate-slide-up">

@@ -63,7 +63,7 @@ export default function ProjectDetail() {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <div className="grid-container pt-24 flex items-center justify-center">
+        <div className="grid-container pt-32 flex items-center justify-center">
           <div className="glass rounded-lg p-8 text-center max-w-md">
             <h1 className="text-3xl font-black text-foreground mb-4">
               Project Not Found
@@ -89,7 +89,7 @@ export default function ProjectDetail() {
       <Header />
 
       {/* Hero Section */}
-      <section className="grid-container pt-24 pb-20">
+      <section className="grid-container pt-32 pb-20">
         <div
           className={`
             animate-slide-up

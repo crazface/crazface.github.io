@@ -9,7 +9,7 @@ export default function About() {
       <Header />
 
       {/* About Content */}
-      <section className="grid-container pt-24 pb-section">
+      <section className="grid-container pt-32 pb-section">
         <div className="animate-slide-up">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Image Column */}
