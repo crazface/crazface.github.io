@@ -40,7 +40,7 @@ export function HeroBanner() {
   const currentProject = projects[0]; // Use first project for button link
 
   return (
-    <div className="relative w-full h-[750px] md:h-[950px] lg:h-[1100px] flex items-center justify-center px-6">
+    <div className="relative w-full h-[750px] md:h-[950px] lg:h-[1100px] flex items-start justify-center px-6 pt-6">
       {/* Subtle background gradient as fallback */}
       <div
         className="absolute inset-0"
