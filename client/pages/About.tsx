@@ -32,7 +32,7 @@ export default function About() {
                 <h3 className="text-2xl font-black leading-snug tracking-tight text-foreground mb-4">
                   Specialties
                 </h3>
-                <div className="grid grid-cols-1 gap-4">
+                <div className="grid grid-cols-2 gap-4">
                   {[
                     "Brand Identity",
                     "Art Direction",
