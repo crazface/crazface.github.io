@@ -152,15 +152,23 @@ export function HeroBanner() {
           ))}
         </div>
 
-        {/* Glow effect on hover */}
+        {/* Enhanced glow effect with seamless gradient */}
         <div
           className={`
-            absolute inset-0 -z-10 rounded-xl blur-xl transition-opacity duration-300
+            absolute inset-0 -z-10 rounded-xl blur-xl transition-opacity duration-300 gradient-smooth gradient-with-noise
             ${isHovered ? "opacity-30" : "opacity-0"}
           `}
           style={{
-            background:
-              "linear-gradient(135deg, rgba(103, 94, 76, 0.4), rgba(103, 94, 76, 0.2))",
+            background: `linear-gradient(
+              135deg,
+              rgba(103, 94, 76, 0.5) 0%,
+              rgba(115, 105, 88, 0.45) 16%,
+              rgba(125, 115, 98, 0.4) 32%,
+              rgba(120, 110, 93, 0.35) 48%,
+              rgba(110, 100, 83, 0.3) 64%,
+              rgba(100, 90, 73, 0.25) 80%,
+              rgba(90, 80, 63, 0.2) 100%
+            )`
           }}
         />
       </div>
