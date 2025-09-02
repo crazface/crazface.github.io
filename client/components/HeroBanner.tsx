@@ -68,17 +68,19 @@ export function HeroBanner() {
               transform: "scale(1)",
             }}
           />
-          {/* Enhanced overlay for better readability with smooth transitions */}
+          {/* Enhanced overlay with seamless band-free transitions */}
           <div
             className="absolute inset-0 gradient-smooth gradient-with-noise"
             style={{
               background: `linear-gradient(
                 to top,
-                rgba(0,0,0,0.65) 0%,
-                rgba(0,0,0,0.45) 20%,
-                rgba(0,0,0,0.25) 40%,
-                rgba(0,0,0,0.15) 60%,
-                rgba(0,0,0,0.05) 80%,
+                rgba(0,0,0,0.75) 0%,
+                rgba(8,8,8,0.65) 14%,
+                rgba(16,16,16,0.55) 28%,
+                rgba(12,12,12,0.45) 42%,
+                rgba(6,6,6,0.30) 56%,
+                rgba(3,3,3,0.15) 70%,
+                rgba(1,1,1,0.05) 84%,
                 transparent 100%
               )`
             }}
