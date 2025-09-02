@@ -41,9 +41,12 @@ export function WorkBanner() {
           background: `linear-gradient(
             to right,
             transparent 0%,
-            hsla(var(--foreground), 0.02) 25%,
-            hsla(var(--foreground), 0.08) 50%,
-            hsla(var(--foreground), 0.02) 75%,
+            hsla(var(--foreground), 0.01) 16%,
+            hsla(var(--foreground), 0.03) 32%,
+            hsla(var(--foreground), 0.06) 48%,
+            hsla(var(--foreground), 0.08) 52%,
+            hsla(var(--foreground), 0.06) 68%,
+            hsla(var(--foreground), 0.02) 84%,
             transparent 100%
           )`
         }}
