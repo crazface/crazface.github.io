@@ -63,13 +63,21 @@ export function ProjectTile({ project }: ProjectTileProps) {
       <div
         className={`
           absolute inset-0 z-10 flex flex-col justify-end p-6
-          transition-all duration-300 ease-out
-          ${
-            isHovered
-              ? "bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-100"
-              : "opacity-0"
-          }
+          transition-all duration-300 ease-out gradient-smooth gradient-with-noise
+          ${isHovered ? "opacity-100" : "opacity-0"}
         `}
+        style={{
+          background: isHovered
+            ? `linear-gradient(
+                to top,
+                rgba(0,0,0,0.65) 0%,
+                rgba(0,0,0,0.45) 25%,
+                rgba(0,0,0,0.25) 50%,
+                rgba(0,0,0,0.15) 75%,
+                transparent 100%
+              )`
+            : 'transparent'
+        }}
       >
         <div
           className={`
