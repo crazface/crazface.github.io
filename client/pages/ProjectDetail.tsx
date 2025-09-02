@@ -115,7 +115,7 @@ export default function ProjectDetail() {
                   rgba(4,4,4,0.08) 64%,
                   rgba(2,2,2,0.04) 80%,
                   transparent 100%
-                )`
+                )`,
               }}
             />
           </div>

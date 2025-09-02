@@ -22,9 +22,10 @@ export function WorkBanner() {
   ];
 
   return (
-    <div className="relative overflow-hidden rounded-2xl backdrop-blur-sm border border-foreground/10 gradient-smooth gradient-with-noise"
-         style={{
-           background: `linear-gradient(
+    <div
+      className="relative overflow-hidden rounded-2xl backdrop-blur-sm border border-foreground/10 gradient-smooth gradient-with-noise"
+      style={{
+        background: `linear-gradient(
              to right,
              rgba(0,0,0,0.12) 0%,
              rgba(6,6,6,0.20) 16%,
@@ -33,8 +34,9 @@ export function WorkBanner() {
              rgba(16,16,16,0.32) 64%,
              rgba(10,10,10,0.28) 80%,
              rgba(4,4,4,0.38) 100%
-           )`
-         }}>
+           )`,
+      }}
+    >
       <div
         className="absolute inset-0 animate-pulse gradient-smooth"
         style={{
@@ -48,7 +50,7 @@ export function WorkBanner() {
             hsla(var(--foreground), 0.06) 68%,
             hsla(var(--foreground), 0.02) 84%,
             transparent 100%
-          )`
+          )`,
         }}
       />
 

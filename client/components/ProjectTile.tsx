@@ -50,7 +50,7 @@ export function ProjectTile({ project }: ProjectTileProps) {
               rgba(4,4,4,0.06) 64%,
               rgba(2,2,2,0.03) 80%,
               transparent 100%
-            )`
+            )`,
           }}
         />
       </div>
@@ -82,7 +82,7 @@ export function ProjectTile({ project }: ProjectTileProps) {
                 rgba(1,1,1,0.08) 84%,
                 transparent 100%
               )`
-            : 'transparent'
+            : "transparent",
         }}
       >
         <div

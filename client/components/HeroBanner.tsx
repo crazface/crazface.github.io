@@ -82,7 +82,7 @@ export function HeroBanner() {
                 rgba(3,3,3,0.15) 70%,
                 rgba(1,1,1,0.05) 84%,
                 transparent 100%
-              )`
+              )`,
             }}
           />
         </div>
@@ -168,7 +168,7 @@ export function HeroBanner() {
               rgba(110, 100, 83, 0.3) 64%,
               rgba(100, 90, 73, 0.25) 80%,
               rgba(90, 80, 63, 0.2) 100%
-            )`
+            )`,
           }}
         />
       </div>
