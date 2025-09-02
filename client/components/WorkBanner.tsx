@@ -22,7 +22,17 @@ export function WorkBanner() {
   ];
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-black/20 to-black/40 backdrop-blur-sm border border-foreground/10">
+    <div className="relative overflow-hidden rounded-2xl backdrop-blur-sm border border-foreground/10 gradient-smooth gradient-with-noise"
+         style={{
+           background: `linear-gradient(
+             to right,
+             rgba(0,0,0,0.15) 0%,
+             rgba(0,0,0,0.25) 25%,
+             rgba(0,0,0,0.35) 50%,
+             rgba(0,0,0,0.30) 75%,
+             rgba(0,0,0,0.40) 100%
+           )`
+         }}>
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/5 to-transparent animate-pulse" />
 
       <div className="px-8 py-6">
