@@ -73,10 +73,13 @@ export function ProjectTile({ project }: ProjectTileProps) {
           background: isHovered
             ? `linear-gradient(
                 to top,
-                rgba(0,0,0,0.65) 0%,
-                rgba(0,0,0,0.45) 25%,
-                rgba(0,0,0,0.25) 50%,
-                rgba(0,0,0,0.15) 75%,
+                rgba(0,0,0,0.75) 0%,
+                rgba(8,8,8,0.65) 14%,
+                rgba(16,16,16,0.55) 28%,
+                rgba(12,12,12,0.45) 42%,
+                rgba(6,6,6,0.30) 56%,
+                rgba(3,3,3,0.18) 70%,
+                rgba(1,1,1,0.08) 84%,
                 transparent 100%
               )`
             : 'transparent'
