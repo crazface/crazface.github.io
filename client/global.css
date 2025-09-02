@@ -389,6 +389,108 @@
 }
 
 @layer components {
+  /* Enhanced Gradient Utilities */
+  .gradient-smooth {
+    /* Force hardware acceleration for smooth gradients */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: background;
+    /* Anti-aliasing for smoother gradients */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    /* Reduce banding with dithering effect */
+    background-attachment: fixed;
+  }
+
+  .gradient-with-noise {
+    position: relative;
+  }
+
+  .gradient-with-noise::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image:
+      /* Subtle noise pattern */
+      radial-gradient(circle at 25% 25%, transparent 40%, rgba(255,255,255,0.3) 41%, rgba(255,255,255,0.3) 42%, transparent 43%),
+      radial-gradient(circle at 75% 75%, transparent 40%, rgba(0,0,0,0.2) 41%, rgba(0,0,0,0.2) 42%, transparent 43%),
+      radial-gradient(circle at 50% 10%, transparent 30%, rgba(255,255,255,0.15) 31%, rgba(255,255,255,0.15) 32%, transparent 33%),
+      radial-gradient(circle at 10% 50%, transparent 30%, rgba(0,0,0,0.1) 31%, rgba(0,0,0,0.1) 32%, transparent 33%),
+      /* Fine grain texture */
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 1px,
+        rgba(255,255,255,0.05) 1px,
+        rgba(255,255,255,0.05) 2px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 1px,
+        rgba(0,0,0,0.03) 1px,
+        rgba(0,0,0,0.03) 2px
+      );
+    background-size:
+      3px 3px,
+      4px 4px,
+      2px 2px,
+      3px 3px,
+      1px 1px,
+      1px 1px;
+    mix-blend-mode: overlay;
+    border-radius: inherit;
+  }
+
+  .gradient-hero-light {
+    background: linear-gradient(
+      135deg,
+      rgba(240, 240, 235, 0.5) 0%,
+      rgba(242, 240, 237, 0.6) 25%,
+      rgba(245, 243, 240, 0.7) 50%,
+      rgba(243, 241, 238, 0.75) 75%,
+      rgba(240, 240, 235, 0.8) 100%
+    );
+  }
+
+  .gradient-hero-dark {
+    background: linear-gradient(
+      135deg,
+      rgba(20, 20, 20, 0.5) 0%,
+      rgba(18, 18, 18, 0.6) 25%,
+      rgba(22, 22, 22, 0.7) 50%,
+      rgba(19, 19, 19, 0.75) 75%,
+      rgba(20, 20, 20, 0.8) 100%
+    );
+  }
+
+  .gradient-body-light {
+    background: linear-gradient(
+      135deg,
+      hsl(42, 25%, 88%) 0%,
+      hsl(42, 27%, 89%) 25%,
+      hsl(42, 30%, 90%) 50%,
+      hsl(42, 28%, 89%) 75%,
+      hsl(42, 20%, 86%) 100%
+    );
+  }
+
+  .gradient-body-dark {
+    background: linear-gradient(
+      135deg,
+      hsl(0, 0%, 8%) 0%,
+      hsl(0, 0%, 9%) 25%,
+      hsl(0, 0%, 10%) 50%,
+      hsl(0, 0%, 9%) 75%,
+      hsl(0, 0%, 6%) 100%
+    );
+  }
+
   /* 3D Text Effects */
   .text-stroke {
     text-shadow:
