@@ -108,9 +108,12 @@ export default function ProjectDetail() {
               style={{
                 background: `linear-gradient(
                   to top,
-                  rgba(0,0,0,0.25) 0%,
-                  rgba(0,0,0,0.15) 30%,
-                  rgba(0,0,0,0.05) 60%,
+                  rgba(0,0,0,0.3) 0%,
+                  rgba(6,6,6,0.25) 16%,
+                  rgba(12,12,12,0.20) 32%,
+                  rgba(8,8,8,0.15) 48%,
+                  rgba(4,4,4,0.08) 64%,
+                  rgba(2,2,2,0.04) 80%,
                   transparent 100%
                 )`
               }}
