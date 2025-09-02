@@ -33,7 +33,19 @@ export function WorkBanner() {
              rgba(0,0,0,0.40) 100%
            )`
          }}>
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-foreground/5 to-transparent animate-pulse" />
+      <div
+        className="absolute inset-0 animate-pulse gradient-smooth"
+        style={{
+          background: `linear-gradient(
+            to right,
+            transparent 0%,
+            hsla(var(--foreground), 0.02) 25%,
+            hsla(var(--foreground), 0.08) 50%,
+            hsla(var(--foreground), 0.02) 75%,
+            transparent 100%
+          )`
+        }}
+      />
 
       <div className="px-8 py-6">
         <div className="flex items-center justify-between mb-4">
