@@ -37,15 +37,18 @@ export function ProjectTile({ project }: ProjectTileProps) {
           alt={project.title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {/* Enhanced overlay for better text readability */}
+        {/* Enhanced overlay with seamless band-free gradient */}
         <div
           className="absolute inset-0 gradient-smooth gradient-with-noise"
           style={{
             background: `linear-gradient(
               to top,
-              rgba(0,0,0,0.25) 0%,
-              rgba(0,0,0,0.12) 30%,
-              rgba(0,0,0,0.03) 60%,
+              rgba(0,0,0,0.3) 0%,
+              rgba(6,6,6,0.25) 16%,
+              rgba(12,12,12,0.18) 32%,
+              rgba(8,8,8,0.12) 48%,
+              rgba(4,4,4,0.06) 64%,
+              rgba(2,2,2,0.03) 80%,
               transparent 100%
             )`
           }}
