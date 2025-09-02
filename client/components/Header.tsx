@@ -62,6 +62,7 @@ export function Header() {
             >
               Contact me
             </Link>
+            <ThemeToggle />
           </nav>
         </div>
       </div>
