@@ -73,8 +73,21 @@ export function HeroBanner() {
               transform: "scale(1)",
             }}
           />
-          {/* Overlay for better readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          {/* Enhanced overlay for better readability with smooth transitions */}
+          <div
+            className="absolute inset-0 gradient-smooth gradient-with-noise"
+            style={{
+              background: `linear-gradient(
+                to top,
+                rgba(0,0,0,0.65) 0%,
+                rgba(0,0,0,0.45) 20%,
+                rgba(0,0,0,0.25) 40%,
+                rgba(0,0,0,0.15) 60%,
+                rgba(0,0,0,0.05) 80%,
+                transparent 100%
+              )`
+            }}
+          />
         </div>
 
         {/* Navigation arrows */}
