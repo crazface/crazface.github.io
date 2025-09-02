@@ -163,21 +163,7 @@ export function HeroBanner() {
         />
       </div>
 
-      {/* Enhanced bottom fade for seamless section transition */}
-      <div
-        className="absolute bottom-0 left-0 w-full h-32 pointer-events-none z-30 gradient-smooth gradient-with-noise"
-        style={{
-          background: `linear-gradient(
-            to top,
-            hsl(var(--background)) 0%,
-            hsla(var(--background), 0.9) 20%,
-            hsla(var(--background), 0.7) 40%,
-            hsla(var(--background), 0.4) 60%,
-            hsla(var(--background), 0.1) 80%,
-            transparent 100%
-          )`
-        }}
-      />
+      {/* No fade - maintaining flat background */}
     </div>
   );
 }
