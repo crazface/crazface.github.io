@@ -15,7 +15,10 @@ export default function About() {
             {/* Left Column - Image and Specialties */}
             <div className="space-y-8">
               <div className="relative">
-                <div className="rounded-lg overflow-hidden w-full h-[500px]" style={{ border: 'none' }}>
+                <div
+                  className="rounded-lg overflow-hidden w-full h-[500px]"
+                  style={{ border: "none" }}
+                >
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe81b7ac7dfb94ba7b069bb4b5a5528dd"
                     alt="About photo"
