@@ -103,7 +103,18 @@ export default function ProjectDetail() {
               alt={project.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+            <div
+              className="absolute inset-0 gradient-smooth gradient-with-noise"
+              style={{
+                background: `linear-gradient(
+                  to top,
+                  rgba(0,0,0,0.25) 0%,
+                  rgba(0,0,0,0.15) 30%,
+                  rgba(0,0,0,0.05) 60%,
+                  transparent 100%
+                )`
+              }}
+            />
           </div>
 
           {/* Project Header */}
