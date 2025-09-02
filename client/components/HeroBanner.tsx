@@ -43,12 +43,7 @@ export function HeroBanner() {
 
   return (
     <div className="relative w-full h-[750px] md:h-[950px] lg:h-[1100px] flex items-start justify-center px-6 pt-32">
-      {/* Enhanced gradient background with noise */}
-      <div
-        className={`absolute inset-0 gradient-smooth gradient-with-noise ${
-          theme === "dark" ? "gradient-hero-dark" : "gradient-hero-light"
-        }`}
-      />
+      {/* Transparent background to inherit page background */}
 
       {/* Widget Container */}
       <div
