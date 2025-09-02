@@ -683,8 +683,12 @@
   .gradient-overlay-dark {
     background: linear-gradient(
       to top,
-      rgba(0,0,0,0.6) 0%,
-      rgba(0,0,0,0.3) 50%,
+      rgba(0,0,0,0.7) 0%,
+      rgba(12,12,12,0.6) 16%,
+      rgba(20,20,20,0.5) 32%,
+      rgba(16,16,16,0.4) 48%,
+      rgba(8,8,8,0.25) 64%,
+      rgba(4,4,4,0.1) 80%,
       transparent 100%
     );
     @apply gradient-smooth gradient-with-noise;
@@ -693,8 +697,12 @@
   .gradient-overlay-light {
     background: linear-gradient(
       to top,
-      rgba(255,255,255,0.6) 0%,
-      rgba(255,255,255,0.3) 50%,
+      rgba(255,255,255,0.7) 0%,
+      rgba(248,248,248,0.6) 16%,
+      rgba(240,240,240,0.5) 32%,
+      rgba(245,245,245,0.4) 48%,
+      rgba(250,250,250,0.25) 64%,
+      rgba(252,252,252,0.1) 80%,
       transparent 100%
     );
     @apply gradient-smooth gradient-with-noise;
