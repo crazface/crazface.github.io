@@ -628,6 +628,45 @@
 }
 
 @layer utilities {
+  /* Enhanced Gradient Utilities */
+  .gradient-fade-bottom {
+    background: linear-gradient(
+      to top,
+      currentColor 0%,
+      transparent 100%
+    );
+    @apply gradient-smooth gradient-with-noise;
+  }
+
+  .gradient-fade-top {
+    background: linear-gradient(
+      to bottom,
+      currentColor 0%,
+      transparent 100%
+    );
+    @apply gradient-smooth gradient-with-noise;
+  }
+
+  .gradient-overlay-dark {
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.6) 0%,
+      rgba(0,0,0,0.3) 50%,
+      transparent 100%
+    );
+    @apply gradient-smooth gradient-with-noise;
+  }
+
+  .gradient-overlay-light {
+    background: linear-gradient(
+      to top,
+      rgba(255,255,255,0.6) 0%,
+      rgba(255,255,255,0.3) 50%,
+      transparent 100%
+    );
+    @apply gradient-smooth gradient-with-noise;
+  }
+
   /* Grid system utilities */
   .grid-container {
     @apply mx-auto max-w-grid px-gutter;
