@@ -37,8 +37,19 @@ export function ProjectTile({ project }: ProjectTileProps) {
           alt={project.title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+        {/* Enhanced overlay for better text readability */}
+        <div
+          className="absolute inset-0 gradient-smooth gradient-with-noise"
+          style={{
+            background: `linear-gradient(
+              to top,
+              rgba(0,0,0,0.25) 0%,
+              rgba(0,0,0,0.12) 30%,
+              rgba(0,0,0,0.03) 60%,
+              transparent 100%
+            )`
+          }}
+        />
       </div>
 
       {/* Media Type Badge */}
