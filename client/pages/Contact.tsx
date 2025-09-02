@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { useTheme } from "@/hooks/use-theme";
 
 export default function Contact() {
+  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
