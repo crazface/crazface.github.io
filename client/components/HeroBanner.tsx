@@ -43,14 +43,11 @@ export function HeroBanner() {
 
   return (
     <div className="relative w-full h-[750px] md:h-[950px] lg:h-[1100px] flex items-start justify-center px-6 pt-32">
-      {/* Subtle background gradient as fallback */}
+      {/* Enhanced gradient background with noise */}
       <div
-        className="absolute inset-0"
-        style={{
-          background: theme === "dark"
-            ? `linear-gradient(135deg, rgba(20,20,20,0.5) 0%, rgba(20,20,20,0.8) 100%)`
-            : `linear-gradient(135deg, rgba(240,240,235,0.5) 0%, rgba(240,240,235,0.8) 100%)`,
-        }}
+        className={`absolute inset-0 gradient-smooth gradient-with-noise ${
+          theme === "dark" ? "gradient-hero-dark" : "gradient-hero-light"
+        }`}
       />
 
       {/* Widget Container */}
