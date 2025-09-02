@@ -26,11 +26,13 @@ export function WorkBanner() {
          style={{
            background: `linear-gradient(
              to right,
-             rgba(0,0,0,0.15) 0%,
-             rgba(0,0,0,0.25) 25%,
-             rgba(0,0,0,0.35) 50%,
-             rgba(0,0,0,0.30) 75%,
-             rgba(0,0,0,0.40) 100%
+             rgba(0,0,0,0.12) 0%,
+             rgba(6,6,6,0.20) 16%,
+             rgba(14,14,14,0.28) 32%,
+             rgba(20,20,20,0.35) 48%,
+             rgba(16,16,16,0.32) 64%,
+             rgba(10,10,10,0.28) 80%,
+             rgba(4,4,4,0.38) 100%
            )`
          }}>
       <div
