@@ -90,23 +90,45 @@
       "Segoe UI",
       "Roboto",
       sans-serif;
-    background: linear-gradient(
-      135deg,
-      hsl(42, 25%, 88%) 0%,
-      hsl(42, 30%, 90%) 50%,
-      hsl(42, 20%, 86%) 100%
-    );
+    @apply gradient-body-light gradient-smooth;
     background-attachment: fixed;
     position: relative;
   }
 
   .dark body {
-    background: linear-gradient(
-      135deg,
-      hsl(0, 0%, 8%) 0%,
-      hsl(0, 0%, 10%) 50%,
-      hsl(0, 0%, 6%) 100%
-    );
+    @apply gradient-body-dark;
+  }
+
+  /* Add noise overlay to body */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.02;
+    background-image:
+      /* Ultra-fine noise for smooth gradients */
+      repeating-radial-gradient(
+        circle at 33% 67%,
+        transparent 0px,
+        rgba(255,255,255,0.4) 0.5px,
+        transparent 1px,
+        rgba(0,0,0,0.2) 1.5px,
+        transparent 2px
+      ),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 0.5px,
+        rgba(255,255,255,0.1) 0.5px,
+        rgba(255,255,255,0.1) 1px
+      );
+    background-size: 2px 2px, 1px 1px;
+    mix-blend-mode: overlay;
   }
 
   body::before {
