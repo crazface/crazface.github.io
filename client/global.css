@@ -403,11 +403,23 @@
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     will-change: background;
-    /* Anti-aliasing for smoother gradients */
+    /* High-resolution rendering optimization */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: optimize-contrast;
-    /* Reduce banding with dithering effect */
+    image-rendering: crisp-edges;
+    /* Enhanced smoothing and anti-aliasing */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Force 3x resolution equivalent rendering */
+    transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
+    /* Reduce banding with optimized attachment */
     background-attachment: fixed;
+    /* Enhanced color depth */
+    color-rendering: optimizeQuality;
+    /* Subpixel precision */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .gradient-with-noise {
