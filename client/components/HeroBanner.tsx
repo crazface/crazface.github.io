@@ -17,6 +17,7 @@ const slideshowImages = [
 export function HeroBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const { theme } = useTheme();
 
   // Auto-advance the banner every 5 seconds
   useEffect(() => {
