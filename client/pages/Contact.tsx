@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Send } from "lucide-react";
 import { Header } from "@/components/Header";
+import { useTheme } from "@/hooks/use-theme";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
