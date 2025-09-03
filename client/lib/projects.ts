@@ -13,6 +13,11 @@ export interface Project {
     secondary: string;
     accent: string;
   };
+  brandTheme?: {
+    background: string;
+    highlight: string;
+    text: string;
+  };
 }
 
 export const projects: Project[] = [
