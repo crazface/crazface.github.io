@@ -417,12 +417,12 @@
   body.project-branded *,
   body.project-branded *::before,
   body.project-branded *::after {
-    border-color: hsl(var(--primary)) !important;
+    border-color: var(--project-primary) !important;
   }
 
   body.project-branded .glass {
     background: rgba(255, 255, 255, 0.1) !important;
-    border-color: hsl(var(--primary)) !important;
+    border-color: var(--project-primary) !important;
     backdrop-filter: blur(20px) !important;
   }
 
