@@ -139,9 +139,10 @@ export default function ProjectDetail() {
   return (
     <div className="min-h-screen bg-background">
       {/* Flicker prevention script */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
+      {project?.brandTheme && (
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
 (function(){
   try {
     var b = document.body;
@@ -149,16 +150,17 @@ export default function ProjectDetail() {
     b.setAttribute("data-skip-theme","true");
     var root = document.documentElement;
     if (!root.style.getPropertyValue("--project-bg")) {
-      root.style.setProperty("--project-bg", "#ff6600");
-      root.style.setProperty("--project-fg", "#000000");
-      root.style.setProperty("--project-primary", "#ffffff");
-      root.style.setProperty("--project-secondary", "#333333");
+      root.style.setProperty("--project-bg", "${project.brandTheme.background}");
+      root.style.setProperty("--project-fg", "${project.brandTheme.text}");
+      root.style.setProperty("--project-primary", "${project.brandTheme.highlight}");
+      root.style.setProperty("--project-secondary", "${project.brandTheme.text}");
     }
   } catch(e){}
 })();
-          `
-        }}
-      />
+            `
+          }}
+        />
+      )}
       {/* Header */}
       <Header />
 
