@@ -401,8 +401,8 @@
     --primary: var(--project-primary);
     --secondary: var(--project-secondary);
     color-scheme: light !important;
-    color: rgb(var(--foreground)) !important;
-    background-color: rgb(var(--background)) !important;
+    background-color: var(--project-bg) !important;
+    color: var(--project-fg) !important;
     /* Completely override global background patterns */
     background-image: none !important;
     background-attachment: scroll !important;
