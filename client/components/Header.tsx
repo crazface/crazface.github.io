@@ -9,6 +9,9 @@ export function Header() {
     return location.pathname === path || location.pathname.startsWith(path);
   };
 
+  // Check if we're on a project page
+  const isProjectPage = location.pathname.startsWith("/project/");
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
       <div className="grid-container py-6">
