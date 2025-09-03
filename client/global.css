@@ -189,7 +189,7 @@
     filter: blur(0.5px);
   }
 
-  .dark body:not(.project-branded)::before {
+  html.dark body:not([data-skip-theme])::before {
     background-image:
       /* Darker bloom effects for night mode */
       radial-gradient(
