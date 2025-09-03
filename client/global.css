@@ -875,3 +875,20 @@
     animation: scale-in 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 }
+
+/* Project pages: make header static and remove blur */
+body.project-branded #siteHeader,
+body[data-skip-theme="true"] #siteHeader {
+  position: static !important;
+}
+
+body.project-branded #siteHeader::before,
+body[data-skip-theme="true"] #siteHeader::before {
+  display: none !important;
+}
+
+body.project-branded #siteHeader.scrolled,
+body[data-skip-theme="true"] #siteHeader.scrolled {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
