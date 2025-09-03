@@ -53,7 +53,7 @@ export function ThemeProvider({
 
     observer.observe(document.body, {
       attributes: true,
-      attributeFilter: ["data-skip-theme"]
+      attributeFilter: ["data-skip-theme"],
     });
 
     return () => observer.disconnect();
