@@ -85,46 +85,15 @@ export default function ProjectDetail() {
     return () => clearInterval(id);
   }, []);
 
-  // Hide theme toggle for branded projects
+  // Hide theme toggle for project pages
   useEffect(() => {
-    if (project?.brandTheme) {
-      const root = document.documentElement;
-      root.style.setProperty("--theme-toggle-display", "none");
-    } else if (project?.colors) {
-      // Apply default project theming for non-branded projects
-      const root = document.documentElement;
-      root.style.setProperty("--project-primary", project.colors.primary);
-      root.style.setProperty("--project-secondary", project.colors.secondary);
-      root.style.setProperty("--project-accent", project.colors.accent);
+    const root = document.documentElement;
+    root.style.setProperty("--theme-toggle-display", "none");
 
-      // Set background gradient
-      document.body.style.background = `
-        linear-gradient(
-          135deg,
-          ${project.colors.primary}08 0%,
-          ${project.colors.secondary}08 100%
-        ),
-        hsl(var(--background))
-      `;
-
-      // Show theme toggle for non-branded projects
-      root.style.setProperty("--theme-toggle-display", "flex");
-    }
-
-    // Cleanup on unmount
     return () => {
-      const root = document.documentElement;
-      root.style.removeProperty("--project-primary");
-      root.style.removeProperty("--project-secondary");
-      root.style.removeProperty("--project-accent");
       root.style.removeProperty("--theme-toggle-display");
-
-      // Clear body styles
-      document.body.style.removeProperty("background");
-      document.body.style.removeProperty("background-color");
-      document.body.style.removeProperty("color");
     };
-  }, [project]);
+  }, []);
 
   if (!isLoaded) {
     return (
