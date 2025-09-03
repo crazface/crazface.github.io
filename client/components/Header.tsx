@@ -15,8 +15,8 @@ export function Header() {
   return (
     <header
       id="siteHeader"
-      className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50"
-      style={{
+      className={`${isProjectPage ? '' : 'fixed top-0 left-0 right-0'} z-50 bg-background/90 backdrop-blur-md border-b border-border/50`}
+      style={!isProjectPage ? {
         position: 'fixed !important' as any,
         top: '0 !important',
         left: '0 !important',
@@ -25,7 +25,7 @@ export function Header() {
         transform: 'translateZ(0)',
         willChange: 'transform',
         backfaceVisibility: 'hidden'
-      }}
+      } : {}}
     >
       <div className="grid-container py-6">
         <div className="flex items-center justify-between">
