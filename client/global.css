@@ -392,6 +392,20 @@
     cursor: none;
   }
 
+  /* Project branding support */
+  .project-branded {
+    color-scheme: light;
+  }
+
+  .project-branded * {
+    border-color: currentColor !important;
+  }
+
+  .project-branded .glass {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: currentColor !important;
+  }
+
   /* Reduced motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
     *,
