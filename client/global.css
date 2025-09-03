@@ -99,8 +99,8 @@
     @apply gradient-body-dark;
   }
 
-  /* Add noise overlay to body */
-  body::after {
+  /* Add noise overlay to body (exclude project pages) */
+  body:not(.project-branded)::after {
     content: "";
     position: fixed;
     top: 0;
