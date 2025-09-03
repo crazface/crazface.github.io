@@ -131,11 +131,18 @@ export default function ProjectDetail() {
 
     // Cleanup on unmount
     return () => {
-      document.body.style.background = "";
-      document.body.style.color = "";
-      document.body.classList.remove("project-branded");
       const root = document.documentElement;
-      root.style.color = "";
+
+      // Remove brand theming class first
+      document.body.classList.remove("project-branded");
+
+      // Clear all brand-specific styles
+      document.body.style.removeProperty("background");
+      document.body.style.removeProperty("background-color");
+      document.body.style.removeProperty("color");
+      root.style.removeProperty("background");
+      root.style.removeProperty("background-color");
+      root.style.removeProperty("color");
 
       // Reset all custom properties
       root.style.removeProperty("--project-primary");
@@ -151,11 +158,19 @@ export default function ProjectDetail() {
       root.style.removeProperty("--card");
       root.style.removeProperty("--card-foreground");
       root.style.removeProperty("--border");
+      root.style.removeProperty("--secondary");
+      root.style.removeProperty("--secondary-foreground");
+      root.style.removeProperty("--muted");
+      root.style.removeProperty("--popover");
+      root.style.removeProperty("--popover-foreground");
       root.style.removeProperty("--theme-toggle-display");
 
-      // Restore default theme class
+      // Restore default theme class and trigger theme provider
       const currentTheme = localStorage.getItem("portfolio-theme") || "light";
-      root.classList.add(currentTheme);
+      root.classList.remove("light", "dark");
+      if (currentTheme === "dark") {
+        root.classList.add("dark");
+      }
     };
   }, [project]);
 
