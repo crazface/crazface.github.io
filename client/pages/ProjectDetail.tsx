@@ -19,8 +19,6 @@ export default function ProjectDetail() {
   }, [id]);
 
   useEffect(() => {
-    let observer: MutationObserver | null = null;
-
     if (project?.brandTheme) {
       // Apply custom brand theme to the page
       const root = document.documentElement;
@@ -49,88 +47,41 @@ export default function ProjectDetail() {
         return `${Math.round(h * 360)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`;
       };
 
-      // Use a small delay to ensure this runs after ThemeProvider's useEffect
-      const applyBrandTheme = () => {
-        // Set custom brand theme colors with proper HSL values
-        const backgroundHsl = hexToHsl(project.brandTheme.background);
-        const highlightHsl = hexToHsl(project.brandTheme.highlight);
+      // Set custom brand theme colors with proper HSL values
+      const backgroundHsl = hexToHsl(project.brandTheme.background);
+      const highlightHsl = hexToHsl(project.brandTheme.highlight);
 
-        // Set CSS custom properties with higher specificity
-        root.style.setProperty("--background", backgroundHsl, "important");
-        root.style.setProperty("--foreground", highlightHsl, "important");
-        root.style.setProperty("--muted-foreground", highlightHsl, "important");
-        root.style.setProperty("--primary", highlightHsl, "important");
-        root.style.setProperty("--primary-foreground", backgroundHsl, "important");
-        root.style.setProperty("--accent", highlightHsl, "important");
-        root.style.setProperty("--accent-foreground", backgroundHsl, "important");
-        root.style.setProperty("--card", backgroundHsl, "important");
-        root.style.setProperty("--card-foreground", highlightHsl, "important");
-        root.style.setProperty("--border", highlightHsl, "important");
-        root.style.setProperty("--secondary", backgroundHsl, "important");
-        root.style.setProperty("--secondary-foreground", highlightHsl, "important");
-        root.style.setProperty("--muted", backgroundHsl, "important");
-        root.style.setProperty("--popover", backgroundHsl, "important");
-        root.style.setProperty("--popover-foreground", highlightHsl, "important");
+      // Apply brand class first to prevent global styles
+      document.body.classList.add("project-branded");
 
-        // Remove any existing theme classes that might conflict
-        root.classList.remove("light", "dark");
-        document.body.classList.remove("light", "dark");
+      // Remove any existing theme classes
+      root.classList.remove("light", "dark");
+      document.body.classList.remove("light", "dark");
 
-        // Add brand class first
-        document.body.classList.add("project-branded");
+      // Set CSS custom properties
+      root.style.setProperty("--background", backgroundHsl);
+      root.style.setProperty("--foreground", highlightHsl);
+      root.style.setProperty("--muted-foreground", highlightHsl);
+      root.style.setProperty("--primary", highlightHsl);
+      root.style.setProperty("--primary-foreground", backgroundHsl);
+      root.style.setProperty("--accent", highlightHsl);
+      root.style.setProperty("--accent-foreground", backgroundHsl);
+      root.style.setProperty("--card", backgroundHsl);
+      root.style.setProperty("--card-foreground", highlightHsl);
+      root.style.setProperty("--border", highlightHsl);
+      root.style.setProperty("--secondary", backgroundHsl);
+      root.style.setProperty("--secondary-foreground", highlightHsl);
+      root.style.setProperty("--muted", backgroundHsl);
+      root.style.setProperty("--popover", backgroundHsl);
+      root.style.setProperty("--popover-foreground", highlightHsl);
 
-        // Set solid background color with !important via style attribute
-        document.body.style.setProperty("background", project.brandTheme.background, "important");
-        document.body.style.setProperty("background-color", project.brandTheme.background, "important");
-        document.body.style.setProperty("color", project.brandTheme.highlight, "important");
+      // Set solid background colors
+      document.body.style.background = project.brandTheme.background;
+      document.body.style.backgroundColor = project.brandTheme.background;
+      document.body.style.color = project.brandTheme.highlight;
 
-        // Also set on root for cascading
-        root.style.setProperty("background", project.brandTheme.background, "important");
-        root.style.setProperty("background-color", project.brandTheme.background, "important");
-        root.style.setProperty("color", project.brandTheme.highlight, "important");
-
-        // Hide theme toggle for branded projects
-        root.style.setProperty("--theme-toggle-display", "none", "important");
-
-        // Force multiple reflows to ensure styles are applied
-        void root.offsetHeight;
-        void document.body.offsetHeight;
-
-        // Double-check and reapply if needed
-        setTimeout(() => {
-          if (document.body.style.backgroundColor !== project.brandTheme.background) {
-            document.body.style.setProperty("background-color", project.brandTheme.background, "important");
-            document.body.style.setProperty("background", project.brandTheme.background, "important");
-          }
-        }, 100);
-      };
-
-      // Apply immediately and after a short delay to override ThemeProvider
-      applyBrandTheme();
-      setTimeout(applyBrandTheme, 50);
-      setTimeout(applyBrandTheme, 150);
-
-      // Set up a MutationObserver to prevent ThemeProvider from adding theme classes
-      observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-            const target = mutation.target as HTMLElement;
-            if (target === root && document.body.classList.contains("project-branded")) {
-              // If theme classes were added back, remove them
-              if (root.classList.contains("light") || root.classList.contains("dark")) {
-                root.classList.remove("light", "dark");
-                // Reapply brand theming
-                setTimeout(applyBrandTheme, 0);
-              }
-            }
-          }
-        });
-      });
-
-      observer.observe(root, {
-        attributes: true,
-        attributeFilter: ['class']
-      });
+      // Hide theme toggle for branded projects
+      root.style.setProperty("--theme-toggle-display", "none");
 
     } else if (project?.colors) {
       // Apply default project theming for non-branded projects
