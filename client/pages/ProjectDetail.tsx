@@ -23,18 +23,51 @@ export default function ProjectDetail() {
       // Apply custom brand theme to the page
       const root = document.documentElement;
 
-      // Set custom brand theme colors
-      root.style.setProperty("--background", project.brandTheme.background);
-      root.style.setProperty("--foreground", project.brandTheme.text);
-      root.style.setProperty("--muted-foreground", project.brandTheme.text);
-      root.style.setProperty("--primary", project.brandTheme.highlight);
-      root.style.setProperty("--primary-foreground", project.brandTheme.background);
-      root.style.setProperty("--accent", project.brandTheme.highlight);
-      root.style.setProperty("--accent-foreground", project.brandTheme.background);
+      // Convert hex to HSL for CSS custom properties
+      const hexToHsl = (hex: string) => {
+        const r = parseInt(hex.slice(1, 3), 16) / 255;
+        const g = parseInt(hex.slice(3, 5), 16) / 255;
+        const b = parseInt(hex.slice(5, 7), 16) / 255;
+
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        let h = 0, s = 0, l = (max + min) / 2;
+
+        if (max !== min) {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+          }
+          h /= 6;
+        }
+
+        return `${Math.round(h * 360)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`;
+      };
+
+      // Set custom brand theme colors with proper HSL values
+      const backgroundHsl = hexToHsl(project.brandTheme.background);
+      const highlightHsl = hexToHsl(project.brandTheme.highlight);
+
+      root.style.setProperty("--background", backgroundHsl);
+      root.style.setProperty("--foreground", highlightHsl);
+      root.style.setProperty("--muted-foreground", highlightHsl);
+      root.style.setProperty("--primary", highlightHsl);
+      root.style.setProperty("--primary-foreground", backgroundHsl);
+      root.style.setProperty("--accent", highlightHsl);
+      root.style.setProperty("--accent-foreground", backgroundHsl);
+      root.style.setProperty("--card", backgroundHsl);
+      root.style.setProperty("--card-foreground", highlightHsl);
+      root.style.setProperty("--border", highlightHsl);
 
       // Set solid background color
       document.body.style.background = project.brandTheme.background;
       document.body.classList.add("project-branded");
+
+      // Force immediate application
+      document.body.style.color = project.brandTheme.highlight;
 
       // Hide theme toggle for branded projects
       root.style.setProperty("--theme-toggle-display", "none");
