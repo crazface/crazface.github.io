@@ -33,13 +33,30 @@ export function ThemeProvider({
   );
 
   useEffect(() => {
-    const root = document.documentElement;
-    const skip = document.body.hasAttribute("data-skip-theme");
-    if (skip) return; // do nothing on project pages
+    const applyTheme = () => {
+      const root = document.documentElement;
+      const skip = document.body.hasAttribute("data-skip-theme");
+      if (skip) return; // do nothing on project pages
 
-    root.classList.remove("light", "dark");
-    if (theme === "dark") root.classList.add("dark");
-    if (theme === "light") root.classList.add("light");
+      root.classList.remove("light", "dark");
+      if (theme === "dark") root.classList.add("dark");
+      if (theme === "light") root.classList.add("light");
+    };
+
+    // Apply theme immediately
+    applyTheme();
+
+    // Watch for changes to data-skip-theme attribute
+    const observer = new MutationObserver(() => {
+      applyTheme();
+    });
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-skip-theme"]
+    });
+
+    return () => observer.disconnect();
   }, [theme]);
 
   const value = {
