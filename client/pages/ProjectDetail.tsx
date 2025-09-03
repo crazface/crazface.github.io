@@ -27,11 +27,18 @@ export default function ProjectDetail() {
     }
   }, [id]);
 
-  // Cleanup on unmount
+  // Cleanup on unmount so other pages get the global theme again
   useEffect(() => {
     return () => {
-      document.body.classList.remove("project-branded");
-      document.body.removeAttribute("data-skip-theme");
+      const b = document.body;
+      b.classList.remove("project-branded");
+      b.removeAttribute("data-skip-theme");
+      // Optional: clear inline locks
+      const root = document.documentElement;
+      ["--project-bg","--project-fg","--project-primary","--project-secondary","--background","--foreground","--primary","--secondary"].forEach(k => {
+        root.style.removeProperty(k);
+        document.body.style.removeProperty(k);
+      });
     };
   }, []);
 
