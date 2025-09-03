@@ -19,6 +19,8 @@ export default function ProjectDetail() {
   }, [id]);
 
   useEffect(() => {
+    let observer: MutationObserver | null = null;
+
     if (project?.brandTheme) {
       // Apply custom brand theme to the page
       const root = document.documentElement;
