@@ -35,6 +35,17 @@ export default function ProjectDetail() {
     };
   }, []);
 
+  // Set project CSS variables when project theme is available
+  useEffect(() => {
+    if (project?.brandTheme) {
+      const el = document.documentElement;
+      el.style.setProperty("--project-bg", project.brandTheme.background);
+      el.style.setProperty("--project-fg", project.brandTheme.highlight);
+      el.style.setProperty("--project-primary", project.brandTheme.highlight);
+      el.style.setProperty("--project-secondary", project.brandTheme.background);
+    }
+  }, [project?.brandTheme]);
+
   useEffect(() => {
     if (project?.brandTheme) {
       // Apply custom brand theme to the page
