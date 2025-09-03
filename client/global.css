@@ -273,7 +273,7 @@
     opacity: 0.7;
   }
 
-  .dark body:not(.project-branded)::after {
+  html.dark body:not([data-skip-theme])::after {
     background-image:
       /* Subtler bloom effects for dark mode */
       radial-gradient(
