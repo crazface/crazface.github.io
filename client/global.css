@@ -308,7 +308,7 @@
     position: relative;
   }
 
-  #root::before {
+  body:not(.project-branded) #root::before {
     content: "";
     position: fixed;
     top: 0;
