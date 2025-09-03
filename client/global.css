@@ -461,6 +461,20 @@
     color: hsl(var(--foreground)) !important;
   }
 
+  /* Comprehensive override for all text elements */
+  body.project-branded,
+  body.project-branded *:not(.glass):not([class*="bg-"]) {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  /* Special handling for headings and important text */
+  body.project-branded h1,
+  body.project-branded h2,
+  body.project-branded h3 {
+    color: hsl(var(--foreground)) !important;
+    font-weight: 900 !important;
+  }
+
   /* Reduced motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
     *,
