@@ -35,25 +35,15 @@ export default function ProjectDetail() {
     };
   }, []);
 
-  // Set project CSS variables when project theme is available
+  // Hard-coded test colors to confirm theming works
   useEffect(() => {
-    if (project?.brandTheme) {
-      const el = document.documentElement;
-
-      // Convert hex to RGB values
-      const hexToRgb = (hex: string) => {
-        const r = parseInt(hex.slice(1, 3), 16);
-        const g = parseInt(hex.slice(3, 5), 16);
-        const b = parseInt(hex.slice(5, 7), 16);
-        return `${r} ${g} ${b}`;
-      };
-
-      el.style.setProperty("--project-bg", hexToRgb(project.brandTheme.background));
-      el.style.setProperty("--project-fg", hexToRgb(project.brandTheme.highlight));
-      el.style.setProperty("--project-primary", hexToRgb(project.brandTheme.highlight));
-      el.style.setProperty("--project-secondary", hexToRgb(project.brandTheme.background));
-    }
-  }, [project?.brandTheme]);
+    const el = document.documentElement;
+    // Hard-coded test colors
+    el.style.setProperty("--project-bg", "#ff6600");      // bright orange background
+    el.style.setProperty("--project-fg", "#000000");      // black text
+    el.style.setProperty("--project-primary", "#ffffff"); // white accents
+    el.style.setProperty("--project-secondary", "#333333"); // dark grey secondary
+  }, []);
 
   // Hide theme toggle for branded projects
   useEffect(() => {
