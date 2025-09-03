@@ -101,8 +101,10 @@ export default function ProjectDetail() {
     // Cleanup on unmount
     return () => {
       document.body.style.background = "";
+      document.body.style.color = "";
       document.body.classList.remove("project-branded");
       const root = document.documentElement;
+      root.style.color = "";
 
       // Reset all custom properties
       root.style.removeProperty("--project-primary");
@@ -115,7 +117,14 @@ export default function ProjectDetail() {
       root.style.removeProperty("--primary-foreground");
       root.style.removeProperty("--accent");
       root.style.removeProperty("--accent-foreground");
+      root.style.removeProperty("--card");
+      root.style.removeProperty("--card-foreground");
+      root.style.removeProperty("--border");
       root.style.removeProperty("--theme-toggle-display");
+
+      // Restore default theme class
+      const currentTheme = localStorage.getItem("portfolio-theme") || "light";
+      root.classList.add(currentTheme);
     };
   }, [project]);
 
