@@ -904,3 +904,9 @@ body[data-skip-theme="true"] #siteHeader.scrolled {
   border-bottom: none !important;
   box-shadow: none !important;
 }
+
+/* Remove top padding on project pages since header is static */
+body.project-branded .pt-32,
+body[data-skip-theme="true"] .pt-32 {
+  padding-top: 0 !important;
+}
