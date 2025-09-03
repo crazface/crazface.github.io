@@ -189,7 +189,7 @@
     filter: blur(0.5px);
   }
 
-  .dark body::before {
+  .dark body:not(.project-branded)::before {
     background-image:
       /* Darker bloom effects for night mode */
       radial-gradient(
@@ -229,7 +229,7 @@
       );
   }
 
-  body::after {
+  body:not(.project-branded)::after {
     content: "";
     position: fixed;
     top: 0;
@@ -273,7 +273,7 @@
     opacity: 0.7;
   }
 
-  .dark body::after {
+  .dark body:not(.project-branded)::after {
     background-image:
       /* Subtler bloom effects for dark mode */
       radial-gradient(
