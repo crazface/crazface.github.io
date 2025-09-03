@@ -82,7 +82,7 @@
     @apply border-border;
   }
 
-  body:not(.project-branded) {
+  body:not([data-skip-theme]) {
     font-family:
       "Inter",
       -apple-system,
@@ -95,7 +95,7 @@
     position: relative;
   }
 
-  .dark body:not(.project-branded) {
+  html.dark body:not([data-skip-theme]) {
     @apply gradient-body-dark;
   }
 
