@@ -904,3 +904,9 @@ body[data-skip-theme="true"] #siteHeader.scrolled {
   border-bottom: none !important;
   box-shadow: none !important;
 }
+
+/* Reduce top padding on project pages */
+body.project-branded .pt-32,
+body[data-skip-theme="true"] .pt-32 {
+  padding-top: 2rem !important;
+}
