@@ -66,20 +66,25 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "coffee-brand",
-    title: "Pak Co.",
+    id: "deefa",
+    title: "Deefa",
     type: "Graphic Design",
-    year: "2024",
+    year: "2023",
     image: "/images/hero-banner-project-3.svg",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F4d36a9c00a5748b09d8b629aad9c9e19",
-    description: "Artisan coffee roasting company brand identity",
+    description: "Modern fintech platform brand identity",
     role: "Brand Designer",
     tools: ["Illustrator", "Photoshop", "InDesign"],
     colors: {
       primary: "#059669",
       secondary: "#10b981",
       accent: "#34d399",
+    },
+    brandTheme: {
+      background: "#15542c",
+      highlight: "#fee1ed",
+      text: "#fee1ed"
     },
   },
   {
