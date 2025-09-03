@@ -16,12 +16,14 @@ export function Header() {
     <header
       className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50"
       style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        willChange: 'transform'
+        position: 'fixed !important' as any,
+        top: '0 !important',
+        left: '0 !important',
+        right: '0 !important',
+        zIndex: '9999 !important',
+        transform: 'translateZ(0)',
+        willChange: 'transform',
+        backfaceVisibility: 'hidden'
       }}
     >
       <div className="grid-container py-6">
