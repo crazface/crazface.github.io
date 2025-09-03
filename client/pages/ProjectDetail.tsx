@@ -95,15 +95,17 @@ export default function ProjectDetail() {
     return () => clearInterval(id);
   }, [project]);
 
-  // Hide theme toggle for project pages
+  // Hide theme toggle for project pages with brandTheme
   useEffect(() => {
+    if (!project?.brandTheme) return;
+
     const root = document.documentElement;
     root.style.setProperty("--theme-toggle-display", "none");
 
     return () => {
       root.style.removeProperty("--theme-toggle-display");
     };
-  }, []);
+  }, [project]);
 
   if (!isLoaded) {
     return (
