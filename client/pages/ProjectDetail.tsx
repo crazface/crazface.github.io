@@ -33,6 +33,7 @@ export default function ProjectDetail() {
 
       // Set solid background color
       document.body.style.background = project.brandTheme.background;
+      document.body.classList.add("project-branded");
 
       // Hide theme toggle for branded projects
       root.style.setProperty("--theme-toggle-display", "none");
