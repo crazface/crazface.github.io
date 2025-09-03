@@ -7,7 +7,7 @@
    * Apple Glass x Wii Menu Portfolio Theme
    * Colors are defined as requested in the design spec
    */
-  :root {
+  html:not([data-skip-theme]) {
     /* Base background and text colors */
     --background: 42 25% 88%; /* Light sand beige background #f0ebe4 */
     --foreground: 40 15% 15%; /* Dark beige text for contrast #2d2722 */
