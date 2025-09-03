@@ -396,8 +396,13 @@
 
   /* Project branding support with highest specificity */
   body.project-branded {
+    --foreground: var(--project-fg);
+    --background: var(--project-bg);
+    --primary: var(--project-primary);
+    --secondary: var(--project-secondary);
     color-scheme: light !important;
-    color: hsl(var(--foreground)) !important;
+    color: rgb(var(--foreground)) !important;
+    background-color: rgb(var(--background)) !important;
     /* Completely override global background patterns */
     background-image: none !important;
     background-attachment: scroll !important;
