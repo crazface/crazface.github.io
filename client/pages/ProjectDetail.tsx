@@ -44,15 +44,19 @@ export default function ProjectDetail() {
 
   // ThemeLock effect - sets variables with !important and guards against late rewrites
   useEffect(() => {
+    if (!project) return;
+
     const root = document.documentElement;
     const body = document.body;
 
-    // Replace these example colors with your actual projectTheme values
+    // Use project brandTheme colors if available, otherwise skip theming
+    if (!project.brandTheme) return;
+
     const COLORS = {
-      bg: "#ff6600",
-      fg: "#000000",
-      primary: "#ffffff",
-      secondary: "#333333",
+      bg: project.brandTheme.background,
+      fg: project.brandTheme.text,
+      primary: project.brandTheme.highlight,
+      secondary: project.brandTheme.text,
     };
 
     // Set CSS variables with priority so later styles cannot override them
@@ -83,7 +87,7 @@ export default function ProjectDetail() {
     }, 300);
 
     return () => clearInterval(id);
-  }, []);
+  }, [project]);
 
   // Hide theme toggle for project pages
   useEffect(() => {
