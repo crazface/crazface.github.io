@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
   const [project, setProject] = useState<Project | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
