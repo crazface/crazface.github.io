@@ -392,19 +392,22 @@
     cursor: none;
   }
 
-  /* Project branding support */
+  /* Project branding support with high specificity */
   .project-branded {
-    color-scheme: light;
+    color-scheme: light !important;
+    color: hsl(var(--foreground)) !important;
   }
 
-  .project-branded * {
+  .project-branded *,
+  .project-branded *::before,
+  .project-branded *::after {
     border-color: hsl(var(--primary)) !important;
   }
 
   .project-branded .glass {
     background: rgba(255, 255, 255, 0.1) !important;
     border-color: hsl(var(--primary)) !important;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px) !important;
   }
 
   .project-branded h1,
@@ -412,19 +415,50 @@
   .project-branded h3,
   .project-branded h4,
   .project-branded h5,
-  .project-branded h6 {
-    color: hsl(var(--primary)) !important;
+  .project-branded h6,
+  .project-branded .text-foreground {
+    color: hsl(var(--foreground)) !important;
   }
 
   .project-branded p,
   .project-branded span,
-  .project-branded div {
+  .project-branded div,
+  .project-branded label,
+  .project-branded dt,
+  .project-branded dd {
     color: hsl(var(--foreground)) !important;
   }
 
   .project-branded .text-muted-foreground {
     color: hsl(var(--foreground)) !important;
-    opacity: 0.8;
+    opacity: 0.8 !important;
+  }
+
+  .project-branded .text-primary {
+    color: hsl(var(--primary)) !important;
+  }
+
+  .project-branded .bg-primary {
+    background-color: hsl(var(--primary)) !important;
+  }
+
+  .project-branded .bg-background {
+    background-color: hsl(var(--background)) !important;
+  }
+
+  .project-branded a {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .project-branded button {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  /* Override any text color utilities */
+  body.project-branded .text-foreground,
+  body.project-branded .text-primary,
+  body.project-branded .text-muted-foreground {
+    color: hsl(var(--foreground)) !important;
   }
 
   /* Reduced motion for accessibility */
