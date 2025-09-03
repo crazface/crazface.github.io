@@ -308,7 +308,7 @@
     position: relative;
   }
 
-  body:not(.project-branded) #root::before {
+  body:not([data-skip-theme]) #root::before {
     content: "";
     position: fixed;
     top: 0;
