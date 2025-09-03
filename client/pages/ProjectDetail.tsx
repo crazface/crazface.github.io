@@ -221,6 +221,27 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Flicker prevention script */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+(function(){
+  try {
+    var b = document.body;
+    b.classList.add("project-branded");
+    b.setAttribute("data-skip-theme","true");
+    var root = document.documentElement;
+    if (!root.style.getPropertyValue("--project-bg")) {
+      root.style.setProperty("--project-bg", "#faf7f2");
+      root.style.setProperty("--project-fg", "#1a120b");
+      root.style.setProperty("--project-primary", "#9a6b3c");
+      root.style.setProperty("--project-secondary", "#c9a67a");
+    }
+  } catch(e){}
+})();
+          `
+        }}
+      />
       {/* Header */}
       <Header />
 
