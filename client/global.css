@@ -471,20 +471,20 @@
   body.project-branded .text-foreground,
   body.project-branded .text-primary,
   body.project-branded .text-muted-foreground {
-    color: hsl(var(--foreground)) !important;
+    color: var(--project-fg) !important;
   }
 
   /* Comprehensive override for all text elements */
   body.project-branded,
   body.project-branded *:not(.glass):not([class*="bg-"]) {
-    color: hsl(var(--foreground)) !important;
+    color: var(--project-fg) !important;
   }
 
   /* Special handling for headings and important text */
   body.project-branded h1,
   body.project-branded h2,
   body.project-branded h3 {
-    color: rgb(var(--foreground)) !important;
+    color: var(--project-fg) !important;
     font-weight: 900 !important;
   }
 
