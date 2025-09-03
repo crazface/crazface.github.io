@@ -229,7 +229,7 @@
       );
   }
 
-  body:not(.project-branded)::after {
+  body:not([data-skip-theme])::after {
     content: "";
     position: fixed;
     top: 0;
