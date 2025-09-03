@@ -88,16 +88,16 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "music-app",
-    title: "SoundWave",
+    id: "old-west-starter-kit",
+    title: "Old West Starter Kit",
     type: "Graphic Design",
     year: "2024",
     image: "/images/brand-identity-1.svg",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0cf5f83875634d468081c91fb3dab076",
-    description: "Music streaming app interface design",
-    role: "UI/UX Designer",
-    tools: ["Figma", "Principle"],
+    description: "Western-themed design assets and brand kit",
+    role: "Brand Designer",
+    tools: ["Figma", "Principle", "Illustrator"],
     colors: {
       primary: "#8b5cf6",
       secondary: "#a855f7",
