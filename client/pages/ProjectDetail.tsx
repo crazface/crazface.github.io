@@ -35,14 +35,47 @@ export default function ProjectDetail() {
     };
   }, []);
 
-  // Hard-coded test colors to confirm theming works
+  // ThemeLock effect - sets variables with !important and guards against late rewrites
   useEffect(() => {
-    const el = document.documentElement;
-    // Hard-coded test colors
-    el.style.setProperty("--project-bg", "#ff6600");      // bright orange background
-    el.style.setProperty("--project-fg", "#000000");      // black text
-    el.style.setProperty("--project-primary", "#ffffff"); // white accents
-    el.style.setProperty("--project-secondary", "#333333"); // dark grey secondary
+    const root = document.documentElement;
+    const body = document.body;
+
+    // Replace these example colors with your actual projectTheme values
+    const COLORS = {
+      bg: "#ff6600",
+      fg: "#000000",
+      primary: "#ffffff",
+      secondary: "#333333",
+    };
+
+    // Set CSS variables with priority so later styles cannot override them
+    const setVars = () => {
+      root.style.setProperty("--project-bg", COLORS.bg, "important");
+      root.style.setProperty("--project-fg", COLORS.fg, "important");
+      root.style.setProperty("--project-primary", COLORS.primary, "important");
+      root.style.setProperty("--project-secondary", COLORS.secondary, "important");
+
+      // Map global tokens to project tokens, also with !important
+      body.style.setProperty("--background", "var(--project-bg)", "important");
+      body.style.setProperty("--foreground", "var(--project-fg)", "important");
+      body.style.setProperty("--primary", "var(--project-primary)", "important");
+      body.style.setProperty("--secondary", "var(--project-secondary)", "important");
+    };
+
+    // Remove any global theme classes that could trigger css
+    document.documentElement.classList.remove("dark", "light");
+
+    setVars();
+
+    // Guard for late scripts for 3 seconds
+    let t = 0;
+    const id = setInterval(() => {
+      t += 1;
+      setVars();
+      if (t >= 10) clearInterval(id);
+    }, 300);
+
+    return () => clearInterval(id);
   }, []);
 
   // Hide theme toggle for branded projects
