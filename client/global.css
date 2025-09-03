@@ -363,7 +363,7 @@
     scroll-behavior: smooth;
   }
 
-  body:not(.project-branded) {
+  body:not([data-skip-theme]) {
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: hsl(var(--foreground));
     @apply gradient-smooth;
@@ -381,7 +381,7 @@
     background-attachment: scroll;
   }
 
-  .dark body:not(.project-branded) {
+  html.dark body:not([data-skip-theme]) {
     background-image: radial-gradient(
       circle,
       rgba(245, 230, 211, 0.02) 1px,
