@@ -10,6 +10,15 @@ export default function ProjectDetail() {
   const [project, setProject] = useState<Project | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // Immediately set project-branded class and data attribute
+  if (typeof document !== "undefined") {
+    const b = document.body;
+    if (!b.classList.contains("project-branded")) {
+      b.classList.add("project-branded");
+      b.setAttribute("data-skip-theme", "true");
+    }
+  }
+
   useEffect(() => {
     if (id) {
       const foundProject = getProjectById(id);
