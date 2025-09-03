@@ -40,7 +40,16 @@ export default function ProjectDetail() {
         b.removeAttribute("data-skip-theme");
         // Clear inline theme locks
         const root = document.documentElement;
-        ["--project-bg","--project-fg","--project-primary","--project-secondary","--background","--foreground","--primary","--secondary"].forEach(k => {
+        [
+          "--project-bg",
+          "--project-fg",
+          "--project-primary",
+          "--project-secondary",
+          "--background",
+          "--foreground",
+          "--primary",
+          "--secondary",
+        ].forEach((k) => {
           root.style.removeProperty(k);
           document.body.style.removeProperty(k);
         });
@@ -70,13 +79,25 @@ export default function ProjectDetail() {
       root.style.setProperty("--project-bg", COLORS.bg, "important");
       root.style.setProperty("--project-fg", COLORS.fg, "important");
       root.style.setProperty("--project-primary", COLORS.primary, "important");
-      root.style.setProperty("--project-secondary", COLORS.secondary, "important");
+      root.style.setProperty(
+        "--project-secondary",
+        COLORS.secondary,
+        "important",
+      );
 
       // Map global tokens to project tokens, also with !important
       body.style.setProperty("--background", "var(--project-bg)", "important");
       body.style.setProperty("--foreground", "var(--project-fg)", "important");
-      body.style.setProperty("--primary", "var(--project-primary)", "important");
-      body.style.setProperty("--secondary", "var(--project-secondary)", "important");
+      body.style.setProperty(
+        "--primary",
+        "var(--project-primary)",
+        "important",
+      );
+      body.style.setProperty(
+        "--secondary",
+        "var(--project-secondary)",
+        "important",
+      );
     };
 
     // Remove any global theme classes that could trigger css
@@ -165,7 +186,7 @@ export default function ProjectDetail() {
     }
   } catch(e){}
 })();
-            `
+            `,
           }}
         />
       )}
