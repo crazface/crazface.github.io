@@ -47,38 +47,66 @@ export default function ProjectDetail() {
         return `${Math.round(h * 360)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`;
       };
 
-      // Set custom brand theme colors with proper HSL values
-      const backgroundHsl = hexToHsl(project.brandTheme.background);
-      const highlightHsl = hexToHsl(project.brandTheme.highlight);
+      // Use a small delay to ensure this runs after ThemeProvider's useEffect
+      const applyBrandTheme = () => {
+        // Set custom brand theme colors with proper HSL values
+        const backgroundHsl = hexToHsl(project.brandTheme.background);
+        const highlightHsl = hexToHsl(project.brandTheme.highlight);
 
-      root.style.setProperty("--background", backgroundHsl);
-      root.style.setProperty("--foreground", highlightHsl);
-      root.style.setProperty("--muted-foreground", highlightHsl);
-      root.style.setProperty("--primary", highlightHsl);
-      root.style.setProperty("--primary-foreground", backgroundHsl);
-      root.style.setProperty("--accent", highlightHsl);
-      root.style.setProperty("--accent-foreground", backgroundHsl);
-      root.style.setProperty("--card", backgroundHsl);
-      root.style.setProperty("--card-foreground", highlightHsl);
-      root.style.setProperty("--border", highlightHsl);
+        // Set CSS custom properties with higher specificity
+        root.style.setProperty("--background", backgroundHsl, "important");
+        root.style.setProperty("--foreground", highlightHsl, "important");
+        root.style.setProperty("--muted-foreground", highlightHsl, "important");
+        root.style.setProperty("--primary", highlightHsl, "important");
+        root.style.setProperty("--primary-foreground", backgroundHsl, "important");
+        root.style.setProperty("--accent", highlightHsl, "important");
+        root.style.setProperty("--accent-foreground", backgroundHsl, "important");
+        root.style.setProperty("--card", backgroundHsl, "important");
+        root.style.setProperty("--card-foreground", highlightHsl, "important");
+        root.style.setProperty("--border", highlightHsl, "important");
+        root.style.setProperty("--secondary", backgroundHsl, "important");
+        root.style.setProperty("--secondary-foreground", highlightHsl, "important");
+        root.style.setProperty("--muted", backgroundHsl, "important");
+        root.style.setProperty("--popover", backgroundHsl, "important");
+        root.style.setProperty("--popover-foreground", highlightHsl, "important");
 
-      // Remove any existing theme classes that might conflict
-      root.classList.remove("light", "dark");
-      document.body.classList.remove("light", "dark");
+        // Remove any existing theme classes that might conflict
+        root.classList.remove("light", "dark");
+        document.body.classList.remove("light", "dark");
 
-      // Set solid background color
-      document.body.style.background = project.brandTheme.background;
-      document.body.classList.add("project-branded");
+        // Add brand class first
+        document.body.classList.add("project-branded");
 
-      // Force immediate application of text color
-      document.body.style.color = project.brandTheme.highlight;
-      root.style.color = project.brandTheme.highlight;
+        // Set solid background color with !important via style attribute
+        document.body.style.setProperty("background", project.brandTheme.background, "important");
+        document.body.style.setProperty("background-color", project.brandTheme.background, "important");
+        document.body.style.setProperty("color", project.brandTheme.highlight, "important");
 
-      // Hide theme toggle for branded projects
-      root.style.setProperty("--theme-toggle-display", "none");
+        // Also set on root for cascading
+        root.style.setProperty("background", project.brandTheme.background, "important");
+        root.style.setProperty("background-color", project.brandTheme.background, "important");
+        root.style.setProperty("color", project.brandTheme.highlight, "important");
 
-      // Force a reflow to ensure styles are applied immediately
-      void root.offsetHeight;
+        // Hide theme toggle for branded projects
+        root.style.setProperty("--theme-toggle-display", "none", "important");
+
+        // Force multiple reflows to ensure styles are applied
+        void root.offsetHeight;
+        void document.body.offsetHeight;
+
+        // Double-check and reapply if needed
+        setTimeout(() => {
+          if (document.body.style.backgroundColor !== project.brandTheme.background) {
+            document.body.style.setProperty("background-color", project.brandTheme.background, "important");
+            document.body.style.setProperty("background", project.brandTheme.background, "important");
+          }
+        }, 100);
+      };
+
+      // Apply immediately and after a short delay to override ThemeProvider
+      applyBrandTheme();
+      setTimeout(applyBrandTheme, 50);
+      setTimeout(applyBrandTheme, 150);
 
     } else if (project?.colors) {
       // Apply default project theming for non-branded projects
