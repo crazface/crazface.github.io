@@ -10,15 +10,6 @@ export default function ProjectDetail() {
   const [project, setProject] = useState<Project | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Immediately set project-branded class and data attribute if project has brandTheme
-  if (typeof document !== "undefined" && project?.brandTheme) {
-    const b = document.body;
-    if (!b.classList.contains("project-branded")) {
-      b.classList.add("project-branded");
-      b.setAttribute("data-skip-theme", "true");
-    }
-  }
-
   useEffect(() => {
     if (id) {
       const foundProject = getProjectById(id);
@@ -26,6 +17,19 @@ export default function ProjectDetail() {
       setIsLoaded(true);
     }
   }, [id]);
+
+  // Set project-branded class and data attribute after project loads
+  useEffect(() => {
+    const body = document.body;
+
+    if (project?.brandTheme) {
+      body.classList.add("project-branded");
+      body.setAttribute("data-skip-theme", "true");
+    } else {
+      body.classList.remove("project-branded");
+      body.removeAttribute("data-skip-theme");
+    }
+  }, [project]);
 
   // Cleanup on unmount so other pages get the global theme again
   useEffect(() => {
