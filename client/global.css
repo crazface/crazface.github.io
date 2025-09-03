@@ -379,7 +379,7 @@
     background-attachment: scroll;
   }
 
-  .dark body {
+  .dark body:not(.project-branded) {
     background-image: radial-gradient(
       circle,
       rgba(245, 230, 211, 0.02) 1px,
