@@ -8,6 +8,7 @@ export function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className="relative inline-flex items-center justify-center w-12 h-12 glass rounded-full text-foreground hover:bg-white/20 transition-all duration-300 hover:scale-110 focus-visible"
+      style={{ display: "var(--theme-toggle-display, flex)" }}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
     >
       <div className="relative w-5 h-5">
