@@ -451,28 +451,20 @@
   }
 
   body.project-branded .text-muted-foreground {
-    color: hsl(var(--foreground)) !important;
+    color: var(--project-fg) !important;
     opacity: 0.8 !important;
   }
 
   body.project-branded .text-primary {
-    color: hsl(var(--primary)) !important;
+    color: var(--project-primary) !important;
   }
 
   body.project-branded .bg-primary {
-    background-color: hsl(var(--primary)) !important;
+    background-color: var(--project-primary) !important;
   }
 
   body.project-branded .bg-background {
-    background-color: hsl(var(--background)) !important;
-  }
-
-  body.project-branded a {
-    color: hsl(var(--foreground)) !important;
-  }
-
-  body.project-branded button {
-    color: hsl(var(--foreground)) !important;
+    background-color: var(--project-bg) !important;
   }
 
   /* Override any Tailwind utility classes */
