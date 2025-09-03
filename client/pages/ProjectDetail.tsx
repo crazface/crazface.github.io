@@ -46,71 +46,11 @@ export default function ProjectDetail() {
     }
   }, [project?.brandTheme]);
 
+  // Hide theme toggle for branded projects
   useEffect(() => {
     if (project?.brandTheme) {
-      // Apply custom brand theme to the page
       const root = document.documentElement;
-
-      // Convert hex to HSL for CSS custom properties
-      const hexToHsl = (hex: string) => {
-        const r = parseInt(hex.slice(1, 3), 16) / 255;
-        const g = parseInt(hex.slice(3, 5), 16) / 255;
-        const b = parseInt(hex.slice(5, 7), 16) / 255;
-
-        const max = Math.max(r, g, b);
-        const min = Math.min(r, g, b);
-        let h = 0, s = 0, l = (max + min) / 2;
-
-        if (max !== min) {
-          const d = max - min;
-          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-          switch (max) {
-            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-            case g: h = (b - r) / d + 2; break;
-            case b: h = (r - g) / d + 4; break;
-          }
-          h /= 6;
-        }
-
-        return `${Math.round(h * 360)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`;
-      };
-
-      // Set custom brand theme colors with proper HSL values
-      const backgroundHsl = hexToHsl(project.brandTheme.background);
-      const highlightHsl = hexToHsl(project.brandTheme.highlight);
-
-      // Apply brand class first to prevent global styles
-      document.body.classList.add("project-branded");
-
-      // Remove any existing theme classes
-      root.classList.remove("light", "dark");
-      document.body.classList.remove("light", "dark");
-
-      // Set CSS custom properties
-      root.style.setProperty("--background", backgroundHsl);
-      root.style.setProperty("--foreground", highlightHsl);
-      root.style.setProperty("--muted-foreground", highlightHsl);
-      root.style.setProperty("--primary", highlightHsl);
-      root.style.setProperty("--primary-foreground", backgroundHsl);
-      root.style.setProperty("--accent", highlightHsl);
-      root.style.setProperty("--accent-foreground", backgroundHsl);
-      root.style.setProperty("--card", backgroundHsl);
-      root.style.setProperty("--card-foreground", highlightHsl);
-      root.style.setProperty("--border", highlightHsl);
-      root.style.setProperty("--secondary", backgroundHsl);
-      root.style.setProperty("--secondary-foreground", highlightHsl);
-      root.style.setProperty("--muted", backgroundHsl);
-      root.style.setProperty("--popover", backgroundHsl);
-      root.style.setProperty("--popover-foreground", highlightHsl);
-
-      // Set solid background colors
-      document.body.style.background = project.brandTheme.background;
-      document.body.style.backgroundColor = project.brandTheme.background;
-      document.body.style.color = project.brandTheme.highlight;
-
-      // Hide theme toggle for branded projects
       root.style.setProperty("--theme-toggle-display", "none");
-
     } else if (project?.colors) {
       // Apply default project theming for non-branded projects
       const root = document.documentElement;
@@ -135,42 +75,15 @@ export default function ProjectDetail() {
     // Cleanup on unmount
     return () => {
       const root = document.documentElement;
-
-      // Remove brand theming class first
-      document.body.classList.remove("project-branded");
-
-      // Clear all brand-specific styles
-      document.body.style.removeProperty("background");
-      document.body.style.removeProperty("background-color");
-      document.body.style.removeProperty("color");
-
-      // Reset all custom properties
       root.style.removeProperty("--project-primary");
       root.style.removeProperty("--project-secondary");
       root.style.removeProperty("--project-accent");
-      root.style.removeProperty("--background");
-      root.style.removeProperty("--foreground");
-      root.style.removeProperty("--muted-foreground");
-      root.style.removeProperty("--primary");
-      root.style.removeProperty("--primary-foreground");
-      root.style.removeProperty("--accent");
-      root.style.removeProperty("--accent-foreground");
-      root.style.removeProperty("--card");
-      root.style.removeProperty("--card-foreground");
-      root.style.removeProperty("--border");
-      root.style.removeProperty("--secondary");
-      root.style.removeProperty("--secondary-foreground");
-      root.style.removeProperty("--muted");
-      root.style.removeProperty("--popover");
-      root.style.removeProperty("--popover-foreground");
       root.style.removeProperty("--theme-toggle-display");
 
-      // Restore default theme class
-      const currentTheme = localStorage.getItem("portfolio-theme") || "light";
-      root.classList.remove("light", "dark");
-      if (currentTheme === "dark") {
-        root.classList.add("dark");
-      }
+      // Clear body styles
+      document.body.style.removeProperty("background");
+      document.body.style.removeProperty("background-color");
+      document.body.style.removeProperty("color");
     };
   }, [project]);
 
