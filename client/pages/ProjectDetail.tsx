@@ -18,8 +18,27 @@ export default function ProjectDetail() {
   }, [id]);
 
   useEffect(() => {
-    if (project?.colors) {
-      // Apply project theming to the page
+    if (project?.brandTheme) {
+      // Apply custom brand theme to the page
+      const root = document.documentElement;
+
+      // Set custom brand theme colors
+      root.style.setProperty("--background", project.brandTheme.background);
+      root.style.setProperty("--foreground", project.brandTheme.text);
+      root.style.setProperty("--muted-foreground", project.brandTheme.text);
+      root.style.setProperty("--primary", project.brandTheme.highlight);
+      root.style.setProperty("--primary-foreground", project.brandTheme.background);
+      root.style.setProperty("--accent", project.brandTheme.highlight);
+      root.style.setProperty("--accent-foreground", project.brandTheme.background);
+
+      // Set solid background color
+      document.body.style.background = project.brandTheme.background;
+
+      // Hide theme toggle for branded projects
+      root.style.setProperty("--theme-toggle-display", "none");
+
+    } else if (project?.colors) {
+      // Apply default project theming for non-branded projects
       const root = document.documentElement;
       root.style.setProperty("--project-primary", project.colors.primary);
       root.style.setProperty("--project-secondary", project.colors.secondary);
@@ -34,15 +53,28 @@ export default function ProjectDetail() {
         ),
         hsl(var(--background))
       `;
+
+      // Show theme toggle for non-branded projects
+      root.style.setProperty("--theme-toggle-display", "flex");
     }
 
     // Cleanup on unmount
     return () => {
       document.body.style.background = "";
       const root = document.documentElement;
+
+      // Reset all custom properties
       root.style.removeProperty("--project-primary");
       root.style.removeProperty("--project-secondary");
       root.style.removeProperty("--project-accent");
+      root.style.removeProperty("--background");
+      root.style.removeProperty("--foreground");
+      root.style.removeProperty("--muted-foreground");
+      root.style.removeProperty("--primary");
+      root.style.removeProperty("--primary-foreground");
+      root.style.removeProperty("--accent");
+      root.style.removeProperty("--accent-foreground");
+      root.style.removeProperty("--theme-toggle-display");
     };
   }, [project]);
 
