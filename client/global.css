@@ -46,7 +46,7 @@
     --radius: 1.5rem;
   }
 
-  .dark {
+  html.dark:not([data-skip-theme]) {
     --background: 0 0% 8%;
     --foreground: 42 78% 83%;
 
