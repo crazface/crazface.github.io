@@ -136,10 +136,10 @@ export default function ProjectDetail() {
     b.setAttribute("data-skip-theme","true");
     var root = document.documentElement;
     if (!root.style.getPropertyValue("--project-bg")) {
-      root.style.setProperty("--project-bg", "250 247 242");
-      root.style.setProperty("--project-fg", "26 18 11");
-      root.style.setProperty("--project-primary", "154 107 60");
-      root.style.setProperty("--project-secondary", "201 166 122");
+      root.style.setProperty("--project-bg", "#ff6600");
+      root.style.setProperty("--project-fg", "#000000");
+      root.style.setProperty("--project-primary", "#ffffff");
+      root.style.setProperty("--project-secondary", "#333333");
     }
   } catch(e){}
 })();
