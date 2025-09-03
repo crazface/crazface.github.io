@@ -33,23 +33,13 @@ export function ThemeProvider({
   );
 
   useEffect(() => {
-    const root = window.document.documentElement;
-
-    // Completely skip theme application on project pages
-    if (window.location.pathname.startsWith("/project/")) {
-      return;
-    }
-
-    // Don't apply theme classes if brand theming is active
-    if (document.body.classList.contains("project-branded")) {
-      return;
-    }
+    const root = document.documentElement;
+    const skip = document.body.hasAttribute("data-skip-theme");
+    if (skip) return; // do nothing on project pages
 
     root.classList.remove("light", "dark");
-
-    if (theme === "dark") {
-      root.classList.add("dark");
-    }
+    if (theme === "dark") root.classList.add("dark");
+    if (theme === "light") root.classList.add("light");
   }, [theme]);
 
   const value = {
