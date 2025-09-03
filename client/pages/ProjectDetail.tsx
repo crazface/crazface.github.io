@@ -62,6 +62,7 @@ export default function ProjectDetail() {
     // Cleanup on unmount
     return () => {
       document.body.style.background = "";
+      document.body.classList.remove("project-branded");
       const root = document.documentElement;
 
       // Reset all custom properties
