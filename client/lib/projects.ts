@@ -22,20 +22,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "brand-identity-system",
-    title: "Brand Identity",
+    id: "regenb",
+    title: "ReGenB",
     type: "Graphic Design",
     year: "2025",
     image: "/images/hero-banner-project-1.svg",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe71f4c1a27344269bdb189d9fcb983fc",
-    description: "Complete brand identity system for modern tech startup",
+    description: "Complete brand identity system for regenerative business platform",
     role: "Creative Director",
     tools: ["Adobe Illustrator", "Figma", "After Effects"],
     colors: {
       primary: "#8b4513",
       secondary: "#d2691e",
       accent: "#f4a460",
+    },
+    brandTheme: {
+      background: "#0a0e0d",
+      highlight: "#deffcf",
+      text: "#deffcf"
     },
   },
   {
