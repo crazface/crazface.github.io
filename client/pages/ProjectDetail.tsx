@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProjectById, Project } from "@/lib/projects";
 import { ExternalLink } from "lucide-react";
