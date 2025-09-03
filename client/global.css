@@ -100,7 +100,7 @@
   }
 
   /* Add noise overlay to body (exclude project pages) */
-  body:not(.project-branded)::after {
+  body:not([data-skip-theme])::after {
     content: "";
     position: fixed;
     top: 0;
