@@ -15,6 +15,44 @@
   <body>
     <div id="root"></div>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var header = document.getElementById("siteHeader");
+        if (!header) return;
+
+        var passiveOpts = { passive: true };
+
+        function isProjectPage() {
+          var b = document.body;
+          return b.classList.contains("project-branded") || b.hasAttribute("data-skip-theme");
+        }
+
+        function onScroll() {
+          header.classList.toggle("scrolled", window.scrollY > 10);
+        }
+
+        function applyHeaderBehavior() {
+          if (isProjectPage()) {
+            // Project page: ensure no movement or blur
+            header.classList.remove("scrolled");
+            window.removeEventListener("scroll", onScroll, passiveOpts);
+            return;
+          }
+          // Normal pages: enable movement and blur
+          onScroll();
+          window.addEventListener("scroll", onScroll, passiveOpts);
+        }
+
+        applyHeaderBehavior();
+
+        // Handle SPA route changes or body attribute changes
+        new MutationObserver(applyHeaderBehavior).observe(document.body, {
+          attributes: true,
+          attributeFilter: ["class", "data-skip-theme"]
+        });
+      });
+    </script>
+
     <script type="module" src="/client/main.tsx"></script>
   </body>
 </html>
