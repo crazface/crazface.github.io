@@ -27,6 +27,14 @@ export default function ProjectDetail() {
     }
   }, [id]);
 
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove("project-branded");
+      document.body.removeAttribute("data-skip-theme");
+    };
+  }, []);
+
   useEffect(() => {
     if (project?.brandTheme) {
       // Apply custom brand theme to the page
