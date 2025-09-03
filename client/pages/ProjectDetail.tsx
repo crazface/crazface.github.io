@@ -155,6 +155,11 @@ export default function ProjectDetail() {
     return () => {
       const root = document.documentElement;
 
+      // Disconnect the observer if it exists
+      if (observer) {
+        observer.disconnect();
+      }
+
       // Remove brand theming class first
       document.body.classList.remove("project-branded");
 
