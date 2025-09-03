@@ -87,14 +87,6 @@ export default function ProjectDetail() {
     };
   }, [project]);
 
-  // Ensure theme toggle is restored when component unmounts
-  useEffect(() => {
-    return () => {
-      const root = document.documentElement;
-      root.style.setProperty("--theme-toggle-display", "flex");
-    };
-  }, []);
-
   if (!isLoaded) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
