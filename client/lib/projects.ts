@@ -223,20 +223,25 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "restaurant-branding",
-    title: "Bella Vista",
+    id: "pisk-kitchen",
+    title: "Pisk Kitchen",
     type: "Graphic Design",
-    year: "2025",
+    year: "2024",
     image: "/images/hero-banner-project-2.svg",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F55176dffb7e640618937b93cbbd983ea",
-    description: "Complete branding package for upscale restaurant",
+    description: "Complete branding package for artisan kitchen studio",
     role: "Brand Designer",
     tools: ["Adobe Creative Suite", "InDesign"],
     colors: {
       primary: "#dc2626",
       secondary: "#991b1b",
       accent: "#f87171",
+    },
+    brandTheme: {
+      background: "#146b55",
+      highlight: "#6fb29f",
+      text: "#6fb29f"
     },
   },
   {
