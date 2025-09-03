@@ -363,7 +363,7 @@
     scroll-behavior: smooth;
   }
 
-  body {
+  body:not(.project-branded) {
     @apply text-foreground font-sans gradient-smooth;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
