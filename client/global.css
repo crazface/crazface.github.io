@@ -442,7 +442,12 @@
   body.project-branded label,
   body.project-branded dt,
   body.project-branded dd {
-    color: hsl(var(--foreground)) !important;
+    color: var(--project-fg) !important;
+  }
+
+  body.project-branded a,
+  body.project-branded button {
+    color: var(--project-primary) !important;
   }
 
   body.project-branded .text-muted-foreground {
