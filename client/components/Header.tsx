@@ -65,7 +65,7 @@ export function Header() {
             >
               Contact me
             </Link>
-            <ThemeToggle />
+            {!isProjectPage && <ThemeToggle />}
           </nav>
         </div>
       </div>
