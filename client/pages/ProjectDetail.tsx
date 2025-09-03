@@ -108,11 +108,6 @@ export default function ProjectDetail() {
     return () => {
       const root = document.documentElement;
 
-      // Disconnect the observer if it exists
-      if (observer) {
-        observer.disconnect();
-      }
-
       // Remove brand theming class first
       document.body.classList.remove("project-branded");
 
@@ -120,9 +115,6 @@ export default function ProjectDetail() {
       document.body.style.removeProperty("background");
       document.body.style.removeProperty("background-color");
       document.body.style.removeProperty("color");
-      root.style.removeProperty("background");
-      root.style.removeProperty("background-color");
-      root.style.removeProperty("color");
 
       // Reset all custom properties
       root.style.removeProperty("--project-primary");
@@ -145,7 +137,7 @@ export default function ProjectDetail() {
       root.style.removeProperty("--popover-foreground");
       root.style.removeProperty("--theme-toggle-display");
 
-      // Restore default theme class and trigger theme provider
+      // Restore default theme class
       const currentTheme = localStorage.getItem("portfolio-theme") || "light";
       root.classList.remove("light", "dark");
       if (currentTheme === "dark") {
