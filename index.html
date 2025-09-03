@@ -24,7 +24,10 @@
 
         function isProjectPage() {
           var b = document.body;
-          return b.classList.contains("project-branded") || b.hasAttribute("data-skip-theme");
+          return (
+            b.classList.contains("project-branded") ||
+            b.hasAttribute("data-skip-theme")
+          );
         }
 
         function onScroll() {
@@ -48,7 +51,7 @@
         // Handle SPA route changes or body attribute changes
         new MutationObserver(applyHeaderBehavior).observe(document.body, {
           attributes: true,
-          attributeFilter: ["class", "data-skip-theme"]
+          attributeFilter: ["class", "data-skip-theme"],
         });
       });
     </script>
