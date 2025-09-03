@@ -35,6 +35,11 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
 
+    // Don't apply theme classes if brand theming is active
+    if (document.body.classList.contains("project-branded")) {
+      return;
+    }
+
     root.classList.remove("light", "dark");
 
     if (theme === "dark") {
