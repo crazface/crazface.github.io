@@ -111,7 +111,7 @@ export default function ProjectDetail() {
       setTimeout(applyBrandTheme, 150);
 
       // Set up a MutationObserver to prevent ThemeProvider from adding theme classes
-      const observer = new MutationObserver((mutations) => {
+      observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
           if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
             const target = mutation.target as HTMLElement;
