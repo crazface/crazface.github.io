@@ -62,12 +62,17 @@ export default function ProjectDetail() {
       root.style.setProperty("--card-foreground", highlightHsl);
       root.style.setProperty("--border", highlightHsl);
 
+      // Remove any existing theme classes that might conflict
+      root.classList.remove("light", "dark");
+      document.body.classList.remove("light", "dark");
+
       // Set solid background color
       document.body.style.background = project.brandTheme.background;
       document.body.classList.add("project-branded");
 
-      // Force immediate application
+      // Force immediate application of text color
       document.body.style.color = project.brandTheme.highlight;
+      root.style.color = project.brandTheme.highlight;
 
       // Hide theme toggle for branded projects
       root.style.setProperty("--theme-toggle-display", "none");
