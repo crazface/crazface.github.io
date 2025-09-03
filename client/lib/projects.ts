@@ -201,20 +201,25 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "tech-startup-logo",
-    title: "TechFlow",
+    id: "fuzed",
+    title: "Fuzed",
     type: "Graphic Design",
-    year: "2025",
+    year: "2024",
     image: "/images/hero-banner-project-1.svg",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0465afe7575f43219f2168ad9b16ab15",
-    description: "Modern logo design for innovative tech startup",
-    role: "Logo Designer",
+    description: "Modern brand identity for fusion restaurant concept",
+    role: "Brand Designer",
     tools: ["Adobe Illustrator", "Figma"],
     colors: {
       primary: "#3b82f6",
       secondary: "#1d4ed8",
       accent: "#60a5fa",
+    },
+    brandTheme: {
+      background: "#39c3be",
+      highlight: "#ffffff",
+      text: "#ffffff"
     },
   },
   {
