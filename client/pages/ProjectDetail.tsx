@@ -39,10 +39,19 @@ export default function ProjectDetail() {
   useEffect(() => {
     if (project?.brandTheme) {
       const el = document.documentElement;
-      el.style.setProperty("--project-bg", project.brandTheme.background);
-      el.style.setProperty("--project-fg", project.brandTheme.highlight);
-      el.style.setProperty("--project-primary", project.brandTheme.highlight);
-      el.style.setProperty("--project-secondary", project.brandTheme.background);
+
+      // Convert hex to RGB values
+      const hexToRgb = (hex: string) => {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        return `${r} ${g} ${b}`;
+      };
+
+      el.style.setProperty("--project-bg", hexToRgb(project.brandTheme.background));
+      el.style.setProperty("--project-fg", hexToRgb(project.brandTheme.highlight));
+      el.style.setProperty("--project-primary", hexToRgb(project.brandTheme.highlight));
+      el.style.setProperty("--project-secondary", hexToRgb(project.brandTheme.background));
     }
   }, [project?.brandTheme]);
 
