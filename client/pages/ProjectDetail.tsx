@@ -77,6 +77,9 @@ export default function ProjectDetail() {
       // Hide theme toggle for branded projects
       root.style.setProperty("--theme-toggle-display", "none");
 
+      // Force a reflow to ensure styles are applied immediately
+      void root.offsetHeight;
+
     } else if (project?.colors) {
       // Apply default project theming for non-branded projects
       const root = document.documentElement;
