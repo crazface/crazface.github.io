@@ -35,6 +35,11 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
 
+    // Completely skip theme application on project pages
+    if (window.location.pathname.startsWith("/project/")) {
+      return;
+    }
+
     // Don't apply theme classes if brand theming is active
     if (document.body.classList.contains("project-branded")) {
       return;
