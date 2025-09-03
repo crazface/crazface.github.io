@@ -133,7 +133,7 @@
     mix-blend-mode: overlay;
   }
 
-  body::before {
+  body:not(.project-branded)::before {
     content: "";
     position: fixed;
     top: 0;
