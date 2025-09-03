@@ -13,7 +13,17 @@ export function Header() {
   const isProjectPage = location.pathname.startsWith("/project/");
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        willChange: 'transform'
+      }}
+    >
       <div className="grid-container py-6">
         <div className="flex items-center justify-between">
           {/* Logo/Name */}
