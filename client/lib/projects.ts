@@ -45,9 +45,9 @@ export const projects: Project[] = [
   },
   {
     id: "huel-rebrand",
-    title: "Huel",
+    title: "Huel Rebrand",
     type: "Graphic Design",
-    year: "2025",
+    year: "2024",
     image: "/images/hero-banner-project-2.svg",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd9a90c35e888472095e8298ac0e7aef6",
@@ -58,6 +58,11 @@ export const projects: Project[] = [
       primary: "#8b5cf6",
       secondary: "#a855f7",
       accent: "#c4b5fd",
+    },
+    brandTheme: {
+      background: "#fcbd9b",
+      highlight: "#f66d51",
+      text: "#f66d51"
     },
   },
   {
