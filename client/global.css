@@ -392,69 +392,78 @@
     cursor: none;
   }
 
-  /* Project branding support with high specificity */
-  .project-branded {
+  /* Project branding support with highest specificity */
+  body.project-branded {
     color-scheme: light !important;
     color: hsl(var(--foreground)) !important;
+    /* Completely override global background patterns */
+    background-image: none !important;
+    background-attachment: scroll !important;
   }
 
-  .project-branded *,
-  .project-branded *::before,
-  .project-branded *::after {
+  /* Prevent any global pseudo-elements from interfering */
+  body.project-branded::before,
+  body.project-branded::after {
+    display: none !important;
+  }
+
+  body.project-branded *,
+  body.project-branded *::before,
+  body.project-branded *::after {
     border-color: hsl(var(--primary)) !important;
   }
 
-  .project-branded .glass {
+  body.project-branded .glass {
     background: rgba(255, 255, 255, 0.1) !important;
     border-color: hsl(var(--primary)) !important;
     backdrop-filter: blur(20px) !important;
   }
 
-  .project-branded h1,
-  .project-branded h2,
-  .project-branded h3,
-  .project-branded h4,
-  .project-branded h5,
-  .project-branded h6,
-  .project-branded .text-foreground {
+  body.project-branded h1,
+  body.project-branded h2,
+  body.project-branded h3,
+  body.project-branded h4,
+  body.project-branded h5,
+  body.project-branded h6,
+  body.project-branded .text-foreground {
     color: hsl(var(--foreground)) !important;
   }
 
-  .project-branded p,
-  .project-branded span,
-  .project-branded div,
-  .project-branded label,
-  .project-branded dt,
-  .project-branded dd {
+  body.project-branded p,
+  body.project-branded span,
+  body.project-branded div,
+  body.project-branded label,
+  body.project-branded dt,
+  body.project-branded dd {
     color: hsl(var(--foreground)) !important;
   }
 
-  .project-branded .text-muted-foreground {
+  body.project-branded .text-muted-foreground {
     color: hsl(var(--foreground)) !important;
     opacity: 0.8 !important;
   }
 
-  .project-branded .text-primary {
+  body.project-branded .text-primary {
     color: hsl(var(--primary)) !important;
   }
 
-  .project-branded .bg-primary {
+  body.project-branded .bg-primary {
     background-color: hsl(var(--primary)) !important;
   }
 
-  .project-branded .bg-background {
+  body.project-branded .bg-background {
     background-color: hsl(var(--background)) !important;
   }
 
-  .project-branded a {
+  body.project-branded a {
     color: hsl(var(--foreground)) !important;
   }
 
-  .project-branded button {
+  body.project-branded button {
     color: hsl(var(--foreground)) !important;
   }
 
-  /* Override any text color utilities */
+  /* Override any Tailwind utility classes */
   body.project-branded .text-foreground,
   body.project-branded .text-primary,
   body.project-branded .text-muted-foreground {
