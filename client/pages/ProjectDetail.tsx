@@ -108,6 +108,28 @@ export default function ProjectDetail() {
       setTimeout(applyBrandTheme, 50);
       setTimeout(applyBrandTheme, 150);
 
+      // Set up a MutationObserver to prevent ThemeProvider from adding theme classes
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            const target = mutation.target as HTMLElement;
+            if (target === root && document.body.classList.contains("project-branded")) {
+              // If theme classes were added back, remove them
+              if (root.classList.contains("light") || root.classList.contains("dark")) {
+                root.classList.remove("light", "dark");
+                // Reapply brand theming
+                setTimeout(applyBrandTheme, 0);
+              }
+            }
+          }
+        });
+      });
+
+      observer.observe(root, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
+
     } else if (project?.colors) {
       // Apply default project theming for non-branded projects
       const root = document.documentElement;
