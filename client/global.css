@@ -433,7 +433,7 @@
   body.project-branded h5,
   body.project-branded h6,
   body.project-branded .text-foreground {
-    color: rgb(var(--foreground)) !important;
+    color: var(--project-fg) !important;
   }
 
   body.project-branded p,
