@@ -355,9 +355,10 @@ export default function ProjectDetail() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-black text-white transition-all duration-200 focus-visible"
+              className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-black transition-all duration-200 focus-visible"
               style={{
                 backgroundColor: "var(--project-primary, hsl(var(--primary)))",
+                color: "var(--project-bg, white)",
               }}
             >
               Get in Touch
