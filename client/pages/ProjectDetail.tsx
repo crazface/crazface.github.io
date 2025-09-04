@@ -358,12 +358,12 @@ export default function ProjectDetail() {
               className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-black transition-all duration-200 focus-visible project-cta-button"
               style={{
                 backgroundColor: project?.brandTheme
-                  ? `${project.brandTheme.highlight} !important`
+                  ? project.brandTheme.highlight
                   : "hsl(var(--primary))",
                 color: project?.brandTheme
-                  ? `${project.brandTheme.background} !important`
-                  : "white !important",
-              } as React.CSSProperties}
+                  ? project.brandTheme.background
+                  : "white",
+              }}
             >
               Get in Touch
               <ExternalLink className="w-4 h-4" />
