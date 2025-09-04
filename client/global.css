@@ -486,6 +486,17 @@
     color: var(--project-fg) !important;
   }
 
+  /* Override for CTA button - must come after universal rule */
+  body.project-branded * .project-cta-button,
+  body.project-branded * a.project-cta-button,
+  body.project-branded .project-cta-button,
+  body.project-branded a.project-cta-button,
+  body.project-branded .project-cta-button *,
+  body.project-branded a.project-cta-button *,
+  body.project-branded a.project-cta-button svg {
+    color: var(--project-bg) !important;
+  }
+
   /* Special handling for headings and important text */
   body.project-branded h1,
   body.project-branded h2,
