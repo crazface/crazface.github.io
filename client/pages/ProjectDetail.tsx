@@ -358,8 +358,8 @@ export default function ProjectDetail() {
               className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-black transition-all duration-200 focus-visible"
               style={{
                 backgroundColor: "var(--project-primary, hsl(var(--primary)))",
-                color: "var(--project-bg, white)",
-              }}
+                color: "var(--project-bg, white) !important",
+              } as React.CSSProperties}
             >
               Get in Touch
               <ExternalLink className="w-4 h-4" />
