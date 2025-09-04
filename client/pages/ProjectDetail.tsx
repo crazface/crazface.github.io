@@ -350,10 +350,10 @@ export default function ProjectDetail() {
               className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-black transition-all duration-200 focus-visible project-cta-button"
               style={{
                 backgroundColor: project?.brandTheme
-                  ? project.brandTheme.highlight
+                  ? project.brandTheme.background
                   : "hsl(var(--primary))",
                 color: project?.brandTheme
-                  ? project.brandTheme.background
+                  ? project.brandTheme.highlight
                   : "white",
               }}
             >
