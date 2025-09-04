@@ -59,13 +59,12 @@ export default function ProjectDetail() {
 
   // ThemeLock effect - sets variables with !important and guards against late rewrites
   useEffect(() => {
-    if (!project) return;
+    if (!project?.brandTheme) return;
+
+    console.log("Applying theme for project:", project.title, project.brandTheme);
 
     const root = document.documentElement;
     const body = document.body;
-
-    // Use project brandTheme colors if available, otherwise skip theming
-    if (!project.brandTheme) return;
 
     const COLORS = {
       bg: project.brandTheme.background,
@@ -76,28 +75,21 @@ export default function ProjectDetail() {
 
     // Set CSS variables with priority so later styles cannot override them
     const setVars = () => {
+      // Set project-specific variables
       root.style.setProperty("--project-bg", COLORS.bg, "important");
       root.style.setProperty("--project-fg", COLORS.fg, "important");
       root.style.setProperty("--project-primary", COLORS.primary, "important");
-      root.style.setProperty(
-        "--project-secondary",
-        COLORS.secondary,
-        "important",
-      );
+      root.style.setProperty("--project-secondary", COLORS.secondary, "important");
 
-      // Map global tokens to project tokens, also with !important
-      body.style.setProperty("--background", "var(--project-bg)", "important");
-      body.style.setProperty("--foreground", "var(--project-fg)", "important");
-      body.style.setProperty(
-        "--primary",
-        "var(--project-primary)",
-        "important",
-      );
-      body.style.setProperty(
-        "--secondary",
-        "var(--project-secondary)",
-        "important",
-      );
+      // Set direct color values to global tokens (not CSS variables)
+      body.style.setProperty("--background", COLORS.bg, "important");
+      body.style.setProperty("--foreground", COLORS.fg, "important");
+      body.style.setProperty("--primary", COLORS.primary, "important");
+      body.style.setProperty("--secondary", COLORS.secondary, "important");
+
+      // Also set direct styles on body
+      body.style.backgroundColor = COLORS.bg + " !important";
+      body.style.color = COLORS.fg + " !important";
     };
 
     // Remove any global theme classes that could trigger css
@@ -114,7 +106,7 @@ export default function ProjectDetail() {
     }, 300);
 
     return () => clearInterval(id);
-  }, [project]);
+  }, [project?.brandTheme]);
 
   // Hide theme toggle for project pages with brandTheme
   useEffect(() => {
