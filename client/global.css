@@ -456,6 +456,11 @@
     color: var(--project-primary) !important;
   }
 
+  /* Override for CTA button to ensure proper contrast */
+  body.project-branded .project-cta-button {
+    color: var(--project-bg) !important;
+  }
+
   body.project-branded .text-muted-foreground {
     color: var(--project-fg) !important;
     opacity: 0.8 !important;
