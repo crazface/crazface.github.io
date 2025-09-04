@@ -61,7 +61,11 @@ export default function ProjectDetail() {
   useEffect(() => {
     if (!project?.brandTheme) return;
 
-    console.log("Applying theme for project:", project.title, project.brandTheme);
+    console.log(
+      "Applying theme for project:",
+      project.title,
+      project.brandTheme,
+    );
 
     const root = document.documentElement;
     const body = document.body;
@@ -79,7 +83,11 @@ export default function ProjectDetail() {
       root.style.setProperty("--project-bg", COLORS.bg, "important");
       root.style.setProperty("--project-fg", COLORS.fg, "important");
       root.style.setProperty("--project-primary", COLORS.primary, "important");
-      root.style.setProperty("--project-secondary", COLORS.secondary, "important");
+      root.style.setProperty(
+        "--project-secondary",
+        COLORS.secondary,
+        "important",
+      );
 
       // Set direct color values to global tokens (not CSS variables)
       body.style.setProperty("--background", COLORS.bg, "important");
