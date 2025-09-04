@@ -457,8 +457,16 @@
   }
 
   /* Override for CTA button to ensure proper contrast */
-  body.project-branded .project-cta-button {
+  body.project-branded .project-cta-button,
+  body.project-branded a.project-cta-button,
+  body[data-skip-theme="true"] .project-cta-button,
+  body[data-skip-theme="true"] a.project-cta-button {
     color: var(--project-bg) !important;
+  }
+
+  /* Fallback with higher specificity */
+  body.project-branded .project-cta-button * {
+    color: inherit !important;
   }
 
   body.project-branded .text-muted-foreground {
