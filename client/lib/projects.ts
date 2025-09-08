@@ -328,7 +328,7 @@ export const projects: Project[] = [
     title: "Posters",
     type: "Graphic Design",
     year: "2022",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F23d879761d034ee080b4201854962316",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F952d7fc52d0a44ea8bb44a6f429a9dfe",
     description: "Poster series",
     role: "Designer",
     tools: ["Illustrator", "InDesign"],
