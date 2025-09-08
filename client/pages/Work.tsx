@@ -126,7 +126,7 @@ export default function Work() {
             `}
             style={{ animationDelay: "0.2s" }}
           >
-            {filteredProjects.map((project, index) => (
+            {displayProjects.map((project, index) => (
               <div
                 key={`${project.id}-${animationKey}`}
                 className="animate-scale-in"
