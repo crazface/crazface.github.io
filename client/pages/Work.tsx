@@ -20,6 +20,65 @@ export default function Work() {
     return getProjectsByType(activeCategory);
   }, [activeCategory]);
 
+  // Derive display order: allow placing specific projects into the last row columns
+  const displayProjects = useMemo(() => {
+    const list = [...filteredProjects];
+    // Determine number of columns used for the current category (desktop/lg)
+    const columns = activeCategory === "Video Editing" ? 2 : 3;
+    const len = list.length;
+
+    // Targets: place Posters at start of last row, and Schtuff at end of last row
+    const posterId = "posters-2022";
+    const schtuffId = "schtuff-ad-campaign-2022";
+
+    // Only attempt reorder when there are at least 'columns' items
+    if (len >= columns) {
+      // Remove any existing occurrences
+      const without = list.filter((p) => p.id !== posterId && p.id !== schtuffId);
+
+      // Compute target indices
+      const posterTarget = Math.max(0, len - columns);
+      const schtuffTarget = len - 1;
+
+      // Insert placeholders array copy to build final
+      const result: typeof list = [];
+      // Fill with items from 'without', inserting placeholders where needed
+      // We'll iterate through indices 0..len-1 and pick items from 'without' sequentially,
+      // but when reaching posterTarget or schtuffTarget we'll insert the specific project if it exists.
+      let withoutIdx = 0;
+      for (let i = 0; i < len; i++) {
+        if (i === posterTarget) {
+          const found = list.find((p) => p.id === posterId);
+          if (found) {
+            result.push(found);
+            continue;
+          }
+        }
+        if (i === schtuffTarget) {
+          const found = list.find((p) => p.id === schtuffId);
+          if (found) {
+            result.push(found);
+            continue;
+          }
+        }
+        // Otherwise take next from without
+        if (withoutIdx < without.length) {
+          result.push(without[withoutIdx]);
+          withoutIdx++;
+        }
+      }
+
+      // If any leftover (unlikely), append
+      while (withoutIdx < without.length) {
+        result.push(without[withoutIdx++]);
+      }
+
+      return result;
+    }
+
+    return list;
+  }, [filteredProjects, activeCategory]);
+
   useEffect(() => {
     setIsLoaded(true);
   }, []);
