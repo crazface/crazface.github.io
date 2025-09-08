@@ -298,7 +298,8 @@ export const projects: Project[] = [
     title: "Cacophony Album Cover",
     type: "Graphic Design",
     year: "2022",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa0d9c4f9b9c54e3385a8bfdbc8d39322",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa0d9c4f9b9c54e3385a8bfdbc8d39322",
     description: "Album cover artwork for Cacophony",
     role: "Designer",
     tools: ["Illustrator", "Photoshop"],
@@ -313,7 +314,8 @@ export const projects: Project[] = [
     title: "Schtuff Ad Campaign",
     type: "Graphic Design",
     year: "2022",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb5bb65b95b624d66a281305b0e7ae42d",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb5bb65b95b624d66a281305b0e7ae42d",
     description: "Advertising campaign for Schtuff",
     role: "Art Director",
     tools: ["Figma", "Illustrator"],
@@ -328,7 +330,8 @@ export const projects: Project[] = [
     title: "Posters",
     type: "Graphic Design",
     year: "2022",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F952d7fc52d0a44ea8bb44a6f429a9dfe",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F952d7fc52d0a44ea8bb44a6f429a9dfe",
     description: "Poster series",
     role: "Designer",
     tools: ["Illustrator", "InDesign"],

@@ -34,7 +34,9 @@ export default function Work() {
     // Only attempt reorder when there are at least 'columns' items
     if (len >= columns) {
       // Remove any existing occurrences
-      const without = list.filter((p) => p.id !== posterId && p.id !== schtuffId);
+      const without = list.filter(
+        (p) => p.id !== posterId && p.id !== schtuffId,
+      );
 
       // Compute target indices
       const posterTarget = Math.max(0, len - columns);
