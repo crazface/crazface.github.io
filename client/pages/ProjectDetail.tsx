@@ -245,7 +245,7 @@ export default function ProjectDetail() {
                           <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
                             Type
                           </div>
-                          <div className="text-lg text-foreground capitalize">{project.type}</div>
+                          <div className="text-lg text-foreground capitalize">{project.id === "portrait-series" ? "wedding photography" : project.type}</div>
                         </div>
                       </div>
                     </div>
