@@ -9,13 +9,12 @@ interface AppTileProps {
 export function AppTile({ project }: AppTileProps) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Aspect ratios per project type: Video Editing uses 16:9, Photography uses 4:6 (2:3), otherwise square
-  const aspectRatioClass =
-    project.type === "Video Editing"
-      ? "aspect-video"
-      : project.type === "Photography"
-      ? "aspect-[2/3]"
-      : "aspect-square";
+  // Aspect ratios per project type: Video Editing uses 16:9, Photography uses 2:3 (portrait), otherwise square
+  const aspectRatioClass = project.type === "Video Editing" ? "aspect-video" : "aspect-square";
+
+  // For photography, use the CSS aspect-ratio property instead of a utility class
+  const aspectStyle: React.CSSProperties | undefined =
+    project.type === "Photography" ? { aspectRatio: "2 / 3" } : undefined;
 
   return (
     <Link
