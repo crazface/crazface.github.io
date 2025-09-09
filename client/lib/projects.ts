@@ -155,11 +155,15 @@ export const projects: Project[] = [
   },
   {
     id: "portrait-series",
-    title: "Wedding 2025",
+    title: "Wedding",
     type: "Photography",
     year: "2025",
     image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
     appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F84b41045a7f048c3801cd62cacf4f895?format=webp&width=800"
+    ],
     description: "Wedding photography series",
     role: "Photographer",
     tools: ["Canon R5", "Lightroom", "Photoshop"],
