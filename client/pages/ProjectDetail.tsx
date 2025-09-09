@@ -201,29 +201,6 @@ export default function ProjectDetail() {
             ${isLoaded ? "opacity-100" : "opacity-0"}
           `}
         >
-          {/* Hero Image */}
-          <div className="relative rounded-lg overflow-hidden shadow-glass-lg mb-12 aspect-video lg:aspect-[21/9]">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-            <div
-              className="absolute inset-0 gradient-smooth gradient-with-noise"
-              style={{
-                background: `linear-gradient(
-                  to top,
-                  rgba(0,0,0,0.3) 0%,
-                  rgba(6,6,6,0.25) 16%,
-                  rgba(12,12,12,0.20) 32%,
-                  rgba(8,8,8,0.15) 48%,
-                  rgba(4,4,4,0.08) 64%,
-                  rgba(2,2,2,0.04) 80%,
-                  transparent 100%
-                )`,
-              }}
-            />
-          </div>
 
           {/* Project Header */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
