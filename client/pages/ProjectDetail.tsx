@@ -484,46 +484,6 @@ export default function ProjectDetail() {
       </section>
 
       {/* CTA Section */}
-      {project?.id === 'huel-rebrand' && (
-        <section className="grid-container pb-section">
-          <div
-            className="glass rounded-lg p-12 text-center animate-slide-up"
-            style={{ animationDelay: "0.4s" }}
-          >
-            <h2 className="text-3xl font-black text-foreground mb-4">
-              Interested in working together?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              I'm always excited to collaborate on new projects and bring creative
-              visions to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-black transition-all duration-200 focus-visible project-cta-button"
-                style={{
-                  backgroundColor: project?.brandTheme
-                    ? project.brandTheme.background
-                    : "hsl(var(--primary))",
-                  color: project?.brandTheme
-                    ? project.brandTheme.highlight
-                    : "white",
-                }}
-              >
-                Get in Touch
-                <ExternalLink className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/work"
-                className="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 text-lg font-black text-foreground hover:bg-white/80 hover:shadow-glass transition-all duration-200 focus-visible"
-              >
-                View More Work
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
       <section className="grid-container pb-section">
         <div
           className="glass rounded-lg p-12 text-center animate-slide-up"
