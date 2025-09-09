@@ -179,7 +179,7 @@ export const projects: Project[] = [
     ],
     description: "Wedding photography series",
     role: "Photographer",
-    tools: ["Canon R5", "Lightroom", "Photoshop"],
+    tools: ["Canon 850D", "18 - 135mm", "Lightroom", "Photoshop"],
     colors: {
       primary: "#374151",
       secondary: "#6b7280",
