@@ -192,6 +192,150 @@ export default function ProjectDetail() {
       )}
       {/* Header */}
       <Header />
+      <div dangerouslySetInnerHTML={{ __html: `
+<style>
+  /* Keep the site header above the overlay so it stays visible and clickable */
+  #site-header, .site-header {
+    position: relative;          /* or sticky or fixed if you already use that */
+    z-index: 2147483647;         /* higher than overlay */
+  }
+
+  /* Fullscreen dimmer that centers content in the viewport */
+  .photo-focus-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.72);
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    z-index: 2147483646;         /* just under the header */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease;
+    outline: none;
+  }
+  .photo-focus-overlay.open { opacity: 1; pointer-events: auto; }
+
+  /* Focused photo styles */
+  .photo-focus-img {
+    max-width: min(90vw, 1400px);
+    max-height: 90vh;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.96);
+    transition: transform 0.18s ease;
+  }
+  .photo-focus-overlay.open .photo-focus-img { transform: scale(1); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .photo-focus-overlay, .photo-focus-img { transition: none; }
+  }
+</style>
+
+<script>
+(function () {
+  // Create the overlay once at the end of <body>
+  const overlay = document.createElement('div');
+  overlay.className = 'photo-focus-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Photo preview');
+  overlay.tabIndex = -1;
+
+  const img = document.createElement('img');
+  img.className = 'photo-focus-img';
+  overlay.appendChild(img);
+
+  document.body.appendChild(overlay);
+
+  let opener = null;  // last clicked photo element
+
+  // Robust scroll lock that does not move the page at all
+  function lockScroll() {
+    const y = window.scrollY || 0;
+    document.body.dataset.lockY = String(y);
+
+    // Compensate for scrollbar width to avoid layout shift
+    const sbw = window.innerWidth - document.documentElement.clientWidth;
+
+    // Fix the body in place at the current scroll position
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + y + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    if (sbw > 0) document.body.style.paddingRight = sbw + 'px';
+  }
+
+  function unlockScroll() {
+    const y = parseInt(document.body.dataset.lockY || '0', 10);
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.paddingRight = '';
+    delete document.body.dataset.lockY;
+    window.scrollTo(0, y);
+  }
+
+  function openOverlay(src, alt, triggerEl) {
+    opener = triggerEl || null;
+    img.src = src;
+    img.alt = alt || '';
+    lockScroll();
+    overlay.classList.add('open');
+    // Focus without causing the browser to scroll anywhere
+    requestAnimationFrame(() => {
+      try { overlay.focus({ preventScroll: true }); }
+      catch { overlay.focus(); }
+    });
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('open');
+    img.removeAttribute('src');
+    unlockScroll();
+    if (opener && opener.focus) opener.focus();
+  }
+
+  // Click any photo in the gallery to open
+  // Mark your Image elements with either:
+  // data-focusable="true" or data-photo="true" or class="photo-thumb"
+  document.addEventListener('click', function (e) {
+    const target = e.target && e.target.closest &&
+      e.target.closest('img[data-focusable="true"], img[data-photo="true"], img.photo-thumb');
+    if (!target) return;
+
+    e.preventDefault();
+
+    // Prefer a high resolution source if provided
+    const src = target.getAttribute('data-full') || target.currentSrc || target.src;
+    const alt = target.alt || 'Photo';
+    openOverlay(src, alt, target);
+  });
+
+  // Close on backdrop click
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeOverlay();
+  });
+
+  // Close on Esc
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
+  });
+
+  // Safety: remove overlay on page unmount in Builder
+  window.addEventListener('beforeunload', function () {
+    try { overlay.remove(); } catch {}
+  });
+})();
+</script>
+
+` }} />
 
 
 
