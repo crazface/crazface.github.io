@@ -281,6 +281,7 @@ export default function ProjectDetail() {
                   <img
                     src={src}
                     alt={`${project.title} gallery item ${idx + 1}`}
+                    data-focusable="true"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
