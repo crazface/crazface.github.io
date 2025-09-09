@@ -159,7 +159,7 @@ export const projects: Project[] = [
     type: "Photography",
     year: "2025",
     image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
-    appIcon: "/images/app-icon-photo.svg",
+    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
     description: "Wedding photography series",
     role: "Photographer",
     tools: ["Canon R5", "Lightroom", "Photoshop"],
