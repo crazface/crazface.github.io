@@ -322,15 +322,20 @@ export default function ProjectDetail() {
         <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
           <h2 className="text-3xl font-black text-foreground mb-8">Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Placeholder gallery items */}
-            {[1, 2, 3, 4, 5, 6].map((item) => (
+            {/* Use project.gallery if available, otherwise fall back to repeated project.image */}
+            {(
+              project.gallery && project.gallery.length > 0
+                ? project.gallery
+                : new Array(6).fill(project.image)
+            ).map((src, idx) => (
               <div
-                key={item}
-                className="glass rounded-lg overflow-hidden aspect-square hover:shadow-glass-lg transition-all duration-300"
+                key={idx}
+                className="glass rounded-lg overflow-hidden hover:shadow-glass-lg transition-all duration-300"
+                style={project.type === "Photography" ? { aspectRatio: "2 / 3" } : undefined}
               >
                 <img
-                  src={project.image}
-                  alt={`${project.title} gallery item ${item}`}
+                  src={src}
+                  alt={`${project.title} gallery item ${idx + 1}`}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
