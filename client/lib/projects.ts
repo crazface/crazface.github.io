@@ -173,7 +173,7 @@ export const projects: Project[] = [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F9d7a2e315bc643328676d21863287461",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fad5385772c934981b3e82ab089d80e91",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa06e1c54d7cd4df4972784defea912a6",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F51c31a97d3bc4a08b46b7f09652be5c8",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d4d8c7d4879aa4c7843b68daea6%2F0b5b245dfb504e168b67b41d69c1dbc8",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fc0b74f538d6e439d998c6fbb1e124f81",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff9217337643a4183a2cb29c3edd1e0b7"
     ],
