@@ -116,6 +116,110 @@ export default function ProjectDetail() {
     return () => clearInterval(id);
   }, [project?.brandTheme]);
 
+  // Photo focus overlay script (runs in React so it executes properly)
+  useEffect(() => {
+    // Create overlay and image
+    const overlay = document.createElement('div');
+    overlay.className = 'photo-focus-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Photo preview');
+    (overlay as any).tabIndex = -1;
+
+    const img = document.createElement('img');
+    img.className = 'photo-focus-img';
+    overlay.appendChild(img);
+
+    document.body.appendChild(overlay);
+
+    let opener: HTMLElement | null = null;
+
+    function lockScroll() {
+      const y = window.scrollY || 0;
+      document.body.dataset.lockY = String(y);
+      const sbw = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + y + 'px';
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      if (sbw > 0) document.body.style.paddingRight = sbw + 'px';
+    }
+
+    function unlockScroll() {
+      const y = parseInt(document.body.dataset.lockY || '0', 10);
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      document.body.style.paddingRight = '';
+      delete (document.body as any).dataset.lockY;
+      window.scrollTo(0, y);
+    }
+
+    function openOverlay(src: string, alt: string, triggerEl: HTMLElement | null) {
+      opener = triggerEl;
+      img.src = src;
+      img.alt = alt || '';
+      lockScroll();
+      overlay.classList.add('open');
+      requestAnimationFrame(() => {
+        try { (overlay as any).focus({ preventScroll: true }); }
+        catch { (overlay as any).focus(); }
+      });
+    }
+
+    function closeOverlay() {
+      overlay.classList.remove('open');
+      img.removeAttribute('src');
+      unlockScroll();
+      if (opener && (opener as any).focus) (opener as any).focus();
+    }
+
+    function onDocClick(e: MouseEvent) {
+      const target = (e.target as Element) && (e.target as Element).closest &&
+        (e.target as Element).closest('img[data-focusable="true"], img[data-photo="true"], img.photo-thumb') as HTMLImageElement | null;
+      if (!target) return;
+      e.preventDefault();
+      const src = target.getAttribute('data-full') || (target as any).currentSrc || target.src;
+      const alt = target.alt || 'Photo';
+      openOverlay(src, alt, target as HTMLElement);
+    }
+
+    function onOverlayClick(e: MouseEvent) {
+      if (e.target === overlay) closeOverlay();
+    }
+
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
+    }
+
+    document.addEventListener('click', onDocClick);
+    overlay.addEventListener('click', onOverlayClick);
+    document.addEventListener('keydown', onKey);
+    window.addEventListener('beforeunload', () => { try { overlay.remove(); } catch {} });
+
+    return () => {
+      document.removeEventListener('click', onDocClick);
+      overlay.removeEventListener('click', onOverlayClick);
+      document.removeEventListener('keydown', onKey);
+      try { overlay.remove(); } catch {}
+      // ensure scroll unlocked if left locked
+      if ((document.body as any).dataset.lockY) {
+        const y = parseInt((document.body as any).dataset.lockY || '0', 10);
+        window.scrollTo(0, y);
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        document.body.style.paddingRight = '';
+        delete (document.body as any).dataset.lockY;
+      }
+    };
+  }, []);
+
   // Hide theme toggle for project pages with brandTheme
   useEffect(() => {
     if (!project?.brandTheme) return;
@@ -234,106 +338,6 @@ export default function ProjectDetail() {
     .photo-focus-overlay, .photo-focus-img { transition: none; }
   }
 </style>
-
-<script>
-(function () {
-  // Create the overlay once at the end of <body>
-  const overlay = document.createElement('div');
-  overlay.className = 'photo-focus-overlay';
-  overlay.setAttribute('role', 'dialog');
-  overlay.setAttribute('aria-modal', 'true');
-  overlay.setAttribute('aria-label', 'Photo preview');
-  overlay.tabIndex = -1;
-
-  const img = document.createElement('img');
-  img.className = 'photo-focus-img';
-  overlay.appendChild(img);
-
-  document.body.appendChild(overlay);
-
-  let opener = null;  // last clicked photo element
-
-  // Robust scroll lock that does not move the page at all
-  function lockScroll() {
-    const y = window.scrollY || 0;
-    document.body.dataset.lockY = String(y);
-
-    // Compensate for scrollbar width to avoid layout shift
-    const sbw = window.innerWidth - document.documentElement.clientWidth;
-
-    // Fix the body in place at the current scroll position
-    document.body.style.position = 'fixed';
-    document.body.style.top = '-' + y + 'px';
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.width = '100%';
-    if (sbw > 0) document.body.style.paddingRight = sbw + 'px';
-  }
-
-  function unlockScroll() {
-    const y = parseInt(document.body.dataset.lockY || '0', 10);
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.body.style.width = '';
-    document.body.style.paddingRight = '';
-    delete document.body.dataset.lockY;
-    window.scrollTo(0, y);
-  }
-
-  function openOverlay(src, alt, triggerEl) {
-    opener = triggerEl || null;
-    img.src = src;
-    img.alt = alt || '';
-    lockScroll();
-    overlay.classList.add('open');
-    // Focus without causing the browser to scroll anywhere
-    requestAnimationFrame(() => {
-      try { overlay.focus({ preventScroll: true }); }
-      catch { overlay.focus(); }
-    });
-  }
-
-  function closeOverlay() {
-    overlay.classList.remove('open');
-    img.removeAttribute('src');
-    unlockScroll();
-    if (opener && opener.focus) opener.focus();
-  }
-
-  // Click any photo in the gallery to open
-  // Mark your Image elements with either:
-  // data-focusable="true" or data-photo="true" or class="photo-thumb"
-  document.addEventListener('click', function (e) {
-    const target = e.target && e.target.closest &&
-      e.target.closest('img[data-focusable="true"], img[data-photo="true"], img.photo-thumb');
-    if (!target) return;
-
-    e.preventDefault();
-
-    // Prefer a high resolution source if provided
-    const src = target.getAttribute('data-full') || target.currentSrc || target.src;
-    const alt = target.alt || 'Photo';
-    openOverlay(src, alt, target);
-  });
-
-  // Close on backdrop click
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closeOverlay();
-  });
-
-  // Close on Esc
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
-  });
-
-  // Safety: remove overlay on page unmount in Builder
-  window.addEventListener('beforeunload', function () {
-    try { overlay.remove(); } catch {}
-  });
-})();
-</script>
 
 ` }} />
 
