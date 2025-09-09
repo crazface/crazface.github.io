@@ -212,8 +212,9 @@ export default function ProjectDetail() {
                     <div className="text-2xl font-black text-foreground mb-4">
                       {project.title}
                     </div>
-                    <div className="text-base font-normal text-foreground mb-2" style={{ fontSize: "18px", fontWeight: 400, lineHeight: "28px", textTransform: "capitalize" }}>
-                      {project.year}
+
+                    <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
+                      Description
                     </div>
                     <div className="text-base font-thin text-muted-foreground mb-4" style={{ fontSize: "18px", fontWeight: 400, lineHeight: "28px" }}>
                       {project.description}
@@ -227,6 +228,13 @@ export default function ProjectDetail() {
                         <div className="text-lg text-foreground">
                           {project.role || "Creative Director"}
                         </div>
+                      </div>
+
+                      <div className="mt-4">
+                        <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
+                          Year
+                        </div>
+                        <div className="text-lg text-foreground">{project.year}</div>
                       </div>
 
                       <div className="mt-4">
