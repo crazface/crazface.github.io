@@ -22,6 +22,14 @@ export default function ProjectDetail() {
   useEffect(() => {
     const body = document.body;
 
+    // add a project-type body class so styles can be scoped per project type
+    if (project) {
+      const typeSlug = `project-type-${String(project.type || project.id || 'project').toLowerCase().replace(/\s+/g, '-')}`;
+      body.classList.add(typeSlug);
+      // store the slug on body for cleanup
+      (body as any)._projectTypeSlug = typeSlug;
+    }
+
     if (project?.brandTheme) {
       body.classList.add("project-branded");
       body.setAttribute("data-skip-theme", "true");
@@ -29,6 +37,15 @@ export default function ProjectDetail() {
       body.classList.remove("project-branded");
       body.removeAttribute("data-skip-theme");
     }
+
+    return () => {
+      // cleanup project-type class
+      try {
+        const slug = (body as any)._projectTypeSlug;
+        if (slug) body.classList.remove(slug);
+        delete (body as any)._projectTypeSlug;
+      } catch {}
+    };
   }, [project]);
 
   // Cleanup on unmount so other pages get the global theme again
