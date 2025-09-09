@@ -130,7 +130,8 @@ export default function ProjectDetail() {
     img.className = 'photo-focus-img';
     overlay.appendChild(img);
 
-    document.body.appendChild(overlay);
+    // Append to root html so positioning is measured from the document, not from any transformed ancestor
+    document.documentElement.appendChild(overlay);
 
     let opener: HTMLElement | null = null;
 
@@ -158,10 +159,32 @@ export default function ProjectDetail() {
       window.scrollTo(0, y);
     }
 
+    // Ensure the overlay covers the user's viewport position (not the document top)
+    function positionOverlayAtViewport() {
+      // Put overlay in document coordinates at the current scroll position and size of viewport
+      overlay.style.position = 'absolute';
+      overlay.style.left = '0';
+      overlay.style.width = '100%';
+      overlay.style.top = String(window.scrollY || 0) + 'px';
+      overlay.style.height = String(window.innerHeight || 0) + 'px';
+    }
+
+    function clearOverlayPositioning() {
+      overlay.style.position = '';
+      overlay.style.left = '';
+      overlay.style.width = '';
+      overlay.style.top = '';
+      overlay.style.height = '';
+    }
+
     function openOverlay(src: string, alt: string, triggerEl: HTMLElement | null) {
       opener = triggerEl;
       img.src = src;
       img.alt = alt || '';
+      // position overlay at current viewport first so centering is correct
+      positionOverlayAtViewport();
+      // If viewport changes (resize), update overlay sizing
+      window.addEventListener('resize', positionOverlayAtViewport);
       lockScroll();
       overlay.classList.add('open');
       requestAnimationFrame(() => {
@@ -173,6 +196,8 @@ export default function ProjectDetail() {
     function closeOverlay() {
       overlay.classList.remove('open');
       img.removeAttribute('src');
+      window.removeEventListener('resize', positionOverlayAtViewport);
+      clearOverlayPositioning();
       unlockScroll();
       if (opener && (opener as any).focus) (opener as any).focus();
     }
