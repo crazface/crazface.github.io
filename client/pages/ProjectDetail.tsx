@@ -220,9 +220,15 @@ export default function ProjectDetail() {
 
 
       {/* Gallery Section */}
-      <section className="grid-container pb-20">
+      <section className="grid-container pb-20" style={{ margin: "30px auto 0", padding: "0 24px 80px" }}>
         <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
-          <h2 className="text-3xl font-black text-foreground mb-8">Gallery</h2>
+          <div className="mb-8">
+            <h2 className="text-3xl text-foreground mb-2">
+              <span className="font-normal">{project.title}</span>
+              <span className="ml-2 font-thin text-lg">{project.year}</span>
+            </h2>
+            <p className="text-base font-thin text-muted-foreground">{project.description}</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Use project.gallery if available, otherwise fall back to repeated project.image */}
             {(
