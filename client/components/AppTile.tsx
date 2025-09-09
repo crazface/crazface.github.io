@@ -9,9 +9,13 @@ interface AppTileProps {
 export function AppTile({ project }: AppTileProps) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Use 16:9 aspect ratio for Video Editing projects
+  // Aspect ratios per project type: Video Editing uses 16:9, Photography uses 4:6 (2:3), otherwise square
   const aspectRatioClass =
-    project.type === "Video Editing" ? "aspect-video" : "aspect-square";
+    project.type === "Video Editing"
+      ? "aspect-video"
+      : project.type === "Photography"
+      ? "aspect-[2/3]"
+      : "aspect-square";
 
   return (
     <Link
