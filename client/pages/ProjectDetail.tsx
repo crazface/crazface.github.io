@@ -323,8 +323,10 @@ export default function ProjectDetail() {
       <Header />
       <div dangerouslySetInnerHTML={{ __html: `
 <style>
-  /* Keep the site header above the overlay so it stays visible and clickable */
-  #site-header, .site-header {
+  /* Keep the site header above the overlay only for project pages so global header styles are unaffected */
+  body[class*="project-type-"] #siteHeader,
+  body[class*="project-type-"] #site-header,
+  body[class*="project-type-"] .site-header {
     position: relative;          /* or sticky or fixed if you already use that */
     z-index: 2147483647;         /* higher than overlay */
   }
