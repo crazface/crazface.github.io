@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
+import { projects } from "@/lib/projects";
 
 export function Header() {
   const location = useLocation();
@@ -11,6 +12,17 @@ export function Header() {
 
   // Check if we're on a project page
   const isProjectPage = location.pathname.startsWith("/project/");
+
+  // Determine whether to show the theme toggle.
+  // Show when not on a project page, or when on a project page whose type is NOT Graphic Design.
+  let showThemeToggle = true;
+  if (isProjectPage) {
+    const parts = location.pathname.split("/");
+    const projectId = parts[2] || "";
+    const project = projects.find((p) => p.id === projectId);
+    // if project exists, only show when not Graphic Design
+    showThemeToggle = project ? project.type !== "Graphic Design" : true;
+  }
 
   return (
     <header
@@ -82,7 +94,7 @@ export function Header() {
             >
               Contact me
             </Link>
-            {!isProjectPage && <ThemeToggle />}
+            {showThemeToggle && <ThemeToggle />}
           </nav>
         </div>
       </div>
