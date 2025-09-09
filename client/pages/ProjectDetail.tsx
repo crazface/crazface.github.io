@@ -193,30 +193,6 @@ export default function ProjectDetail() {
       {/* Header */}
       <Header />
 
-      {/* Hero Section */}
-      <section className="grid-container pt-32 pb-20">
-        <div
-          className={`
-            animate-slide-up
-            ${isLoaded ? "opacity-100" : "opacity-0"}
-          `}
-        >
-
-          {/* Project Header */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2">
-              <h1 className="text-5xl font-black leading-none tracking-tight text-foreground mb-4">
-                {project.title}
-              </h1>
-              <p className="text-lg font-normal leading-relaxed text-muted-foreground">
-                {project.description ||
-                  "A comprehensive look at this creative project, exploring the process, challenges, and outcomes that shaped the final result."}
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
 
       {/* Gallery Section */}
