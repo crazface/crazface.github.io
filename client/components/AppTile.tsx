@@ -27,11 +27,10 @@ export function AppTile({ project }: AppTileProps) {
         className={`
           relative w-full ${aspectRatioClass} rounded-[4.5rem] overflow-hidden
           transition-all duration-500 ease-out cursor-pointer bg-gradient-to-br from-slate-800 to-slate-900
-          ${
-            isHovered ? "transform scale-110 -translate-y-4" : "hover:scale-105"
-          }
+          ${isHovered ? "transform scale-110 -translate-y-4" : "hover:scale-105"}
         `}
         style={{
+          ...(aspectStyle || {}),
           boxShadow: isHovered
             ? "0 30px 60px -12px rgba(0,0,0,0.5), 0 12px 24px -8px rgba(0,0,0,0.4), inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)"
             : "0 20px 40px -12px rgba(0,0,0,0.3), 0 8px 16px -8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 -1px 0 rgba(0,0,0,0.05)",
