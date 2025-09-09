@@ -240,38 +240,39 @@ export default function ProjectDetail() {
               if (idx === 2) {
                 return (
                   <div key="project-details" className="glass rounded-lg p-6 h-fit" style={{ marginBottom: "-2px" }}>
-                    <h3 className="text-2xl font-black text-foreground mb-4">
-                      Project Details
-                    </h3>
-                    <div className="space-y-4">
+                    <div className="text-2xl font-black text-foreground mb-4">
+                      {project.title}
+                    </div>
+                    <div className="text-base font-normal text-foreground mb-2" style={{ fontSize: "18px", fontWeight: 400, lineHeight: "28px", textTransform: "capitalize" }}>
+                      {project.year}
+                    </div>
+                    <div className="text-base font-thin text-muted-foreground mb-4" style={{ fontSize: "18px", fontWeight: 400, lineHeight: "28px" }}>
+                      {project.description}
+                    </div>
+
+                    <div className="" style={{ fontWeight: 400 }}>
                       <div>
-                        <dt className="text-sm font-bold text-muted-foreground mb-1">
+                        <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
                           Role
-                        </dt>
-                        <dd className="text-lg text-foreground">
+                        </div>
+                        <div className="text-lg text-foreground">
                           {project.role || "Creative Director"}
-                        </dd>
+                        </div>
                       </div>
-                      <div>
-                        <dt className="text-sm font-bold text-muted-foreground mb-1">
-                          Year
-                        </dt>
-                        <dd className="text-lg text-foreground">{project.year}</dd>
-                      </div>
-                      <div>
-                        <dt className="text-sm font-bold text-muted-foreground mb-1">
+
+                      <div className="mt-4">
+                        <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
                           Type
-                        </dt>
-                        <dd className="text-lg text-foreground capitalize">
-                          {project.type}
-                        </dd>
+                        </div>
+                        <div className="text-lg text-foreground capitalize">{project.type}</div>
                       </div>
+
                       {project.tools && (
-                        <div>
-                          <dt className="text-sm font-bold text-muted-foreground mb-2">
+                        <div className="mt-4">
+                          <div className="text-sm font-bold text-muted-foreground mb-2">
                             Tools
-                          </dt>
-                          <dd className="flex flex-wrap gap-2">
+                          </div>
+                          <div className="flex flex-wrap gap-2">
                             {project.tools.map((tool) => (
                               <span
                                 key={tool}
@@ -280,7 +281,7 @@ export default function ProjectDetail() {
                                 {tool}
                               </span>
                             ))}
-                          </dd>
+                          </div>
                         </div>
                       )}
                     </div>
