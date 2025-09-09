@@ -229,19 +229,73 @@ export default function ProjectDetail() {
               project.gallery && project.gallery.length > 0
                 ? project.gallery
                 : new Array(6).fill(project.image)
-            ).map((src, idx) => (
-              <div
-                key={idx}
-                className="glass rounded-lg overflow-hidden hover:shadow-glass-lg transition-all duration-300"
-                style={project.type === "Photography" ? { aspectRatio: "2 / 3" } : undefined}
-              >
-                <img
-                  src={src}
-                  alt={`${project.title} gallery item ${idx + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
+            ).map((src, idx) => {
+              // Replace the third gallery item (index 2) with the Project Details box
+              if (idx === 2) {
+                return (
+                  <div key="project-details" className="glass rounded-lg p-6 h-fit">
+                    <h3 className="text-2xl font-black text-foreground mb-4">
+                      Project Details
+                    </h3>
+                    <div className="space-y-4">
+                      <div>
+                        <dt className="text-sm font-bold text-muted-foreground mb-1">
+                          Role
+                        </dt>
+                        <dd className="text-lg text-foreground">
+                          {project.role || "Creative Director"}
+                        </dd>
+                      </div>
+                      <div>
+                        <dt className="text-sm font-bold text-muted-foreground mb-1">
+                          Year
+                        </dt>
+                        <dd className="text-lg text-foreground">{project.year}</dd>
+                      </div>
+                      <div>
+                        <dt className="text-sm font-bold text-muted-foreground mb-1">
+                          Type
+                        </dt>
+                        <dd className="text-lg text-foreground capitalize">
+                          {project.type}
+                        </dd>
+                      </div>
+                      {project.tools && (
+                        <div>
+                          <dt className="text-sm font-bold text-muted-foreground mb-2">
+                            Tools
+                          </dt>
+                          <dd className="flex flex-wrap gap-2">
+                            {project.tools.map((tool) => (
+                              <span
+                                key={tool}
+                                className="px-3 py-1 rounded-full text-xs bg-white/50 text-foreground border border-white/20"
+                              >
+                                {tool}
+                              </span>
+                            ))}
+                          </dd>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <div
+                  key={idx}
+                  className="glass rounded-lg overflow-hidden hover:shadow-glass-lg transition-all duration-300"
+                  style={project.type === "Photography" ? { aspectRatio: "2 / 3" } : undefined}
+                >
+                  <img
+                    src={src}
+                    alt={`${project.title} gallery item ${idx + 1}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
