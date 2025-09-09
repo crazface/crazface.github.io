@@ -315,7 +315,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2022",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb5bb65b95b624d66a281305b0e7ae42d",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F635e3c838b264f0a92507b8484b45f33",
     description: "Advertising campaign for Schtuff",
     role: "Art Director",
     tools: ["Figma", "Illustrator"],
