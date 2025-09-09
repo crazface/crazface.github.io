@@ -239,7 +239,7 @@ export default function ProjectDetail() {
               // Replace the third gallery item (index 2) with the Project Details box
               if (idx === 2) {
                 return (
-                  <div key="project-details" className="glass rounded-lg p-6 h-fit">
+                  <div key="project-details" className="glass rounded-lg p-6 h-fit" style={{ marginBottom: "-2px" }}>
                     <h3 className="text-2xl font-black text-foreground mb-4">
                       Project Details
                     </h3>
