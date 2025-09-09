@@ -27,6 +27,13 @@ export default function Work() {
     const columns = activeCategory === "Video Editing" ? 2 : 3;
     const len = list.length;
 
+    // When viewing Photography, show only the portrait-series centered
+    if (activeCategory === "Photography") {
+      const portrait = list.find((p) => p.id === "portrait-series");
+      if (portrait) return [portrait];
+      return list.slice(0, 1);
+    }
+
     // Targets: place Posters at start of last row, and Schtuff at end of last row
     const posterId = "posters-2022";
     const schtuffId = "schtuff-ad-campaign-2022";
@@ -34,9 +41,7 @@ export default function Work() {
     // Only attempt reorder when there are at least 'columns' items
     if (len >= columns) {
       // Remove any existing occurrences
-      const without = list.filter(
-        (p) => p.id !== posterId && p.id !== schtuffId,
-      );
+      const without = list.filter((p) => p.id !== posterId && p.id !== schtuffId);
 
       // Compute target indices
       const posterTarget = Math.max(0, len - columns);
