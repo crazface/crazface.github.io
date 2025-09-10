@@ -387,101 +387,178 @@ export default function ProjectDetail() {
 
 
 
-      {/* Gallery Section */}
-      <section className="grid-container pb-20" style={{ margin: "30px auto 0", padding: "0 24px 80px" }}>
-        <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Use project.gallery if available, otherwise fall back to repeated project.image */}
-            {(
-              project.gallery && project.gallery.length > 0
-                ? project.gallery
-                : new Array(6).fill(project.image)
-            ).map((src, idx) => {
-              // Replace the third gallery item (index 2) with the Project Details box
-              if (idx === 2) {
-                return (
-                  <div key="project-details" className="glass rounded-lg p-6 h-full flex flex-col" style={{ marginBottom: "-2px" }}>
-                    <div className="text-2xl font-black text-foreground mb-2">
-                      {project.title}
-                    </div>
+      {/* Gallery / Project content - render Graphic Design layout separately */}
+      {project.type === 'Graphic Design' ? (
+        <main>
+          {/* Hero */}
+          <section className="grid-container pt-12 pb-8">
+            <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              <div className="glass rounded-2xl overflow-hidden">
+                <img src={project.image} alt={project.title} className="w-full h-64 object-cover" />
+              </div>
+            </div>
+          </section>
 
-                    {/* Middle area stretches and spaces items vertically */}
-                    <div className="flex-1 flex flex-col justify-between mt-2">
-                      <div>
-                        <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
-                          Description
-                        </div>
-                        <div className="text-base font-thin text-foreground" style={{ fontSize: "18px", fontWeight: 400, lineHeight: "28px" }}>
-                          {project.description}
-                        </div>
+          {/* Title + Details two column */}
+          <section className="grid-container pb-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+              <div className="lg:col-span-2 animate-slide-up" style={{ animationDelay: '0.25s' }}>
+                <h1 className="text-4xl font-black text-foreground mb-4">{project.title}</h1>
+                <p className="text-lg text-muted-foreground max-w-2xl">{project.description}</p>
+              </div>
+
+              <aside className="animate-slide-up lg:col-span-1" style={{ animationDelay: '0.3s' }}>
+                <div className="glass rounded-lg p-6">
+                  <h3 className="text-xl font-bold text-foreground mb-3">Project Details</h3>
+                  <div className="text-sm text-muted-foreground mb-2">Role</div>
+                  <div className="text-lg text-foreground mb-3">{project.role || 'Creative Director'}</div>
+
+                  <div className="text-sm text-muted-foreground mb-2">Year</div>
+                  <div className="text-lg text-foreground mb-3">{project.year}</div>
+
+                  <div className="text-sm text-muted-foreground mb-2">Type</div>
+                  <div className="text-lg text-foreground mb-3">{project.type}</div>
+
+                  {project.tools && (
+                    <>
+                      <div className="text-sm text-muted-foreground mb-2">Tools</div>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tools.map((tool) => (
+                          <span key={tool} className="px-3 py-1 rounded-full text-xs bg-white/50 text-foreground border border-white/20">{tool}</span>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              </aside>
+            </div>
+          </section>
+
+          {/* Process */}
+          <section className="grid-container pb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+              <div className="glass rounded-lg p-6">
+                <h4 className="text-lg font-bold text-foreground mb-2">Problem</h4>
+                <p className="text-muted-foreground">Every project begins with understanding the core challenge. This project required balancing creative expression with functional requirements while maintaining brand consistency.</p>
+              </div>
+              <div className="glass rounded-lg p-6">
+                <h4 className="text-lg font-bold text-foreground mb-2">Solution</h4>
+                <p className="text-muted-foreground">Through iterative design and close collaboration, we developed a comprehensive approach that addressed all stakeholder needs while pushing creative boundaries.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Gallery */}
+          <section className="grid-container pb-20">
+            <div className="animate-slide-up" style={{ animationDelay: '0.35s' }}>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Gallery</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {(project.gallery && project.gallery.length > 0 ? project.gallery : new Array(6).fill(project.image)).map((src, idx) => (
+                  <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                    <img src={src} alt={`${project.title} gallery item ${idx + 1}`} data-focusable="true" className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </main>
+      ) : (
+        // Default layout (used for Photography, Video, 3D, etc.) - unchanged
+        <section className="grid-container pb-20" style={{ margin: "30px auto 0", padding: "0 24px 80px" }}>
+          <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Use project.gallery if available, otherwise fall back to repeated project.image */}
+              {(
+                project.gallery && project.gallery.length > 0
+                  ? project.gallery
+                  : new Array(6).fill(project.image)
+              ).map((src, idx) => {
+                // Replace the third gallery item (index 2) with the Project Details box
+                if (idx === 2) {
+                  return (
+                    <div key="project-details" className="glass rounded-lg p-6 h-full flex flex-col" style={{ marginBottom: "-2px" }}>
+                      <div className="text-2xl font-black text-foreground mb-2">
+                        {project.title}
                       </div>
 
-                      <div>
+                      {/* Middle area stretches and spaces items vertically */}
+                      <div className="flex-1 flex flex-col justify-between mt-2">
                         <div>
                           <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
-                            Role
+                            Description
                           </div>
-                          <div className="text-lg text-foreground">
-                            {project.role || "Creative Director"}
+                          <div className="text-base font-thin text-foreground" style={{ fontSize: "18px", fontWeight: 400, lineHeight: "28px" }}>
+                            {project.description}
                           </div>
                         </div>
 
-                        <div className="mt-4">
-                          <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
-                            Year
+                        <div>
+                          <div>
+                            <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
+                              Role
+                            </div>
+                            <div className="text-lg text-foreground">
+                              {project.role || "Creative Director"}
+                            </div>
                           </div>
-                          <div className="text-lg text-foreground">{project.year}</div>
-                        </div>
 
-                        <div className="mt-4">
-                          <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
-                            Type
+                          <div className="mt-4">
+                            <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
+                              Year
+                            </div>
+                            <div className="text-lg text-foreground">{project.year}</div>
                           </div>
-                          <div className="text-lg text-foreground capitalize">{project.id === "portrait-series" ? "wedding photography" : project.type}</div>
+
+                          <div className="mt-4">
+                            <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
+                              Type
+                            </div>
+                            <div className="text-lg text-foreground capitalize">{project.id === "portrait-series" ? "wedding photography" : project.type}</div>
+                          </div>
                         </div>
                       </div>
+
+                      {/* Tools at bottom */}
+                      {project.tools && (
+                        <div className="mt-4">
+                          <div className="text-sm font-bold text-muted-foreground mb-2">
+                            Tools
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {project.tools.map((tool) => (
+                              <span
+                                key={tool}
+                                className="px-3 py-1 rounded-full text-xs bg-white/50 text-foreground border border-white/20"
+                              >
+                                {tool}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
+                  );
+                }
 
-                    {/* Tools at bottom */}
-                    {project.tools && (
-                      <div className="mt-4">
-                        <div className="text-sm font-bold text-muted-foreground mb-2">
-                          Tools
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {project.tools.map((tool) => (
-                            <span
-                              key={tool}
-                              className="px-3 py-1 rounded-full text-xs bg-white/50 text-foreground border border-white/20"
-                            >
-                              {tool}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                return (
+                  <div
+                    key={idx}
+                    className="glass rounded-lg overflow-hidden hover:shadow-glass-lg transition-all duration-300"
+                    style={project.type === "Photography" ? { aspectRatio: "2 / 3" } : undefined}
+                  >
+                    <img
+                      src={src}
+                      alt={`${project.title} gallery item ${idx + 1}`}
+                      data-focusable="true"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                 );
-              }
-
-              return (
-                <div
-                  key={idx}
-                  className="glass rounded-lg overflow-hidden hover:shadow-glass-lg transition-all duration-300"
-                  style={project.type === "Photography" ? { aspectRatio: "2 / 3" } : undefined}
-                >
-                  <img
-                    src={src}
-                    alt={`${project.title} gallery item ${idx + 1}`}
-                    data-focusable="true"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              );
-            })}
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="grid-container pb-section">
