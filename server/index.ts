@@ -20,5 +20,8 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
+  // Contact form endpoint
+  app.post("/api/contact", handleContact);
+
   return app;
 }
