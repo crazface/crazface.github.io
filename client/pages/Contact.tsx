@@ -1,52 +1,9 @@
-import { useState } from "react";
-import { Mail, Send } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Header } from "@/components/Header";
 import { useTheme } from "@/hooks/use-theme";
 
 export default function Contact() {
   const { theme } = useTheme();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [status, setStatus] = useState<null | { type: 'success' | 'error'; message: string }>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatus(null);
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (!res.ok) throw new Error('Network response was not ok');
-
-      const json = await res.json();
-      setStatus({ type: 'success', message: json.message || 'Message sent successfully.' });
-      setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
-      setStatus({ type: 'error', message: 'Failed to send message. Please try again later.' });
-      // eslint-disable-next-line no-console
-      console.error('Contact form error:', err);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -158,98 +115,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Status message for form submissions */}
-          {status ? (
-            <div
-              className={`mt-6 mb-6 p-4 rounded-lg text-center ${
-                status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-              }`}
-              role="status"
-            >
-              {status.message}
-            </div>
-          ) : null}
-
-          {/* Contact Form */}
-          <div
-            className="glass rounded-lg p-8 animate-slide-up"
-            style={{ animationDelay: "0.3s" }}
-          >
-            <h2 className="text-3xl font-black leading-tight tracking-tight text-foreground mb-6 text-center">
-              Send a Message
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-bold text-muted-foreground mb-2"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full glass rounded-lg px-4 py-3 text-lg text-foreground placeholder-muted-foreground/60 border-0 focus:ring-2 focus:ring-accent focus:outline-none transition-all duration-200"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-bold text-muted-foreground mb-2"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full glass rounded-lg px-4 py-3 text-lg text-foreground placeholder-muted-foreground/60 border-0 focus:ring-2 focus:ring-accent focus:outline-none transition-all duration-200"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-bold text-muted-foreground mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full glass rounded-lg px-4 py-3 text-lg text-foreground placeholder-muted-foreground/60 border-0 focus:ring-2 focus:ring-accent focus:outline-none transition-all duration-200 resize-none"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full inline-flex items-center justify-center gap-2 glass border border-foreground/20 rounded-lg px-8 py-4 text-lg font-black text-foreground hover:bg-foreground/10 transition-all duration-200 focus-visible ${
-                  isSubmitting ? 'opacity-60 cursor-wait' : ''
-                }`}
-                style={{
-                  boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
-                }}
-              >
-                {isSubmitting ? 'Sending…' : 'Send Message'}
-                <Send className="w-5 h-5" />
-              </button>
-            </form>
-          </div>
         </div>
       </section>
     </div>
