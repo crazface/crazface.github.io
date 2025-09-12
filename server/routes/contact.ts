@@ -7,8 +7,8 @@ export const handleContact: RequestHandler = (req, res) => {
     return res.status(400).json({ ok: false, message: "Missing required fields" });
   }
 
-  // TODO: Integrate with an email provider (SendGrid, Mailgun, SMTP) or a database
-  // for now, just log the submission and return success. Keep logs minimal.
+  // Basic implementation: log submission server-side and return success.
+  // For production, integrate an email provider or store messages in a database.
   // eslint-disable-next-line no-console
   console.log(`Contact form received: ${name} <${email}> - ${message.substring(0, 200)}`);
 
