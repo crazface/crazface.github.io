@@ -434,19 +434,6 @@ export default function ProjectDetail() {
             </div>
           </section>
 
-          {/* Process */}
-          <section className="grid-container pb-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <div className="glass rounded-lg p-6">
-                <h4 className="text-lg font-bold text-foreground mb-2">Problem</h4>
-                <p className="text-muted-foreground">Every project begins with understanding the core challenge. This project required balancing creative expression with functional requirements while maintaining brand consistency.</p>
-              </div>
-              <div className="glass rounded-lg p-6">
-                <h4 className="text-lg font-bold text-foreground mb-2">Solution</h4>
-                <p className="text-muted-foreground">Through iterative design and close collaboration, we developed a comprehensive approach that addressed all stakeholder needs while pushing creative boundaries.</p>
-              </div>
-            </div>
-          </section>
 
           {/* Gallery */}
           <section className="grid-container pb-20">
