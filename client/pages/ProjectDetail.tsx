@@ -404,7 +404,7 @@ export default function ProjectDetail() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
               <div className="lg:col-span-2 animate-slide-up" style={{ animationDelay: '0.25s' }}>
                 <h1 className="text-4xl font-black text-foreground mb-4">{project.title}</h1>
-                <p className="text-lg text-muted-foreground max-w-2xl">{project.description}</p>
+                <p className="text-lg text-muted-foreground max-w-2xl">{project.longDescription || project.description}</p>
               </div>
 
               <aside className="animate-slide-up lg:col-span-1" style={{ animationDelay: '0.3s' }}>
