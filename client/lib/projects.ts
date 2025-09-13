@@ -7,6 +7,8 @@ export interface Project {
   appIcon?: string;
   description?: string;
   longDescription?: string;
+  processPdf?: string;
+  finalPdf?: string;
   role?: string;
   tools?: string[];
   colors?: {
@@ -32,6 +34,8 @@ export const projects: Project[] = [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe71f4c1a27344269bdb189d9fcb983fc",
     description: "A brand transforming e-waste into luxury accessories.",
     longDescription: "ReGenB is a jewellery brand concept that transforms electronic waste into luxury accessories. Inspired by RGB colour systems and digital culture, the brand combines sustainability with a clean, luxury aesthetic. The project included developing a full brand identity, designing and 3D-modelling jewellery pieces, creating sustainable packaging, and producing campaign visuals. The outcome demonstrates how e-waste can be transformed into desirable fashion items while maintaining a modern, tech-driven visual language.",
+    processPdf: "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F17914742715f45178f55bef0427100ef?alt=media&token=451c8e9d-7fc9-4c20-a89a-1a38c934c6d3&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
+    finalPdf: "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F59407eedee1844b88aca9212e7a11273?alt=media&token=3e9b04e6-b519-43bd-89fd-51b6ab69ce7f&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
     role: "Creative Director",
     tools: ["Adobe Illustrator", "Figma", "After Effects"],
     colors: {
