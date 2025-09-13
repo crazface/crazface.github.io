@@ -565,7 +565,7 @@ export default function ProjectDetail() {
                       />
                     </div>
                     <div className="mt-4 text-center">
-                      <a href={project.processPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary text-primary-foreground font-bold">
+                      <a href={project.processPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold">
                         Open Process PDF
                       </a>
                     </div>
@@ -585,7 +585,7 @@ export default function ProjectDetail() {
                       />
                     </div>
                     <div className="mt-4 text-center">
-                      <a href={project.finalPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary text-primary-foreground font-bold">
+                      <a href={project.finalPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold">
                         Open Final PDF
                       </a>
                     </div>
