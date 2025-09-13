@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getProjectById, Project } from "@/lib/projects";
 import { ExternalLink } from "lucide-react";
 import { Header } from "@/components/Header";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
