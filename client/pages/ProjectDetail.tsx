@@ -113,9 +113,9 @@ export default function ProjectDetail() {
       body.style.setProperty("--primary", COLORS.primary, "important");
       body.style.setProperty("--secondary", COLORS.secondary, "important");
 
-      // Also set direct styles on body
-      body.style.backgroundColor = COLORS.bg + " !important";
-      body.style.color = COLORS.fg + " !important";
+      // Also set direct styles on body using setProperty so priority can be applied correctly
+      body.style.setProperty('background-color', COLORS.bg, 'important');
+      body.style.setProperty('color', COLORS.fg, 'important');
     };
 
     // Remove any global theme classes that could trigger css
