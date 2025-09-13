@@ -547,43 +547,51 @@ export default function ProjectDetail() {
         </section>
       )}
 
-      {/* Process & Final Design PDFs */}
-      {project.processPdf && (
+      {/* Process & Final Design PDFs (accordion) */}
+      {(project.processPdf || project.finalPdf) && (
         <section className="grid-container pb-10">
           <div className="glass rounded-lg p-8 animate-slide-up" style={{ animationDelay: "0.38s" }}>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Process</h3>
-            <div className="w-full h-[520px] md:h-[720px] rounded-lg overflow-hidden border border-white/10">
-              <iframe
-                src={project.processPdf}
-                title="Process document"
-                className="w-full h-full"
-              />
-            </div>
-            <div className="mt-4 text-center">
-              <a href={project.processPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary text-primary-foreground font-bold">
-                Open Process PDF
-              </a>
-            </div>
-          </div>
-        </section>
-      )}
+            <Accordion type="single" collapsible>
+              {project.processPdf && (
+                <AccordionItem value="process">
+                  <AccordionTrigger className="text-lg">Process</AccordionTrigger>
+                  <AccordionContent>
+                    <div className="w-full h-[420px] md:h-[560px] rounded-lg overflow-hidden border border-white/10">
+                      <iframe
+                        src={project.processPdf}
+                        title="Process document"
+                        className="w-full h-full"
+                      />
+                    </div>
+                    <div className="mt-4 text-center">
+                      <a href={project.processPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary text-primary-foreground font-bold">
+                        Open Process PDF
+                      </a>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              )}
 
-      {project.finalPdf && (
-        <section className="grid-container pb-10">
-          <div className="glass rounded-lg p-8 animate-slide-up" style={{ animationDelay: "0.4s" }}>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Final Design Outcome</h3>
-            <div className="w-full h-[520px] md:h-[720px] rounded-lg overflow-hidden border border-white/10">
-              <iframe
-                src={project.finalPdf}
-                title="Final design outcome"
-                className="w-full h-full"
-              />
-            </div>
-            <div className="mt-4 text-center">
-              <a href={project.finalPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary text-primary-foreground font-bold">
-                Open Final PDF
-              </a>
-            </div>
+              {project.finalPdf && (
+                <AccordionItem value="final">
+                  <AccordionTrigger className="text-lg">Final Design Outcome</AccordionTrigger>
+                  <AccordionContent>
+                    <div className="w-full h-[420px] md:h-[560px] rounded-lg overflow-hidden border border-white/10">
+                      <iframe
+                        src={project.finalPdf}
+                        title="Final design outcome"
+                        className="w-full h-full"
+                      />
+                    </div>
+                    <div className="mt-4 text-center">
+                      <a href={project.finalPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary text-primary-foreground font-bold">
+                        Open Final PDF
+                      </a>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              )}
+            </Accordion>
           </div>
         </section>
       )}
