@@ -30,7 +30,7 @@ export const projects: Project[] = [
     image: "/images/hero-banner-project-1.svg",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe71f4c1a27344269bdb189d9fcb983fc",
-    description: "E‑waste transformed into luxury jewellery — tech‑inspired brand identity, 3D modelling, sustainable packaging, and campaign visuals.",
+    description: "A brand transforming e-waste into luxury accessories.",
     longDescription: "ReGenB is a jewellery brand concept that transforms electronic waste into luxury accessories. Inspired by RGB colour systems and digital culture, the brand combines sustainability with a clean, luxury aesthetic. The project included developing a full brand identity, designing and 3D-modelling jewellery pieces, creating sustainable packaging, and producing campaign visuals. The outcome demonstrates how e-waste can be transformed into desirable fashion items while maintaining a modern, tech-driven visual language.",
     role: "Creative Director",
     tools: ["Adobe Illustrator", "Figma", "After Effects"],
