@@ -9,6 +9,7 @@ export interface Project {
   longDescription?: string;
   processPdf?: string;
   finalPdf?: string;
+  gallery?: string[];
   role?: string;
   tools?: string[];
   colors?: {
@@ -29,7 +30,15 @@ export const projects: Project[] = [
     title: "ReGenB",
     type: "Graphic Design",
     year: "2025",
-    image: "/images/hero-banner-project-1.svg",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1cae4b2af07e49f1b8f60df05864d17a",
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1e15615a7f8041c5b290ff9d6b6b14dc",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff506d1cd8b1142b4abf9c6477d1f8594",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa6ed5ff4c4834e3da6c97557bc2c7cc7",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fbf5ecc157dfa4da08bc34da6c680f649",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fba4b3743e61947488aa6e0867d99c9d8",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fbf5ecc157dfa4da08bc34da6c680f649",
+    ],
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe71f4c1a27344269bdb189d9fcb983fc",
     description: "A brand transforming e-waste into luxury accessories.",
