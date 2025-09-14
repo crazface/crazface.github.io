@@ -50,7 +50,14 @@ export const projects: Project[] = [
     finalPdf:
       "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F59407eedee1844b88aca9212e7a11273?alt=media&token=3e9b04e6-b519-43bd-89fd-51b6ab69ce7f&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
     role: "Creative Director",
-    tools: ["Photoshop", "Illustrator", "Blender", "Canon 850D 18 - 135mm", "InDesign", "Visual Studio Code"],
+    tools: [
+      "Photoshop",
+      "Illustrator",
+      "Blender",
+      "Canon 850D 18 - 135mm",
+      "InDesign",
+      "Visual Studio Code",
+    ],
     colors: {
       primary: "#8b4513",
       secondary: "#d2691e",
