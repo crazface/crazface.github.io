@@ -585,7 +585,8 @@ export default function ProjectDetail() {
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
                 <video
                   src="https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3393eaf8aa304deb92496da795b354f3%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=3393eaf8aa304deb92496da795b354f3&alt=media&optimized=true"
-                  className="w-full h-56 md:h-[420px] object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full object-cover"
+                  style={{ aspectRatio: '9 / 16' }}
                   controls
                   playsInline
                   loop
