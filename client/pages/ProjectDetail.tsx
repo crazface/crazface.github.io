@@ -513,19 +513,21 @@ export default function ProjectDetail() {
                   ? project.gallery
                   : new Array(6).fill(project.image)
                 ).map((src, idx) => {
-                  const isTall = idx === 2; // third item becomes the tall feature
+                  // Make items 3 and 4 (0-based idx 2 and 3) tall
+                  const isTallRight = idx === 2; // third item -> tall on right column
+                  const isTallLeft = idx === 3; // fourth item -> tall starting left column (second row)
+
+                  let itemClass = 'rounded-2xl overflow-hidden border border-white/10 shadow-sm';
+                  if (isTallRight) itemClass += ' md:col-start-3 md:row-span-2';
+                  if (isTallLeft) itemClass += ' md:col-start-1 md:row-span-2';
+
                   return (
-                    <div
-                      key={idx}
-                      className={`rounded-2xl overflow-hidden border border-white/10 shadow-sm ${
-                        isTall ? 'md:col-start-3 md:row-span-2' : ''
-                      }`}
-                    >
+                    <div key={idx} className={itemClass}>
                       <img
                         src={src}
                         alt={`${project.title} gallery item ${idx + 1}`}
                         data-focusable="true"
-                        className={`w-full ${isTall ? 'h-full' : 'h-56'} object-cover hover:scale-105 transition-transform duration-500`}
+                        className={`w-full ${isTallRight || isTallLeft ? 'h-full' : 'h-56'} object-cover hover:scale-105 transition-transform duration-500`}
                       />
                     </div>
                   );
