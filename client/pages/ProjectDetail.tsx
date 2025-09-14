@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import { getProjectById, Project } from "@/lib/projects";
 import { ExternalLink } from "lucide-react";
 import { Header } from "@/components/Header";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();
@@ -25,7 +30,11 @@ export default function ProjectDetail() {
 
     // add a project-type body class so styles can be scoped per project type
     if (project) {
-      const typeSlug = `project-type-${String(project.type || project.id || 'project').toLowerCase().replace(/\s+/g, '-')}`;
+      const typeSlug = `project-type-${String(
+        project.type || project.id || "project",
+      )
+        .toLowerCase()
+        .replace(/\s+/g, "-")}`;
       body.classList.add(typeSlug);
       // store the slug on body for cleanup
       (body as any)._projectTypeSlug = typeSlug;
@@ -114,8 +123,8 @@ export default function ProjectDetail() {
       body.style.setProperty("--secondary", COLORS.secondary, "important");
 
       // Also set direct styles on body using setProperty so priority can be applied correctly
-      body.style.setProperty('background-color', COLORS.bg, 'important');
-      body.style.setProperty('color', COLORS.fg, 'important');
+      body.style.setProperty("background-color", COLORS.bg, "important");
+      body.style.setProperty("color", COLORS.fg, "important");
     };
 
     // Remove any global theme classes that could trigger css
@@ -137,15 +146,15 @@ export default function ProjectDetail() {
   // Photo focus overlay script (runs in React so it executes properly)
   useEffect(() => {
     // Create overlay and image
-    const overlay = document.createElement('div');
-    overlay.className = 'photo-focus-overlay';
-    overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-label', 'Photo preview');
+    const overlay = document.createElement("div");
+    overlay.className = "photo-focus-overlay";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", "Photo preview");
     (overlay as any).tabIndex = -1;
 
-    const img = document.createElement('img');
-    img.className = 'photo-focus-img';
+    const img = document.createElement("img");
+    img.className = "photo-focus-img";
     overlay.appendChild(img);
 
     // Append to root html so positioning is measured from the document, not from any transformed ancestor
@@ -157,22 +166,22 @@ export default function ProjectDetail() {
       const y = window.scrollY || 0;
       document.body.dataset.lockY = String(y);
       const sbw = window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.position = 'fixed';
-      document.body.style.top = '-' + y + 'px';
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
-      if (sbw > 0) document.body.style.paddingRight = sbw + 'px';
+      document.body.style.position = "fixed";
+      document.body.style.top = "-" + y + "px";
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+      if (sbw > 0) document.body.style.paddingRight = sbw + "px";
     }
 
     function unlockScroll() {
-      const y = parseInt(document.body.dataset.lockY || '0', 10);
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      document.body.style.width = '';
-      document.body.style.paddingRight = '';
+      const y = parseInt(document.body.dataset.lockY || "0", 10);
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      document.body.style.paddingRight = "";
       delete (document.body as any).dataset.lockY;
       window.scrollTo(0, y);
     }
@@ -180,53 +189,67 @@ export default function ProjectDetail() {
     // Ensure the overlay covers the user's viewport position (not the document top)
     function positionOverlayAtViewport() {
       // Put overlay in document coordinates at the current scroll position and size of viewport
-      overlay.style.position = 'absolute';
-      overlay.style.left = '0';
-      overlay.style.width = '100%';
-      overlay.style.top = String(window.scrollY || 0) + 'px';
-      overlay.style.height = String(window.innerHeight || 0) + 'px';
+      overlay.style.position = "absolute";
+      overlay.style.left = "0";
+      overlay.style.width = "100%";
+      overlay.style.top = String(window.scrollY || 0) + "px";
+      overlay.style.height = String(window.innerHeight || 0) + "px";
     }
 
     function clearOverlayPositioning() {
-      overlay.style.position = '';
-      overlay.style.left = '';
-      overlay.style.width = '';
-      overlay.style.top = '';
-      overlay.style.height = '';
+      overlay.style.position = "";
+      overlay.style.left = "";
+      overlay.style.width = "";
+      overlay.style.top = "";
+      overlay.style.height = "";
     }
 
-    function openOverlay(src: string, alt: string, triggerEl: HTMLElement | null) {
+    function openOverlay(
+      src: string,
+      alt: string,
+      triggerEl: HTMLElement | null,
+    ) {
       opener = triggerEl;
       img.src = src;
-      img.alt = alt || '';
+      img.alt = alt || "";
       // position overlay at current viewport first so centering is correct
       positionOverlayAtViewport();
       // If viewport changes (resize), update overlay sizing
-      window.addEventListener('resize', positionOverlayAtViewport);
+      window.addEventListener("resize", positionOverlayAtViewport);
       lockScroll();
-      overlay.classList.add('open');
+      overlay.classList.add("open");
       requestAnimationFrame(() => {
-        try { (overlay as any).focus({ preventScroll: true }); }
-        catch { (overlay as any).focus(); }
+        try {
+          (overlay as any).focus({ preventScroll: true });
+        } catch {
+          (overlay as any).focus();
+        }
       });
     }
 
     function closeOverlay() {
-      overlay.classList.remove('open');
-      img.removeAttribute('src');
-      window.removeEventListener('resize', positionOverlayAtViewport);
+      overlay.classList.remove("open");
+      img.removeAttribute("src");
+      window.removeEventListener("resize", positionOverlayAtViewport);
       clearOverlayPositioning();
       unlockScroll();
       if (opener && (opener as any).focus) (opener as any).focus();
     }
 
     function onDocClick(e: MouseEvent) {
-      const target = (e.target as Element) && (e.target as Element).closest &&
-        (e.target as Element).closest('img[data-focusable="true"], img[data-photo="true"], img.photo-thumb') as HTMLImageElement | null;
+      const target =
+        (e.target as Element) &&
+        (e.target as Element).closest &&
+        ((e.target as Element).closest(
+          'img[data-focusable="true"], img[data-photo="true"], img.photo-thumb',
+        ) as HTMLImageElement | null);
       if (!target) return;
       e.preventDefault();
-      const src = target.getAttribute('data-full') || (target as any).currentSrc || target.src;
-      const alt = target.alt || 'Photo';
+      const src =
+        target.getAttribute("data-full") ||
+        (target as any).currentSrc ||
+        target.src;
+      const alt = target.alt || "Photo";
       openOverlay(src, alt, target as HTMLElement);
     }
 
@@ -235,29 +258,36 @@ export default function ProjectDetail() {
     }
 
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
+      if (e.key === "Escape" && overlay.classList.contains("open"))
+        closeOverlay();
     }
 
-    document.addEventListener('click', onDocClick);
-    overlay.addEventListener('click', onOverlayClick);
-    document.addEventListener('keydown', onKey);
-    window.addEventListener('beforeunload', () => { try { overlay.remove(); } catch {} });
+    document.addEventListener("click", onDocClick);
+    overlay.addEventListener("click", onOverlayClick);
+    document.addEventListener("keydown", onKey);
+    window.addEventListener("beforeunload", () => {
+      try {
+        overlay.remove();
+      } catch {}
+    });
 
     return () => {
-      document.removeEventListener('click', onDocClick);
-      overlay.removeEventListener('click', onOverlayClick);
-      document.removeEventListener('keydown', onKey);
-      try { overlay.remove(); } catch {}
+      document.removeEventListener("click", onDocClick);
+      overlay.removeEventListener("click", onOverlayClick);
+      document.removeEventListener("keydown", onKey);
+      try {
+        overlay.remove();
+      } catch {}
       // ensure scroll unlocked if left locked
       if ((document.body as any).dataset.lockY) {
-        const y = parseInt((document.body as any).dataset.lockY || '0', 10);
+        const y = parseInt((document.body as any).dataset.lockY || "0", 10);
         window.scrollTo(0, y);
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
-        document.body.style.width = '';
-        document.body.style.paddingRight = '';
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+        document.body.style.paddingRight = "";
         delete (document.body as any).dataset.lockY;
       }
     };
@@ -339,7 +369,9 @@ export default function ProjectDetail() {
       )}
       {/* Header */}
       <Header />
-      <div dangerouslySetInnerHTML={{ __html: `
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `
 <style>
   /* Keep the site header above the overlay only for project pages so global header styles are unaffected */
   body[class*="project-type-"] #siteHeader,
@@ -384,18 +416,25 @@ export default function ProjectDetail() {
   }
 </style>
 
-` }} />
-
-
+`,
+        }}
+      />
 
       {/* Gallery / Project content - render Graphic Design layout separately */}
-      {project.type === 'Graphic Design' ? (
+      {project.type === "Graphic Design" ? (
         <main>
           {/* Hero */}
           <section className="grid-container pt-12 pb-8">
-            <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <div
+              className="animate-slide-up"
+              style={{ animationDelay: "0.2s" }}
+            >
               <div className="glass rounded-2xl overflow-hidden">
-                <img src={project.image} alt={project.title} className="w-full h-64 object-cover" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-64 object-cover"
+                />
               </div>
             </div>
           </section>
@@ -403,29 +442,54 @@ export default function ProjectDetail() {
           {/* Title + Details two column */}
           <section className="grid-container pb-10">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-              <div className="lg:col-span-2 animate-slide-up" style={{ animationDelay: '0.25s' }}>
-                <h1 className="text-4xl font-black text-foreground mb-4">{project.title}</h1>
-                <p className="text-lg text-muted-foreground max-w-2xl">{project.longDescription || project.description}</p>
+              <div
+                className="lg:col-span-2 animate-slide-up"
+                style={{ animationDelay: "0.25s" }}
+              >
+                <h1 className="text-4xl font-black text-foreground mb-4">
+                  {project.title}
+                </h1>
+                <p className="text-lg text-muted-foreground max-w-2xl">
+                  {project.longDescription || project.description}
+                </p>
               </div>
 
-              <aside className="animate-slide-up lg:col-span-1" style={{ animationDelay: '0.3s' }}>
+              <aside
+                className="animate-slide-up lg:col-span-1"
+                style={{ animationDelay: "0.3s" }}
+              >
                 <div className="glass rounded-lg p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3">Project Details</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-3">
+                    Project Details
+                  </h3>
                   <div className="text-sm text-muted-foreground mb-2">Role</div>
-                  <div className="text-lg text-foreground mb-3">{project.role || 'Creative Director'}</div>
+                  <div className="text-lg text-foreground mb-3">
+                    {project.role || "Creative Director"}
+                  </div>
 
                   <div className="text-sm text-muted-foreground mb-2">Year</div>
-                  <div className="text-lg text-foreground mb-3">{project.year}</div>
+                  <div className="text-lg text-foreground mb-3">
+                    {project.year}
+                  </div>
 
                   <div className="text-sm text-muted-foreground mb-2">Type</div>
-                  <div className="text-lg text-foreground mb-3">{project.type}</div>
+                  <div className="text-lg text-foreground mb-3">
+                    {project.type}
+                  </div>
 
                   {project.tools && (
                     <>
-                      <div className="text-sm text-muted-foreground mb-2">Tools</div>
+                      <div className="text-sm text-muted-foreground mb-2">
+                        Tools
+                      </div>
                       <div className="flex flex-wrap gap-2">
                         {project.tools.map((tool) => (
-                          <span key={tool} className="px-3 py-1 rounded-full text-xs bg-white/50 text-foreground border border-white/20">{tool}</span>
+                          <span
+                            key={tool}
+                            className="px-3 py-1 rounded-full text-xs bg-white/50 text-foreground border border-white/20"
+                          >
+                            {tool}
+                          </span>
                         ))}
                       </div>
                     </>
@@ -435,15 +499,30 @@ export default function ProjectDetail() {
             </div>
           </section>
 
-
           {/* Gallery */}
           <section className="grid-container pb-20">
-            <div className="animate-slide-up" style={{ animationDelay: '0.35s' }}>
-              <h3 className="text-2xl font-bold text-foreground mb-6">Gallery</h3>
+            <div
+              className="animate-slide-up"
+              style={{ animationDelay: "0.35s" }}
+            >
+              <h3 className="text-2xl font-bold text-foreground mb-6">
+                Gallery
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {(project.gallery && project.gallery.length > 0 ? project.gallery : new Array(6).fill(project.image)).map((src, idx) => (
-                  <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
-                    <img src={src} alt={`${project.title} gallery item ${idx + 1}`} data-focusable="true" className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500" />
+                {(project.gallery && project.gallery.length > 0
+                  ? project.gallery
+                  : new Array(6).fill(project.image)
+                ).map((src, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-2xl overflow-hidden border border-white/10 shadow-sm"
+                  >
+                    <img
+                      src={src}
+                      alt={`${project.title} gallery item ${idx + 1}`}
+                      data-focusable="true"
+                      className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                 ))}
               </div>
@@ -452,19 +531,25 @@ export default function ProjectDetail() {
         </main>
       ) : (
         // Default layout (used for Photography, Video, 3D, etc.) - unchanged
-        <section className="grid-container pb-20" style={{ margin: "30px auto 0", padding: "0 24px 80px" }}>
+        <section
+          className="grid-container pb-20"
+          style={{ margin: "30px auto 0", padding: "0 24px 80px" }}
+        >
           <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Use project.gallery if available, otherwise fall back to repeated project.image */}
-              {(
-                project.gallery && project.gallery.length > 0
-                  ? project.gallery
-                  : new Array(6).fill(project.image)
+              {(project.gallery && project.gallery.length > 0
+                ? project.gallery
+                : new Array(6).fill(project.image)
               ).map((src, idx) => {
                 // Replace the third gallery item (index 2) with the Project Details box
                 if (idx === 2) {
                   return (
-                    <div key="project-details" className="glass rounded-lg p-6 h-full flex flex-col" style={{ marginBottom: "-2px" }}>
+                    <div
+                      key="project-details"
+                      className="glass rounded-lg p-6 h-full flex flex-col"
+                      style={{ marginBottom: "-2px" }}
+                    >
                       <div className="text-2xl font-black text-foreground mb-2">
                         {project.title}
                       </div>
@@ -472,17 +557,42 @@ export default function ProjectDetail() {
                       {/* Middle area stretches and spaces items vertically */}
                       <div className="flex-1 flex flex-col justify-between mt-2">
                         <div>
-                          <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
+                          <div
+                            className="text-sm font-bold text-muted-foreground mb-1"
+                            style={{
+                              color: "rgb(103,94,76)",
+                              fontSize: "14px",
+                              fontWeight: 700,
+                              lineHeight: "20px",
+                              marginBottom: "4px",
+                            }}
+                          >
                             Description
                           </div>
-                          <div className="text-base font-thin text-foreground" style={{ fontSize: "18px", fontWeight: 400, lineHeight: "28px" }}>
+                          <div
+                            className="text-base font-thin text-foreground"
+                            style={{
+                              fontSize: "18px",
+                              fontWeight: 400,
+                              lineHeight: "28px",
+                            }}
+                          >
                             {project.description}
                           </div>
                         </div>
 
                         <div>
                           <div>
-                            <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
+                            <div
+                              className="text-sm font-bold text-muted-foreground mb-1"
+                              style={{
+                                color: "rgb(103,94,76)",
+                                fontSize: "14px",
+                                fontWeight: 700,
+                                lineHeight: "20px",
+                                marginBottom: "4px",
+                              }}
+                            >
                               Role
                             </div>
                             <div className="text-lg text-foreground">
@@ -491,17 +601,41 @@ export default function ProjectDetail() {
                           </div>
 
                           <div className="mt-4">
-                            <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
+                            <div
+                              className="text-sm font-bold text-muted-foreground mb-1"
+                              style={{
+                                color: "rgb(103,94,76)",
+                                fontSize: "14px",
+                                fontWeight: 700,
+                                lineHeight: "20px",
+                                marginBottom: "4px",
+                              }}
+                            >
                               Year
                             </div>
-                            <div className="text-lg text-foreground">{project.year}</div>
+                            <div className="text-lg text-foreground">
+                              {project.year}
+                            </div>
                           </div>
 
                           <div className="mt-4">
-                            <div className="text-sm font-bold text-muted-foreground mb-1" style={{ color: "rgb(103,94,76)", fontSize: "14px", fontWeight: 700, lineHeight: "20px", marginBottom: "4px" }}>
+                            <div
+                              className="text-sm font-bold text-muted-foreground mb-1"
+                              style={{
+                                color: "rgb(103,94,76)",
+                                fontSize: "14px",
+                                fontWeight: 700,
+                                lineHeight: "20px",
+                                marginBottom: "4px",
+                              }}
+                            >
                               Type
                             </div>
-                            <div className="text-lg text-foreground capitalize">{project.id === "portrait-series" ? "wedding photography" : project.type}</div>
+                            <div className="text-lg text-foreground capitalize">
+                              {project.id === "portrait-series"
+                                ? "wedding photography"
+                                : project.type}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -532,7 +666,11 @@ export default function ProjectDetail() {
                   <div
                     key={idx}
                     className="glass rounded-lg overflow-hidden hover:shadow-glass-lg transition-all duration-300"
-                    style={project.type === "Photography" ? { aspectRatio: "2 / 3" } : undefined}
+                    style={
+                      project.type === "Photography"
+                        ? { aspectRatio: "2 / 3" }
+                        : undefined
+                    }
                   >
                     <img
                       src={src}
@@ -551,11 +689,16 @@ export default function ProjectDetail() {
       {/* Process & Final Design PDFs (accordion) */}
       {(project.processPdf || project.finalPdf) && (
         <section className="grid-container pb-10">
-          <div className="glass rounded-lg p-8 animate-slide-up" style={{ animationDelay: "0.38s" }}>
+          <div
+            className="glass rounded-lg p-8 animate-slide-up"
+            style={{ animationDelay: "0.38s" }}
+          >
             <Accordion type="single" collapsible>
               {project.processPdf && (
                 <AccordionItem value="process">
-                  <AccordionTrigger className="text-lg">Process</AccordionTrigger>
+                  <AccordionTrigger className="text-lg">
+                    Process
+                  </AccordionTrigger>
                   <AccordionContent>
                     <div className="w-full h-[420px] md:h-[560px] rounded-lg overflow-hidden border border-white/10">
                       <iframe
@@ -565,7 +708,12 @@ export default function ProjectDetail() {
                       />
                     </div>
                     <div className="mt-4 text-center">
-                      <a href={project.processPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold">
+                      <a
+                        href={project.processPdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold"
+                      >
                         Open Process PDF
                       </a>
                     </div>
@@ -575,7 +723,9 @@ export default function ProjectDetail() {
 
               {project.finalPdf && (
                 <AccordionItem value="final">
-                  <AccordionTrigger className="text-lg">Final Design Outcome</AccordionTrigger>
+                  <AccordionTrigger className="text-lg">
+                    Final Design Outcome
+                  </AccordionTrigger>
                   <AccordionContent>
                     <div className="w-full h-[420px] md:h-[560px] rounded-lg overflow-hidden border border-white/10">
                       <iframe
@@ -585,7 +735,12 @@ export default function ProjectDetail() {
                       />
                     </div>
                     <div className="mt-4 text-center">
-                      <a href={project.finalPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold">
+                      <a
+                        href={project.finalPdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold"
+                      >
                         Open Final PDF
                       </a>
                     </div>

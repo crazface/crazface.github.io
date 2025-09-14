@@ -30,7 +30,8 @@ export const projects: Project[] = [
     title: "ReGenB",
     type: "Graphic Design",
     year: "2025",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1cae4b2af07e49f1b8f60df05864d17a",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1cae4b2af07e49f1b8f60df05864d17a",
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1e15615a7f8041c5b290ff9d6b6b14dc",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff506d1cd8b1142b4abf9c6477d1f8594",
@@ -42,9 +43,12 @@ export const projects: Project[] = [
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe71f4c1a27344269bdb189d9fcb983fc",
     description: "A brand transforming e-waste into luxury accessories.",
-    longDescription: "ReGenB is a jewellery brand concept that transforms electronic waste into luxury accessories. Inspired by RGB colour systems and digital culture, the brand combines sustainability with a clean, luxury aesthetic. The project included developing a full brand identity, designing and 3D-modelling jewellery pieces, creating sustainable packaging, and producing campaign visuals. The outcome demonstrates how e-waste can be transformed into desirable fashion items while maintaining a modern, tech-driven visual language.",
-    processPdf: "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F17914742715f45178f55bef0427100ef?alt=media&token=451c8e9d-7fc9-4c20-a89a-1a38c934c6d3&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
-    finalPdf: "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F59407eedee1844b88aca9212e7a11273?alt=media&token=3e9b04e6-b519-43bd-89fd-51b6ab69ce7f&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
+    longDescription:
+      "ReGenB is a jewellery brand concept that transforms electronic waste into luxury accessories. Inspired by RGB colour systems and digital culture, the brand combines sustainability with a clean, luxury aesthetic. The project included developing a full brand identity, designing and 3D-modelling jewellery pieces, creating sustainable packaging, and producing campaign visuals. The outcome demonstrates how e-waste can be transformed into desirable fashion items while maintaining a modern, tech-driven visual language.",
+    processPdf:
+      "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F17914742715f45178f55bef0427100ef?alt=media&token=451c8e9d-7fc9-4c20-a89a-1a38c934c6d3&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
+    finalPdf:
+      "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F59407eedee1844b88aca9212e7a11273?alt=media&token=3e9b04e6-b519-43bd-89fd-51b6ab69ce7f&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
     role: "Creative Director",
     tools: ["Adobe Illustrator", "Figma", "After Effects"],
     colors: {
@@ -172,8 +176,10 @@ export const projects: Project[] = [
     title: "Wedding",
     type: "Photography",
     year: "2025",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3eee8772ebeb43ed81ca67f526fe2eb8",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ae44cd4cd424fcead386ce0f891b346",
@@ -189,7 +195,7 @@ export const projects: Project[] = [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa06e1c54d7cd4df4972784defea912a6",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0b5b245dfb504e168b67b41d69c1dbc8",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fc0b74f538d6e439d998c6fbb1e124f81",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff9217337643a4183a2cb29c3edd1e0b7"
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff9217337643a4183a2cb29c3edd1e0b7",
     ],
     description: "Wedding photography series",
     role: "Photographer",
