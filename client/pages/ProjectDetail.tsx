@@ -606,6 +606,7 @@ export default function ProjectDetail() {
             </div>
           </section>
 
+        {project.id === 'regenb' && (
           <section className="grid-container pb-20">
             <div
               className="animate-slide-up"
@@ -624,6 +625,7 @@ export default function ProjectDetail() {
               </div>
             </div>
           </section>
+        )}
         </main>
       ) : (
         // Default layout (used for Photography, Video, 3D, etc.) - unchanged
