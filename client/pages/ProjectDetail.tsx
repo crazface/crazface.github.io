@@ -501,50 +501,72 @@ export default function ProjectDetail() {
 
           {/* Gallery */}
           {/* Process & Final Design PDFs (accordion) */}
-      {(project.processPdf || project.finalPdf) && (
-        <section className="grid-container pb-10">
-          <div
-            className="glass rounded-lg p-8 animate-slide-up"
-            style={{ animationDelay: "0.38s" }}
-          >
-            <Accordion type="single" collapsible>
-              {project.processPdf && (
-                <AccordionItem value="process">
-                  <AccordionTrigger className="text-lg">Process</AccordionTrigger>
-                  <AccordionContent>
-                    <div className="w-full h-[420px] md:h-[560px] rounded-lg overflow-hidden border border-white/10">
-                      <iframe src={project.processPdf} title="Process document" className="w-full h-full" />
-                    </div>
-                    <div className="mt-4 text-center">
-                      <a href={project.processPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold">
-                        Open Process PDF
-                      </a>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              )}
+          {(project.processPdf || project.finalPdf) && (
+            <section className="grid-container pb-10">
+              <div
+                className="glass rounded-lg p-8 animate-slide-up"
+                style={{ animationDelay: "0.38s" }}
+              >
+                <Accordion type="single" collapsible>
+                  {project.processPdf && (
+                    <AccordionItem value="process">
+                      <AccordionTrigger className="text-lg">
+                        Process
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="w-full h-[420px] md:h-[560px] rounded-lg overflow-hidden border border-white/10">
+                          <iframe
+                            src={project.processPdf}
+                            title="Process document"
+                            className="w-full h-full"
+                          />
+                        </div>
+                        <div className="mt-4 text-center">
+                          <a
+                            href={project.processPdf}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold"
+                          >
+                            Open Process PDF
+                          </a>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  )}
 
-              {project.finalPdf && (
-                <AccordionItem value="final">
-                  <AccordionTrigger className="text-lg">Final Design Outcome</AccordionTrigger>
-                  <AccordionContent>
-                    <div className="w-full h-[420px] md:h-[560px] rounded-lg overflow-hidden border border-white/10">
-                      <iframe src={project.finalPdf} title="Final design outcome" className="w-full h-full" />
-                    </div>
-                    <div className="mt-4 text-center">
-                      <a href={project.finalPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold">
-                        Open Final PDF
-                      </a>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              )}
-            </Accordion>
-          </div>
-        </section>
-      )}
+                  {project.finalPdf && (
+                    <AccordionItem value="final">
+                      <AccordionTrigger className="text-lg">
+                        Final Design Outcome
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="w-full h-[420px] md:h-[560px] rounded-lg overflow-hidden border border-white/10">
+                          <iframe
+                            src={project.finalPdf}
+                            title="Final design outcome"
+                            className="w-full h-full"
+                          />
+                        </div>
+                        <div className="mt-4 text-center">
+                          <a
+                            href={project.finalPdf}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-primary project-cta-button font-bold"
+                          >
+                            Open Final PDF
+                          </a>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  )}
+                </Accordion>
+              </div>
+            </section>
+          )}
 
-      <section className="grid-container pb-20">
+          <section className="grid-container pb-20">
             <div
               className="animate-slide-up"
               style={{ animationDelay: "0.35s" }}
@@ -552,7 +574,10 @@ export default function ProjectDetail() {
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 Gallery
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" style={{ gridAutoRows: '220px' }}>
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+                style={{ gridAutoRows: "220px" }}
+              >
                 {(project.gallery && project.gallery.length > 0
                   ? project.gallery
                   : new Array(6).fill(project.image)
@@ -561,9 +586,10 @@ export default function ProjectDetail() {
                   const isTallRight = idx === 2; // third item -> tall on right column
                   const isTallLeft = idx === 3; // fourth item -> tall starting left column (second row)
 
-                  let itemClass = 'rounded-2xl overflow-hidden border border-white/10 shadow-sm';
-                  if (isTallRight) itemClass += ' md:col-start-3 md:row-span-2';
-                  if (isTallLeft) itemClass += ' md:col-start-1 md:row-span-2';
+                  let itemClass =
+                    "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
+                  if (isTallRight) itemClass += " md:col-start-3 md:row-span-2";
+                  if (isTallLeft) itemClass += " md:col-start-1 md:row-span-2";
 
                   return (
                     <div key={idx} className={itemClass}>
@@ -571,7 +597,7 @@ export default function ProjectDetail() {
                         src={src}
                         alt={`${project.title} gallery item ${idx + 1}`}
                         data-focusable="true"
-                        className={`w-full ${isTallRight || isTallLeft ? 'h-full' : 'h-56'} object-cover hover:scale-105 transition-transform duration-500`}
+                        className={`w-full ${isTallRight || isTallLeft ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
                       />
                     </div>
                   );
@@ -581,12 +607,15 @@ export default function ProjectDetail() {
           </section>
 
           <section className="grid-container pb-20">
-            <div className="animate-slide-up" style={{ animationDelay: "0.4s" }}>
+            <div
+              className="animate-slide-up"
+              style={{ animationDelay: "0.4s" }}
+            >
               <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
                 <video
                   src="https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3393eaf8aa304deb92496da795b354f3%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=3393eaf8aa304deb92496da795b354f3&alt=media&optimized=true"
                   className="w-full object-cover"
-                  style={{ aspectRatio: '16 / 9' }}
+                  style={{ aspectRatio: "16 / 9" }}
                   controls
                   playsInline
                   loop
@@ -595,7 +624,6 @@ export default function ProjectDetail() {
               </div>
             </div>
           </section>
-
         </main>
       ) : (
         // Default layout (used for Photography, Video, 3D, etc.) - unchanged
@@ -753,7 +781,6 @@ export default function ProjectDetail() {
           </div>
         </section>
       )}
-
 
       {/* CTA Section */}
       <section className="grid-container pb-section">
