@@ -586,7 +586,7 @@ export default function ProjectDetail() {
                 <video
                   src="https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3393eaf8aa304deb92496da795b354f3%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=3393eaf8aa304deb92496da795b354f3&alt=media&optimized=true"
                   className="w-full object-cover"
-                  style={{ aspectRatio: '9 / 16' }}
+                  style={{ aspectRatio: '16 / 9' }}
                   controls
                   playsInline
                   loop
