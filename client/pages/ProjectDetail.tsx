@@ -157,6 +157,17 @@ export default function ProjectDetail() {
     img.className = "photo-focus-img";
     overlay.appendChild(img);
 
+    // Close button for accessibility and clarity
+    const closeBtn = document.createElement("button");
+    closeBtn.className = "photo-focus-close";
+    closeBtn.setAttribute("aria-label", "Close preview");
+    closeBtn.innerHTML = "&times;"; // simple 'x'
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeOverlay();
+    });
+    overlay.appendChild(closeBtn);
+
     // Append to root html so positioning is measured from the document, not from any transformed ancestor
     document.documentElement.appendChild(overlay);
 
