@@ -410,6 +410,27 @@ export default function ProjectDetail() {
   }
   .photo-focus-overlay.open { opacity: 1; pointer-events: auto; }
 
+  /* Close button for overlay */
+  .photo-focus-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2147483650;
+  }
+  .photo-focus-close:focus { outline: 2px solid rgba(255,255,255,0.9); }
+
   /* Focused photo styles */
   .photo-focus-img {
     max-width: min(90vw, 1400px);
