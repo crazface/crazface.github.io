@@ -41,7 +41,9 @@ export default function Work() {
     // Only attempt reorder when there are at least 'columns' items
     if (len >= columns) {
       // Remove any existing occurrences
-      const without = list.filter((p) => p.id !== posterId && p.id !== schtuffId);
+      const without = list.filter(
+        (p) => p.id !== posterId && p.id !== schtuffId,
+      );
 
       // Compute target indices
       const posterTarget = Math.max(0, len - columns);
@@ -138,8 +140,8 @@ export default function Work() {
                 activeCategory === "Video Editing"
                   ? "grid-cols-1 md:grid-cols-2"
                   : activeCategory === "Photography"
-                  ? "grid-cols-1 md:grid-cols-1 lg:grid-cols-1 justify-items-center"
-                  : "grid-cols-2 lg:grid-cols-3"
+                    ? "grid-cols-1 md:grid-cols-1 lg:grid-cols-1 justify-items-center"
+                    : "grid-cols-2 lg:grid-cols-3"
               }
             `}
             style={{ animationDelay: "0.2s" }}
@@ -150,13 +152,19 @@ export default function Work() {
               const len = displayProjects.length;
               const rows = Math.ceil(len / cols) || 1;
               const itemsInLast = len - (rows - 1) * cols;
-              const renderList: (typeof displayProjects[number] | null)[] = [...displayProjects];
+              const renderList: ((typeof displayProjects)[number] | null)[] = [
+                ...displayProjects,
+              ];
 
               if (itemsInLast < cols && len > 0) {
                 const placeholders = Math.floor((cols - itemsInLast) / 2);
                 const insertIndex = (rows - 1) * cols;
                 if (placeholders > 0) {
-                  renderList.splice(insertIndex, 0, ...new Array(placeholders).fill(null));
+                  renderList.splice(
+                    insertIndex,
+                    0,
+                    ...new Array(placeholders).fill(null),
+                  );
                 }
               }
 
@@ -166,7 +174,10 @@ export default function Work() {
                     <div
                       key={`empty-${index}`}
                       className="animate-scale-in"
-                      style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: "both" }}
+                      style={{
+                        animationDelay: `${0.3 + index * 0.1}s`,
+                        animationFillMode: "both",
+                      }}
                     />
                   );
                 }

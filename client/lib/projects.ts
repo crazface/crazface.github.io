@@ -282,8 +282,10 @@ export const projects: Project[] = [
     title: "Published Book Cover",
     type: "Graphic Design",
     year: "2025",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5f959d69d0304d3eb460cf93ca388639",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5f959d69d0304d3eb460cf93ca388639",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5f959d69d0304d3eb460cf93ca388639",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5f959d69d0304d3eb460cf93ca388639",
     description: "Cover design for a published book.",
     role: "Designer",
     tools: ["Illustrator", "InDesign"],
@@ -386,7 +388,8 @@ export const projects: Project[] = [
     year: "2022",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3bcd1f3ab80d4eb4b232e075cc1f7b20",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F635e3c838b264f0a92507b8484b45f33",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F635e3c838b264f0a92507b8484b45f33",
     description: "Advertising campaign for Schtuff",
     role: "Art Director",
     tools: ["Figma", "Illustrator"],

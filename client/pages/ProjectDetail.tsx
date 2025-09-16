@@ -606,21 +606,30 @@ export default function ProjectDetail() {
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 Gallery
               </h3>
-              {project.id === 'schtuff-ad-campaign-2022' ? (
+              {project.id === "schtuff-ad-campaign-2022" ? (
                 // 3x3 square gallery for Schtuff ad campaign
                 <div className="grid grid-cols-3 gap-6">
                   {(() => {
-                    const gallery = project.gallery && project.gallery.length > 0 ? project.gallery : [];
+                    const gallery =
+                      project.gallery && project.gallery.length > 0
+                        ? project.gallery
+                        : [];
                     const items = gallery.slice(0, 9);
-                    if (items.length < 9) items.push(...new Array(9 - items.length).fill(project.image));
+                    if (items.length < 9)
+                      items.push(
+                        ...new Array(9 - items.length).fill(project.image),
+                      );
                     return items.map((src, idx) => (
-                      <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                      <div
+                        key={idx}
+                        className="rounded-2xl overflow-hidden border border-white/10 shadow-sm"
+                      >
                         <img
                           src={src}
                           alt={`${project.title} gallery item ${idx + 1}`}
                           data-focusable="true"
                           className="w-full h-full object-cover transition-transform duration-500"
-                          style={{ aspectRatio: '1 / 1' }}
+                          style={{ aspectRatio: "1 / 1" }}
                         />
                       </div>
                     ));
@@ -641,8 +650,10 @@ export default function ProjectDetail() {
 
                     let itemClass =
                       "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
-                    if (isTallRight) itemClass += " md:col-start-3 md:row-span-2";
-                    if (isTallLeft) itemClass += " md:col-start-1 md:row-span-2";
+                    if (isTallRight)
+                      itemClass += " md:col-start-3 md:row-span-2";
+                    if (isTallLeft)
+                      itemClass += " md:col-start-1 md:row-span-2";
 
                     return (
                       <div key={idx} className={itemClass}>
@@ -660,26 +671,26 @@ export default function ProjectDetail() {
             </div>
           </section>
 
-        {project.id === 'regenb' && (
-          <section className="grid-container pb-20">
-            <div
-              className="animate-slide-up"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
-                <video
-                  src="https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3393eaf8aa304deb92496da795b354f3%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=3393eaf8aa304deb92496da795b354f3&alt=media&optimized=true"
-                  className="w-full object-cover"
-                  style={{ aspectRatio: "16 / 9" }}
-                  controls
-                  playsInline
-                  loop
-                  muted
-                />
+          {project.id === "regenb" && (
+            <section className="grid-container pb-20">
+              <div
+                className="animate-slide-up"
+                style={{ animationDelay: "0.4s" }}
+              >
+                <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                  <video
+                    src="https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3393eaf8aa304deb92496da795b354f3%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=3393eaf8aa304deb92496da795b354f3&alt=media&optimized=true"
+                    className="w-full object-cover"
+                    style={{ aspectRatio: "16 / 9" }}
+                    controls
+                    playsInline
+                    loop
+                    muted
+                  />
+                </div>
               </div>
-            </div>
-          </section>
-        )}
+            </section>
+          )}
         </main>
       ) : (
         // Default layout (used for Photography, Video, 3D, etc.) - unchanged
