@@ -80,6 +80,15 @@ export default function Work() {
         result.push(without[withoutIdx++]);
       }
 
+      // Ensure Schtuff appears in the 9th slot (index 8) when possible
+      const desiredIndex = 8; // 9th slot, 0-based
+      const schtuffIndex = result.findIndex((p) => p.id === schtuffId);
+      if (schtuffIndex !== -1) {
+        const [schtuffItem] = result.splice(schtuffIndex, 1);
+        const insertAt = Math.min(desiredIndex, result.length);
+        result.splice(insertAt, 0, schtuffItem);
+      }
+
       return result;
     }
 
