@@ -135,22 +135,51 @@ export default function Work() {
             `}
             style={{ animationDelay: "0.2s" }}
           >
-            {displayProjects.map((project, index) => (
-              <div
-                key={`${project.id}-${animationKey}`}
-                className={`animate-scale-in ${
-                  activeCategory === "Photography"
-                    ? "w-full sm:w-2/3 md:w-1/2 lg:w-1/3"
-                    : ""
-                }`}
-                style={{
-                  animationDelay: `${0.3 + index * 0.1}s`,
-                  animationFillMode: "both",
-                }}
-              >
-                <AppTile project={project} />
-              </div>
-            ))}
+            {(() => {
+              // Prepare render list with optional placeholders to center last row
+              const cols = activeCategory === "Video Editing" ? 2 : 3;
+              const len = displayProjects.length;
+              const rows = Math.ceil(len / cols) || 1;
+              const itemsInLast = len - (rows - 1) * cols;
+              const renderList: (typeof displayProjects[number] | null)[] = [...displayProjects];
+
+              if (itemsInLast < cols && len > 0) {
+                const placeholders = Math.floor((cols - itemsInLast) / 2);
+                const insertIndex = (rows - 1) * cols;
+                if (placeholders > 0) {
+                  renderList.splice(insertIndex, 0, ...new Array(placeholders).fill(null));
+                }
+              }
+
+              return renderList.map((project, index) => {
+                if (project === null) {
+                  return (
+                    <div
+                      key={`empty-${index}`}
+                      className="animate-scale-in"
+                      style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: "both" }}
+                    />
+                  );
+                }
+
+                return (
+                  <div
+                    key={`${project.id}-${animationKey}`}
+                    className={`animate-scale-in ${
+                      activeCategory === "Photography"
+                        ? "w-full sm:w-2/3 md:w-1/2 lg:w-1/3"
+                        : ""
+                    }`}
+                    style={{
+                      animationDelay: `${0.3 + index * 0.1}s`,
+                      animationFillMode: "both",
+                    }}
+                  >
+                    <AppTile project={project} />
+                  </div>
+                );
+              });
+            })()}
 
             {/* Empty State */}
             {filteredProjects.length === 0 && (
