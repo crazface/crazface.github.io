@@ -365,7 +365,7 @@ export const projects: Project[] = [
     role: "Art Director",
     tools: ["Figma", "Illustrator"],
     brandTheme: {
-      background: "#ff8898",
+      background: "#ffa7ac",
       highlight: "#ffffff",
       text: "#ffffff",
     },
