@@ -606,35 +606,57 @@ export default function ProjectDetail() {
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 Gallery
               </h3>
-              <div
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-                style={{ gridAutoRows: "220px" }}
-              >
-                {(project.gallery && project.gallery.length > 0
-                  ? project.gallery
-                  : new Array(6).fill(project.image)
-                ).map((src, idx) => {
-                  // Make items 3 and 4 (0-based idx 2 and 3) tall
-                  const isTallRight = idx === 2; // third item -> tall on right column
-                  const isTallLeft = idx === 3; // fourth item -> tall starting left column (second row)
+              {project.id === 'schtuff-ad-campaign-2022' ? (
+                // 3x3 square gallery for Schtuff ad campaign
+                <div className="grid grid-cols-3 gap-6">
+                  {(() => {
+                    const gallery = project.gallery && project.gallery.length > 0 ? project.gallery : [];
+                    const items = gallery.slice(0, 9);
+                    if (items.length < 9) items.push(...new Array(9 - items.length).fill(project.image));
+                    return items.map((src, idx) => (
+                      <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                        <img
+                          src={src}
+                          alt={`${project.title} gallery item ${idx + 1}`}
+                          data-focusable="true"
+                          className="w-full h-full object-cover transition-transform duration-500"
+                          style={{ aspectRatio: '1 / 1' }}
+                        />
+                      </div>
+                    ));
+                  })()}
+                </div>
+              ) : (
+                <div
+                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+                  style={{ gridAutoRows: "220px" }}
+                >
+                  {(project.gallery && project.gallery.length > 0
+                    ? project.gallery
+                    : new Array(6).fill(project.image)
+                  ).map((src, idx) => {
+                    // Make items 3 and 4 (0-based idx 2 and 3) tall
+                    const isTallRight = idx === 2; // third item -> tall on right column
+                    const isTallLeft = idx === 3; // fourth item -> tall starting left column (second row)
 
-                  let itemClass =
-                    "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
-                  if (isTallRight) itemClass += " md:col-start-3 md:row-span-2";
-                  if (isTallLeft) itemClass += " md:col-start-1 md:row-span-2";
+                    let itemClass =
+                      "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
+                    if (isTallRight) itemClass += " md:col-start-3 md:row-span-2";
+                    if (isTallLeft) itemClass += " md:col-start-1 md:row-span-2";
 
-                  return (
-                    <div key={idx} className={itemClass}>
-                      <img
-                        src={src}
-                        alt={`${project.title} gallery item ${idx + 1}`}
-                        data-focusable="true"
-                        className={`w-full ${isTallRight || isTallLeft ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
+                    return (
+                      <div key={idx} className={itemClass}>
+                        <img
+                          src={src}
+                          alt={`${project.title} gallery item ${idx + 1}`}
+                          data-focusable="true"
+                          className={`w-full ${isTallRight || isTallLeft ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </section>
 
