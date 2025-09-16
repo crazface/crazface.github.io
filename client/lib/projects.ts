@@ -369,6 +369,17 @@ export const projects: Project[] = [
       highlight: "#ffffff",
       text: "#ffffff",
     },
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F53a8d5b0fc9c488f9785ae68a0702a8e",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fdbad814639844c06ba09d8d998cf5900",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F95c99adf37bb4c1c8f4f4ea0b29afe02",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F2a37dc9dd7124a1ca92a150a2d4c486b",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff46ff21f91ac455282fbd226f547a8b0",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5ff600d0df96482288f04cc9a76fb216",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Faa2cfecd1ccc41119ed1e85ef81d2724",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F99dd6c0fa74a42d8b38777e684e5328c",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab937a4f396d464680c3fb99ff64b069",
+    ],
   },
   {
     id: "posters-2022",
