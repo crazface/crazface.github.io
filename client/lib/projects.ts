@@ -91,6 +91,15 @@ export const projects: Project[] = [
       highlight: "#f66d51",
       text: "#f66d51",
     },
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F853d126e8f7149fe914f0ab16f113ec9",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F230e1cab82214a7681357a6fcbb1d431",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb8444b803f02422892059639efe837cf",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff87e10bd62d848388a58684940b9a49d",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb3fac4652a9643e5a6f9ea89841bd416",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F51029c9f88604c03aae1d215777ab324",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe6fc3326bafd4679b08ead293ee5eb14",
+    ],
   },
   {
     id: "deefa",
