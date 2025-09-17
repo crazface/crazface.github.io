@@ -674,6 +674,7 @@ export default function ProjectDetail() {
           {project.id === "huel-rebrand" && (
             <section className="grid-container pb-10">
               <div className="animate-slide-up" style={{ animationDelay: "0.38s" }}>
+                <h3 className="text-2xl font-bold text-foreground mb-6">3D Work</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
                     <video
