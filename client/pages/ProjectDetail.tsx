@@ -650,6 +650,24 @@ export default function ProjectDetail() {
                     />
                   </div>
                 </div>
+              ) : project.id === "posters-2022" ? (
+                // Posters gallery: uniform 3:4 tiles
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                  {(project.gallery && project.gallery.length > 0
+                    ? project.gallery
+                    : new Array(6).fill(project.image)
+                  ).map((src, idx) => (
+                    <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                      <img
+                        src={src}
+                        alt={`${project.title} gallery item ${idx + 1}`}
+                        data-focusable="true"
+                        className="w-full h-full object-cover"
+                        style={{ aspectRatio: '3 / 4' }}
+                      />
+                    </div>
+                  ))}
+                </div>
               ) : (
                 <div
                   className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
