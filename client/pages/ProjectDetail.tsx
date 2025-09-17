@@ -697,14 +697,11 @@ export default function ProjectDetail() {
                   </div>
 
                   <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
-                    <video
+                    <img
                       src="https://cdn.builder.io/api/v1/file/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1299210b49484dbaafd86fbe503b4cac"
+                      alt="Huel 3D work 3"
                       className="w-full h-full object-cover"
                       style={{ aspectRatio: "9 / 16" }}
-                      controls
-                      playsInline
-                      loop
-                      muted
                     />
                   </div>
                 </div>
