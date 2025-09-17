@@ -139,6 +139,12 @@ export const projects: Project[] = [
       secondary: "#a855f7",
       accent: "#c4b5fd",
     },
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F9a1ac5c18e7247dcb468746b3a485e7a",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F4020bf7f063f407fba74e1f3bfe3986b",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F012d5dca0e794d1ba1044af2a5902912",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fc227ff0177ff4c5d9488d449bb4734a3",
+    ],
   },
   {
     id: "short-film",
