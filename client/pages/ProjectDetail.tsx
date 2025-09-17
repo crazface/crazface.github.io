@@ -680,6 +680,23 @@ export default function ProjectDetail() {
                     </div>
                   ))}
                 </div>
+              ) : project.id === "old-west-starter-kit" ? (
+                // Old West Starter Kit: 3:2 landscape photos
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                  {(project.gallery && project.gallery.length > 0
+                    ? project.gallery
+                    : new Array(4).fill(project.image)
+                  ).map((src, idx) => (
+                    <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: '3 / 2' }}>
+                      <img
+                        src={src}
+                        alt={`${project.title} gallery item ${idx + 1}`}
+                        data-focusable="true"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
               ) : project.id === "pisk-kitchen" ? (
                 // Pisk Kitchen: large left 1:1 image with three stacked thumbnails on the right (all 1:1)
                 // Use a 4-column grid where hero spans 3 columns and right column spans 1 column so
