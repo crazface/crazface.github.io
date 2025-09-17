@@ -669,27 +669,25 @@ export default function ProjectDetail() {
                   ))}
                 </div>
               ) : project.id === "pisk-kitchen" ? (
-                // Pisk Kitchen: large left 1:1 image with three stacked thumbnails on the right
+                // Pisk Kitchen: large left 1:1 image with three stacked thumbnails on the right (all 1:1)
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                  <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: "1 / 1" }}>
                     <img
                       src={(project.gallery && project.gallery[0]) ? project.gallery[0] : project.image}
                       alt={`${project.title} gallery hero`}
                       data-focusable="true"
                       className="w-full h-full object-cover"
-                      style={{ aspectRatio: "1 / 1" }}
                     />
                   </div>
 
                   <div className="md:col-span-1 grid grid-rows-3 gap-6">
                     {([1, 2, 3].map((i) => (project.gallery && project.gallery[i]) ? project.gallery[i] : project.image)).map((src, idx) => (
-                      <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                      <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: "1 / 1" }}>
                         <img
                           src={src}
                           alt={`${project.title} gallery item ${idx + 1}`}
                           data-focusable="true"
                           className="w-full h-full object-cover"
-                          style={{ aspectRatio: "1 / 1" }}
                         />
                       </div>
                     ))}
