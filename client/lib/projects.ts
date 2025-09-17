@@ -434,6 +434,7 @@ export const projects: Project[] = [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F348f6af2748642718df647be9c06d3a4",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcd6f5cc053d54d34a2f600819468a7d9",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F34f308e7185247d88d406ef5799e6274",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb5ce8bff609b47fb87dca9a35ca5a72c",
     ],
     description: "Poster series",
     role: "Designer",
