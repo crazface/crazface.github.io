@@ -603,9 +603,11 @@ export default function ProjectDetail() {
               className="animate-slide-up"
               style={{ animationDelay: "0.35s" }}
             >
-              <h3 className="text-2xl font-bold text-foreground mb-6">
-                Gallery
-              </h3>
+              {project.id !== "cacophony-album-cover" && (
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  Gallery
+                </h3>
+              )}
               {project.id === "schtuff-ad-campaign-2022" ? (
                 // 3x3 square gallery for Schtuff ad campaign
                 <div className="grid grid-cols-3 gap-6">
