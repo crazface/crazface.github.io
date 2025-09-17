@@ -671,6 +671,47 @@ export default function ProjectDetail() {
             </div>
           </section>
 
+          {project.id === "huel-rebrand" && (
+            <section className="grid-container pb-10">
+              <div className="animate-slide-up" style={{ animationDelay: "0.38s" }}>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                    <video
+                      src="https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcc4f69106a73411a91fd622d24ecd6fc%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=cc4f69106a73411a91fd622d24ecd6fc&alt=media&optimized=true"
+                      className="w-full h-full object-cover"
+                      style={{ aspectRatio: "9 / 16" }}
+                      controls
+                      playsInline
+                      loop
+                      muted
+                    />
+                  </div>
+
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F393015e356dd489180b5cff54f869fa1"
+                      alt="Huel 3D work 2"
+                      className="w-full h-full object-cover"
+                      style={{ aspectRatio: "9 / 16" }}
+                    />
+                  </div>
+
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                    <video
+                      src="https://cdn.builder.io/api/v1/file/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1299210b49484dbaafd86fbe503b4cac"
+                      className="w-full h-full object-cover"
+                      style={{ aspectRatio: "9 / 16" }}
+                      controls
+                      playsInline
+                      loop
+                      muted
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
           {project.id === "regenb" && (
             <section className="grid-container pb-20">
               <div
