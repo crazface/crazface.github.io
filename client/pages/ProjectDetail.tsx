@@ -635,6 +635,19 @@ export default function ProjectDetail() {
                     ));
                   })()}
                 </div>
+              ) : project.id === "cacophony-album-cover" ? (
+                // Single centered 1:1 image for Cacophony
+                <div className="flex justify-center">
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm max-w-[720px] w-full">
+                    <img
+                      src={project.gallery && project.gallery[0] ? project.gallery[0] : project.image}
+                      alt={`${project.title} gallery`}
+                      className="w-full h-auto object-cover"
+                      style={{ aspectRatio: "1 / 1" }}
+                      data-focusable="true"
+                    />
+                  </div>
+                </div>
               ) : (
                 <div
                   className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
