@@ -425,6 +425,16 @@ export const projects: Project[] = [
     year: "2022",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F952d7fc52d0a44ea8bb44a6f429a9dfe",
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3df5d978b2e64d2891912b9a966af282",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F62ed94f5559346d7abf8fdc456adb5b8",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1149e00e571d452699971df7fe9a418a",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F59a86f92af1a4d79a8687d5883d9b3f3",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6267697b6c1249009845920e9a1d6c0d",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F348f6af2748642718df647be9c06d3a4",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcd6f5cc053d54d34a2f600819468a7d9",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F34f308e7185247d88d406ef5799e6274",
+    ],
     description: "Poster series",
     role: "Designer",
     tools: ["Illustrator", "InDesign"],
