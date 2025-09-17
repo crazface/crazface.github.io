@@ -657,12 +657,12 @@ export default function ProjectDetail() {
                     ? project.gallery
                     : new Array(6).fill(project.image)
                   ).map((src, idx) => (
-                    <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: '3 / 4' }}>
+                    <div key={idx} className="rounded-3xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: '3 / 4' }}>
                       <img
                         src={src}
                         alt={`${project.title} gallery item ${idx + 1}`}
                         data-focusable="true"
-                        className="w-full h-full object-contain bg-transparent"
+                        className="w-full h-full object-contain bg-transparent rounded-3xl"
                         style={{ objectPosition: 'center' }}
                       />
                     </div>
