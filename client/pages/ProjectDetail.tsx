@@ -662,7 +662,7 @@ export default function ProjectDetail() {
                         src={src}
                         alt={`${project.title} gallery item ${idx + 1}`}
                         data-focusable="true"
-                        className="w-full h-full object-contain bg-transparent rounded-3xl"
+                        className="w-full h-full object-cover block"
                         style={{ objectPosition: 'center' }}
                       />
                     </div>
