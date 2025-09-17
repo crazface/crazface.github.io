@@ -371,6 +371,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2022",
     image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fde24784bb5e047dc903ae7b8ed6d1870",
+    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa0d9c4f9b9c54e3385a8bfdbc8d39322",
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff88ad4eb76154aff82e49be511c22e54",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff88ad4eb76154aff82e49be511c22e54",
