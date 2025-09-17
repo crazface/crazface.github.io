@@ -650,6 +650,18 @@ export default function ProjectDetail() {
                     />
                   </div>
                 </div>
+              ) : project.id === "published-book-cover" ? (
+                // Published Book Cover: single centered 3:4 image
+                <div className="flex justify-center">
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm max-w-[720px] w-full" style={{ aspectRatio: '3 / 4' }}>
+                    <img
+                      src={project.gallery && project.gallery[0] ? project.gallery[0] : project.image}
+                      alt={`${project.title} gallery`}
+                      className="w-full h-full object-cover"
+                      data-focusable="true"
+                    />
+                  </div>
+                </div>
               ) : project.id === "posters-2022" ? (
                 // Posters gallery: uniform 3:4 tiles
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
