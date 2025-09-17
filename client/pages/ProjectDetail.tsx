@@ -670,8 +670,10 @@ export default function ProjectDetail() {
                 </div>
               ) : project.id === "pisk-kitchen" ? (
                 // Pisk Kitchen: large left 1:1 image with three stacked thumbnails on the right (all 1:1)
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="md:col-span-2 rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: "1 / 1" }}>
+                // Use a 4-column grid where hero spans 3 columns and right column spans 1 column so
+                // hero height (1/1 aspect) equals the total height of three stacked 1/1 thumbnails.
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                  <div className="md:col-span-3 rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: "1 / 1" }}>
                     <img
                       src={(project.gallery && project.gallery[0]) ? project.gallery[0] : project.image}
                       alt={`${project.title} gallery hero`}
