@@ -668,6 +668,32 @@ export default function ProjectDetail() {
                     </div>
                   ))}
                 </div>
+              ) : project.id === "pisk-kitchen" ? (
+                // Pisk Kitchen: large 1:1 on top, three below
+                <div>
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm mb-6">
+                    <img
+                      src={(project.gallery && project.gallery[0]) ? project.gallery[0] : project.image}
+                      alt={`${project.title} gallery hero`}
+                      data-focusable="true"
+                      className="w-full h-full object-cover"
+                      style={{ aspectRatio: "1 / 1" }}
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    {([0,1,2].map(i => (project.gallery && project.gallery[i+1]) ? project.gallery[i+1] : project.image)).map((src, idx) => (
+                      <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
+                        <img
+                          src={src}
+                          alt={`${project.title} gallery item ${idx + 1}`}
+                          data-focusable="true"
+                          className="w-full h-full object-cover"
+                          style={{ aspectRatio: "1 / 1" }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               ) : (
                 <div
                   className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"

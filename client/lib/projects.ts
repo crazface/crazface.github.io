@@ -316,6 +316,12 @@ export const projects: Project[] = [
       highlight: "#6fb29f",
       text: "#6fb29f",
     },
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F59b19d0724324f17a121b434f7c8d884",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F76510689fad841529971206793ac5b58",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F546205c8124b4e1db8d882c3d879ec52",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcb85e8a39bd64d9091cdc6e3d6ce8c6f",
+    ],
   },
   {
     id: "3d-product-visualization",
