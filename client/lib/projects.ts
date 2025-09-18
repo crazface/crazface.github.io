@@ -404,7 +404,7 @@ export const projects: Project[] = [
     role: "Designer",
     tools: ["Illustrator", "Photoshop"],
     brandTheme: {
-      background: "#1f1f1f",
+      background: "#1e2226",
       highlight: "#e8e8e8",
       text: "#e8e8e8",
     },
