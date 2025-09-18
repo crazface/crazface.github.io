@@ -303,6 +303,11 @@ export const projects: Project[] = [
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F66408f3558c948018c76733a582c8a07",
     ],
+    brandTheme: {
+      background: "#000000",
+      highlight: "#ffffff",
+      text: "#ffffff",
+    },
   },
   {
     id: "pisk-kitchen",
