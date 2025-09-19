@@ -106,7 +106,7 @@ export const projects: Project[] = [
     title: "Fuzed",
     type: "Graphic Design",
     year: "2024",
-    image: "/images/hero-banner-project-1.svg",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F94a591128cba4298a326e975eabf6a55",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0465afe7575f43219f2168ad9b16ab15",
     description: "Modern brand identity for fusion restaurant concept",
