@@ -275,7 +275,7 @@ export const projects: Project[] = [
     title: "Pisk Kitchen",
     type: "Graphic Design",
     year: "2024",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F86e1c0f5e4b5482e9b8e1ce007827123",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff070ce8c04d14acd8fb7fd40a69cb6c2",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F55176dffb7e640618937b93cbbd983ea",
     description: "Complete branding package for artisan kitchen studio",
