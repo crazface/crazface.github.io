@@ -289,7 +289,7 @@ export const projects: Project[] = [
     brandTheme: {
       background: "#146b55",
       highlight: "#a4dfcf",
-      text: "#6fb29f",
+      text: "#a4dfcf",
     },
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F59b19d0724324f17a121b434f7c8d884",
