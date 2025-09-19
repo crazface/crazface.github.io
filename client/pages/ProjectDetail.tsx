@@ -652,8 +652,8 @@ export default function ProjectDetail() {
                 </div>
               ) : project.id === "published-book-cover" ? (
                 // Published Book Cover: primary 3:4 image with a 1:1 image next to it
-                <div className="flex flex-col md:flex-row items-start justify-center gap-6">
-                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm w-full md:w-1/3 max-w-[420px]" style={{ aspectRatio: '3 / 4' }}>
+                <div className="flex flex-col md:flex-row items-start md:items-stretch justify-center gap-6">
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm w-full md:w-auto max-w-[420px] md:h-[560px]" style={{ aspectRatio: '3 / 4' }}>
                     <img
                       src={project.gallery && project.gallery[0] ? project.gallery[0] : project.image}
                       alt={`${project.title} gallery`}
@@ -662,7 +662,7 @@ export default function ProjectDetail() {
                     />
                   </div>
 
-                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm w-full md:w-2/3 max-w-[720px]" style={{ aspectRatio: '1 / 1' }}>
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm w-full md:w-auto max-w-[720px] md:h-[560px]" style={{ aspectRatio: '1 / 1' }}>
                     <img
                       src={project.gallery && project.gallery[1] ? project.gallery[1] : project.image}
                       alt={`${project.title} gallery secondary`}
