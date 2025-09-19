@@ -733,8 +733,8 @@ export default function ProjectDetail() {
                     ? project.gallery
                     : new Array(6).fill(project.image)
                   ).map((src, idx) => {
-                    // Make items 3 and 4 (0-based idx 2 and 3) tall (flipped horizontally)
-                    const isTallLeft = idx === 2; // third item -> tall on left starting from row 1
+                    // Make items 1 and 4 (0-based idx 0 and 3) tall
+                    const isTallLeft = idx === 0; // first item -> tall on left starting from row 1
                     const isTallRight = idx === 3; // fourth item -> tall on right starting from row 2
 
                     let itemClass =
