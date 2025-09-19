@@ -651,12 +651,21 @@ export default function ProjectDetail() {
                   </div>
                 </div>
               ) : project.id === "published-book-cover" ? (
-                // Published Book Cover: single centered 3:4 image
-                <div className="flex justify-center">
-                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm max-w-[720px] w-full" style={{ aspectRatio: '3 / 4' }}>
+                // Published Book Cover: primary 3:4 image with a 1:1 image next to it
+                <div className="flex flex-col md:flex-row items-start justify-center gap-6">
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm w-full md:w-2/3 max-w-[720px]" style={{ aspectRatio: '3 / 4' }}>
                     <img
                       src={project.gallery && project.gallery[0] ? project.gallery[0] : project.image}
                       alt={`${project.title} gallery`}
+                      className="w-full h-full object-cover"
+                      data-focusable="true"
+                    />
+                  </div>
+
+                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm w-full md:w-1/3 max-w-[360px]" style={{ aspectRatio: '1 / 1' }}>
+                    <img
+                      src={project.gallery && project.gallery[1] ? project.gallery[1] : project.image}
+                      alt={`${project.title} gallery secondary`}
                       className="w-full h-full object-cover"
                       data-focusable="true"
                     />
