@@ -288,7 +288,7 @@ export const projects: Project[] = [
     },
     brandTheme: {
       background: "#146b55",
-      highlight: "#6fb29f",
+      highlight: "#a4dfcf",
       text: "#6fb29f",
     },
     gallery: [
