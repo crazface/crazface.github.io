@@ -303,7 +303,7 @@ export const projects: Project[] = [
     title: "Published Book Cover",
     type: "Graphic Design",
     year: "2023",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe0317c7f6ca34a6a92baaed6071c6520",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd20d487e035b4360ba74e9b310c89d8d",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5f959d69d0304d3eb460cf93ca388639",
     description: "Cover design for a published book.",
