@@ -87,8 +87,8 @@ export const projects: Project[] = [
       accent: "#c4b5fd",
     },
     brandTheme: {
-      background: "#fcbd9b",
-      highlight: "#f66d51",
+      background: "#f66d51",
+      highlight: "#fcbd9b",
       text: "#f66d51",
     },
     gallery: [
