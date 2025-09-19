@@ -734,15 +734,15 @@ export default function ProjectDetail() {
                     : new Array(6).fill(project.image)
                   ).map((src, idx) => {
                     // Make items 3 and 4 (0-based idx 2 and 3) tall (flipped horizontally)
-                    const isTallLeft = idx === 2; // third item -> tall on left column (flipped)
-                    const isTallRight = idx === 3; // fourth item -> tall starting right column (flipped)
+                    const isTallLeft = idx === 2; // third item -> tall on left starting from row 1
+                    const isTallRight = idx === 3; // fourth item -> tall on right starting from row 2
 
                     let itemClass =
                       "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
                     if (isTallLeft)
-                      itemClass += " md:col-start-1 md:row-span-2";
+                      itemClass += " md:col-start-1 md:row-start-1 md:row-span-2";
                     if (isTallRight)
-                      itemClass += " md:col-start-3 md:row-span-2";
+                      itemClass += " md:col-start-3 md:row-start-2 md:row-span-2";
 
                     return (
                       <div key={idx} className={itemClass}>
