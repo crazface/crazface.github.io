@@ -724,7 +724,8 @@ export default function ProjectDetail() {
                     ))}
                   </div>
                 </div>
-              ) : (
+              ) : project.id === "fuzed" ? (
+                // Fuzed: first image tall on left, fourth image tall on right
                 <div
                   className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
                   style={{ gridAutoRows: "220px" }}
@@ -733,7 +734,7 @@ export default function ProjectDetail() {
                     ? project.gallery
                     : new Array(6).fill(project.image)
                   ).map((src, idx) => {
-                    // Make items 1 and 4 (0-based idx 0 and 3) tall
+                    // Make items 1 and 4 (0-based idx 0 and 3) tall for Fuzed
                     const isTallLeft = idx === 0; // first item -> tall on left starting from row 1
                     const isTallRight = idx === 3; // fourth item -> tall on right starting from row 2
 
@@ -743,6 +744,39 @@ export default function ProjectDetail() {
                       itemClass += " md:col-start-1 md:row-start-1 md:row-span-2";
                     if (isTallRight)
                       itemClass += " md:col-start-3 md:row-start-2 md:row-span-2";
+
+                    return (
+                      <div key={idx} className={itemClass}>
+                        <img
+                          src={src}
+                          alt={`${project.title} gallery item ${idx + 1}`}
+                          data-focusable="true"
+                          className={`w-full ${isTallLeft || isTallRight ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                // Default gallery layout (ReGenB and others): items 3 and 4 tall
+                <div
+                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+                  style={{ gridAutoRows: "220px" }}
+                >
+                  {(project.gallery && project.gallery.length > 0
+                    ? project.gallery
+                    : new Array(6).fill(project.image)
+                  ).map((src, idx) => {
+                    // Make items 3 and 4 (0-based idx 2 and 3) tall (original layout)
+                    const isTallRight = idx === 2; // third item -> tall on right column
+                    const isTallLeft = idx === 3; // fourth item -> tall starting left column (second row)
+
+                    let itemClass =
+                      "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
+                    if (isTallRight)
+                      itemClass += " md:col-start-3 md:row-span-2";
+                    if (isTallLeft)
+                      itemClass += " md:col-start-1 md:row-span-2";
 
                     return (
                       <div key={idx} className={itemClass}>
