@@ -750,7 +750,7 @@ export default function ProjectDetail() {
                           src={src}
                           alt={`${project.title} gallery item ${idx + 1}`}
                           data-focusable="true"
-                          className={`w-full ${isTallRight || isTallLeft ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
+                          className={`w-full ${isTallLeft || isTallRight ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
                         />
                       </div>
                     );
