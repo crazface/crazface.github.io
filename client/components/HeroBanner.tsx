@@ -39,7 +39,21 @@ export function HeroBanner() {
   };
 
   const currentImage = slideshowImages[currentIndex];
-  const currentProject = projects[0]; // Use first project for button link
+  // Map each slide to a project id (or null for linking back to the front page)
+  const slideProjectIds = [
+    "old-west-starter-kit",
+    "regenb",
+    "portrait-series",
+    null, // link back to front page temporarily
+    "fuzed",
+    "pisk-kitchen",
+  ];
+
+  const currentProjectId = slideProjectIds[currentIndex];
+  const currentProject = currentProjectId
+    ? projects.find((p) => p.id === currentProjectId) || projects[0]
+    : null;
+  const currentLink = currentProjectId ? `/project/${currentProjectId}` : "/";
 
   return (
     <div className="relative w-full h-[750px] md:h-[950px] lg:h-[1100px] flex items-start justify-center px-6 pt-32">
