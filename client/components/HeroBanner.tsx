@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { projects } from "@/lib/projects";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
