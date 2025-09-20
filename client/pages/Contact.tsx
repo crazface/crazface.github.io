@@ -97,7 +97,7 @@ export default function Contact() {
                   )}
                 </a>
                 <a
-                  href="https://www.instagram.com/the.stamp.design/"
+                  href="https://www.instagram.com/the.stamp.creative/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground hover:bg-primary/80 transition-colors"
