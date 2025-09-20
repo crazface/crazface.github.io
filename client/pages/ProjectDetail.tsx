@@ -652,7 +652,7 @@ export default function ProjectDetail() {
                 </div>
               ) : project.id === "published-book-cover" ? (
                 // Published Book Cover: primary 3:4 image with a 1:1 image next to it
-                <div className="w-full max-w-[1200px] mx-auto flex flex-col md:flex-row items-stretch justify-between">
+                <div className="w-full max-w-[1200px] mx-auto flex flex-col md:flex-row items-stretch justify-between gap-6">
                   <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: '3 / 4', height: '680px' }}>
                     <img
                       src={project.gallery && project.gallery[0] ? project.gallery[0] : project.image}
