@@ -10,7 +10,7 @@ const slideshowImages = [
   "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3fda60cc5b304727bcc7af03cfb70017",
   "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fbbf61436a87a4311977466dadb6d7b81",
   "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F8fb873ddb68244358cd9b6bcfc55dbca",
-  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fdf21fe7c207a4785807d7e57792aa895",
+  "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6ed11397f2e443e29f63643c9ccf61aa",
   "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb581e39352234001a4e0c4b3f53a1fe6",
 ];
 
