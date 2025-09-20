@@ -642,7 +642,11 @@ export default function ProjectDetail() {
                 <div className="flex justify-center">
                   <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm max-w-[720px] w-full">
                     <img
-                      src={project.gallery && project.gallery[0] ? project.gallery[0] : project.image}
+                      src={
+                        project.gallery && project.gallery[0]
+                          ? project.gallery[0]
+                          : project.image
+                      }
                       alt={`${project.title} gallery`}
                       className="w-full h-auto object-cover"
                       style={{ aspectRatio: "1 / 1" }}
@@ -653,18 +657,32 @@ export default function ProjectDetail() {
               ) : project.id === "published-book-cover" ? (
                 // Published Book Cover: primary 3:4 image with a 1:1 image next to it
                 <div className="w-full max-w-[1200px] mx-auto flex flex-col md:flex-row items-stretch justify-between gap-6">
-                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: '3 / 4', height: '680px' }}>
+                  <div
+                    className="rounded-2xl overflow-hidden border border-white/10 shadow-sm"
+                    style={{ aspectRatio: "3 / 4", height: "680px" }}
+                  >
                     <img
-                      src={project.gallery && project.gallery[0] ? project.gallery[0] : project.image}
+                      src={
+                        project.gallery && project.gallery[0]
+                          ? project.gallery[0]
+                          : project.image
+                      }
                       alt={`${project.title} gallery`}
                       className="w-full h-full object-cover"
                       data-focusable="true"
                     />
                   </div>
 
-                  <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: '1 / 1', height: '680px' }}>
+                  <div
+                    className="rounded-2xl overflow-hidden border border-white/10 shadow-sm"
+                    style={{ aspectRatio: "1 / 1", height: "680px" }}
+                  >
                     <img
-                      src={project.gallery && project.gallery[1] ? project.gallery[1] : project.image}
+                      src={
+                        project.gallery && project.gallery[1]
+                          ? project.gallery[1]
+                          : project.image
+                      }
                       alt={`${project.title} gallery secondary`}
                       className="w-full h-full object-cover"
                       data-focusable="true"
@@ -678,13 +696,17 @@ export default function ProjectDetail() {
                     ? project.gallery
                     : new Array(6).fill(project.image)
                   ).map((src, idx) => (
-                    <div key={idx} className="rounded-3xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: '3 / 4' }}>
+                    <div
+                      key={idx}
+                      className="rounded-3xl overflow-hidden border border-white/10 shadow-sm"
+                      style={{ aspectRatio: "3 / 4" }}
+                    >
                       <img
                         src={src}
                         alt={`${project.title} gallery item ${idx + 1}`}
                         data-focusable="true"
                         className="w-full h-full object-cover block"
-                        style={{ objectPosition: 'center' }}
+                        style={{ objectPosition: "center" }}
                       />
                     </div>
                   ))}
@@ -696,7 +718,11 @@ export default function ProjectDetail() {
                     ? project.gallery
                     : new Array(4).fill(project.image)
                   ).map((src, idx) => (
-                    <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: '3 / 2' }}>
+                    <div
+                      key={idx}
+                      className="rounded-2xl overflow-hidden border border-white/10 shadow-sm"
+                      style={{ aspectRatio: "3 / 2" }}
+                    >
                       <img
                         src={src}
                         alt={`${project.title} gallery item ${idx + 1}`}
@@ -711,9 +737,16 @@ export default function ProjectDetail() {
                 // Use a 4-column grid where hero spans 3 columns and right column spans 1 column so
                 // hero height (1/1 aspect) equals the total height of three stacked 1/1 thumbnails.
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                  <div className="md:col-span-3 rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: "1 / 1" }}>
+                  <div
+                    className="md:col-span-3 rounded-2xl overflow-hidden border border-white/10 shadow-sm"
+                    style={{ aspectRatio: "1 / 1" }}
+                  >
                     <img
-                      src={(project.gallery && project.gallery[0]) ? project.gallery[0] : project.image}
+                      src={
+                        project.gallery && project.gallery[0]
+                          ? project.gallery[0]
+                          : project.image
+                      }
                       alt={`${project.title} gallery hero`}
                       data-focusable="true"
                       className="w-full h-full object-cover"
@@ -721,16 +754,26 @@ export default function ProjectDetail() {
                   </div>
 
                   <div className="md:col-span-1 grid grid-rows-3 gap-6">
-                    {([1, 2, 3].map((i) => (project.gallery && project.gallery[i]) ? project.gallery[i] : project.image)).map((src, idx) => (
-                      <div key={idx} className="rounded-2xl overflow-hidden border border-white/10 shadow-sm" style={{ aspectRatio: "1 / 1" }}>
-                        <img
-                          src={src}
-                          alt={`${project.title} gallery item ${idx + 1}`}
-                          data-focusable="true"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
+                    {[1, 2, 3]
+                      .map((i) =>
+                        project.gallery && project.gallery[i]
+                          ? project.gallery[i]
+                          : project.image,
+                      )
+                      .map((src, idx) => (
+                        <div
+                          key={idx}
+                          className="rounded-2xl overflow-hidden border border-white/10 shadow-sm"
+                          style={{ aspectRatio: "1 / 1" }}
+                        >
+                          <img
+                            src={src}
+                            alt={`${project.title} gallery item ${idx + 1}`}
+                            data-focusable="true"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))}
                   </div>
                 </div>
               ) : project.id === "fuzed" ? (
@@ -750,9 +793,11 @@ export default function ProjectDetail() {
                     let itemClass =
                       "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
                     if (isTallLeft)
-                      itemClass += " md:col-start-1 md:row-start-1 md:row-span-2";
+                      itemClass +=
+                        " md:col-start-1 md:row-start-1 md:row-span-2";
                     if (isTallRight)
-                      itemClass += " md:col-start-3 md:row-start-2 md:row-span-2";
+                      itemClass +=
+                        " md:col-start-3 md:row-start-2 md:row-span-2";
 
                     return (
                       <div key={idx} className={itemClass}>
@@ -805,8 +850,13 @@ export default function ProjectDetail() {
 
           {project.id === "huel-rebrand" && (
             <section className="grid-container pb-10">
-              <div className="animate-slide-up" style={{ animationDelay: "0.38s" }}>
-                <h3 className="text-2xl font-bold text-foreground mb-6">3D Work</h3>
+              <div
+                className="animate-slide-up"
+                style={{ animationDelay: "0.38s" }}
+              >
+                <h3 className="text-2xl font-bold text-foreground mb-6">
+                  3D Work
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="rounded-2xl overflow-hidden border border-white/10 shadow-sm">
                     <video
