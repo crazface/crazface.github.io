@@ -136,7 +136,7 @@ export function HeroBanner() {
 
             {/* CTA Button */}
             <Link
-              to={`/project/${currentProject.id}`}
+              to={currentLink}
               className="inline-flex items-center gap-3 glass rounded-full px-6 py-3 text-white font-semibold hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20"
               style={{
                 boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
