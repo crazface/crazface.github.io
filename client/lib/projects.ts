@@ -330,7 +330,7 @@ export const projects: Project[] = [
     type: "3D Projects",
     year: "2024",
     image: "/images/hero-banner-project-1.svg",
-    appIcon: "/images/app-icon-brand.svg",
+    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa7612b852273400db4f1fd62ed79ce1e",
     description: "Photorealistic bedroom interior recreation",
     role: "3D Artist",
     tools: ["Blender", "Substance Painter", "Photoshop"],
