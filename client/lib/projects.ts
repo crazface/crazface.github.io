@@ -75,7 +75,8 @@ export const projects: Project[] = [
     title: "Huel Rebrand",
     type: "Graphic Design",
     year: "2024",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0f8ce88b154f4108ad614046b5ab6e21",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0f8ce88b154f4108ad614046b5ab6e21",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd9a90c35e888472095e8298ac0e7aef6",
     description: "Complete rebrand for nutrition company",
@@ -106,7 +107,8 @@ export const projects: Project[] = [
     title: "Fuzed",
     type: "Graphic Design",
     year: "2024",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F94a591128cba4298a326e975eabf6a55",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F94a591128cba4298a326e975eabf6a55",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0465afe7575f43219f2168ad9b16ab15",
     description: "Modern brand identity for fusion restaurant concept",
@@ -275,7 +277,8 @@ export const projects: Project[] = [
     title: "Pisk Kitchen",
     type: "Graphic Design",
     year: "2024",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff070ce8c04d14acd8fb7fd40a69cb6c2",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff070ce8c04d14acd8fb7fd40a69cb6c2",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F55176dffb7e640618937b93cbbd983ea",
     description: "Complete branding package for artisan kitchen studio",
@@ -303,7 +306,8 @@ export const projects: Project[] = [
     title: "Published Book Cover",
     type: "Graphic Design",
     year: "2023",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd20d487e035b4360ba74e9b310c89d8d",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd20d487e035b4360ba74e9b310c89d8d",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5f959d69d0304d3eb460cf93ca388639",
     description: "Cover design for a published book.",
@@ -330,7 +334,8 @@ export const projects: Project[] = [
     type: "3D Projects",
     year: "2025",
     image: "/images/hero-banner-project-1.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa7612b852273400db4f1fd62ed79ce1e",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa7612b852273400db4f1fd62ed79ce1e",
     description: "Photorealistic bedroom interior recreation",
     role: "3D Artist",
     tools: ["Blender", "Substance Painter", "Photoshop"],
@@ -342,7 +347,8 @@ export const projects: Project[] = [
     type: "3D Projects",
     year: "2025",
     image: "/images/hero-banner-project-2.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F28cc6b2a17fc490fb507bf40c731a35d",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F28cc6b2a17fc490fb507bf40c731a35d",
     description: "Environmental 3D concept focusing on lighting and atmosphere",
     role: "3D Artist",
     tools: ["Blender", "Cycles", "Photoshop"],
@@ -354,7 +360,8 @@ export const projects: Project[] = [
     type: "3D Projects",
     year: "2024",
     image: "/images/hero-banner-project-3.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa2a49e0cb2614c46a4966c2032a609bd",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa2a49e0cb2614c46a4966c2032a609bd",
     description: "Exterior and interior renders of a realistic house",
     role: "3D Artist",
     tools: ["3ds Max", "V-Ray", "Photoshop"],
@@ -366,7 +373,8 @@ export const projects: Project[] = [
     type: "3D Projects",
     year: "2024",
     image: "/images/hero-banner-project-1.svg",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5eaa0ffc6ad14962855e30373fee8b9f",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5eaa0ffc6ad14962855e30373fee8b9f",
     description: "Level/environment design inspired by Gang Beasts",
     role: "3D Artist",
     tools: ["Blender", "Unity", "Substance Designer"],
@@ -377,8 +385,10 @@ export const projects: Project[] = [
     title: "Cacophony Album Cover",
     type: "Graphic Design",
     year: "2022",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fde24784bb5e047dc903ae7b8ed6d1870",
-    appIcon: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa0d9c4f9b9c54e3385a8bfdbc8d39322",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fde24784bb5e047dc903ae7b8ed6d1870",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa0d9c4f9b9c54e3385a8bfdbc8d39322",
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff88ad4eb76154aff82e49be511c22e54",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff88ad4eb76154aff82e49be511c22e54",
