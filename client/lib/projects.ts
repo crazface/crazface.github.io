@@ -75,7 +75,7 @@ export const projects: Project[] = [
     title: "Huel Rebrand",
     type: "Graphic Design",
     year: "2024",
-    image: "/images/hero-banner-project-2.svg",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0f8ce88b154f4108ad614046b5ab6e21",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd9a90c35e888472095e8298ac0e7aef6",
     description: "Complete rebrand for nutrition company",
