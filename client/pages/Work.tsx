@@ -24,7 +24,7 @@ export default function Work() {
   const displayProjects = useMemo(() => {
     const list = [...filteredProjects];
     // Determine number of columns used for the current category (desktop/lg)
-    const columns = activeCategory === "Video Editing" ? 2 : 3;
+    const columns = activeCategory === "Video Editing" || activeCategory === "3D Projects" ? 2 : 3;
     const len = list.length;
 
     // When viewing Photography, show only the portrait-series centered
@@ -141,14 +141,16 @@ export default function Work() {
                   ? "grid-cols-1 md:grid-cols-2"
                   : activeCategory === "Photography"
                     ? "grid-cols-1 md:grid-cols-1 lg:grid-cols-1 justify-items-center"
-                    : "grid-cols-2 lg:grid-cols-3"
+                    : activeCategory === "3D Projects"
+                      ? "grid-cols-2 lg:grid-cols-2"
+                      : "grid-cols-2 lg:grid-cols-3"
               }
             `}
             style={{ animationDelay: "0.2s" }}
           >
             {(() => {
               // Prepare render list with optional placeholders to center last row
-              const cols = activeCategory === "Video Editing" ? 2 : 3;
+              const cols = activeCategory === "Video Editing" || activeCategory === "3D Projects" ? 2 : 3;
               const len = displayProjects.length;
               const rows = Math.ceil(len / cols) || 1;
               const itemsInLast = len - (rows - 1) * cols;
