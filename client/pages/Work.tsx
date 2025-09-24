@@ -10,8 +10,18 @@ import {
 } from "@/lib/projects";
 
 export default function Work() {
-  const [activeCategory, setActiveCategory] =
-    useState<Project["type"]>("Graphic Design");
+  const STORAGE_KEY = "work.activeCategory";
+  const [activeCategory, setActiveCategory] = useState<Project["type"]>(() => {
+    try {
+      if (typeof window !== "undefined") {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) return stored as Project["type"];
+      }
+    } catch (e) {
+      // ignore localStorage errors
+    }
+    return "Graphic Design";
+  });
   const [isLoaded, setIsLoaded] = useState(false);
   const [animationKey, setAnimationKey] = useState(0);
 
@@ -107,6 +117,17 @@ export default function Work() {
   // Only trigger animation key change when category actually changes
   useEffect(() => {
     setAnimationKey((prev) => prev + 1);
+  }, [activeCategory]);
+
+  // Persist the user's selected category so that navigating back returns them to the same tab
+  useEffect(() => {
+    try {
+      if (typeof window !== "undefined") {
+        localStorage.setItem(STORAGE_KEY, activeCategory);
+      }
+    } catch (e) {
+      // ignore storage write errors
+    }
   }, [activeCategory]);
 
   return (
