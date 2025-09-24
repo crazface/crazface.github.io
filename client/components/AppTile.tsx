@@ -77,7 +77,7 @@ export function AppTile({ project }: AppTileProps) {
           if (isYoutube) {
             const idMatch = src.match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/);
             const videoId = idMatch ? idMatch[1] : null;
-            const thumb = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : project.appIcon || project.image;
+            const thumb = project.appIcon || (videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : project.image);
             return (
               <img
                 src={thumb}
