@@ -69,17 +69,64 @@ export function AppTile({ project }: AppTileProps) {
         />
 
         {/* SVG Image Content - Primary Visual */}
-        {(project.appIcon || project.image) && (
-          <img
-            src={project.appIcon || project.image}
-            alt={project.title}
-            className="absolute inset-0 w-full h-full object-contain drop-shadow-xl z-10"
-            style={{
-              filter: isHovered
-                ? "drop-shadow(0 15px 35px rgba(0,0,0,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.3)) drop-shadow(0 1px 3px rgba(255,255,255,0.2))"
-                : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))",
-            }}
-          />
+        {project.type === "Video Editing" ? (() => {
+          const src = (project.gallery && project.gallery.length > 0 ? project.gallery[0] : project.image || project.appIcon) || "";
+          const isYoutube = /youtu(?:\.be|be\.com)/.test(src);
+          const isHostedVideo = /\.(mp4|webm|mov)(\?|$)/i.test(src) || /o\/assets|compressed\?/.test(src);
+
+          if (isYoutube) {
+            const idMatch = src.match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/);
+            const videoId = idMatch ? idMatch[1] : null;
+            const thumb = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : project.appIcon || project.image;
+            return (
+              <img
+                src={thumb}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-cover drop-shadow-xl z-10"
+                style={{ objectPosition: "center" }}
+              />
+            );
+          }
+
+          if (isHostedVideo) {
+            return (
+              <video
+                src={src}
+                className="absolute inset-0 w-full h-full object-cover drop-shadow-xl z-10"
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            );
+          }
+
+          // Fallback to appIcon or image
+          return (
+            <img
+              src={project.appIcon || project.image}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-contain drop-shadow-xl z-10"
+              style={{
+                filter: isHovered
+                  ? "drop-shadow(0 15px 35px rgba(0,0,0,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.3)) drop-shadow(0 1px 3px rgba(255,255,255,0.2))"
+                  : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))",
+              }}
+            />
+          );
+        })() : (
+          (project.appIcon || project.image) && (
+            <img
+              src={project.appIcon || project.image}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-contain drop-shadow-xl z-10"
+              style={{
+                filter: isHovered
+                  ? "drop-shadow(0 15px 35px rgba(0,0,0,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.3)) drop-shadow(0 1px 3px rgba(255,255,255,0.2))"
+                  : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))",
+              }}
+            />
+          )
         )}
 
         {/* Hover Overlay with Bounce Effect */}
