@@ -819,34 +819,45 @@ export default function ProjectDetail() {
                 // Default gallery layout (ReGenB and others): items 3 and 4 tall
                 <div
                   className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-                  style={{ gridAutoRows: "220px" }}
+                  style={{ gridAutoRows: project.type === "Video Editing" ? undefined : "220px" }}
                 >
-                  {(project.gallery && project.gallery.length > 0
-                    ? project.gallery
-                    : new Array(6).fill(project.image)
-                  ).map((src, idx) => {
-                    // Make items 3 and 4 (0-based idx 2 and 3) tall (original layout)
-                    const isTallRight = idx === 2; // third item -> tall on right column
-                    const isTallLeft = idx === 3; // fourth item -> tall starting left column (second row)
+                  {(() => {
+                    const items = project.type === "Video Editing"
+                      ? project.gallery && project.gallery.length > 0
+                        ? [project.gallery[0]]
+                        : [project.image]
+                      : project.gallery && project.gallery.length > 0
+                        ? project.gallery
+                        : new Array(6).fill(project.image);
 
-                    let itemClass =
-                      "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
-                    if (isTallRight)
-                      itemClass += " md:col-start-3 md:row-span-2";
-                    if (isTallLeft)
-                      itemClass += " md:col-start-1 md:row-span-2";
+                    return items.map((src, idx) => {
+                      const isVideoLayout = project.type === "Video Editing";
+                      const containerStyle = isVideoLayout ? { aspectRatio: "16 / 9" } : undefined;
 
-                    return (
-                      <div key={idx} className={itemClass}>
-                        <img
-                          src={src}
-                          alt={`${project.title} gallery item ${idx + 1}`}
-                          data-focusable="true"
-                          className={`w-full ${isTallLeft || isTallRight ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
-                        />
-                      </div>
-                    );
-                  })}
+                      let itemClass = "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
+                      if (!isVideoLayout) {
+                        const isTallRight = idx === 2;
+                        const isTallLeft = idx === 3;
+                        if (isTallRight) itemClass += " md:col-start-3 md:row-span-2";
+                        if (isTallLeft) itemClass += " md:col-start-1 md:row-span-2";
+                      }
+
+                      const imgClass = isVideoLayout
+                        ? "w-full h-full object-cover"
+                        : `w-full ${((idx === 2) || (idx === 3)) ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`;
+
+                      return (
+                        <div key={idx} className={itemClass} style={containerStyle}>
+                          <img
+                            src={src}
+                            alt={`${project.title} gallery item ${idx + 1}`}
+                            data-focusable="true"
+                            className={imgClass}
+                          />
+                        </div>
+                      );
+                    });
+                  })()}
                 </div>
               )}
             </div>
