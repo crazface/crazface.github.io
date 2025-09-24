@@ -455,25 +455,34 @@ export default function ProjectDetail() {
       />
 
       {/* Gallery / Project content - render Graphic Design layout separately */}
-      {project.type === "Graphic Design" || project.type === "Video Editing" || project.type === "3D Projects" ? (
-        <main className={project.type === "Video Editing" || project.type === "3D Projects" ? "pt-12" : ""}>
+      {project.type === "Graphic Design" ||
+      project.type === "Video Editing" ||
+      project.type === "3D Projects" ? (
+        <main
+          className={
+            project.type === "Video Editing" || project.type === "3D Projects"
+              ? "pt-12"
+              : ""
+          }
+        >
           {/* Hero */}
-          {project.type !== "Video Editing" && project.type !== "3D Projects" && (
-            <section className="grid-container pt-12 pb-8">
-              <div
-                className="animate-slide-up"
-                style={{ animationDelay: "0.2s" }}
-              >
-                <div className="glass rounded-2xl overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-64 object-cover"
-                  />
+          {project.type !== "Video Editing" &&
+            project.type !== "3D Projects" && (
+              <section className="grid-container pt-12 pb-8">
+                <div
+                  className="animate-slide-up"
+                  style={{ animationDelay: "0.2s" }}
+                >
+                  <div className="glass rounded-2xl overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-64 object-cover"
+                    />
+                  </div>
                 </div>
-              </div>
-            </section>
-          )}
+              </section>
+            )}
 
           {/* Title + Details two column */}
           <section className="grid-container pb-10">
@@ -819,46 +828,70 @@ export default function ProjectDetail() {
                 // Default gallery layout (ReGenB and others): items 3 and 4 tall
                 <div
                   className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-                  style={{ gridAutoRows: project.type === "Video Editing" ? undefined : "220px" }}
+                  style={{
+                    gridAutoRows:
+                      project.type === "Video Editing" ? undefined : "220px",
+                  }}
                 >
                   {(() => {
-                    const items = project.type === "Video Editing"
-                      ? project.gallery && project.gallery.length > 0
-                        ? [project.gallery[0]]
-                        : [project.image]
-                      : project.gallery && project.gallery.length > 0
-                        ? project.gallery
-                        : new Array(6).fill(project.image);
+                    const items =
+                      project.type === "Video Editing"
+                        ? project.gallery && project.gallery.length > 0
+                          ? [project.gallery[0]]
+                          : [project.image]
+                        : project.gallery && project.gallery.length > 0
+                          ? project.gallery
+                          : new Array(6).fill(project.image);
 
                     return items.map((src, idx) => {
                       const isVideoLayout = project.type === "Video Editing";
-                    const containerStyle = isVideoLayout ? { aspectRatio: "16 / 9", width: "100%", maxWidth: "100%" } : undefined;
+                      const containerStyle = isVideoLayout
+                        ? {
+                            aspectRatio: "16 / 9",
+                            width: "100%",
+                            maxWidth: "100%",
+                          }
+                        : undefined;
 
-                      let itemClass = "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
+                      let itemClass =
+                        "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
                       if (isVideoLayout) itemClass += " col-span-full";
                       if (!isVideoLayout) {
                         const isTallRight = idx === 2;
                         const isTallLeft = idx === 3;
-                        if (isTallRight) itemClass += " md:col-start-3 md:row-span-2";
-                        if (isTallLeft) itemClass += " md:col-start-1 md:row-span-2";
+                        if (isTallRight)
+                          itemClass += " md:col-start-3 md:row-span-2";
+                        if (isTallLeft)
+                          itemClass += " md:col-start-1 md:row-span-2";
                       }
 
                       const imgClass = isVideoLayout
                         ? "w-full h-full object-cover"
-                        : `w-full ${((idx === 2) || (idx === 3)) ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`;
+                        : `w-full ${idx === 2 || idx === 3 ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`;
 
                       // Video handling: support mp4/webm/mov, builder 'o/assets' compressed, and YouTube links
                       const isYoutube = /youtu(?:\.be|be\.com)/.test(src);
-                      const isHostedVideo = /\.(mp4|webm|mov)(\?|$)/i.test(src) || /o\/assets|compressed\?/.test(src);
+                      const isHostedVideo =
+                        /\.(mp4|webm|mov)(\?|$)/i.test(src) ||
+                        /o\/assets|compressed\?/.test(src);
 
                       if (isVideoLayout) {
                         if (isYoutube) {
                           // convert to embed URL
-                          const idMatch = src.match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/);
+                          const idMatch = src.match(
+                            /(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/,
+                          );
                           const videoId = idMatch ? idMatch[1] : src;
-                          const embedSrc = videoId && !videoId.startsWith('http') ? `https://www.youtube.com/embed/${videoId}` : src;
+                          const embedSrc =
+                            videoId && !videoId.startsWith("http")
+                              ? `https://www.youtube.com/embed/${videoId}`
+                              : src;
                           return (
-                            <div key={idx} className={itemClass} style={containerStyle}>
+                            <div
+                              key={idx}
+                              className={itemClass}
+                              style={containerStyle}
+                            >
                               <iframe
                                 src={embedSrc}
                                 title={project.title + " video"}
@@ -872,7 +905,11 @@ export default function ProjectDetail() {
 
                         if (isHostedVideo) {
                           return (
-                            <div key={idx} className={itemClass} style={containerStyle}>
+                            <div
+                              key={idx}
+                              className={itemClass}
+                              style={containerStyle}
+                            >
                               <video
                                 src={src}
                                 className="w-full h-full object-cover"
@@ -885,7 +922,11 @@ export default function ProjectDetail() {
 
                         // fallback to image
                         return (
-                          <div key={idx} className={itemClass} style={containerStyle}>
+                          <div
+                            key={idx}
+                            className={itemClass}
+                            style={containerStyle}
+                          >
                             <img
                               src={src}
                               alt={`${project.title} video`}
@@ -897,7 +938,11 @@ export default function ProjectDetail() {
                       }
 
                       return (
-                        <div key={idx} className={itemClass} style={containerStyle}>
+                        <div
+                          key={idx}
+                          className={itemClass}
+                          style={containerStyle}
+                        >
                           <img
                             src={src}
                             alt={`${project.title} gallery item ${idx + 1}`}

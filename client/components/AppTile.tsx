@@ -11,15 +11,21 @@ export function AppTile({ project }: AppTileProps) {
 
   // Explicit thumbnail overrides for specific video projects (provided by user)
   const videoThumbnailOverrides: Record<string, string> = {
-    "leavers-video": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3ee592a895db4d8a8c0a902e5f25898b",
-    "super-friends-intro": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb5fdf99633e747bb9100dce5b8b9bc2b",
-    "pisk-cola-ad": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F9150b281bbdc47abb9da45f60cfee65e",
-    "smp-trailer": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0ddc6b3f41c44bbc9151d952adbdaf5b",
-    "french-toast-tutorial": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F10b77034320d4661971708b64b48026e",
+    "leavers-video":
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3ee592a895db4d8a8c0a902e5f25898b",
+    "super-friends-intro":
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb5fdf99633e747bb9100dce5b8b9bc2b",
+    "pisk-cola-ad":
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F9150b281bbdc47abb9da45f60cfee65e",
+    "smp-trailer":
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0ddc6b3f41c44bbc9151d952adbdaf5b",
+    "french-toast-tutorial":
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F10b77034320d4661971708b64b48026e",
   };
 
   // Aspect ratios per project type: Video Editing uses 16:9, Photography uses 2:3 (portrait), otherwise square
-  const aspectRatioClass = project.type === "Video Editing" ? "aspect-video" : "aspect-square";
+  const aspectRatioClass =
+    project.type === "Video Editing" ? "aspect-video" : "aspect-square";
 
   // For photography, use the CSS aspect-ratio property instead of a utility class
   const aspectStyle: React.CSSProperties | undefined =
@@ -78,77 +84,88 @@ export function AppTile({ project }: AppTileProps) {
         />
 
         {/* SVG Image Content - Primary Visual */}
-        {project.type === "Video Editing" ? (() => {
-          const src = (project.gallery && project.gallery.length > 0 ? project.gallery[0] : project.image || project.appIcon) || "";
-          const override = videoThumbnailOverrides[project.id];
-          if (override) {
-            return (
+        {project.type === "Video Editing"
+          ? (() => {
+              const src =
+                (project.gallery && project.gallery.length > 0
+                  ? project.gallery[0]
+                  : project.image || project.appIcon) || "";
+              const override = videoThumbnailOverrides[project.id];
+              if (override) {
+                return (
+                  <img
+                    src={override}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover drop-shadow-xl z-10"
+                    style={{ objectPosition: "center" }}
+                  />
+                );
+              }
+
+              const isYoutube = /youtu(?:\.be|be\.com)/.test(src);
+              const isHostedVideo =
+                /\.(mp4|webm|mov)(\?|$)/i.test(src) ||
+                /o\/assets|compressed\?/.test(src);
+
+              if (isYoutube) {
+                const idMatch = src.match(
+                  /(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/,
+                );
+                const videoId = idMatch ? idMatch[1] : null;
+                const thumb =
+                  project.appIcon ||
+                  (videoId
+                    ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+                    : project.image);
+                return (
+                  <img
+                    src={thumb}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover drop-shadow-xl z-10"
+                    style={{ objectPosition: "center" }}
+                  />
+                );
+              }
+
+              if (isHostedVideo) {
+                return (
+                  <video
+                    src={src}
+                    className="absolute inset-0 w-full h-full object-cover drop-shadow-xl z-10"
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
+                );
+              }
+
+              // Fallback to appIcon or image
+              return (
+                <img
+                  src={project.appIcon || project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-contain drop-shadow-xl z-10"
+                  style={{
+                    filter: isHovered
+                      ? "drop-shadow(0 15px 35px rgba(0,0,0,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.3)) drop-shadow(0 1px 3px rgba(255,255,255,0.2))"
+                      : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))",
+                  }}
+                />
+              );
+            })()
+          : (project.appIcon || project.image) && (
               <img
-                src={override}
+                src={project.appIcon || project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover drop-shadow-xl z-10"
-                style={{ objectPosition: "center" }}
+                className="absolute inset-0 w-full h-full object-contain drop-shadow-xl z-10"
+                style={{
+                  filter: isHovered
+                    ? "drop-shadow(0 15px 35px rgba(0,0,0,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.3)) drop-shadow(0 1px 3px rgba(255,255,255,0.2))"
+                    : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))",
+                }}
               />
-            );
-          }
-
-          const isYoutube = /youtu(?:\.be|be\.com)/.test(src);
-          const isHostedVideo = /\.(mp4|webm|mov)(\?|$)/i.test(src) || /o\/assets|compressed\?/.test(src);
-
-          if (isYoutube) {
-            const idMatch = src.match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/);
-            const videoId = idMatch ? idMatch[1] : null;
-            const thumb = project.appIcon || (videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : project.image);
-            return (
-              <img
-                src={thumb}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover drop-shadow-xl z-10"
-                style={{ objectPosition: "center" }}
-              />
-            );
-          }
-
-          if (isHostedVideo) {
-            return (
-              <video
-                src={src}
-                className="absolute inset-0 w-full h-full object-cover drop-shadow-xl z-10"
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
-            );
-          }
-
-          // Fallback to appIcon or image
-          return (
-            <img
-              src={project.appIcon || project.image}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-contain drop-shadow-xl z-10"
-              style={{
-                filter: isHovered
-                  ? "drop-shadow(0 15px 35px rgba(0,0,0,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.3)) drop-shadow(0 1px 3px rgba(255,255,255,0.2))"
-                  : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))",
-              }}
-            />
-          );
-        })() : (
-          (project.appIcon || project.image) && (
-            <img
-              src={project.appIcon || project.image}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-contain drop-shadow-xl z-10"
-              style={{
-                filter: isHovered
-                  ? "drop-shadow(0 15px 35px rgba(0,0,0,0.4)) drop-shadow(0 6px 16px rgba(0,0,0,0.3)) drop-shadow(0 1px 3px rgba(255,255,255,0.2))"
-                  : "drop-shadow(0 10px 25px rgba(0,0,0,0.3)) drop-shadow(0 4px 12px rgba(0,0,0,0.2))",
-              }}
-            />
-          )
-        )}
+            )}
 
         {/* Hover Overlay with Bounce Effect */}
         <div

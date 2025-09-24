@@ -181,7 +181,9 @@ export const projects: Project[] = [
     year: "2024",
     image: "/images/video-editing-1.svg",
     appIcon: "/images/app-icon-video.svg",
-    gallery: ["https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0bb658a896cb4c1d943409eeeb014811%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=0bb658a896cb4c1d943409eeeb014811&alt=media&optimized=true"],
+    gallery: [
+      "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0bb658a896cb4c1d943409eeeb014811%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=0bb658a896cb4c1d943409eeeb014811&alt=media&optimized=true",
+    ],
     description: "Show intro sequence edit",
     role: "Editor & Motion",
     tools: ["After Effects", "Premiere Pro"],
@@ -198,7 +200,9 @@ export const projects: Project[] = [
     year: "2024",
     image: "/images/video-editing-1.svg",
     appIcon: "/images/app-icon-video.svg",
-    gallery: ["https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6baba2b367cc44c983c60f560f4f8c57%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=6baba2b367cc44c983c60f560f4f8c57&alt=media&optimized=true"],
+    gallery: [
+      "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6baba2b367cc44c983c60f560f4f8c57%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=6baba2b367cc44c983c60f560f4f8c57&alt=media&optimized=true",
+    ],
     description: "Promotional ad for Pisk Cola",
     role: "Editor & Producer",
     tools: ["Final Cut Pro", "DaVinci Resolve"],
@@ -215,7 +219,9 @@ export const projects: Project[] = [
     year: "2024",
     image: "/images/video-editing-1.svg",
     appIcon: "/images/app-icon-video.svg",
-    gallery: ["https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcbb6330e51c7469396cf1c0ead5539cd%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=cbb6330e51c7469396cf1c0ead5539cd&alt=media&optimized=true"],
+    gallery: [
+      "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcbb6330e51c7469396cf1c0ead5539cd%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=cbb6330e51c7469396cf1c0ead5539cd&alt=media&optimized=true",
+    ],
     description: "Trailer edit for SMP",
     role: "Editor",
     tools: ["Premiere Pro", "After Effects"],
@@ -232,7 +238,9 @@ export const projects: Project[] = [
     year: "2024",
     image: "/images/video-editing-1.svg",
     appIcon: "/images/app-icon-video.svg",
-    gallery: ["https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F593b0c3d9d04448398602c82d24ff6ac%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=593b0c3d9d04448398602c82d24ff6ac&alt=media&optimized=true"],
+    gallery: [
+      "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F593b0c3d9d04448398602c82d24ff6ac%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=593b0c3d9d04448398602c82d24ff6ac&alt=media&optimized=true",
+    ],
     description: "Cooking tutorial video",
     role: "Editor & Director",
     tools: ["Premiere Pro", "DaVinci Resolve"],
