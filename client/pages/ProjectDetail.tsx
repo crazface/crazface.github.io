@@ -846,6 +846,55 @@ export default function ProjectDetail() {
                         ? "w-full h-full object-cover"
                         : `w-full ${((idx === 2) || (idx === 3)) ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`;
 
+                      // Video handling: support mp4/webm/mov, builder 'o/assets' compressed, and YouTube links
+                      const isYoutube = /youtu(?:\.be|be\.com)/.test(src);
+                      const isHostedVideo = /\.(mp4|webm|mov)(\?|$)/i.test(src) || /o\/assets|compressed\?/.test(src);
+
+                      if (isVideoLayout) {
+                        if (isYoutube) {
+                          // convert to embed URL
+                          const idMatch = src.match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/);
+                          const videoId = idMatch ? idMatch[1] : src;
+                          const embedSrc = videoId && !videoId.startsWith('http') ? `https://www.youtube.com/embed/${videoId}` : src;
+                          return (
+                            <div key={idx} className={itemClass} style={containerStyle}>
+                              <iframe
+                                src={embedSrc}
+                                title={project.title + " video"}
+                                className="w-full h-full"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                              />
+                            </div>
+                          );
+                        }
+
+                        if (isHostedVideo) {
+                          return (
+                            <div key={idx} className={itemClass} style={containerStyle}>
+                              <video
+                                src={src}
+                                className="w-full h-full object-cover"
+                                controls
+                                playsInline
+                              />
+                            </div>
+                          );
+                        }
+
+                        // fallback to image
+                        return (
+                          <div key={idx} className={itemClass} style={containerStyle}>
+                            <img
+                              src={src}
+                              alt={`${project.title} video`}
+                              className="w-full h-full object-cover"
+                              data-focusable="true"
+                            />
+                          </div>
+                        );
+                      }
+
                       return (
                         <div key={idx} className={itemClass} style={containerStyle}>
                           <img
