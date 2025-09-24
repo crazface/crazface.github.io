@@ -215,6 +215,7 @@ export const projects: Project[] = [
     year: "2024",
     image: "/images/video-editing-1.svg",
     appIcon: "/images/app-icon-video.svg",
+    gallery: ["https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcbb6330e51c7469396cf1c0ead5539cd%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=cbb6330e51c7469396cf1c0ead5539cd&alt=media&optimized=true"],
     description: "Trailer edit for SMP",
     role: "Editor",
     tools: ["Premiere Pro", "After Effects"],
