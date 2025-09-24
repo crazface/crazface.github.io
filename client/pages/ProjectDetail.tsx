@@ -16,6 +16,7 @@ export default function ProjectDetail() {
   const location = useLocation();
   const [project, setProject] = useState<Project | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (id) {
@@ -1094,7 +1095,9 @@ export default function ProjectDetail() {
                   : "hsl(var(--primary))",
                 color: project?.brandTheme
                   ? project.brandTheme.highlight
-                  : "white",
+                  : theme === "dark"
+                    ? "#000000"
+                    : "white",
               }}
             >
               Get in Touch
