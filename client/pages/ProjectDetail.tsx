@@ -832,11 +832,10 @@ export default function ProjectDetail() {
 
                     return items.map((src, idx) => {
                       const isVideoLayout = project.type === "Video Editing";
-                    const containerStyle = isVideoLayout
-                      ? { aspectRatio: "16 / 9", maxWidth: "1400px", height: "720px", marginLeft: "auto", marginRight: "auto" }
-                      : undefined;
+                    const containerStyle = isVideoLayout ? { aspectRatio: "16 / 9", width: "100%", maxWidth: "100%" } : undefined;
 
                       let itemClass = "rounded-2xl overflow-hidden border border-white/10 shadow-sm";
+                      if (isVideoLayout) itemClass += " col-span-full";
                       if (!isVideoLayout) {
                         const isTallRight = idx === 2;
                         const isTallLeft = idx === 3;
