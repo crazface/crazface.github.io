@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getProjectById, Project } from "@/lib/projects";
 import { ExternalLink } from "lucide-react";
 import { Header } from "@/components/Header";
+import { useTheme } from "@/hooks/use-theme";
 import {
   Accordion,
   AccordionItem,
