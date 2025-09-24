@@ -164,6 +164,7 @@ export const projects: Project[] = [
     year: "2024",
     image: "/images/video-editing-1.svg",
     appIcon: "/images/app-icon-video.svg",
+    gallery: ["https://youtu.be/TQAnHMEcR3Y"],
     description: "Leavers ceremony video",
     role: "Editor",
     tools: ["Premiere Pro", "After Effects"],
