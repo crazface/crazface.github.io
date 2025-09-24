@@ -44,7 +44,7 @@ export function HeroBanner() {
     "old-west-starter-kit",
     "regenb",
     "portrait-series",
-    null, // link back to front page temporarily
+    "green-signal",
     "fuzed",
     "pisk-kitchen",
   ];
