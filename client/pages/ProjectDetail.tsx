@@ -456,7 +456,7 @@ export default function ProjectDetail() {
 
       {/* Gallery / Project content - render Graphic Design layout separately */}
       {project.type === "Graphic Design" || project.type === "Video Editing" ? (
-        <main>
+        <main className={project.type === "Video Editing" ? "pt-12" : ""}>
           {/* Hero */}
           {project.type !== "Video Editing" && (
             <section className="grid-container pt-12 pb-8">
