@@ -198,6 +198,7 @@ export const projects: Project[] = [
     year: "2024",
     image: "/images/video-editing-1.svg",
     appIcon: "/images/app-icon-video.svg",
+    gallery: ["https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6baba2b367cc44c983c60f560f4f8c57%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=6baba2b367cc44c983c60f560f4f8c57&alt=media&optimized=true"],
     description: "Promotional ad for Pisk Cola",
     role: "Editor & Producer",
     tools: ["Final Cut Pro", "DaVinci Resolve"],
