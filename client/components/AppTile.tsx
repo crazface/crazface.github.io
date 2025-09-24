@@ -9,6 +9,15 @@ interface AppTileProps {
 export function AppTile({ project }: AppTileProps) {
   const [isHovered, setIsHovered] = useState(false);
 
+  // Explicit thumbnail overrides for specific video projects (provided by user)
+  const videoThumbnailOverrides: Record<string, string> = {
+    "leavers-video": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3ee592a895db4d8a8c0a902e5f25898b",
+    "super-friends-intro": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb5fdf99633e747bb9100dce5b8b9bc2b",
+    "pisk-cola-ad": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F9150b281bbdc47abb9da45f60cfee65e",
+    "smp-trailer": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0ddc6b3f41c44bbc9151d952adbdaf5b",
+    "french-toast-tutorial": "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F10b77034320d4661971708b64b48026e",
+  };
+
   // Aspect ratios per project type: Video Editing uses 16:9, Photography uses 2:3 (portrait), otherwise square
   const aspectRatioClass = project.type === "Video Editing" ? "aspect-video" : "aspect-square";
 
@@ -71,6 +80,18 @@ export function AppTile({ project }: AppTileProps) {
         {/* SVG Image Content - Primary Visual */}
         {project.type === "Video Editing" ? (() => {
           const src = (project.gallery && project.gallery.length > 0 ? project.gallery[0] : project.image || project.appIcon) || "";
+          const override = videoThumbnailOverrides[project.id];
+          if (override) {
+            return (
+              <img
+                src={override}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-cover drop-shadow-xl z-10"
+                style={{ objectPosition: "center" }}
+              />
+            );
+          }
+
           const isYoutube = /youtu(?:\.be|be\.com)/.test(src);
           const isHostedVideo = /\.(mp4|webm|mov)(\?|$)/i.test(src) || /o\/assets|compressed\?/.test(src);
 
