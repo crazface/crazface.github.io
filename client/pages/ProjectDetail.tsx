@@ -609,7 +609,7 @@ export default function ProjectDetail() {
             >
               {project.id !== "cacophony-album-cover" && (
                 <h3 className="text-2xl font-bold text-foreground mb-6">
-                  Gallery
+                  {project.type === "Video Editing" ? "Video" : "Gallery"}
                 </h3>
               )}
               {project.id === "schtuff-ad-campaign-2022" ? (
