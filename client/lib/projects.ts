@@ -181,6 +181,7 @@ export const projects: Project[] = [
     year: "2024",
     image: "/images/video-editing-1.svg",
     appIcon: "/images/app-icon-video.svg",
+    gallery: ["https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0bb658a896cb4c1d943409eeeb014811%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=0bb658a896cb4c1d943409eeeb014811&alt=media&optimized=true"],
     description: "Show intro sequence edit",
     role: "Editor & Motion",
     tools: ["After Effects", "Premiere Pro"],
