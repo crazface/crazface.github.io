@@ -458,20 +458,22 @@ export default function ProjectDetail() {
       {project.type === "Graphic Design" || project.type === "Video Editing" ? (
         <main>
           {/* Hero */}
-          <section className="grid-container pt-12 pb-8">
-            <div
-              className="animate-slide-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <div className="glass rounded-2xl overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover"
-                />
+          {project.type !== "Video Editing" && (
+            <section className="grid-container pt-12 pb-8">
+              <div
+                className="animate-slide-up"
+                style={{ animationDelay: "0.2s" }}
+              >
+                <div className="glass rounded-2xl overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* Title + Details two column */}
           <section className="grid-container pb-10">
