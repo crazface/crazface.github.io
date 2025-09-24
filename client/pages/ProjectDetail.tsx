@@ -455,10 +455,10 @@ export default function ProjectDetail() {
       />
 
       {/* Gallery / Project content - render Graphic Design layout separately */}
-      {project.type === "Graphic Design" || project.type === "Video Editing" ? (
-        <main className={project.type === "Video Editing" ? "pt-12" : ""}>
+      {project.type === "Graphic Design" || project.type === "Video Editing" || project.type === "3D Projects" ? (
+        <main className={project.type === "Video Editing" || project.type === "3D Projects" ? "pt-12" : ""}>
           {/* Hero */}
-          {project.type !== "Video Editing" && (
+          {project.type !== "Video Editing" && project.type !== "3D Projects" && (
             <section className="grid-container pt-12 pb-8">
               <div
                 className="animate-slide-up"
