@@ -38,10 +38,10 @@ export default function Contact() {
                 Email
               </h3>
               <a
-                href="mailto:charlie@charliestamp.com"
+                href="mailto:CharlieStampCreative@gmail.com"
                 className="text-lg text-foreground hover:text-primary transition-colors"
               >
-                charlie@charliestamp.com
+                CharlieStampCreative@gmail.com
               </a>
             </div>
 
