@@ -114,7 +114,6 @@ export default function Contact() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
     </div>
