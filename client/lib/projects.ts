@@ -139,7 +139,7 @@ export const projects: Project[] = [
     title: "Old West Starter Kit",
     type: "Graphic Design",
     year: "2024",
-    image: "/images/brand-identity-1.svg",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F574ad34b2e66478bb5cee94023aff75b",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0cf5f83875634d468081c91fb3dab076",
     description: "Western-themed design assets and brand kit",
