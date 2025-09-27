@@ -151,7 +151,7 @@ export const projects: Project[] = [
       accent: "#c4b5fd",
     },
     gallery: [
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F8da1b5e421fb4ce6989341849041c5b7",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe499ff9d17e04b6da2b42cebc3ca88a4",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F4020bf7f063f407fba74e1f3bfe3986b",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F012d5dca0e794d1ba1044af2a5902912",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fc227ff0177ff4c5d9488d449bb4734a3",
