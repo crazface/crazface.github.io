@@ -494,7 +494,7 @@ export default function ProjectDetail() {
                 <h1 className="text-4xl font-black text-foreground mb-4">
                   {project.title}
                 </h1>
-                <div className="text-lg text-muted-foreground max-w-2xl" dangerouslySetInnerHTML={{ __html: project.longDescription || project.description }} />
+                <div className="text-lg text-muted-foreground max-w-2xl space-y-6" dangerouslySetInnerHTML={{ __html: project.longDescription || project.description }} />
               </div>
 
               <aside
