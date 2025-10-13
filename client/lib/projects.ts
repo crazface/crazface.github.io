@@ -79,7 +79,8 @@ export const projects: Project[] = [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0f8ce88b154f4108ad614046b5ab6e21",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd9a90c35e888472095e8298ac0e7aef6",
-    description: `<p>A reimagining of the Huel brand world, built within the limits of its existing logotype and product range. I developed a refreshed identity focused on clarity, energy, and everyday health. The warm peach-toned palette reflects functional wellness, bright and clean, without leaning toward artificiality.</p>
+    description: "A reimagining of the Huel brand focused on clarity, energy, and everyday health.",
+    longDescription: `<p>A reimagining of the Huel brand world, built within the limits of its existing logotype and product range. I developed a refreshed identity focused on clarity, energy, and everyday health. The warm peach-toned palette reflects functional wellness, bright and clean, without leaning toward artificiality.</p>
 
 <p>The brand system spans packaging, campaign visuals, motion, and identity design. Huel Charge was a key outcome: a new packaging strategy for Huel’s protein powders focused on sustainability and engagement. The system introduced reusable, collectible bags with peel-away labels and rotating patterns, designed to be kept, not discarded, merging function with lifestyle branding.</p>
 
