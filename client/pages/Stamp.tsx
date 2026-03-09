@@ -177,7 +177,17 @@ export default function Stamp() {
                 </h1>
               </Reveal>
               <Reveal delay={450}>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-transparent bg-clip-text" style={{ WebkitTextStroke: '2px white' }}>
+                <h1
+                  className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-[#0a0a0a]"
+                  style={{
+                    textShadow: `
+                      -1px -1px 0 rgba(255,255,255,0.85),
+                       1px -1px 0 rgba(255,255,255,0.85),
+                      -1px  1px 0 rgba(255,255,255,0.85),
+                       1px  1px 0 rgba(255,255,255,0.85)
+                    `
+                  }}
+                >
                   Creative
                 </h1>
               </Reveal>
