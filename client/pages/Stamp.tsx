@@ -45,6 +45,31 @@ const Reveal = ({ children, className = "", delay = 0, direction = "up" }) => {
 export default function Stamp() {
   const accentColor = "#FFD700"; // Signature yellow
   const [scrolled, setScrolled] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const projects = [
+    {
+      title: "Neon Nights",
+      category: "Video Editing / Color Grading",
+      img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      title: "Aura Skincare",
+      category: "Brand Identity",
+      img: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      title: "Monolith Architecture",
+      category: "Photography",
+      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      title: "Velocity Motor Co.",
+      category: "Creative Direction",
+      img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200"
+    }
+  ];
 
   // Handle Navbar Background on Scroll
   useEffect(() => {
@@ -54,6 +79,25 @@ export default function Stamp() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (isHovering) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % projects.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isHovering, projects.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
+  };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -81,57 +125,107 @@ export default function Stamp() {
         </div>
       </nav>
 
-      {/* 1. HERO SECTION */}
-      <section className="relative h-screen flex flex-col justify-center items-center px-6 md:px-12 overflow-hidden">
-        {/* Background Image with Parallax feel (fixed) */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-fixed opacity-40 mix-blend-luminosity scale-105"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600150806193-cb72260f8983?auto=format&fit=crop&q=80&w=2000')" }}
-        ></div>
-        {/* Vignette Overlay */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-[#0a0a0a]"></div>
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-start mt-20">
-          <Reveal delay={100}>
-            <p className="text-[#FFD700] font-mono text-sm md:text-base uppercase tracking-[0.3em] mb-6">
-              Birmingham, UK
-            </p>
-          </Reveal>
-          
-          <Reveal delay={300} className="overflow-hidden">
-            <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black uppercase tracking-tighter leading-[0.85] mb-4">
-              STAMP
-            </h1>
-          </Reveal>
-          <Reveal delay={450} className="overflow-hidden">
-            <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black uppercase tracking-tighter leading-[0.85] text-transparent bg-clip-text" style={{ WebkitTextStroke: '2px white' }}>
-              Creative
-            </h1>
-          </Reveal>
-          
-          <Reveal delay={600} className="mt-8 max-w-2xl">
-            <p className="text-xl md:text-3xl text-neutral-400 font-light leading-snug">
-              Creative Director & Visual Storyteller specializing in <span className="text-white font-medium">brand identity</span>, <span className="text-white font-medium">video editing</span>, and <span className="text-white font-medium">photography</span>.
-            </p>
-          </Reveal>
-
-          <Reveal delay={800} className="mt-12">
-            <button 
-              onClick={() => scrollToSection('work')}
-              className="group flex items-center space-x-4 bg-white text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-[#FFD700] transition-all duration-500"
+      {/* 1. HERO CAROUSEL SECTION */}
+      <section className="relative pt-20 md:pt-24 pb-20 px-6 md:px-12 bg-[#0a0a0a] min-h-screen flex items-center">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12 items-stretch">
+            {/* Main Carousel */}
+            <div
+              className="lg:col-span-2 relative overflow-hidden rounded-sm group"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
             >
-              <span>View My Work</span>
-              <div className="bg-black text-white rounded-full p-2 group-hover:rotate-45 transition-transform duration-500">
-                <ArrowUpRight size={18} />
-              </div>
-            </button>
-          </Reveal>
-        </div>
+              <div className="relative h-[400px] md:h-[500px] lg:h-[600px] bg-neutral-900 overflow-hidden">
+                {/* Carousel Images */}
+                {projects.map((project, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-700 ${
+                      index === currentSlide ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <img
+                      src={project.img}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-          <div className="p-3 border border-neutral-700 rounded-full text-neutral-500">
-            <ArrowDown size={20} />
+                {/* Left Arrow */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/50 text-white hover:bg-[#FFD700] hover:text-black transition-all duration-300"
+                >
+                  <ArrowDown size={24} className="rotate-90" />
+                </button>
+
+                {/* Right Arrow */}
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/50 text-white hover:bg-[#FFD700] hover:text-black transition-all duration-300"
+                >
+                  <ArrowDown size={24} className="-rotate-90" />
+                </button>
+
+                {/* Dot Indicators */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
+                  {projects.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentSlide ? 'bg-[#FFD700] w-8' : 'bg-neutral-600 hover:bg-neutral-400'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Project Info Below Carousel */}
+              <div className="bg-neutral-900 p-6 md:p-8 border-t border-neutral-800">
+                <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-wide mb-2">
+                  {projects[currentSlide].title}
+                </h3>
+                <p className="text-neutral-500 font-mono text-sm uppercase tracking-wider">
+                  {projects[currentSlide].category}
+                </p>
+              </div>
+            </div>
+
+            {/* Sidebar - Project Thumbnails */}
+            <div className="lg:col-span-1 flex flex-col space-y-4">
+              {projects.map((project, index) => (
+                <Reveal
+                  key={index}
+                  delay={index * 100}
+                  className="group cursor-pointer"
+                  onClick={() => setCurrentSlide(index)}
+                >
+                  <div className={`relative overflow-hidden rounded-sm transition-all duration-300 ${
+                    index === currentSlide
+                      ? 'ring-2 ring-[#FFD700] scale-105'
+                      : 'hover:ring-2 hover:ring-[#FFD700]/50'
+                  }`}>
+                    <div className="relative h-[150px] md:h-[180px] bg-neutral-900 overflow-hidden">
+                      <img
+                        src={project.img}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className={`absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 ${
+                        index === currentSlide ? 'bg-black/20' : ''
+                      }`}></div>
+                    </div>
+                  </div>
+                  <h4 className={`text-sm md:text-base font-bold uppercase tracking-wide mt-2 transition-colors duration-300 ${
+                    index === currentSlide ? 'text-[#FFD700]' : 'text-white group-hover:text-[#FFD700]'
+                  }`}>
+                    {project.title}
+                  </h4>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
