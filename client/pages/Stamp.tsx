@@ -154,12 +154,22 @@ export default function Stamp() {
             {/* Gradient overlay for text readability */}
             <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-black/30 pointer-events-none" />
 
-            {/* Tagline overlaid bottom-left */}
-            <div className="absolute bottom-16 left-8 md:left-12 z-30 max-w-lg">
-              <Reveal>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight text-white">
-                  Creative Director & Visual Storyteller specializing in brand, video & photography
-                </h2>
+            {/* Brand text overlaid bottom-left */}
+            <div className="absolute bottom-20 left-8 md:left-12 z-30">
+              <Reveal delay={100}>
+                <p className="text-[#FFD700] font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4">
+                  Birmingham, UK
+                </p>
+              </Reveal>
+              <Reveal delay={300}>
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-2">
+                  STAMP
+                </h1>
+              </Reveal>
+              <Reveal delay={450}>
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-transparent bg-clip-text" style={{ WebkitTextStroke: '2px white' }}>
+                  Creative
+                </h1>
               </Reveal>
             </div>
 
