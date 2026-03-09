@@ -48,6 +48,16 @@ export default function Stamp() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
+  // Disable global theme styles that break fixed positioning (transform on body)
+  useEffect(() => {
+    document.documentElement.setAttribute('data-skip-theme', 'true');
+    document.body.setAttribute('data-skip-theme', 'true');
+    return () => {
+      document.documentElement.removeAttribute('data-skip-theme');
+      document.body.removeAttribute('data-skip-theme');
+    };
+  }, []);
+
   const projects = [
     {
       title: "Neon Nights",
@@ -107,10 +117,10 @@ export default function Stamp() {
   };
 
   return (
-    <div className="bg-[#0a0a0a] text-white min-h-screen font-sans selection:bg-[#FFD700] selection:text-black overflow-x-hidden">
+    <div className="bg-[#0a0a0a] text-white min-h-screen font-sans selection:bg-[#FFD700] selection:text-black">
       
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-md py-4 shadow-xl shadow-black/20' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 w-full z-[100] transition-all duration-500 ${scrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-md py-4 shadow-xl shadow-black/20' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="text-xl font-bold tracking-tighter uppercase cursor-pointer" onClick={() => window.scrollTo(0,0)}>
             STAMP <span className="text-[#FFD700]">.</span>
