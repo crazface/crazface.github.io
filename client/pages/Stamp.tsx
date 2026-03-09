@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowDown, ArrowUpRight, Play, Camera, PenTool, Layout, ChevronRight, Quote, Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
+import { projects as allProjects } from '@/lib/projects';
 
 // --- Custom Hook & Component for Scroll Reveal Animations ---
 const Reveal = ({ children, className = "", delay = 0, direction = "up" }) => {
@@ -58,28 +59,19 @@ export default function Stamp() {
     };
   }, []);
 
-  const projects = [
-    {
-      title: "Neon Nights",
-      category: "Video Editing / Color Grading",
-      img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-      title: "Aura Skincare",
-      category: "Brand Identity",
-      img: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-      title: "Monolith Architecture",
-      category: "Photography",
-      img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-      title: "Velocity Motor Co.",
-      category: "Creative Direction",
-      img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200"
-    }
-  ];
+  // Filter to projects with real images (not SVG placeholders)
+  const heroProjects = allProjects
+    .filter(p => p.image.startsWith('https://cdn.builder.io'))
+    .slice(0, 4)
+    .map(p => ({
+      title: p.title,
+      category: p.type,
+      img: p.image,
+      description: p.description || '',
+    }));
+
+  const featuredProjects = allProjects
+    .filter(p => p.image.startsWith('https://cdn.builder.io'));
 
   // Handle Navbar Background on Scroll
   useEffect(() => {
@@ -95,18 +87,18 @@ export default function Stamp() {
     if (isHovering) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % projects.length);
+      setCurrentSlide((prev) => (prev + 1) % heroProjects.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isHovering, projects.length]);
+  }, [isHovering, heroProjects.length]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % projects.length);
+    setCurrentSlide((prev) => (prev + 1) % heroProjects.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
+    setCurrentSlide((prev) => (prev - 1 + heroProjects.length) % heroProjects.length);
   };
 
   const scrollToSection = (id) => {
@@ -146,7 +138,7 @@ export default function Stamp() {
             onClick={nextSlide}
           >
             {/* Cycling Images */}
-            {projects.map((project, index) => (
+            {heroProjects.map((project, index) => (
               <div
                 key={index}
                 className={`absolute inset-0 transition-opacity duration-[1.5s] ease-in-out ${
@@ -210,14 +202,14 @@ export default function Stamp() {
             {/* Current project label */}
             <div className="absolute top-24 left-8 md:left-12 z-30">
               <p className="text-[#FFD700] font-mono text-xs uppercase tracking-[0.3em]">
-                {projects[currentSlide].category}
+                {heroProjects[currentSlide]?.category}
               </p>
             </div>
           </div>
 
           {/* Right Sidebar - Project Cards */}
           <div className="hidden lg:flex lg:w-[35%] flex-col border-l border-neutral-800 overflow-y-auto">
-            {projects.map((project, index) => (
+            {heroProjects.map((project, index) => (
               <div
                 key={index}
                 className={`group cursor-pointer border-b border-neutral-800 transition-all duration-300 ${
@@ -254,7 +246,7 @@ export default function Stamp() {
 
           {/* Mobile sidebar - horizontal scroll */}
           <div className="flex lg:hidden overflow-x-auto gap-4 px-6 py-6 bg-[#0a0a0a] border-t border-neutral-800">
-            {projects.map((project, index) => (
+            {heroProjects.map((project, index) => (
               <div
                 key={index}
                 className="flex-shrink-0 w-48 cursor-pointer group"
@@ -378,36 +370,11 @@ export default function Stamp() {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {[
-            {
-              title: "Neon Nights",
-              category: "Video Editing / Color Grading",
-              img: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1200",
-              tall: false
-            },
-            {
-              title: "Aura Skincare",
-              category: "Brand Identity",
-              img: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&q=80&w=1200",
-              tall: true
-            },
-            {
-              title: "Monolith Architecture",
-              category: "Photography",
-              img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
-              tall: true
-            },
-            {
-              title: "Velocity Motor Co.",
-              category: "Creative Direction",
-              img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200",
-              tall: false
-            }
-          ].map((project, index) => (
-            <Reveal 
-              key={index} 
-              delay={index % 2 === 0 ? 0 : 200} 
-              className={`group cursor-pointer ${project.tall ? 'md:-mt-20' : ''}`}
+          {featuredProjects.map((project, index) => (
+            <Reveal
+              key={project.id}
+              delay={index % 2 === 0 ? 0 : 200}
+              className={`group cursor-pointer ${index % 3 === 1 ? 'md:-mt-20' : ''}`}
             >
               <div className="relative overflow-hidden mb-6 bg-neutral-900">
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
@@ -416,15 +383,15 @@ export default function Stamp() {
                     <ArrowUpRight size={20} />
                   </div>
                 </div>
-                <img 
-                  src={project.img} 
-                  alt={project.title} 
-                  className={`w-full object-cover transition-transform duration-[2s] group-hover:scale-105 ${project.tall ? 'h-[600px]' : 'h-[400px]'}`}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
                 />
               </div>
               <div>
                 <h3 className="text-2xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
-                <p className="text-neutral-500 font-mono text-sm uppercase tracking-wider">{project.category}</p>
+                <p className="text-neutral-500 font-mono text-sm uppercase tracking-wider">{project.type} &mdash; {project.year}</p>
               </div>
             </Reveal>
           ))}
