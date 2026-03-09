@@ -177,15 +177,28 @@ export default function Stamp() {
                 </h1>
               </Reveal>
               <Reveal delay={450}>
-                <h1
-                  className="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85]"
-                  style={{
-                    color: 'transparent',
-                    WebkitTextStroke: '1px rgba(255,255,255,0.9)',
-                  }}
+                <svg
+                  viewBox="0 0 580 90"
+                  className="w-[280px] md:w-[450px] lg:w-[580px] h-auto block"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  Creative
-                </h1>
+                  <text
+                    x="0"
+                    y="78"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.9)"
+                    strokeWidth="1.5"
+                    style={{
+                      fontSize: '96px',
+                      fontWeight: 900,
+                      fontFamily: 'system-ui, -apple-system, sans-serif',
+                      letterSpacing: '-0.05em',
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    Creative
+                  </text>
+                </svg>
               </Reveal>
             </div>
 
