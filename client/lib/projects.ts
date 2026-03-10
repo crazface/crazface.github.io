@@ -140,6 +140,38 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "starlight-beer",
+    title: "Starlight Beer",
+    type: "Graphic Design",
+    year: "2024",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fec0ff16c552a42298ff2ffdf9873ba23",
+    description: "Brand identity for craft beer",
+    role: "Brand Designer",
+    tools: ["Adobe Illustrator"],
+    colors: {
+      primary: "#1e40af",
+      secondary: "#1e3a8a",
+      accent: "#3b82f6",
+    },
+  },
+  {
+    id: "flow",
+    title: "Flow",
+    type: "Graphic Design",
+    year: "2024",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb2cbdca2ddd949cea2195e0fdfd0349b",
+    description: "Modern design project",
+    role: "Designer",
+    tools: ["Adobe Creative Suite"],
+    colors: {
+      primary: "#7c3aed",
+      secondary: "#6d28d9",
+      accent: "#a78bfa",
+    },
+  },
+  {
     id: "old-west-starter-kit",
     title: "Old West Starter Kit",
     type: "Graphic Design",

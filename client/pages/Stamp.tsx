@@ -48,6 +48,7 @@ export default function Stamp() {
   const [scrolled, setScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const [showVideoPhotography, setShowVideoPhotography] = useState(false);
 
   // Disable global theme styles that break fixed positioning (transform on body)
   useEffect(() => {
@@ -83,8 +84,17 @@ export default function Stamp() {
     },
   ];
 
-  const featuredProjects = allProjects
-    .filter(p => p.image.startsWith('https://cdn.builder.io'));
+  // Selected graphic design projects
+  const graphicDesignProjects = allProjects.filter(p =>
+    p.type === "Graphic Design" &&
+    ["fuzed", "starlight-beer", "regenb", "flow", "published-book-cover", "posters-2022", "schtuff-ad-campaign-2022", "old-west-starter-kit"].includes(p.id)
+  );
+
+  // Video & Photography projects
+  const videoPhotographyProjects = allProjects.filter(p =>
+    (p.type === "Video Editing" || p.type === "Photography") &&
+    p.image.startsWith('https://cdn.builder.io')
+  );
 
   // Handle Navbar Background on Scroll
   useEffect(() => {
@@ -386,32 +396,81 @@ export default function Stamp() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {featuredProjects.map((project, index) => (
-            <Reveal
-              key={project.id}
-              delay={index % 2 === 0 ? 0 : 200}
-              className={`group cursor-pointer ${index % 3 === 1 ? 'md:-mt-20' : ''}`}
-            >
-              <div className="relative overflow-hidden mb-6 bg-neutral-900">
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
-                  <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
-                    <span>View Project</span>
-                    <ArrowUpRight size={20} />
+        {/* Graphic Design Section */}
+        <div className="mb-16">
+          <Reveal>
+            <h3 className="text-2xl font-bold uppercase tracking-wide mb-8 text-white">Graphic Design</h3>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            {graphicDesignProjects.map((project, index) => (
+              <Reveal
+                key={project.id}
+                delay={index % 2 === 0 ? 0 : 200}
+                className={`group cursor-pointer ${index % 3 === 1 ? 'md:-mt-20' : ''}`}
+              >
+                <div className="relative overflow-hidden mb-6 bg-neutral-900">
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
+                    <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
+                      <span>View Project</span>
+                      <ArrowUpRight size={20} />
+                    </div>
                   </div>
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
+                  />
                 </div>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
-                />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
-                <p className="text-neutral-500 font-mono text-sm uppercase tracking-wider">{project.type} &mdash; {project.year}</p>
-              </div>
-            </Reveal>
-          ))}
+                <div>
+                  <h3 className="text-2xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
+                  <p className="text-neutral-500 font-mono text-sm uppercase tracking-wider">{project.type} &mdash; {project.year}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* Video & Photography Dropdown Section */}
+        <div className="mt-20">
+          <Reveal>
+            <button
+              onClick={() => setShowVideoPhotography(!showVideoPhotography)}
+              className="flex items-center space-x-3 text-2xl font-bold uppercase tracking-wide text-white hover:text-[#FFD700] transition-colors"
+            >
+              <span>Video & Photography</span>
+              <ChevronRight size={24} className={`transition-transform duration-300 ${showVideoPhotography ? 'rotate-90' : ''}`} />
+            </button>
+          </Reveal>
+
+          {showVideoPhotography && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-8">
+              {videoPhotographyProjects.map((project, index) => (
+                <Reveal
+                  key={project.id}
+                  delay={index % 2 === 0 ? 0 : 200}
+                  className={`group cursor-pointer ${index % 3 === 1 ? 'md:-mt-20' : ''}`}
+                >
+                  <div className="relative overflow-hidden mb-6 bg-neutral-900">
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
+                      <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
+                        <span>View Project</span>
+                        <ArrowUpRight size={20} />
+                      </div>
+                    </div>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
+                    <p className="text-neutral-500 font-mono text-sm uppercase tracking-wider">{project.type} &mdash; {project.year}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
