@@ -221,16 +221,16 @@ export default function Stamp() {
           </div>
 
           {/* Right Sidebar - Project Cards */}
-          <div className="hidden lg:flex lg:w-[35%] flex-col border-l border-neutral-800 overflow-y-auto">
+          <div className="hidden lg:flex lg:w-[35%] flex-col border-l border-neutral-800">
             {heroProjects.map((project, index) => (
               <div
                 key={index}
-                className={`group cursor-pointer border-b border-neutral-800 transition-all duration-300 ${
+                className={`group cursor-pointer border-b border-neutral-800 transition-all duration-300 flex-1 flex flex-col ${
                   index === currentSlide ? 'bg-neutral-900' : 'bg-[#0a0a0a] hover:bg-neutral-900/50'
                 }`}
                 onClick={() => setCurrentSlide(index)}
               >
-                <div className="relative overflow-hidden h-[250px]">
+                <div className="relative overflow-hidden flex-1">
                   <img
                     src={project.img}
                     alt={project.title}
