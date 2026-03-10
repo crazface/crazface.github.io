@@ -62,16 +62,6 @@ export default function Stamp() {
   // Curated hero showcase images
   const heroProjects = [
     {
-      title: "Posters",
-      category: "Graphic Design",
-      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1d3c597df20f4cc09aa51acd3ad1811f",
-    },
-    {
-      title: "Old West Starter Kit",
-      category: "Graphic Design",
-      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F7c12faec0332433bbd308ac97668628a",
-    },
-    {
       title: "Fuzed",
       category: "Graphic Design",
       img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F611420260031498eac697521502f1e03",
