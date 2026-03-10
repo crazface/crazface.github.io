@@ -59,16 +59,39 @@ export default function Stamp() {
     };
   }, []);
 
-  // Filter to projects with real images (not SVG placeholders)
-  const heroProjects = allProjects
-    .filter(p => p.image.startsWith('https://cdn.builder.io'))
-    .slice(0, 4)
-    .map(p => ({
-      title: p.title,
-      category: p.type,
-      img: p.image,
-      description: p.description || '',
-    }));
+  // Curated hero showcase images
+  const heroProjects = [
+    {
+      title: "Posters",
+      category: "Graphic Design",
+      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1d3c597df20f4cc09aa51acd3ad1811f",
+    },
+    {
+      title: "Old West Starter Kit",
+      category: "Graphic Design",
+      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F7c12faec0332433bbd308ac97668628a",
+    },
+    {
+      title: "Fuzed",
+      category: "Graphic Design",
+      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F611420260031498eac697521502f1e03",
+    },
+    {
+      title: "Starlight Beer",
+      category: "Graphic Design",
+      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fec0ff16c552a42298ff2ffdf9873ba23",
+    },
+    {
+      title: "ReGenB",
+      category: "Graphic Design",
+      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6a2e42c5f2f24a21b57c67da2d56e76c",
+    },
+    {
+      title: "Flow",
+      category: "Graphic Design",
+      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb2cbdca2ddd949cea2195e0fdfd0349b",
+    },
+  ];
 
   const featuredProjects = allProjects
     .filter(p => p.image.startsWith('https://cdn.builder.io'));
@@ -217,7 +240,7 @@ export default function Stamp() {
                 }`}
                 onClick={() => setCurrentSlide(index)}
               >
-                <div className="relative overflow-hidden h-[calc((100vh-0px)/4)]">
+                <div className="relative overflow-hidden h-[calc((100vh)/6)]">
                   <img
                     src={project.img}
                     alt={project.title}
