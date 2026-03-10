@@ -240,7 +240,7 @@ export default function Stamp() {
                 }`}
                 onClick={() => setCurrentSlide(index)}
               >
-                <div className="relative overflow-hidden h-[calc((100vh)/6)]">
+                <div className="relative overflow-hidden h-[250px]">
                   <img
                     src={project.img}
                     alt={project.title}
