@@ -91,10 +91,12 @@ export default function Stamp() {
   );
 
   // Video & Photography projects
-  const videoPhotographyProjects = allProjects.filter(p =>
-    (p.type === "Video Editing" || p.type === "Photography") &&
-    p.image.startsWith('https://cdn.builder.io')
-  );
+  const videoPhotographyProjects = allProjects.filter(p => {
+    const isVideoPhotoType = p.type === "Video Editing" || p.type === "Photography";
+    const hasCdnImage = p.image.startsWith('https://cdn.builder.io');
+    const isSelectedVideo = ["leavers-video", "super-friends-intro", "french-toast-tutorial"].includes(p.id);
+    return isVideoPhotoType && (hasCdnImage || isSelectedVideo);
+  });
 
   // Handle Navbar Background on Scroll
   useEffect(() => {
