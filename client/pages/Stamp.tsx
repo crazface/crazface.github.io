@@ -289,12 +289,12 @@ export default function Stamp() {
       <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-[#0a0a0a]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
           <Reveal delay={0} className="md:col-span-5 h-full">
-            <div className="relative group overflow-hidden rounded-sm h-[500px] md:h-[700px]">
+            <div className="relative group overflow-hidden rounded-sm aspect-square">
               <div className="absolute inset-0 bg-[#FFD700] mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity duration-700 z-10"></div>
-              <img 
-                src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe81b7ac7dfb94ba7b069bb4b5a5528dd" 
-                alt="Portrait" 
-                className="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe81b7ac7dfb94ba7b069bb4b5a5528dd"
+                alt="Portrait"
+                className="w-full h-full object-contain grayscale group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
               />
             </div>
           </Reveal>
