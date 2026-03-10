@@ -292,7 +292,7 @@ export default function Stamp() {
             <div className="relative group overflow-hidden rounded-sm h-[500px] md:h-[700px]">
               <div className="absolute inset-0 bg-[#FFD700] mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity duration-700 z-10"></div>
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" 
+                src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe81b7ac7dfb94ba7b069bb4b5a5528dd" 
                 alt="Portrait" 
                 className="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
               />
