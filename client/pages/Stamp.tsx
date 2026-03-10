@@ -301,17 +301,17 @@ export default function Stamp() {
           <div className="md:col-span-7 flex flex-col justify-center">
             <Reveal delay={200}>
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-8">
-                Turning concepts into <span className="text-[#FFD700]">cinematic</span> realities.
+                Building ideas<br/>into <span className="text-[#FFD700]">bold</span><br/>brand identities.
               </h2>
             </Reveal>
             <Reveal delay={300}>
               <p className="text-xl text-neutral-400 font-light leading-relaxed mb-6">
-                I believe that every brand has a pulse. My role as a Creative Director is to find that heartbeat and amplify it through striking visuals, cohesive identity, and compelling narrative.
+                I'm a graphic designer specialising in branding and identity, recently graduating from the Graphic Branding & Identity course at the University of the Arts London. I'm passionate about creating visual identities that help brands communicate clearly and connect with people.
               </p>
             </Reveal>
             <Reveal delay={400}>
               <p className="text-xl text-neutral-400 font-light leading-relaxed">
-                Based in Birmingham, I bridge the gap between strategy and aesthetics, ensuring that what looks beautiful also performs brilliantly. Let's make noise, visually.
+                I enjoy the process of developing ideas, experimenting with typography and layout, and shaping concepts into strong visual systems. Alongside graphic design, I also explore photography, video editing, and 3D work, which keeps my thinking flexible and helps me approach projects from different creative angles.
               </p>
             </Reveal>
             
