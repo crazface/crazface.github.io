@@ -141,7 +141,7 @@ export default function Stamp() {
       </nav>
 
       {/* 1. HERO - AVEC-STYLE BILLBOARD */}
-      <section className="relative h-screen bg-[#0a0a0a]">
+      <section className="relative h-screen bg-[#0a0a0a] overflow-hidden">
         <div className="h-full flex flex-col lg:flex-row">
           {/* Main Billboard Image */}
           <div
@@ -221,16 +221,16 @@ export default function Stamp() {
           </div>
 
           {/* Right Sidebar - Project Cards */}
-          <div className="hidden lg:flex lg:w-[35%] flex-col border-l border-neutral-800">
+          <div className="hidden lg:flex lg:w-[35%] flex-col border-l border-neutral-800 h-screen min-h-0">
             {heroProjects.map((project, index) => (
               <div
                 key={index}
-                className={`group cursor-pointer border-b border-neutral-800 transition-all duration-300 flex-1 flex flex-col ${
+                className={`group cursor-pointer border-b border-neutral-800 transition-all duration-300 flex-1 flex flex-col min-h-0 ${
                   index === currentSlide ? 'bg-neutral-900' : 'bg-[#0a0a0a] hover:bg-neutral-900/50'
                 }`}
                 onClick={() => setCurrentSlide(index)}
               >
-                <div className="relative overflow-hidden flex-1">
+                <div className="relative overflow-hidden flex-1 min-h-0">
                   <img
                     src={project.img}
                     alt={project.title}
@@ -246,8 +246,8 @@ export default function Stamp() {
                     index === currentSlide ? 'opacity-100' : 'opacity-0'
                   }`} />
                 </div>
-                <div className="px-5 py-4">
-                  <h4 className={`text-sm font-bold uppercase tracking-wide transition-colors duration-300 ${
+                <div className="px-5 py-2 shrink-0">
+                  <h4 className={`text-xs font-bold uppercase tracking-wide transition-colors duration-300 ${
                     index === currentSlide ? 'text-[#FFD700]' : 'text-white group-hover:text-[#FFD700]'
                   }`}>
                     {project.title}
