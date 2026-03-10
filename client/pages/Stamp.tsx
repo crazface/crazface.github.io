@@ -173,7 +173,7 @@ export default function Stamp() {
             <div className="absolute bottom-20 left-8 md:left-12 z-30">
               <Reveal delay={100}>
                 <p className="text-[#FFD700] font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4">
-                  Birmingham, UK
+                  London, UK
                 </p>
               </Reveal>
               <Reveal delay={300}>
@@ -306,7 +306,7 @@ export default function Stamp() {
             </Reveal>
             <Reveal delay={300}>
               <p className="text-xl text-neutral-400 font-light leading-relaxed mb-6">
-                I'm a graphic designer specialising in branding and identity, recently graduating from the Graphic Branding & Identity course at the University of the Arts London. I'm passionate about creating visual identities that help brands communicate clearly and connect with people.
+                I'm Charlie Stamp, a graphic designer specialising in branding and identity, recently graduating from the Graphic Branding & Identity course at the University of the Arts London. I'm passionate about creating visual identities that help brands communicate clearly and connect with people.
               </p>
             </Reveal>
             <Reveal delay={400}>
@@ -317,12 +317,8 @@ export default function Stamp() {
             
             <Reveal delay={500} className="mt-12 flex space-x-8">
               <div className="flex flex-col">
-                <span className="text-4xl font-bold text-white mb-2">10+</span>
+                <span className="text-4xl font-bold text-white mb-2">5+</span>
                 <span className="text-sm text-neutral-500 uppercase tracking-wider">Years Exp.</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-4xl font-bold text-white mb-2">150+</span>
-                <span className="text-sm text-neutral-500 uppercase tracking-wider">Projects</span>
               </div>
             </Reveal>
           </div>
