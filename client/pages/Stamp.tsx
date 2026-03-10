@@ -337,8 +337,8 @@ export default function Stamp() {
                   <span className="text-sm text-neutral-500 uppercase tracking-wider">Years Exp.</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-lg font-bold text-white leading-tight">BA (HONS)</span>
-                  <span className="text-sm text-neutral-400 uppercase tracking-wider">Graphic Branding & Identity</span>
+                  <span className="text-3xl font-bold text-white leading-tight">BA (HONS)</span>
+                  <span className="text-base text-neutral-400 uppercase tracking-wider">Graphic Branding & Identity</span>
                 </div>
               </div>
             </Reveal>
