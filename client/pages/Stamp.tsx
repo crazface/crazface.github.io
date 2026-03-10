@@ -349,17 +349,17 @@ export default function Stamp() {
               {
                 icon: <PenTool size={40} strokeWidth={1.5} />,
                 title: "Brand Identity",
-                desc: "Crafting distinct visual languages, logos, and style guides that ensure your brand stands out in a crowded market."
+                desc: "Branding is where my passion for design is strongest. I enjoy shaping ideas into distinctive visual identities through typography, layout, and concept-driven thinking, creating brands that feel clear, intentional, and memorable."
               },
               {
                 icon: <Play size={40} strokeWidth={1.5} />,
                 title: "Video Editing",
-                desc: "Cinematic post-production, color grading, and dynamic cutting to tell stories that capture and hold attention."
+                desc: "Video editing is another creative outlet where I enjoy shaping rhythm, pacing, and atmosphere. I love the process of turning raw footage into something engaging and cinematic."
               },
               {
                 icon: <Camera size={40} strokeWidth={1.5} />,
                 title: "Photography",
-                desc: "High-end commercial, architectural, and lifestyle photography that perfectly aligns with your brand's aesthetic."
+                desc: "Photography is a space where I explore creativity more freely, capturing light, composition, and moments that inspire my visual thinking and often influence my design work."
               }
             ].map((service, index) => (
               <Reveal key={index} delay={index * 150} className="group cursor-pointer">
