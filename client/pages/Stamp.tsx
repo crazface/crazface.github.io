@@ -315,12 +315,6 @@ export default function Stamp() {
               </p>
             </Reveal>
             
-            <Reveal delay={500} className="mt-12 flex space-x-8">
-              <div className="flex flex-col">
-                <span className="text-4xl font-bold text-white mb-2">5+</span>
-                <span className="text-sm text-neutral-500 uppercase tracking-wider">Years Exp.</span>
-              </div>
-            </Reveal>
           </div>
         </div>
       </section>
@@ -334,6 +328,17 @@ export default function Stamp() {
               <p className="hidden md:block text-neutral-400 font-mono uppercase tracking-widest text-sm">Capabilities</p>
             </div>
           </Reveal>
+
+          <div className="mb-12">
+            <Reveal delay={100}>
+              <div className="flex items-center space-x-8">
+                <div className="flex flex-col">
+                  <span className="text-5xl font-bold text-white mb-2">5+</span>
+                  <span className="text-sm text-neutral-500 uppercase tracking-wider">Years Exp.</span>
+                </div>
+              </div>
+            </Reveal>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
