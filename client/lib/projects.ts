@@ -31,7 +31,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2025",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1cae4b2af07e49f1b8f60df05864d17a",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F70ca1e45157e402da205498655746b1d",
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1e15615a7f8041c5b290ff9d6b6b14dc",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fba4b3743e61947488aa6e0867d99c9d8",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2024",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F94a591128cba4298a326e975eabf6a55",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab1b0dd848c043ec899d236c31a10043",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0465afe7575f43219f2168ad9b16ab15",
     description: "Modern brand identity for fusion restaurant concept",
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2026",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fec0ff16c552a42298ff2ffdf9873ba23",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab3595764e0b4b64a80df34cd5a09068",
     description: "Brand identity for craft beer",
     role: "Brand Designer",
     tools: ["Adobe Illustrator"],
@@ -161,7 +161,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2026",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb2cbdca2ddd949cea2195e0fdfd0349b",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F98182149dc1f4da2b59f66f4ce6ff73c",
     description: "Modern design project",
     role: "Designer",
     tools: ["Adobe Creative Suite"],
@@ -200,7 +200,7 @@ export const projects: Project[] = [
     title: "Leavers Video",
     type: "Video Editing",
     year: "2023",
-    image: "/images/video-editing-1.svg",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3ee592a895db4d8a8c0a902e5f25898b",
     appIcon: "/images/app-icon-video.svg",
     gallery: ["https://youtu.be/TQAnHMEcR3Y"],
     description: "Leavers ceremony video",
@@ -217,7 +217,7 @@ export const projects: Project[] = [
     title: "The Super Friends Intro",
     type: "Video Editing",
     year: "2023",
-    image: "/images/video-editing-1.svg",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb5fdf99633e747bb9100dce5b8b9bc2b",
     appIcon: "/images/app-icon-video.svg",
     gallery: [
       "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0bb658a896cb4c1d943409eeeb014811%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=0bb658a896cb4c1d943409eeeb014811&alt=media&optimized=true",
@@ -361,7 +361,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2024",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff070ce8c04d14acd8fb7fd40a69cb6c2",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa17a325011b64a50a16dd43b6c6786ba",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F55176dffb7e640618937b93cbbd983ea",
     description: "Complete branding package for artisan kitchen studio",
@@ -390,7 +390,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2023",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd20d487e035b4360ba74e9b310c89d8d",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb0474b3c2cd54c1eae57dc5ddd147be6",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5f959d69d0304d3eb460cf93ca388639",
     description: "Cover design for a published book.",
@@ -495,7 +495,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2022",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3bcd1f3ab80d4eb4b232e075cc1f7b20",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd492c9d47d2b419fbe836a3ed6e52c04",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F635e3c838b264f0a92507b8484b45f33",
     description: "Advertising campaign for Schtuff",
@@ -524,7 +524,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2022",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6a1fa9529eea454e9d9e82be72289910",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ffa91d0086b844a8ba68c39b2434a2c6e",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F952d7fc52d0a44ea8bb44a6f429a9dfe",
     gallery: [
