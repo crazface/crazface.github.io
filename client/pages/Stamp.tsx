@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowDown, ArrowUpRight, Play, Camera, PenTool, Layout, ChevronRight, Quote, Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 import { projects as allProjects } from '@/lib/projects';
 
@@ -417,23 +418,25 @@ export default function Stamp() {
                 delay={index % 2 === 0 ? 0 : 200}
                 className="group cursor-pointer"
               >
-                <div className="relative overflow-hidden mb-5 bg-neutral-900">
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
-                    <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
-                      <span>View Project</span>
-                      <ArrowUpRight size={20} />
+                <Link to={`/project/${project.id}`}>
+                  <div className="relative overflow-hidden mb-5 bg-neutral-900">
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
+                      <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
+                        <span>View Project</span>
+                        <ArrowUpRight size={20} />
+                      </div>
                     </div>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
+                    />
                   </div>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
-                  <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
-                </div>
+                  <div>
+                    <h3 className="text-xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
+                    <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
+                  </div>
+                </Link>
               </Reveal>
             ))}
           </div>
@@ -460,23 +463,25 @@ export default function Stamp() {
                   delay={index % 2 === 0 ? 0 : 200}
                   className="group cursor-pointer"
                 >
-                  <div className="relative overflow-hidden mb-5 bg-neutral-900">
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
-                      <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
-                        <span>View Project</span>
-                        <ArrowUpRight size={20} />
+                  <Link to={`/project/${project.id}`}>
+                    <div className="relative overflow-hidden mb-5 bg-neutral-900">
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
+                        <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
+                          <span>View Project</span>
+                          <ArrowUpRight size={20} />
+                        </div>
                       </div>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
+                      />
                     </div>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
-                    <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
-                  </div>
+                    <div>
+                      <h3 className="text-xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
+                      <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
+                    </div>
+                  </Link>
                 </Reveal>
               ))}
             </div>
