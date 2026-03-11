@@ -553,6 +553,21 @@ export const projects: Project[] = [
     role: "Designer",
     tools: ["Illustrator", "InDesign"],
   },
+  {
+    id: "inside-stories",
+    title: "Inside Stories",
+    type: "Graphic Design",
+    year: "2025",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0a0a0a",
+    description: "Coming soon",
+    role: "Designer",
+    tools: ["Adobe Creative Suite"],
+    colors: {
+      primary: "#000000",
+      secondary: "#333333",
+      accent: "#666666",
+    },
+  },
 ];
 
 export const categories = [
