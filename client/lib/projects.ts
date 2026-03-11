@@ -558,7 +558,7 @@ export const projects: Project[] = [
     title: "Inside Stories",
     type: "Graphic Design",
     year: "2025",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0a0a0a",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3310395463964a70981f1998d64517bb",
     description: "Coming soon",
     role: "Designer",
     tools: ["Adobe Creative Suite"],
