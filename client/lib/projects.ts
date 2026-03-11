@@ -202,7 +202,7 @@ export const projects: Project[] = [
     year: "2023",
     image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3ee592a895db4d8a8c0a902e5f25898b",
     appIcon: "/images/app-icon-video.svg",
-    gallery: ["https://youtu.be/TQAnHMEcR3Y"],
+    gallery: ["https://youtu.be/Ww082YgdLFM"],
     description: "Leavers ceremony video",
     role: "Editor",
     tools: ["Premiere Pro", "After Effects"],
