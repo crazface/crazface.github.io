@@ -205,29 +205,21 @@ export default function Stamp() {
                   xmlns="http://www.w3.org/2000/svg"
                   preserveAspectRatio="xMinYMid meet"
                 >
-                  <defs>
-                    <filter id="no-aliasing">
-                      <feGaussianBlur in="SourceGraphic" stdDeviation="0" />
-                    </filter>
-                  </defs>
                   <text
                     x="0"
                     y="78"
                     fill="none"
                     stroke="rgba(255,255,255,0.9)"
-                    strokeWidth="1.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    paintOrder="stroke"
-                    filter="url(#no-aliasing)"
+                    strokeWidth="1.5"
+                    strokeLinecap="butt"
+                    strokeLinejoin="miter"
                     style={{
                       fontSize: '96px',
                       fontWeight: 900,
-                      fontFamily: 'system-ui, -apple-system, sans-serif',
+                      fontFamily: 'Arial, Helvetica, sans-serif',
                       letterSpacing: '-0.05em',
                       textTransform: 'uppercase',
-                      WebkitFontSmoothing: 'antialiased',
-                      MozOsxFontSmoothing: 'grayscale'
+                      paintOrder: 'stroke'
                     }}
                   >
                     Creative
