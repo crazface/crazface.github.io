@@ -84,19 +84,23 @@ export default function Stamp() {
     },
   ];
 
-  // Selected graphic design projects
-  const graphicDesignProjects = allProjects.filter(p =>
-    p.type === "Graphic Design" &&
-    ["fuzed", "starlight-beer", "regenb", "flow", "published-book-cover", "posters-2022", "schtuff-ad-campaign-2022", "old-west-starter-kit"].includes(p.id)
-  );
+  // Selected graphic design projects sorted chronologically
+  const graphicDesignProjects = allProjects
+    .filter(p =>
+      p.type === "Graphic Design" &&
+      ["fuzed", "starlight-beer", "regenb", "flow", "published-book-cover", "posters-2022", "schtuff-ad-campaign-2022", "old-west-starter-kit"].includes(p.id)
+    )
+    .sort((a, b) => parseInt(a.year) - parseInt(b.year));
 
-  // Video & Photography projects
-  const videoPhotographyProjects = allProjects.filter(p => {
-    const isVideoPhotoType = p.type === "Video Editing" || p.type === "Photography";
-    const hasCdnImage = p.image.startsWith('https://cdn.builder.io');
-    const isSelectedVideo = ["leavers-video", "super-friends-intro", "french-toast-tutorial"].includes(p.id);
-    return isVideoPhotoType && (hasCdnImage || isSelectedVideo);
-  });
+  // Video & Photography projects sorted chronologically
+  const videoPhotographyProjects = allProjects
+    .filter(p => {
+      const isVideoPhotoType = p.type === "Video Editing" || p.type === "Photography";
+      const hasCdnImage = p.image.startsWith('https://cdn.builder.io');
+      const isSelectedVideo = ["leavers-video", "super-friends-intro", "french-toast-tutorial"].includes(p.id);
+      return isVideoPhotoType && (hasCdnImage || isSelectedVideo);
+    })
+    .sort((a, b) => parseInt(b.year) - parseInt(a.year));
 
   // Handle Navbar Background on Scroll
   useEffect(() => {
