@@ -177,7 +177,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2024",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F574ad34b2e66478bb5cee94023aff75b",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1342f8dceaaf4e28aa664b327e20416b?format=webp&width=800&height=1200",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0cf5f83875634d468081c91fb3dab076",
     description: "Western-themed design assets and brand kit",
@@ -274,7 +274,7 @@ export const projects: Project[] = [
     title: "French Toast Tutorial",
     type: "Video Editing",
     year: "2024",
-    image: "/images/video-editing-1.svg",
+    image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F10b77034320d4661971708b64b48026e",
     appIcon: "/images/app-icon-video.svg",
     gallery: [
       "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F593b0c3d9d04448398602c82d24ff6ac%2Fcompressed?apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6&token=593b0c3d9d04448398602c82d24ff6ac&alt=media&optimized=true",
