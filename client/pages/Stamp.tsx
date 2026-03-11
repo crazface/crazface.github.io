@@ -116,7 +116,7 @@ export default function Stamp() {
   const graphicDesignProjects = allProjects
     .filter(p =>
       p.type === "Graphic Design" &&
-      ["fuzed", "starlight-beer", "regenb", "flow", "published-book-cover", "posters-2022", "schtuff-ad-campaign-2022", "old-west-starter-kit"].includes(p.id)
+      ["fuzed", "starlight-beer", "regenb", "flow", "huel-rebrand", "published-book-cover", "posters-2022", "schtuff-ad-campaign-2022", "old-west-starter-kit"].includes(p.id)
     )
     .sort((a, b) => parseInt(b.year) - parseInt(a.year));
 
@@ -472,6 +472,22 @@ export default function Stamp() {
                 </Link>
               </Reveal>
             ))}
+
+            {/* More Soon Card */}
+            <Reveal
+              delay={graphicDesignProjects.length % 2 === 0 ? 0 : 200}
+              className="cursor-default"
+            >
+              <div className="relative overflow-hidden mb-5 bg-neutral-900 border border-dashed border-neutral-700">
+                <div className="w-full h-[400px] flex items-center justify-center">
+                  <p className="text-lg font-bold uppercase tracking-wide text-neutral-500">More Soon</p>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold uppercase tracking-wide mb-1 text-neutral-600">Untitled</h3>
+                <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">Coming Soon</p>
+              </div>
+            </Reveal>
           </div>
         </div>
 
