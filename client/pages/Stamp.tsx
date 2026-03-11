@@ -399,18 +399,21 @@ export default function Stamp() {
         </Reveal>
 
         {/* Graphic Design Section */}
-        <div className="mb-16">
+        <div className="mb-20">
           <Reveal>
-            <h3 className="text-2xl font-bold uppercase tracking-wide mb-8 text-white">Graphic Design</h3>
+            <div className="flex items-center space-x-4 mb-12">
+              <div className="w-8 h-[2px] bg-[#FFD700]"></div>
+              <h3 className="text-lg font-bold uppercase tracking-[0.2em] text-neutral-400">Graphic Design</h3>
+            </div>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-16">
             {graphicDesignProjects.map((project, index) => (
               <Reveal
                 key={project.id}
                 delay={index % 2 === 0 ? 0 : 200}
-                className={`group cursor-pointer ${index % 3 === 1 ? 'md:-mt-20' : ''}`}
+                className="group cursor-pointer"
               >
-                <div className="relative overflow-hidden mb-6 bg-neutral-900">
+                <div className="relative overflow-hidden mb-5 bg-neutral-900">
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
                     <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
                       <span>View Project</span>
@@ -424,8 +427,8 @@ export default function Stamp() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
-                  <p className="text-neutral-500 font-mono text-sm uppercase tracking-wider">{project.type} &mdash; {project.year}</p>
+                  <h3 className="text-xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
+                  <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
                 </div>
               </Reveal>
             ))}
@@ -433,26 +436,27 @@ export default function Stamp() {
         </div>
 
         {/* Video & Photography Dropdown Section */}
-        <div className="mt-20">
+        <div className="pt-16 border-t border-neutral-800">
           <Reveal>
             <button
               onClick={() => setShowVideoPhotography(!showVideoPhotography)}
-              className="flex items-center space-x-3 text-2xl font-bold uppercase tracking-wide text-white hover:text-[#FFD700] transition-colors"
+              className="flex items-center space-x-4 mb-12 group"
             >
-              <span>Video & Photography</span>
-              <ChevronRight size={24} className={`transition-transform duration-300 ${showVideoPhotography ? 'rotate-90' : ''}`} />
+              <div className="w-8 h-[2px] bg-[#FFD700]"></div>
+              <span className="text-lg font-bold uppercase tracking-[0.2em] text-neutral-400 group-hover:text-[#FFD700] transition-colors">Video & Photography</span>
+              <ChevronRight size={18} className={`text-neutral-500 transition-transform duration-300 ${showVideoPhotography ? 'rotate-90' : ''}`} />
             </button>
           </Reveal>
 
           {showVideoPhotography && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-16">
               {videoPhotographyProjects.map((project, index) => (
                 <Reveal
                   key={project.id}
                   delay={index % 2 === 0 ? 0 : 200}
-                  className={`group cursor-pointer ${index % 3 === 1 ? 'md:-mt-20' : ''}`}
+                  className="group cursor-pointer"
                 >
-                  <div className="relative overflow-hidden mb-6 bg-neutral-900">
+                  <div className="relative overflow-hidden mb-5 bg-neutral-900">
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
                       <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
                         <span>View Project</span>
@@ -466,8 +470,8 @@ export default function Stamp() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
-                    <p className="text-neutral-500 font-mono text-sm uppercase tracking-wider">{project.type} &mdash; {project.year}</p>
+                    <h3 className="text-xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
+                    <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
                   </div>
                 </Reveal>
               ))}
