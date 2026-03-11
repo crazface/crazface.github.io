@@ -76,7 +76,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2024",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F524fadc829364ac1849ffb3b52fc3564",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb9d7b90abbb44eaca2137bcab426f6dd",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd9a90c35e888472095e8298ac0e7aef6",
     description: "A reimagining of the Huel brand focused on clarity, energy, and everyday health.",
