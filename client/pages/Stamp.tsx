@@ -88,21 +88,25 @@ export default function Stamp() {
   // Sidebar images (right side + below on mobile, new uploads)
   const sidebarProjects = [
     {
+      id: "fuzed",
       title: "Fuzed",
       category: "Graphic Design",
       img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab1b0dd848c043ec899d236c31a10043",
     },
     {
+      id: "starlight-beer",
       title: "Starlight Beer",
       category: "Graphic Design",
       img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab3595764e0b4b64a80df34cd5a09068",
     },
     {
+      id: "regenb",
       title: "ReGenB",
       category: "Graphic Design",
       img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F70ca1e45157e402da205498655746b1d",
     },
     {
+      id: "flow",
       title: "Flow",
       category: "Graphic Design",
       img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F98182149dc1f4da2b59f66f4ce6ff73c",
@@ -268,8 +272,9 @@ export default function Stamp() {
           {/* Right Sidebar - Project Cards */}
           <div className="hidden lg:flex lg:w-[35%] flex-col border-l border-neutral-800 h-screen min-h-0">
             {sidebarProjects.map((project, index) => (
-              <div
+              <Link
                 key={index}
+                to={`/project/${project.id}`}
                 className={`group cursor-pointer border-b border-neutral-800 transition-all duration-300 flex-1 flex flex-col min-h-0 ${
                   index === currentSlide ? 'bg-neutral-900' : 'bg-[#0a0a0a] hover:bg-neutral-900/50'
                 }`}
@@ -298,15 +303,16 @@ export default function Stamp() {
                     {project.title}
                   </h4>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
           {/* Mobile sidebar - horizontal scroll */}
           <div className="flex lg:hidden overflow-x-auto gap-4 px-6 py-6 bg-[#0a0a0a] border-t border-neutral-800">
             {sidebarProjects.map((project, index) => (
-              <div
+              <Link
                 key={index}
+                to={`/project/${project.id}`}
                 className="flex-shrink-0 w-48 cursor-pointer group"
                 onClick={() => setCurrentSlide(index)}
               >
@@ -324,7 +330,7 @@ export default function Stamp() {
                 }`}>
                   {project.title}
                 </h4>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
