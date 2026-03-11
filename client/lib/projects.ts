@@ -76,7 +76,7 @@ export const projects: Project[] = [
     type: "Graphic Design",
     year: "2024",
     image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0f8ce88b154f4108ad614046b5ab6e21",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F524fadc829364ac1849ffb3b52fc3564",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd9a90c35e888472095e8298ac0e7aef6",
     description: "A reimagining of the Huel brand focused on clarity, energy, and everyday health.",
@@ -117,6 +117,9 @@ export const projects: Project[] = [
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0465afe7575f43219f2168ad9b16ab15",
     description: "Modern brand identity for fusion restaurant concept",
+    longDescription: `<p>Fuzed is a gender-neutral fashion brand concept developed through a collaborative team project exploring inclusivity and self-expression in fashion. Working closely within the group, I helped guide the creative direction and contributed to key decisions shaping the brand's identity. The project involved developing the brand story, manifesto, logo, colour palette, and producing a printed editorial-style lookbook.</p>
+
+<p>I played a major role in the visual development of the brand, including logo design, creative direction for the photoshoot, image editing, and the layout of the final lookbook. The outcome highlights strong teamwork, creative collaboration, and my ability to help lead design decisions while delivering a cohesive brand.</p>`,
     role: "Brand Designer",
     tools: ["Adobe Illustrator", "Figma"],
     colors: {
@@ -147,6 +150,11 @@ export const projects: Project[] = [
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab3595764e0b4b64a80df34cd5a09068",
     description: "Brand identity for craft beer",
+    longDescription: `<p>Starlight Beer is a beer brand concept created to help LGBTQ+ people and their allies more easily identify welcoming nightlife spaces. The idea emerged from recognising that inclusive venues exist, but they are not always clearly visible. Starlight acts as a guiding signal people can trust when choosing where to spend a night out, helping make inclusive spaces more visible within nightlife culture.</p>
+
+<p>The project involved developing a full brand identity, including logo design, colour and typography systems, packaging concepts, and a visible certification mark used by venues. Supporting materials such as campaign visuals, bar tap branding, a digital platform concept, and environmental applications were also created to demonstrate how the brand could exist across nightlife environments.</p>
+
+<p>The outcome demonstrates how a drinks brand can go beyond product and act as a visible signal of inclusion, combining community-driven certification with a bold, nightlife-inspired visual language.</p>`,
     role: "Brand Designer",
     tools: ["Adobe Illustrator"],
     colors: {
@@ -163,6 +171,9 @@ export const projects: Project[] = [
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F98182149dc1f4da2b59f66f4ce6ff73c",
     description: "Modern design project",
+    longDescription: `<p>Flow is a relaxation drink brand concept designed to encourage slower, more intentional evening routines. Responding to fast-paced lifestyles and products that promote constant productivity, Flow reframes relaxation as a simple, comforting ritual. The project centred around a vanilla-flavoured powder drink mixed with warm milk, using calming ingredients such as magnesium glycinate and L-theanine.</p>
+
+<p>The work included developing a full brand identity, designing packaging and mascot-led visuals, creating lifestyle merchandise, and producing campaign imagery. The outcome demonstrates how wellness products can feel approachable and comforting while maintaining a playful, character-led visual language.</p>`,
     role: "Designer",
     tools: ["Adobe Creative Suite"],
     colors: {
