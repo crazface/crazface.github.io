@@ -84,13 +84,13 @@ export default function Stamp() {
     },
   ];
 
-  // Selected graphic design projects sorted chronologically
+  // Selected graphic design projects sorted chronologically (newest first)
   const graphicDesignProjects = allProjects
     .filter(p =>
       p.type === "Graphic Design" &&
       ["fuzed", "starlight-beer", "regenb", "flow", "published-book-cover", "posters-2022", "schtuff-ad-campaign-2022", "old-west-starter-kit"].includes(p.id)
     )
-    .sort((a, b) => parseInt(a.year) - parseInt(b.year));
+    .sort((a, b) => parseInt(b.year) - parseInt(a.year));
 
   // Video & Photography projects sorted chronologically
   const videoPhotographyProjects = allProjects
