@@ -80,7 +80,7 @@ export default function Stamp() {
     {
       title: "Flow",
       category: "Graphic Design",
-      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb2cbdca2ddd949cea2195e0fdfd0349b",
+      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fc12304d1ee724c739d6181013c47391d",
     },
   ];
 
