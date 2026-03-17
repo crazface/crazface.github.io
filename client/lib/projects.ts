@@ -560,6 +560,11 @@ export const projects: Project[] = [
     year: "2025",
     image: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3310395463964a70981f1998d64517bb",
     description: "Coming soon",
+    longDescription: `<p>Inside Stories is a global documentary streaming platform concept developed from a Frog Co (Capgemini) brief, with feedback from industry professionals throughout the process. The project responds to a gap in streaming by focusing on authentic, locally made stories that are often overlooked.</p>
+
+<p>I created a full brand identity, including logo, typography, visual system, campaign work, and a map-based discovery feature that encourages users to explore stories by location. The platform is built around the idea of amplifying unheard voices while supporting creators through initiatives like a funding model.</p>
+
+<p>A key challenge was defining a clear and distinctive visual direction. Through iteration and feedback, I refined the brand into a more human, accessible system that effectively communicates its purpose across digital and physical touchpoints.</p>`,
     role: "Designer",
     tools: ["Adobe Creative Suite"],
     colors: {
