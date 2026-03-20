@@ -307,82 +307,100 @@ function ProjectGallery({ project }: { project: Project }) {
     const items = gallery.slice(0, 9);
     while (items.length < 9) items.push(project.image);
     return (
-      <div className="grid grid-cols-3 gap-4">
-        {items.map((src, idx) => (
-          <div key={idx} className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "1/1" }}>
-            <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-          </div>
-        ))}
-      </div>
+      <>
+        <div className="grid grid-cols-3 gap-4">
+          {items.map((src, idx) => (
+            <button key={idx} className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(src)}>
+              <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </button>
+          ))}
+        </div>
+        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
+      </>
     );
   }
 
   // Cacophony - single centered square
   if (project.id === "cacophony-album-cover") {
     return (
-      <div className="flex justify-center">
-        <div className="overflow-hidden border border-neutral-800 max-w-[720px] w-full" style={{ aspectRatio: "1/1" }}>
-          <img src={gallery[0] || project.image} alt={project.title} className="w-full h-full object-cover" />
+      <>
+        <div className="flex justify-center">
+          <button className="overflow-hidden border border-neutral-800 max-w-[720px] w-full cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[0])}>
+            <img src={gallery[0] || project.image} alt={project.title} className="w-full h-full object-cover" />
+          </button>
         </div>
-      </div>
+        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
+      </>
     );
   }
 
   // Published Book Cover - two images side by side
   if (project.id === "published-book-cover") {
     return (
-      <div className="flex flex-col md:flex-row items-stretch gap-6">
-        <div className="overflow-hidden border border-neutral-800 flex-1" style={{ aspectRatio: "3/4" }}>
-          <img src={gallery[0] || project.image} alt={project.title} className="w-full h-full object-cover" />
+      <>
+        <div className="flex flex-col md:flex-row items-stretch gap-6">
+          <button className="overflow-hidden border border-neutral-800 flex-1 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "3/4" }} onClick={() => setSelectedImage(gallery[0])}>
+            <img src={gallery[0] || project.image} alt={project.title} className="w-full h-full object-cover" />
+          </button>
+          <button className="overflow-hidden border border-neutral-800 flex-1 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[1])}>
+            <img src={gallery[1] || project.image} alt={`${project.title} secondary`} className="w-full h-full object-cover" />
+          </button>
         </div>
-        <div className="overflow-hidden border border-neutral-800 flex-1" style={{ aspectRatio: "1/1" }}>
-          <img src={gallery[1] || project.image} alt={`${project.title} secondary`} className="w-full h-full object-cover" />
-        </div>
-      </div>
+        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
+      </>
     );
   }
 
   // Posters - 3:4 tiles
   if (project.id === "posters-2022") {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {gallery.map((src, idx) => (
-          <div key={idx} className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "3/4" }}>
-            <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-          </div>
-        ))}
-      </div>
+      <>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {gallery.map((src, idx) => (
+            <button key={idx} className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "3/4" }} onClick={() => setSelectedImage(src)}>
+              <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </button>
+          ))}
+        </div>
+        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
+      </>
     );
   }
 
   // Old West - 3:2 landscape
   if (project.id === "old-west-starter-kit") {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {gallery.map((src, idx) => (
-          <div key={idx} className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "3/2" }}>
-            <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-          </div>
-        ))}
-      </div>
+      <>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {gallery.map((src, idx) => (
+            <button key={idx} className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "3/2" }} onClick={() => setSelectedImage(src)}>
+              <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </button>
+          ))}
+        </div>
+        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
+      </>
     );
   }
 
   // Pisk Kitchen - large left + 3 stacked right
   if (project.id === "pisk-kitchen") {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="md:col-span-3 overflow-hidden border border-neutral-800" style={{ aspectRatio: "1/1" }}>
-          <img src={gallery[0] || project.image} alt={project.title} className="w-full h-full object-cover" />
+      <>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <button className="md:col-span-3 overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[0])}>
+            <img src={gallery[0] || project.image} alt={project.title} className="w-full h-full object-cover" />
+          </button>
+          <div className="md:col-span-1 grid grid-rows-3 gap-4">
+            {[1, 2, 3].map((i) => (
+              <button key={i} className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[i])}>
+                <img src={gallery[i] || project.image} alt={`${project.title} ${i}`} className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="md:col-span-1 grid grid-rows-3 gap-4">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "1/1" }}>
-              <img src={gallery[i] || project.image} alt={`${project.title} ${i}`} className="w-full h-full object-cover" />
-            </div>
-          ))}
-        </div>
-      </div>
+        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
+      </>
     );
   }
 
@@ -456,26 +474,7 @@ function ProjectGallery({ project }: { project: Project }) {
           )}
         </div>
 
-        {/* Lightbox Modal */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
-            onClick={() => setSelectedImage(null)}
-          >
-            <button
-              className="absolute top-4 right-4 text-white hover:text-[#FFD700] transition-colors text-3xl font-bold z-50"
-              onClick={() => setSelectedImage(null)}
-            >
-              ×
-            </button>
-            <img
-              src={selectedImage}
-              alt="Enlarged view"
-              className="max-w-full max-h-[90vh] object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-        )}
+        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
       </>
     );
   }
@@ -483,33 +482,63 @@ function ProjectGallery({ project }: { project: Project }) {
   // Photography - 2:3 portrait tiles
   if (project.type === "Photography") {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {gallery.map((src, idx) => (
-          <div key={idx} className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "2/3" }}>
-            <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-          </div>
-        ))}
-      </div>
+      <>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {gallery.map((src, idx) => (
+            <button key={idx} className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "2/3" }} onClick={() => setSelectedImage(src)}>
+              <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </button>
+          ))}
+        </div>
+        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
+      </>
     );
   }
 
   // Default gallery - masonry-like grid
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" style={{ gridAutoRows: "220px" }}>
-      {gallery.map((src, idx) => {
-        const isTall = idx === 2 || idx === 3;
-        return (
-          <div key={idx} className={`overflow-hidden border border-neutral-800 ${isTall ? "md:row-span-2" : ""}`}>
-            <img
-              src={src}
-              alt={`${project.title} ${idx + 1}`}
-              className={`w-full ${isTall ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
-            />
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" style={{ gridAutoRows: "220px" }}>
+        {gallery.map((src, idx) => {
+          const isTall = idx === 2 || idx === 3;
+          return (
+            <button key={idx} className={`overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity ${isTall ? "md:row-span-2" : ""}`} onClick={() => setSelectedImage(src)}>
+              <img
+                src={src}
+                alt={`${project.title} ${idx + 1}`}
+                className={`w-full ${isTall ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
+              />
+            </button>
+          );
+        })}
+      </div>
+      <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
+    </>
   );
+}
+
+// Reusable Lightbox Component
+function GalleryLightbox({ selectedImage, onClose }: { selectedImage: string | null; onClose: () => void }) {
+  return selectedImage ? (
+    <div
+      className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <button
+        className="fixed top-8 right-8 text-[#FFD700] hover:text-white transition-colors text-5xl font-bold z-[51] bg-black/50 rounded-full w-16 h-16 flex items-center justify-center"
+        onClick={onClose}
+        aria-label="Close"
+      >
+        ×
+      </button>
+      <img
+        src={selectedImage}
+        alt="Enlarged view"
+        className="max-w-full max-h-[90vh] object-contain"
+        onClick={(e) => e.stopPropagation()}
+      />
+    </div>
+  ) : null;
 }
 
 function HuelExtras() {
