@@ -389,23 +389,41 @@ function ProjectGallery({ project }: { project: Project }) {
   if (project.id === "inside-stories") {
     return (
       <div className="space-y-4">
-        {/* Row 1: 1:1 left, 2:1 right - Same height */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "1/1" }}>
+        {/* Row 1: 1:1 left, 2:1 right - fixed row height so both align */}
+        <div className="hidden md:grid md:grid-cols-3 gap-4" style={{ height: "440px" }}>
+          <div className="overflow-hidden border border-neutral-800">
             <img src={gallery[0] || project.image} alt={`${project.title} 1`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
-          <div className="md:col-span-2 overflow-hidden border border-neutral-800" style={{ aspectRatio: "2/1" }}>
+          <div className="md:col-span-2 overflow-hidden border border-neutral-800">
             <img src={gallery[1] || project.image} alt={`${project.title} 2`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
         </div>
+        {/* Mobile stack */}
+        <div className="grid grid-cols-1 gap-4 md:hidden">
+          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "1/1" }}>
+            <img src={gallery[0] || project.image} alt={`${project.title} 1`} className="w-full h-full object-cover" />
+          </div>
+          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "2/1" }}>
+            <img src={gallery[1] || project.image} alt={`${project.title} 2`} className="w-full h-full object-cover" />
+          </div>
+        </div>
 
-        {/* Row 2: 2:1 left, 1:1 right - Same height */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="md:col-span-2 overflow-hidden border border-neutral-800" style={{ aspectRatio: "2/1" }}>
+        {/* Row 2: 2:1 left, 1:1 right - fixed row height so both align */}
+        <div className="hidden md:grid md:grid-cols-3 gap-4" style={{ height: "440px" }}>
+          <div className="md:col-span-2 overflow-hidden border border-neutral-800">
             <img src={gallery[2] || project.image} alt={`${project.title} 3`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
-          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "1/1" }}>
+          <div className="overflow-hidden border border-neutral-800">
             <img src={gallery[3] || project.image} alt={`${project.title} 4`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+        </div>
+        {/* Mobile stack */}
+        <div className="grid grid-cols-1 gap-4 md:hidden">
+          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "2/1" }}>
+            <img src={gallery[2] || project.image} alt={`${project.title} 3`} className="w-full h-full object-cover" />
+          </div>
+          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "1/1" }}>
+            <img src={gallery[3] || project.image} alt={`${project.title} 4`} className="w-full h-full object-cover" />
           </div>
         </div>
 
