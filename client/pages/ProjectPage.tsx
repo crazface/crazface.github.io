@@ -259,6 +259,7 @@ function PdfSection({ title, url }: { title: string; url: string }) {
 }
 
 function ProjectGallery({ project }: { project: Project }) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const gallery =
     project.gallery && project.gallery.length > 0
       ? project.gallery
@@ -388,71 +389,94 @@ function ProjectGallery({ project }: { project: Project }) {
   // Inside Stories - alternating 1:1 and 2:1 layout
   if (project.id === "inside-stories") {
     return (
-      <div className="space-y-4">
-        {/* Row 1: 1:1 left, 2:1 right - fixed row height so both align */}
-        <div className="hidden md:grid md:grid-cols-3 gap-4" style={{ height: "440px" }}>
-          <div className="overflow-hidden border border-neutral-800">
-            <img src={gallery[0] || project.image} alt={`${project.title} 1`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+      <>
+        <div className="space-y-4">
+          {/* Row 1: 1:1 left, 2:1 right - fixed row height so both align */}
+          <div className="hidden md:grid md:grid-cols-3 gap-4" style={{ height: "440px" }}>
+            <button className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[0])}>
+              <img src={gallery[0] || project.image} alt={`${project.title} 1`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </button>
+            <button className="md:col-span-2 overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[1])}>
+              <img src={gallery[1] || project.image} alt={`${project.title} 2`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </button>
           </div>
-          <div className="md:col-span-2 overflow-hidden border border-neutral-800">
-            <img src={gallery[1] || project.image} alt={`${project.title} 2`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          {/* Mobile stack */}
+          <div className="grid grid-cols-1 gap-4 md:hidden">
+            <button className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[0])}>
+              <img src={gallery[0] || project.image} alt={`${project.title} 1`} className="w-full h-full object-cover" />
+            </button>
+            <button className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "2/1" }} onClick={() => setSelectedImage(gallery[1])}>
+              <img src={gallery[1] || project.image} alt={`${project.title} 2`} className="w-full h-full object-cover" />
+            </button>
           </div>
-        </div>
-        {/* Mobile stack */}
-        <div className="grid grid-cols-1 gap-4 md:hidden">
-          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "1/1" }}>
-            <img src={gallery[0] || project.image} alt={`${project.title} 1`} className="w-full h-full object-cover" />
-          </div>
-          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "2/1" }}>
-            <img src={gallery[1] || project.image} alt={`${project.title} 2`} className="w-full h-full object-cover" />
-          </div>
-        </div>
 
-        {/* Row 2: 2:1 left, 1:1 right - fixed row height so both align */}
-        <div className="hidden md:grid md:grid-cols-3 gap-4" style={{ height: "440px" }}>
-          <div className="md:col-span-2 overflow-hidden border border-neutral-800">
-            <img src={gallery[2] || project.image} alt={`${project.title} 3`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          {/* Row 2: 2:1 left, 1:1 right - fixed row height so both align */}
+          <div className="hidden md:grid md:grid-cols-3 gap-4" style={{ height: "440px" }}>
+            <button className="md:col-span-2 overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[2])}>
+              <img src={gallery[2] || project.image} alt={`${project.title} 3`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </button>
+            <button className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[3])}>
+              <img src={gallery[3] || project.image} alt={`${project.title} 4`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </button>
           </div>
-          <div className="overflow-hidden border border-neutral-800">
-            <img src={gallery[3] || project.image} alt={`${project.title} 4`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          {/* Mobile stack */}
+          <div className="grid grid-cols-1 gap-4 md:hidden">
+            <button className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "2/1" }} onClick={() => setSelectedImage(gallery[2])}>
+              <img src={gallery[2] || project.image} alt={`${project.title} 3`} className="w-full h-full object-cover" />
+            </button>
+            <button className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[3])}>
+              <img src={gallery[3] || project.image} alt={`${project.title} 4`} className="w-full h-full object-cover" />
+            </button>
           </div>
-        </div>
-        {/* Mobile stack */}
-        <div className="grid grid-cols-1 gap-4 md:hidden">
-          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "2/1" }}>
-            <img src={gallery[2] || project.image} alt={`${project.title} 3`} className="w-full h-full object-cover" />
-          </div>
-          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "1/1" }}>
-            <img src={gallery[3] || project.image} alt={`${project.title} 4`} className="w-full h-full object-cover" />
-          </div>
-        </div>
 
-        {/* Row 3: 3 A4s in a row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {[4, 5, 6].map((idx) => (
-            <div key={idx} className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "3/4" }}>
-              <img src={gallery[idx] || project.image} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          {/* Row 3: 3 A4s in a row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {[4, 5, 6].map((idx) => (
+              <button key={idx} className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "3/4" }} onClick={() => setSelectedImage(gallery[idx])}>
+                <img src={gallery[idx] || project.image} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+              </button>
+            ))}
+          </div>
+
+          {/* Video Section */}
+          {gallery[7] && (
+            <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "16/9" }}>
+              {/youtu(?:\.be|be\.com)/.test(gallery[7]) ? (
+                <iframe
+                  src={`https://www.youtube.com/embed/${gallery[7].match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/)?.[1] || gallery[7]}`}
+                  title={`${project.title} Video`}
+                  className="w-full h-full"
+                  allowFullScreen
+                  style={{ border: 0 }}
+                />
+              ) : (
+                <video src={gallery[7]} className="w-full h-full object-cover" controls playsInline />
+              )}
             </div>
-          ))}
+          )}
         </div>
 
-        {/* Video Section */}
-        {gallery[7] && (
-          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "16/9" }}>
-            {/youtu(?:\.be|be\.com)/.test(gallery[7]) ? (
-              <iframe
-                src={`https://www.youtube.com/embed/${gallery[7].match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/)?.[1] || gallery[7]}`}
-                title={`${project.title} Video`}
-                className="w-full h-full"
-                allowFullScreen
-                style={{ border: 0 }}
-              />
-            ) : (
-              <video src={gallery[7]} className="w-full h-full object-cover" controls playsInline />
-            )}
+        {/* Lightbox Modal */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              className="absolute top-4 right-4 text-white hover:text-[#FFD700] transition-colors text-3xl font-bold z-50"
+              onClick={() => setSelectedImage(null)}
+            >
+              ×
+            </button>
+            <img
+              src={selectedImage}
+              alt="Enlarged view"
+              className="max-w-full max-h-[90vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         )}
-      </div>
+      </>
     );
   }
 
