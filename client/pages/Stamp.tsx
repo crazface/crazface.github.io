@@ -580,84 +580,30 @@ export default function Stamp() {
 
       {/* 7. CONTACT / CTA */}
       <section id="contact" className="py-32 px-6 md:px-12 bg-[#FFD700] text-black">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <div>
-            <Reveal>
-              <h2 className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85] mb-8">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <a href="mailto:CharlieStampCreative@gmail.com" className="block group">
+              <h2 className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85] mb-8 group-hover:text-black/80 transition-colors">
                 Let's<br/>Create<br/>Something.
               </h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="text-xl font-medium max-w-md mb-12 opacity-80">
-                Available for freelance opportunities and creative collaborations worldwide.
-              </p>
-            </Reveal>
-            
-            <Reveal delay={300} className="flex space-x-6">
-              <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
-                <Linkedin size={20} />
-              </a>
-            </Reveal>
-          </div>
+            </a>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="text-xl font-medium max-w-md mb-12 opacity-80">
+              Available for freelance opportunities and creative collaborations worldwide.
+            </p>
+          </Reveal>
 
-          <Reveal delay={400} className="bg-black text-white p-10 md:p-16 rounded-sm">
-            <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
-              <div className="relative">
-                <input 
-                  type="text" 
-                  id="name"
-                  placeholder=" "
-                  className="block w-full bg-transparent border-0 border-b border-neutral-700 py-3 text-white focus:ring-0 focus:border-[#FFD700] transition-colors peer"
-                />
-                <label 
-                  htmlFor="name" 
-                  className="absolute left-0 top-3 text-neutral-500 uppercase tracking-wider text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-[#FFD700] peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-neutral-500"
-                >
-                  Your Name
-                </label>
-              </div>
-
-              <div className="relative">
-                <input 
-                  type="email" 
-                  id="email"
-                  placeholder=" "
-                  className="block w-full bg-transparent border-0 border-b border-neutral-700 py-3 text-white focus:ring-0 focus:border-[#FFD700] transition-colors peer"
-                />
-                <label 
-                  htmlFor="email" 
-                  className="absolute left-0 top-3 text-neutral-500 uppercase tracking-wider text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-[#FFD700] peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-neutral-500"
-                >
-                  Email Address
-                </label>
-              </div>
-
-              <div className="relative">
-                <textarea 
-                  id="message"
-                  rows="4"
-                  placeholder=" "
-                  className="block w-full bg-transparent border-0 border-b border-neutral-700 py-3 text-white focus:ring-0 focus:border-[#FFD700] transition-colors resize-none peer"
-                ></textarea>
-                <label 
-                  htmlFor="message" 
-                  className="absolute left-0 top-3 text-neutral-500 uppercase tracking-wider text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-[#FFD700] peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-placeholder-shown:text-neutral-500"
-                >
-                  Project Details
-                </label>
-              </div>
-
-              <button className="w-full bg-[#FFD700] text-black font-bold uppercase tracking-widest py-4 rounded-sm hover:bg-white transition-colors flex items-center justify-center space-x-2">
-                <span>Send Message</span>
-                <ChevronRight size={20} />
-              </button>
-            </form>
+          <Reveal delay={300} className="flex space-x-6">
+            <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
+              <Instagram size={20} />
+            </a>
+            <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
+              <Twitter size={20} />
+            </a>
+            <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
+              <Linkedin size={20} />
+            </a>
           </Reveal>
         </div>
       </section>
