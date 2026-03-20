@@ -582,13 +582,13 @@ export default function Stamp() {
 
           {/* Social Links */}
           <Reveal delay={400} className="flex space-x-6 mt-12">
-            <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
+            <a href="https://www.instagram.com/the.stamp.creative/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
               <Instagram size={20} />
             </a>
             <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
               <Twitter size={20} />
             </a>
-            <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
+            <a href="https://www.linkedin.com/in/charlie-stamp/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
               <Linkedin size={20} />
             </a>
           </Reveal>
