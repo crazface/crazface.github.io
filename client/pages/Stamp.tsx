@@ -516,53 +516,6 @@ export default function Stamp() {
         </div>
       </section>
 
-      {/* 5. CREATIVE PROCESS */}
-      <section className="py-32 bg-neutral-950 border-y border-neutral-900 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <div>
-            <Reveal>
-              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-8">The<br/>Process</h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="text-xl text-neutral-400 font-light leading-relaxed max-w-md mb-12">
-                Great work isn't an accident. It's the result of a rigorous, collaborative process designed to unearth the truth of a brand and express it beautifully.
-              </p>
-            </Reveal>
-            <Reveal delay={300}>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="text-white border border-neutral-700 hover:border-[#FFD700] hover:text-[#FFD700] px-8 py-4 rounded-full font-bold uppercase tracking-wider transition-all duration-300"
-              >
-                Start a Project
-              </button>
-            </Reveal>
-          </div>
-
-          <div className="relative border-l border-neutral-800 pl-8 md:pl-16 space-y-20 py-10">
-            {/* Animated glowing line overlay */}
-            <div className="absolute top-0 left-[-1px] w-[2px] h-full bg-gradient-to-b from-[#FFD700] via-transparent to-transparent origin-top"></div>
-
-            {[
-              { num: "01", title: "Discovery", desc: "We dig deep. Understanding your goals, audience, and the unique landscape of your industry." },
-              { num: "02", title: "Concept", desc: "Developing the creative strategy and visual direction. Moodboards, storyboarding, and wireframing." },
-              { num: "03", title: "Production", desc: "Execution. Shooting, designing, and editing to bring the approved concepts into vibrant reality." },
-              { num: "04", title: "Delivery", desc: "Refinement and final handover of polished, premium assets ready for the world." }
-            ].map((step, index) => (
-              <Reveal key={index} delay={index * 150} direction="left" className="relative">
-                {/* Timeline Dot */}
-                <div className="absolute -left-[41px] md:-left-[73px] top-2 w-4 h-4 bg-[#0a0a0a] border-2 border-[#FFD700] rounded-full z-10 shadow-[0_0_15px_rgba(255,215,0,0.5)]"></div>
-                
-                <h3 className="text-3xl font-bold uppercase tracking-wide mb-3 flex items-center text-white">
-                  <span className="text-[#FFD700] font-mono text-sm mr-4">{step.num}</span>
-                  {step.title}
-                </h3>
-                <p className="text-neutral-400 leading-relaxed font-light">{step.desc}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 6. TESTIMONIALS */}
       <section className="py-32 px-6 md:px-12 max-w-5xl mx-auto text-center">
         <Reveal>
