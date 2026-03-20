@@ -408,6 +408,32 @@ function ProjectGallery({ project }: { project: Project }) {
             <img src={gallery[3] || project.image} alt={`${project.title} 4`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
         </div>
+
+        {/* Row 3: 3 A4s in a row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {[4, 5, 6].map((idx) => (
+            <div key={idx} className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "3/4" }}>
+              <img src={gallery[idx] || project.image} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+          ))}
+        </div>
+
+        {/* Video Section */}
+        {gallery[7] && (
+          <div className="overflow-hidden border border-neutral-800" style={{ aspectRatio: "16/9" }}>
+            {/youtu(?:\.be|be\.com)/.test(gallery[7]) ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${gallery[7].match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/)?.[1] || gallery[7]}`}
+                title={`${project.title} Video`}
+                className="w-full h-full"
+                allowFullScreen
+                style={{ border: 0 }}
+              />
+            ) : (
+              <video src={gallery[7]} className="w-full h-full object-cover" controls playsInline />
+            )}
+          </div>
+        )}
       </div>
     );
   }
