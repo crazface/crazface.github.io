@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowUpRight, Play, Camera, PenTool, Layout, ChevronRight, Quote, Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Play, Camera, PenTool, Layout, ChevronRight, Quote, Instagram, Twitter, Linkedin, Mail, Copy, Check } from 'lucide-react';
 import { projects as allProjects } from '@/lib/projects';
 
 // --- Custom Hook & Component for Scroll Reveal Animations ---
@@ -49,6 +49,7 @@ export default function Stamp() {
   const [scrolled, setScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   // Disable global theme styles that break fixed positioning (transform on body)
   useEffect(() => {
@@ -582,11 +583,9 @@ export default function Stamp() {
       <section id="contact" className="py-32 px-6 md:px-12 bg-[#FFD700] text-black">
         <div className="max-w-7xl mx-auto">
           <Reveal>
-            <a href="mailto:CharlieStampCreative@gmail.com" className="block group">
-              <h2 className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85] mb-8 group-hover:text-black/80 transition-colors">
-                Let's<br/>Create<br/>Something.
-              </h2>
-            </a>
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85] mb-8">
+              Let's<br/>Create<br/>Something.
+            </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-xl font-medium max-w-md mb-12 opacity-80">
@@ -594,7 +593,42 @@ export default function Stamp() {
             </p>
           </Reveal>
 
-          <Reveal delay={300} className="flex space-x-6">
+          {/* Email Section */}
+          <Reveal delay={300} className="flex flex-col space-y-8">
+            <div className="flex flex-col md:flex-row md:items-center gap-4">
+              <a
+                href="mailto:CharlieStampCreative@gmail.com"
+                className="inline-flex items-center space-x-3 bg-black text-[#FFD700] font-bold uppercase tracking-widest px-8 py-4 rounded-sm hover:bg-black/80 transition-colors"
+              >
+                <Mail size={20} />
+                <span>Send Email</span>
+              </a>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText('CharlieStampCreative@gmail.com');
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }}
+                className="inline-flex items-center space-x-2 border-2 border-black text-black font-bold uppercase tracking-widest px-6 py-3 rounded-sm hover:bg-black hover:text-[#FFD700] transition-colors"
+              >
+                {copied ? (
+                  <>
+                    <Check size={18} />
+                    <span>Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={18} />
+                    <span>Copy Email</span>
+                  </>
+                )}
+              </button>
+            </div>
+            <p className="text-sm font-mono opacity-80">CharlieStampCreative@gmail.com</p>
+          </Reveal>
+
+          {/* Social Links */}
+          <Reveal delay={400} className="flex space-x-6 mt-12">
             <a href="#" className="w-12 h-12 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-[#FFD700] transition-colors duration-300">
               <Instagram size={20} />
             </a>
