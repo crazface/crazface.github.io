@@ -179,19 +179,19 @@ export default function ProjectPage() {
             visions to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/#contact"
+            <a
+              href="/#contact"
               className="inline-flex items-center justify-center space-x-2 bg-[#FFD700] text-black font-bold uppercase tracking-widest px-8 py-4 hover:bg-white transition-colors"
             >
               <span>Get in Touch</span>
               <ArrowUpRight size={18} />
-            </Link>
-            <Link
-              to="/#work"
+            </a>
+            <a
+              href="/#work"
               className="inline-flex items-center justify-center space-x-2 border border-neutral-700 text-white font-bold uppercase tracking-widest px-8 py-4 hover:border-[#FFD700] hover:text-[#FFD700] transition-colors"
             >
               <span>View More Work</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
