@@ -573,8 +573,8 @@ export const projects: Project[] = [
       accent: "#666666",
     },
     gallery: [
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fd27d4e9446804e08bf5063109984ae94",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fef083bcafa644d26bb1e0b9d9e4c60d3",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb18d9b23d4c84f28a3767ed8d2dadf89",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ffe3ba541b10d4511a2a88441a604879a",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fff9a6094c1004f81991189cb3cc5e253",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5348112c68024cfe99175dd3449e53a4",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F4cfc4fb99e244cbc870836e3b2374f63",
