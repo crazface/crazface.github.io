@@ -447,11 +447,11 @@ function ProjectGallery({ project }: { project: Project }) {
             </button>
           </div>
 
-          {/* Row 3: 3 A4s in a row */}
+          {/* Row 3: 3 A4s in a row - native ratio */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[4, 5, 6].map((idx) => (
-              <button key={idx} className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "3/4" }} onClick={() => setSelectedImage(gallery[idx])}>
-                <img src={gallery[idx] || project.image} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+              <button key={idx} className="overflow-hidden border border-neutral-800 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[idx])}>
+                <img src={gallery[idx] || project.image} alt={`${project.title} ${idx + 1}`} className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500" />
               </button>
             ))}
           </div>
