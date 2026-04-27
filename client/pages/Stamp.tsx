@@ -415,16 +415,6 @@ export default function Stamp() {
             </Reveal>
           </div>
 
-          <Reveal delay={200}>
-            <div className="flex items-start space-x-4">
-              <div className="text-neutral-500 mt-1">
-                <PenTool size={40} strokeWidth={1.5} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold mb-4 uppercase tracking-wide">Brand Identity</h3>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
