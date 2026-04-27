@@ -572,6 +572,7 @@ export const projects: Project[] = [
       secondary: "#333333",
       accent: "#666666",
     },
+    finalPdf: "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcf75b1feb7b64d7cafd2dd3bf315173d?alt=media&token=1180a3f7-759c-427e-a0f7-acb2bf4503de&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb18d9b23d4c84f28a3767ed8d2dadf89",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ffe3ba541b10d4511a2a88441a604879a",
