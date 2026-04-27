@@ -50,6 +50,7 @@ export default function Stamp() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [photographyOpen, setPhotographyOpen] = useState(false);
 
   // Disable global theme styles that break fixed positioning (transform on body)
   useEffect(() => {
@@ -121,13 +122,12 @@ export default function Stamp() {
     )
     .sort((a, b) => parseInt(b.year) - parseInt(a.year));
 
-  // Video & Photography projects sorted chronologically
-  const videoPhotographyProjects = allProjects
+  // Photography projects sorted chronologically
+  const photographyProjects = allProjects
     .filter(p => {
-      const isVideoPhotoType = p.type === "Video Editing" || p.type === "Photography";
+      const isPhotographyType = p.type === "Photography";
       const hasCdnImage = p.image.startsWith('https://cdn.builder.io');
-      const isSelectedVideo = ["leavers-video", "super-friends-intro", "french-toast-tutorial"].includes(p.id);
-      return isVideoPhotoType && (hasCdnImage || isSelectedVideo);
+      return isPhotographyType && hasCdnImage;
     })
     .sort((a, b) => parseInt(b.year) - parseInt(a.year));
 
@@ -394,7 +394,7 @@ export default function Stamp() {
         </div>
       </section>
 
-      {/* 3. SERVICES SECTION */}
+      {/* 3. EXPERTISE SECTION */}
       <section className="py-32 px-6 md:px-12 bg-neutral-900 border-t border-neutral-800">
         <div className="max-w-7xl mx-auto">
           <Reveal>
@@ -419,36 +419,17 @@ export default function Stamp() {
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <PenTool size={40} strokeWidth={1.5} />,
-                title: "Brand Identity",
-                desc: "Branding is where my passion for design is strongest. I enjoy shaping ideas into distinctive visual identities through typography, layout, and concept-driven thinking, creating brands that feel clear, intentional, and memorable."
-              },
-              {
-                icon: <Play size={40} strokeWidth={1.5} />,
-                title: "Video Editing",
-                desc: "Video editing is another creative outlet where I enjoy shaping rhythm, pacing, and atmosphere. I love the process of turning raw footage into something engaging and cinematic."
-              },
-              {
-                icon: <Camera size={40} strokeWidth={1.5} />,
-                title: "Photography",
-                desc: "Photography is a space where I explore creativity more freely, capturing light, composition, and moments that inspire my visual thinking and often influence my design work."
-              }
-            ].map((service, index) => (
-              <Reveal key={index} delay={index * 150} className="group cursor-pointer">
-                <div className="bg-neutral-950 p-10 h-full border border-neutral-800 hover:border-[#FFD700] transition-colors duration-500 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-[#FFD700] scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-500"></div>
-                  <div className="text-neutral-500 group-hover:text-[#FFD700] transition-colors duration-500 mb-8">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 uppercase tracking-wide">{service.title}</h3>
-                  <p className="text-neutral-400 leading-relaxed font-light">{service.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={200}>
+            <div className="flex items-start space-x-4">
+              <div className="text-neutral-500 mt-1">
+                <PenTool size={40} strokeWidth={1.5} />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-4 uppercase tracking-wide">Brand Identity</h3>
+                <p className="text-neutral-400 leading-relaxed font-light text-lg max-w-2xl">Branding is where my passion for design is strongest. I enjoy shaping ideas into distinctive visual identities through typography, layout, and concept-driven thinking, creating brands that feel clear, intentional, and memorable.</p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -500,60 +481,51 @@ export default function Stamp() {
           </div>
         </div>
 
-        {/* Video & Photography Section */}
+        {/* Photography Section - Collapsible */}
         <div className="pt-16 border-t border-neutral-800">
           <Reveal>
-            <div className="flex items-center space-x-4 mb-12">
+            <button
+              onClick={() => setPhotographyOpen(!photographyOpen)}
+              className="flex items-center space-x-4 mb-12 cursor-pointer group"
+            >
               <div className="w-8 h-[2px] bg-[#FFD700]"></div>
-              <h3 className="text-lg font-bold uppercase tracking-[0.2em] text-neutral-400">Video & Photography</h3>
-            </div>
+              <h3 className="text-lg font-bold uppercase tracking-[0.2em] text-neutral-400 group-hover:text-[#FFD700] transition-colors">Photography</h3>
+              <ChevronRight size={20} className={`text-neutral-400 transition-transform duration-300 ${photographyOpen ? 'rotate-90' : ''}`} />
+            </button>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-16">
-            {videoPhotographyProjects.map((project, index) => (
-              <Reveal
-                key={project.id}
-                delay={index % 2 === 0 ? 0 : 200}
-                className="group cursor-pointer"
-              >
-                <Link to={`/project/${project.id}`}>
-                  <div className="relative overflow-hidden mb-5 bg-neutral-900">
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
-                      <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
-                        <span>View Project</span>
-                        <ArrowUpRight size={20} />
-                      </div>
-                    </div>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
-                    <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 6. TESTIMONIALS */}
-      <section className="py-32 px-6 md:px-12 max-w-5xl mx-auto text-center">
-        <Reveal>
-          <Quote size={60} className="mx-auto text-[#FFD700] opacity-50 mb-12" />
-        </Reveal>
-        <Reveal delay={200}>
-          <h3 className="text-3xl md:text-5xl font-light leading-tight mb-12">
-            "STAMP didn't just redesign our identity; they reimagined how we communicate with our audience. The cinematic quality of their video work elevated our brand overnight."
-          </h3>
-        </Reveal>
-        <Reveal delay={400}>
-          <p className="text-white font-bold uppercase tracking-widest">Sarah Jenkins</p>
-          <p className="text-neutral-500 text-sm mt-2">Marketing Director, Aura Skincare</p>
-        </Reveal>
+          {photographyOpen && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 gap-y-16">
+              {photographyProjects.map((project, index) => (
+                <Reveal
+                  key={project.id}
+                  delay={index % 2 === 0 ? 0 : 200}
+                  className="group cursor-pointer"
+                >
+                  <Link to={`/project/${project.id}`}>
+                    <div className="relative overflow-hidden mb-5 bg-neutral-900">
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center backdrop-blur-sm">
+                        <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex items-center space-x-3 text-[#FFD700] font-bold uppercase tracking-widest text-sm">
+                          <span>View Project</span>
+                          <ArrowUpRight size={20} />
+                        </div>
+                      </div>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
+                      <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          )}
+        </div>
       </section>
 
       {/* 7. CONTACT / CTA */}
