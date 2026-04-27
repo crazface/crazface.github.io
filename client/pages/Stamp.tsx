@@ -467,9 +467,8 @@ export default function Stamp() {
                       className="w-full object-cover transition-transform duration-[2s] group-hover:scale-105 h-[400px]"
                     />
                     {project.id === "starlight-beer" && (
-                      <div className="absolute bottom-0 left-0 w-full bg-[#FFD700] px-4 py-2 flex items-center justify-between">
-                        <span className="text-black font-bold uppercase tracking-widest text-xs">Work in Progress</span>
-                        <span className="text-black font-medium text-xs">Shortlisted — Brandopus Hatch</span>
+                      <div className="absolute bottom-0 left-0 w-full bg-[#FFD700] px-4 py-2">
+                        <span className="text-black font-bold uppercase tracking-widest text-xs">Shortlisted — Brandopus Hatch</span>
                       </div>
                     )}
                   </div>
