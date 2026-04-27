@@ -89,10 +89,10 @@ export default function Stamp() {
   // Sidebar images (right side + below on mobile, new uploads)
   const sidebarProjects = [
     {
-      id: "fuzed",
-      title: "Fuzed",
+      id: "regenb",
+      title: "ReGenB",
       category: "Graphic Design",
-      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab1b0dd848c043ec899d236c31a10043",
+      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F70ca1e45157e402da205498655746b1d",
     },
     {
       id: "starlight-beer",
@@ -101,16 +101,16 @@ export default function Stamp() {
       img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab3595764e0b4b64a80df34cd5a09068",
     },
     {
-      id: "regenb",
-      title: "ReGenB",
-      category: "Graphic Design",
-      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F70ca1e45157e402da205498655746b1d",
-    },
-    {
       id: "flow",
       title: "Flow",
       category: "Graphic Design",
       img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F98182149dc1f4da2b59f66f4ce6ff73c",
+    },
+    {
+      id: "fuzed",
+      title: "Fuzed",
+      category: "Graphic Design",
+      img: "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab1b0dd848c043ec899d236c31a10043",
     },
   ];
 
