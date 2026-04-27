@@ -479,9 +479,11 @@ export default function Stamp() {
                       )}
                     </div>
                     {project.id === "starlight-beer" ? (
-                      <div className="space-y-1">
+                      <div className="space-y-3">
                         <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
-                        <p className="text-neutral-400 text-xs leading-relaxed">Shortlisted for Brandopus Hatch Competition</p>
+                        <div className="border border-[#FFD700] bg-[#FFD700]/10 px-3 py-2 rounded-sm">
+                          <p className="text-[#FFD700] font-bold text-sm leading-relaxed uppercase tracking-wider">Shortlisted for Brandopus Hatch Competition</p>
+                        </div>
                       </div>
                     ) : (
                       <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
