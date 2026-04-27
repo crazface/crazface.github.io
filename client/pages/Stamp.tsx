@@ -472,8 +472,20 @@ export default function Stamp() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold uppercase tracking-wide mb-1 group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
-                    <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-xl font-bold uppercase tracking-wide group-hover:text-[#FFD700] transition-colors">{project.title}</h3>
+                      {project.id === "starlight-beer" && (
+                        <span className="text-xs bg-[#FFD700] text-black font-bold px-2 py-1 uppercase">WIP</span>
+                      )}
+                    </div>
+                    {project.id === "starlight-beer" ? (
+                      <div className="space-y-1">
+                        <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
+                        <p className="text-neutral-400 text-xs leading-relaxed">Shortlisted for Brandopus Hatch Competition</p>
+                      </div>
+                    ) : (
+                      <p className="text-neutral-500 font-mono text-xs uppercase tracking-wider">{project.year}</p>
+                    )}
                   </div>
                 </Link>
               </Reveal>
