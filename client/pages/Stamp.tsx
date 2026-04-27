@@ -315,10 +315,16 @@ export default function Stamp() {
                       ? 'bg-black/10'
                       : 'bg-black/40 group-hover:bg-black/20'
                   }`} />
-                  {/* Active indicator bar */}
-                  <div className={`absolute left-0 top-0 w-1 h-full bg-[#FFD700] transition-opacity duration-300 ${
-                    index === currentSlide ? 'opacity-100' : 'opacity-0'
-                  }`} />
+                  {/* Starlight Beer indicator - bottom bar */}
+                  {project.id === "starlight-beer" && (
+                    <div className="absolute bottom-0 left-0 w-full h-2 bg-[#FFD700]" />
+                  )}
+                  {/* Active indicator bar - only for non-Starlight projects */}
+                  {project.id !== "starlight-beer" && (
+                    <div className={`absolute left-0 top-0 w-1 h-full bg-[#FFD700] transition-opacity duration-300 ${
+                      index === currentSlide ? 'opacity-100' : 'opacity-0'
+                    }`} />
+                  )}
                 </div>
                 <div className="px-5 py-2 shrink-0">
                   <h4 className={`text-xs font-bold uppercase tracking-wide transition-colors duration-300 ${
@@ -348,6 +354,9 @@ export default function Stamp() {
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
+                  {project.id === "starlight-beer" && (
+                    <div className="absolute bottom-0 left-0 w-full h-2 bg-[#FFD700]" />
+                  )}
                 </div>
                 <h4 className={`text-xs font-bold uppercase tracking-wide mt-2 transition-colors ${
                   index === currentSlide ? 'text-[#FFD700]' : 'text-white'
