@@ -422,7 +422,6 @@ export default function Stamp() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-4 uppercase tracking-wide">Brand Identity</h3>
-                <p className="text-neutral-400 leading-relaxed font-light text-lg max-w-2xl">Branding is where my passion for design is strongest. I enjoy shaping ideas into distinctive visual identities through typography, layout, and concept-driven thinking, creating brands that feel clear, intentional, and memorable.</p>
               </div>
             </div>
           </Reveal>
