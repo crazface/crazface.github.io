@@ -192,6 +192,15 @@ export const projects: Project[] = [
       secondary: "#6d28d9",
       accent: "#a78bfa",
     },
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Faebf0753bb0b431c8cc251419c6a9e78",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fce3f0bed0d824beab2ce8a5cd8b4120f",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb10daeb1d12c49449948833bb4d22d73",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F50257a82dec94e75ac0904dee1c54fa9",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff4d57fc07dbd4c73b9cad28a7a960ea7",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Faf65be97d3644dcc916465cdf65284db",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe250589a1a394b8fabe70d47f1155767",
+    ],
   },
   {
     id: "old-west-starter-kit",
