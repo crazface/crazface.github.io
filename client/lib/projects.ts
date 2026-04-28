@@ -171,6 +171,7 @@ export const projects: Project[] = [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa69c68051e67468395855a5ecd94e091",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F24f5b833cbff4ddd8a7d18aa5f73f972",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa468e3841bcf47e385067588a7026702",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5afd2c266a744722aa734ff97f5c7c8f",
     ],
   },
   {
