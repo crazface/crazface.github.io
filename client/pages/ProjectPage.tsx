@@ -102,6 +102,16 @@ export default function ProjectPage() {
             <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-6">
               {project.title}
             </h1>
+            {project.id === "starlight-beer" && (
+              <div className="flex flex-wrap gap-3 mb-6">
+                <span className="inline-flex items-center bg-[#FFD700] text-black font-bold uppercase tracking-widest text-xs px-4 py-2">
+                  Work in Progress
+                </span>
+                <span className="inline-flex items-center border border-[#FFD700] text-[#FFD700] font-bold uppercase tracking-widest text-xs px-4 py-2">
+                  Shortlisted — Brandopus Hatch Competition
+                </span>
+              </div>
+            )}
             {project.longDescription ? (
               <div
                 className="text-lg text-neutral-400 font-light leading-relaxed space-y-4 [&_p]:mb-4"
