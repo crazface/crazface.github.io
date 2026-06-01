@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 export default function Home() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
-  const stickyRef = useRef<HTMLDivElement>(null);
   const [copyText, setCopyText] = useState('Copy Email');
   const navigate = useNavigate();
 
@@ -12,12 +11,10 @@ export default function Home() {
     function resizeLayout() {
       const wrapper = wrapperRef.current;
       const canvas = canvasRef.current;
-      const sticky = stickyRef.current;
-      if (!wrapper || !canvas || !sticky) return;
+      if (!wrapper || !canvas) return;
 
       const scale = window.innerWidth / 1440;
       canvas.style.transform = `scale(${scale})`;
-      sticky.style.transform = `scale(${scale})`;
       wrapper.style.height = `${5959 * scale}px`;
     }
 
@@ -55,78 +52,6 @@ export default function Home() {
   return (
     <div style={{ backgroundColor: '#f1e4d6', fontFamily: 'Arial, sans-serif', overflowX: 'hidden' }}>
 
-      {/* Fixed Sticky Header */}
-      <div
-        ref={stickyRef}
-        id="sticky-header-container"
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          zIndex: 10000,
-          pointerEvents: 'none',
-          transformOrigin: 'top left',
-        }}
-      >
-        {/* Ripped paper header bg */}
-        <div style={{ position: 'absolute', top: '-12.0317px', left: '1px', width: '1438.55px', zIndex: 129 }}>
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F61d9e021682643278772567710b1035e"
-            alt="Navigation"
-            style={{ width: '100%', height: 'auto', display: 'block' }}
-          />
-        </div>
-
-        {/* Nav text */}
-        <div
-          style={{
-            position: 'absolute',
-            width: '1440px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: '0 160px',
-            boxSizing: 'border-box',
-            zIndex: 10001,
-            pointerEvents: 'auto',
-            top: '57.5294px',
-            left: 0,
-          }}
-        >
-          <p style={{ color: '#9d0003', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '24px', margin: 0 }}>
-            Charlie Stamp
-          </p>
-          <div style={{ display: 'flex', gap: '40px' }}>
-            {[
-              { label: 'home', id: 'hero-title' },
-              { label: 'work', id: 'starlight-img' },
-              { label: 'contact', id: 'bottom-actions' },
-            ].map(({ label, id }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: '#9d0003',
-                  fontFamily: 'Arial, sans-serif',
-                  fontWeight: 'bold',
-                  fontSize: '20px',
-                  cursor: 'pointer',
-                  padding: 0,
-                  transition: 'opacity 0.2s',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
-                onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Scrollable Canvas Wrapper */}
       <div ref={wrapperRef} id="scroll-wrapper" style={{ width: '100%', position: 'relative', overflow: 'hidden' }}>
         <div
@@ -141,6 +66,56 @@ export default function Home() {
             transformOrigin: 'top left',
           }}
         >
+
+          {/* ── Header (scrolls with page) ── */}
+          <Item style={{ top: '-12.0317px', left: '1px', width: '1438.55px', zIndex: 129 }}>
+            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F61d9e021682643278772567710b1035e" alt="Navigation" />
+          </Item>
+          <div
+            style={{
+              position: 'absolute',
+              top: '57.5294px',
+              left: 0,
+              width: '1440px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '0 160px',
+              boxSizing: 'border-box',
+              zIndex: 10001,
+            }}
+          >
+            <p style={{ color: '#9d0003', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '24px', margin: 0 }}>
+              Charlie Stamp
+            </p>
+            <div style={{ display: 'flex', gap: '40px' }}>
+              {[
+                { label: 'home', id: 'hero-title' },
+                { label: 'work', id: 'starlight-img' },
+                { label: 'contact', id: 'bottom-actions' },
+              ].map(({ label, id }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#9d0003',
+                    fontFamily: 'Arial, sans-serif',
+                    fontWeight: 'bold',
+                    fontSize: '20px',
+                    cursor: 'pointer',
+                    padding: 0,
+                    transition: 'opacity 0.2s',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
+                  onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           {/* ── Background Elements ── */}
           <Item style={{ top: 0, left: 0, width: '1440px', zIndex: 1 }}>
