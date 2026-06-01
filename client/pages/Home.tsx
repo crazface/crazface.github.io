@@ -54,12 +54,28 @@ const SHADOW       = 'drop-shadow(8px 12px 15px rgba(80,10,5,0.45))';
 const SHADOW_HOVER = 'drop-shadow(12px 18px 20px rgba(80,10,5,0.6))';
 const textStyle: React.CSSProperties = { color:'#9d0003', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'24px', lineHeight:1.3 };
 
+interface DragState {
+  key: string; mode: 'move'|'resize'|'rotate';
+  startX: number; startY: number;
+  cx?: number; cy?: number; startAngle?: number;
+  start: { top:number; left:number; width:number; scale:number; rotate:number };
+}
+
 export default function Home() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef  = useRef<HTMLDivElement>(null);
   const stickyRef  = useRef<HTMLDivElement>(null);
   const [copyText, setCopyText] = useState('Copy Email');
   const navigate = useNavigate();
+
+  // Debug state
+  const [debug, setDebug] = useState(false);
+  const [items, setItems] = useState<Item[]>(ITEMS);
+  const [selected, setSelected] = useState<string|null>(null);
+  const [mockupUrl, setMockupUrl] = useState('');
+  const [mockupOpacity, setMockupOpacity] = useState(0.3);
+  const [outputCopied, setOutputCopied] = useState(false);
+  const drag = useRef<DragState|null>(null);
 
   useEffect(() => {
     document.body.setAttribute('data-skip-theme', 'true');
@@ -81,7 +97,76 @@ export default function Home() {
     return () => window.removeEventListener('resize', resizeLayout);
   }, []);
 
+  // Pointer-event drag system
+  useEffect(() => {
+    if (!debug) return;
+
+    function onMove(e: PointerEvent) {
+      const d = drag.current;
+      if (!d) return;
+      const scale = window.innerWidth / 1440;
+      const dx = (e.clientX - d.startX) / scale;
+      const dy = (e.clientY - d.startY) / scale;
+
+      setItems(prev => prev.map(it => {
+        if (it.key !== d.key) return it;
+        if (d.mode === 'move')   return { ...it, top: d.start.top + dy, left: d.start.left + dx };
+        if (d.mode === 'resize') {
+          if (it.kind === 'text' || it.kind === 'actions')
+            return { ...it, scale: Math.max(0.1, +(d.start.scale + dx / 200).toFixed(4)) };
+          return { ...it, width: Math.max(20, d.start.width + dx) };
+        }
+        if (d.mode === 'rotate') {
+          const angle = Math.atan2(e.clientY - d.cy!, e.clientX - d.cx!) * 180 / Math.PI;
+          return { ...it, rotate: +(d.start.rotate + (angle - d.startAngle!)).toFixed(2) };
+        }
+        return it;
+      }));
+    }
+
+    function onUp() { drag.current = null; }
+
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup',   onUp);
+    return () => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup',   onUp);
+    };
+  }, [debug]);
+
+  function startItemDrag(e: React.PointerEvent, item: Item) {
+    if (!debug) return;
+    e.preventDefault();
+    e.stopPropagation();
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    setSelected(item.key);
+    drag.current = {
+      key: item.key, mode: 'move',
+      startX: e.clientX, startY: e.clientY,
+      start: { top: item.top, left: item.left, width: item.width ?? 0, scale: item.scale ?? 1, rotate: item.rotate ?? 0 },
+    };
+  }
+
+  function startHandleDrag(e: React.PointerEvent, item: Item, mode: 'resize'|'rotate') {
+    e.preventDefault();
+    e.stopPropagation();
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    const wrap = (e.currentTarget as HTMLElement).parentElement!;
+    const rect = wrap.getBoundingClientRect();
+    const cx   = rect.left + rect.width  / 2;
+    const cy   = rect.top  + rect.height / 2;
+    const startAngle = Math.atan2(e.clientY - cy, e.clientX - cx) * 180 / Math.PI;
+    setSelected(item.key);
+    drag.current = {
+      key: item.key, mode,
+      startX: e.clientX, startY: e.clientY,
+      cx, cy, startAngle,
+      start: { top: item.top, left: item.left, width: item.width ?? 0, scale: item.scale ?? 1, rotate: item.rotate ?? 0 },
+    };
+  }
+
   function scrollToSection(id: string) {
+    if (debug) return;
     const el = document.getElementById(id);
     if (el) {
       const offset = el.getBoundingClientRect().top + window.pageYOffset - 150;
@@ -93,6 +178,22 @@ export default function Home() {
     navigator.clipboard.writeText('CharlieStampCreative@gmail.com').then(() => {
       setCopyText('Copied!');
       setTimeout(() => setCopyText('Copy Email'), 2000);
+    });
+  }
+
+  const output = items.map(it => {
+    const parts = [`top: ${Math.round(it.top*1000)/1000}px`, `left: ${Math.round(it.left*1000)/1000}px`];
+    if (it.width != null) parts.push(`width: ${Math.round(it.width*1000)/1000}px`);
+    if (it.kind === 'text' || it.kind === 'actions') parts.push(`scale: ${it.scale}`);
+    if (it.rotate) parts.push(`rotate: ${it.rotate}deg`);
+    parts.push(`z: ${it.z}`);
+    return `[${it.key}] ${parts.join('; ')}`;
+  }).join('\n');
+
+  function copyOutput() {
+    navigator.clipboard.writeText(output).then(() => {
+      setOutputCopied(true);
+      setTimeout(() => setOutputCopied(false), 2000);
     });
   }
 
@@ -108,10 +209,10 @@ export default function Home() {
       );
     }
     if (item.kind === 'popout') {
-      return <PopInner src={item.src!} alt={item.alt!} />;
+      return <PopInner src={item.src!} alt={item.alt!} disabled={debug} />;
     }
     if (item.kind === 'actions') {
-      return <BottomActions copyText={copyText} copyEmail={copyEmail} />;
+      return <BottomActions copyText={copyText} copyEmail={copyEmail} disabled={debug} />;
     }
     // text
     if (item.key === 'intro-text-left') {
@@ -123,8 +224,62 @@ export default function Home() {
     return <div style={textStyle}>CharlieStampCreative@gmail.com</div>;
   }
 
+  // Brand items (visually grouped for reference)
+  const brandImageKeys = ['starlight-img', 'brandopus', 'inside-img', 'aya-img', 'phone', 'regenb-img', 'flow-img'];
+  const brandLogoKeys  = ['starlight-logo', 'inside-logo', 'aya-logo', 'regenb-logo', 'flow-logo'];
+
   return (
-    <div style={{ backgroundColor:'#f1e4d6', fontFamily:'Arial,sans-serif', overflowX:'hidden' }}>
+    <div style={{ backgroundColor:'#f1e4d6', fontFamily:'Arial,sans-serif', overflowX:'hidden', userSelect: debug ? 'none' : 'auto' }}>
+
+      {/* Debug panel */}
+      <div style={{ position:'fixed', top:10, left:10, zIndex:100000, fontFamily:'monospace', fontSize:12, color:'#fff' }}>
+        <label style={{ display:'inline-flex', alignItems:'center', gap:6, background:'rgba(0,0,0,0.82)', padding:'6px 12px', borderRadius:6, cursor:'pointer' }}>
+          <input type="checkbox" checked={debug} onChange={e => setDebug(e.target.checked)} />
+          Debug Mode
+        </label>
+
+        {debug && (
+          <div style={{ marginTop:8, width:360, maxHeight:'85vh', overflowY:'auto', background:'rgba(0,0,0,0.9)', borderRadius:8, padding:12 }}>
+            <p style={{ margin:'0 0 8px', lineHeight:1.5, color:'#ccc', fontSize:11 }}>
+              <strong style={{color:'#fff'}}>Brand items:</strong> Drag any element. Click to select, then use <span style={{color:'#00aaff'}}>● blue</span> handle to resize or <span style={{color:'#00cc66'}}>● green</span> handle to rotate.
+            </p>
+
+            <div style={{ marginBottom:8, padding:8, background:'rgba(255,255,255,0.1)', borderRadius:4, fontSize:10 }}>
+              <p style={{margin:'0 0 4px 0'}}><strong>Brand Images:</strong></p>
+              <ul style={{margin:'0', paddingLeft:20, fontSize:10}}>
+                {brandImageKeys.map(k => <li key={k}>{k}</li>)}
+              </ul>
+              <p style={{margin:'4px 0 4px 0'}}><strong>Brand Logos:</strong></p>
+              <ul style={{margin:'0', paddingLeft:20, fontSize:10}}>
+                {brandLogoKeys.map(k => <li key={k}>{k}</li>)}
+              </ul>
+            </div>
+
+            <label style={{ display:'block', marginBottom:4 }}>Mockup URL:</label>
+            <input
+              type="text"
+              value={mockupUrl}
+              onChange={e => setMockupUrl(e.target.value)}
+              placeholder="https://..."
+              style={{ width:'100%', boxSizing:'border-box', marginBottom:8, padding:4, fontFamily:'monospace', fontSize:11 }}
+            />
+
+            <label style={{ display:'block', marginBottom:4 }}>Opacity: {mockupOpacity.toFixed(2)}</label>
+            <input type="range" min={0} max={1} step={0.05} value={mockupOpacity} onChange={e => setMockupOpacity(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
+
+            <div style={{ display:'flex', gap:8, marginBottom:8 }}>
+              <button onClick={copyOutput} style={{ flex:1, padding:'6px 0', cursor:'pointer', background:'#00aaff', color:'#fff', border:'none', borderRadius:4, fontWeight:'bold', fontSize:11 }}>
+                {outputCopied ? 'Copied ✓' : 'Copy Output'}
+              </button>
+              <button onClick={() => { setItems(ITEMS); setSelected(null); }} style={{ padding:'6px 10px', cursor:'pointer', background:'#555', color:'#fff', border:'none', borderRadius:4, fontSize:11 }}>
+                Reset
+              </button>
+            </div>
+
+            <textarea readOnly value={output} style={{ width:'100%', height:240, boxSizing:'border-box', fontFamily:'monospace', fontSize:10, lineHeight:1.4, resize:'vertical' }} />
+          </div>
+        )}
+      </div>
 
       {/* Fixed sticky header */}
       <div ref={stickyRef} style={{ position:'fixed', top:0, left:0, width:'1440px', zIndex:10000, transformOrigin:'top left', pointerEvents:'none' }}>
@@ -148,13 +303,24 @@ export default function Home() {
       {/* Canvas */}
       <div ref={wrapperRef} id="scroll-wrapper" style={{ width:'100%', position:'relative', overflow:'hidden' }}>
         <div ref={canvasRef} id="main-canvas" style={{ width:'1440px', height:'5959px', position:'absolute', top:0, left:0, transformOrigin:'top left' }}>
-          {ITEMS.map(item => {
+          {/* Mockup overlay */}
+          {debug && mockupUrl && (
+            <img src={mockupUrl} alt="mockup" style={{ position:'absolute', top:0, left:0, width:'1440px', height:'auto', opacity:mockupOpacity, pointerEvents:'none', zIndex:99998 }} />
+          )}
+
+          {items.map(item => {
             const isImg = item.kind !== 'text' && item.kind !== 'actions';
+            const isSel = debug && selected === item.key;
+            const isBrandImg = brandImageKeys.includes(item.key);
+            const isBrandLogo = brandLogoKeys.includes(item.key);
+            const highlight = debug && (isBrandImg || isBrandLogo) ? 1 : undefined;
+
             return (
               <div
                 key={item.key}
                 id={item.key}
-                onClick={() => { if (item.link) navigate(item.link); }}
+                onPointerDown={e => startItemDrag(e, item)}
+                onClick={() => { if (!debug && item.link) navigate(item.link); }}
                 style={{
                   position: 'absolute',
                   top: `${item.top}px`,
@@ -164,10 +330,27 @@ export default function Home() {
                   transform: `rotate(${item.rotate||0}deg) scale(${item.scale||1})`,
                   transformOrigin: 'top left',
                   opacity: item.opacity ?? 1,
-                  cursor: item.link ? 'pointer' : 'default',
+                  cursor: debug ? 'move' : item.link ? 'pointer' : 'default',
+                  outline: isSel ? '2px solid #00aaff' : highlight && debug ? '1px dashed #00cc66' : 'none',
+                  touchAction: debug ? 'none' : 'auto',
                 }}
               >
                 {renderContent(item)}
+
+                {isSel && (
+                  <>
+                    <div
+                      title="Resize"
+                      onPointerDown={e => startHandleDrag(e, item, 'resize')}
+                      style={{ position:'absolute', right:-10, bottom:-10, width:18, height:18, background:'#00aaff', borderRadius:'50%', cursor:'nwse-resize', zIndex:99999, border:'2px solid #fff', touchAction:'none' }}
+                    />
+                    <div
+                      title="Rotate"
+                      onPointerDown={e => startHandleDrag(e, item, 'rotate')}
+                      style={{ position:'absolute', left:'50%', top:-36, marginLeft:-9, width:18, height:18, background:'#00cc66', borderRadius:'50%', cursor:'grab', zIndex:99999, border:'2px solid #fff', touchAction:'none' }}
+                    />
+                  </>
+                )}
               </div>
             );
           })}
@@ -178,17 +361,16 @@ export default function Home() {
   );
 }
 
-// ── Sub-components ──
-
-function PopInner({ src, alt }: { src:string; alt:string }) {
+function PopInner({ src, alt, disabled }: { src:string; alt:string; disabled:boolean }) {
   const [hovered, setHovered] = useState(false);
+  const on = hovered && !disabled;
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        filter: hovered ? SHADOW_HOVER : SHADOW,
-        transform: hovered ? 'scale(1.05) translateY(-8px)' : 'scale(1) translateY(0)',
+        filter: on ? SHADOW_HOVER : SHADOW,
+        transform: on ? 'scale(1.05) translateY(-8px)' : 'scale(1) translateY(0)',
         transition: 'transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275), filter 0.3s ease',
       }}
     >
@@ -197,14 +379,15 @@ function PopInner({ src, alt }: { src:string; alt:string }) {
   );
 }
 
-function BottomActions({ copyText, copyEmail }: { copyText:string; copyEmail:()=>void }) {
+function BottomActions({ copyText, copyEmail, disabled }: { copyText:string; copyEmail:()=>void; disabled:boolean }) {
+  const s = (e: React.MouseEvent) => { if (disabled) e.preventDefault(); };
   return (
     <div style={{ display:'flex', alignItems:'center', gap:'12px' }}>
-      <a href="mailto:CharlieStampCreative@gmail.com"
+      <a href="mailto:CharlieStampCreative@gmail.com" onClick={s}
         style={{ backgroundColor:'#9d0003', color:'#f1e4d6', padding:'8px 24px', borderRadius:'50px', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'16px', textDecoration:'none', border:'2px solid #9d0003', display:'inline-block' }}>
         Send Email
       </a>
-      <button onClick={copyEmail}
+      <button onClick={e => { if (disabled) return; copyEmail(); }}
         style={{ backgroundColor:'transparent', color:'#9d0003', padding:'8px 16px', borderRadius:'50px', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'16px', cursor:'pointer', border:'2px solid #9d0003', display:'flex', alignItems:'center', gap:'8px' }}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width:'20px', height:'20px' }}>
           <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="none"/>
@@ -212,7 +395,7 @@ function BottomActions({ copyText, copyEmail }: { copyText:string; copyEmail:()=
         </svg>
         <span>{copyText}</span>
       </button>
-      <a href="https://instagram.com" target="_blank" rel="noreferrer"
+      <a href="https://instagram.com" target="_blank" rel="noreferrer" onClick={s}
         style={{ width:'40px', height:'40px', borderRadius:'50%', border:'2px solid #9d0003', display:'flex', alignItems:'center', justifyContent:'center', color:'#9d0003', textDecoration:'none' }}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width:'20px', height:'20px' }}>
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -220,7 +403,7 @@ function BottomActions({ copyText, copyEmail }: { copyText:string; copyEmail:()=
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
       </a>
-      <a href="https://linkedin.com" target="_blank" rel="noreferrer"
+      <a href="https://linkedin.com" target="_blank" rel="noreferrer" onClick={s}
         style={{ width:'40px', height:'40px', borderRadius:'50%', border:'2px solid #9d0003', display:'flex', alignItems:'center', justifyContent:'center', color:'#9d0003', textDecoration:'none' }}>
         <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" style={{ width:'20px', height:'20px' }}>
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
