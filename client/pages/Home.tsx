@@ -9,6 +9,14 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // The global stylesheet applies a `transform` to <body> (gradient-smooth),
+    // which creates a containing block and breaks position:fixed for our header.
+    // Disabling the theme on this page removes that transform.
+    document.body.setAttribute('data-skip-theme', 'true');
+    return () => document.body.removeAttribute('data-skip-theme');
+  }, []);
+
+  useEffect(() => {
     function resizeLayout() {
       const wrapper = wrapperRef.current;
       const canvas = canvasRef.current;
