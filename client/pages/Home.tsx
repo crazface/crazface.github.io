@@ -1,6 +1,71 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const cdn = (id: string) =>
+  `https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F${id}`;
+
+type Kind = 'plain' | 'shadow' | 'popout' | 'text' | 'actions';
+
+interface LItem {
+  key: string;
+  kind: Kind;
+  top: number;
+  left: number;
+  width?: number;
+  z: number;
+  rotate?: number;
+  scale?: number;
+  opacity?: number;
+  src?: string;
+  alt?: string;
+  link?: string;
+}
+
+const INITIAL_ITEMS: LItem[] = [
+  // ── Backgrounds ──
+  { key: 'top-bg', kind: 'plain', top: 0, left: 0, width: 1440, z: 1, src: cdn('1530d8222ea34ff39c230b8bbbd4ade7'), alt: '' },
+  { key: 'hero-title', kind: 'plain', top: 207.902, left: 14.1656, width: 1390.74, z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'), alt: 'Stamp Creative' },
+  { key: 'tea-spill', kind: 'plain', top: 4035.58, left: 1103.83, width: 338.656, z: 283, opacity: 0.85, src: cdn('2625da861d76461a9e04a77d76f24720'), alt: 'Tea Spill' },
+  { key: 'bottom-bg', kind: 'plain', top: 4730.6, left: -9.7947, width: 1453.03, z: 293, src: cdn('3eb12f515b2f418ba6d144fe0c93b11e'), alt: '' },
+
+  // ── Brand assets (shadow) ──
+  { key: 'starlight-img', kind: 'shadow', top: 962.722, left: 80.9073, width: 1283.72, z: 0, rotate: 0.05, src: cdn('5e8276c7560844a7bb23960025d476dc'), alt: 'Starlight Image' },
+  { key: 'brandopus', kind: 'shadow', top: 911.444, left: 838.185, width: 580.742, z: 166, rotate: -0.73, src: cdn('47d3bee759ef4c9682aea6efa4a20ccf'), alt: 'BrandOpus' },
+  { key: 'inside-img', kind: 'shadow', top: 1855.1, left: -0.298013, width: 1393.11, z: 203, rotate: -0.18, src: cdn('e05478abd26e40589a95040ef320e3cf'), alt: 'Inside Stories Image' },
+  { key: 'aya-img', kind: 'shadow', top: 2519.34, left: 70.9801, width: 1351.26, z: 193, rotate: -1.24, src: cdn('b49bbe412e7146c5b3f9cb83f65a1a55'), alt: 'Aya Image' },
+  { key: 'phone', kind: 'shadow', top: 2790.28, left: 1046.54, width: 404.166, z: 289, rotate: 0.25, src: cdn('3d73a7328e1a4a77983bd66913be6b02'), alt: 'Phone' },
+  { key: 'regenb-img', kind: 'shadow', top: 3304, left: -4.81457, width: 1419.68, z: 287, rotate: 0.17, src: cdn('ddf5aeafe88f4461b4bdcf7178899e70'), alt: 'RegenB Image' },
+  { key: 'flow-img', kind: 'shadow', top: 3926.81, left: 25.9073, width: 1106, z: 284, rotate: 2, src: cdn('8869078d3da3415ab58d8338f1812359'), alt: 'Flow Image' },
+
+  // ── Logos (popout + link) ──
+  { key: 'starlight-logo', kind: 'popout', top: 1441.17, left: 14.9073, width: 545.351, z: 205, rotate: -0.91, src: cdn('437cd92f7a8143268a3bf09e074fd796'), alt: 'Starlight Logo', link: '/project/starlight-beer' },
+  { key: 'inside-logo', kind: 'popout', top: 2325.44, left: 758.815, width: 382.371, z: 204, rotate: -0.05, src: cdn('8f7a3735549d489a91d2536c4c59f821'), alt: 'Inside Stories Logo', link: '/project/inside-stories' },
+  { key: 'aya-logo', kind: 'popout', top: 3087.63, left: 12.6291, width: 554.464, z: 288, rotate: 0.01, src: cdn('30ed9c00fb28428cbefc39036d534225'), alt: 'AYA Logo' },
+  { key: 'regenb-logo', kind: 'popout', top: 3817.7, left: 465.834, width: 589.89, z: 290, rotate: 0.57, src: cdn('08b6e5c4bdbe44489df684a204ea604c'), alt: 'RegenB Logo', link: '/project/regenb' },
+  { key: 'flow-logo', kind: 'popout', top: 4487.3, left: 871.371, width: 564, z: 291, rotate: 1.87, src: cdn('3fb99cbbc54243ab9be8466e97e7023a'), alt: 'Flow Logo', link: '/project/flow' },
+
+  // ── CTA ──
+  { key: 'cta-img', kind: 'plain', top: 5125, left: 64.2781, width: 1328.33, z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
+
+  // ── Typography / actions ──
+  { key: 'intro-text-left', kind: 'text', top: 764, left: 65, scale: 1.01471, z: 150 },
+  { key: 'intro-text-right', kind: 'text', top: 764.758, left: 1040, scale: 1, z: 150 },
+  { key: 'bottom-actions', kind: 'actions', top: 5664.47, left: 62, scale: 1.79411, z: 300 },
+  { key: 'email-text', kind: 'text', top: 5827.29, left: 75, scale: 1.96471, z: 300 },
+];
+
+const SHADOW = 'drop-shadow(8px 12px 15px rgba(80, 10, 5, 0.45))';
+const SHADOW_HOVER = 'drop-shadow(12px 18px 20px rgba(80, 10, 5, 0.6))';
+const textStyle: React.CSSProperties = {
+  color: '#9d0003',
+  fontFamily: 'Arial, sans-serif',
+  fontWeight: 'bold',
+  fontSize: '24px',
+  lineHeight: 1.3,
+};
+
+const r = (n: number) => Math.round(n * 1000) / 1000;
+
 export default function Home() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
@@ -8,10 +73,17 @@ export default function Home() {
   const [copyText, setCopyText] = useState('Copy Email');
   const navigate = useNavigate();
 
+  // Debug / configurator state
+  const [debug, setDebug] = useState(false);
+  const [items, setItems] = useState<LItem[]>(INITIAL_ITEMS);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [mockupUrl, setMockupUrl] = useState('');
+  const [mockupOpacity, setMockupOpacity] = useState(0.3);
+  const [outputCopied, setOutputCopied] = useState(false);
+  const drag = useRef<any>(null);
+
   useEffect(() => {
-    // The global stylesheet applies a `transform` to <body> (gradient-smooth),
-    // which creates a containing block and breaks position:fixed for our header.
-    // Disabling the theme on this page removes that transform.
+    // Global theme applies a transform to <body> which breaks position:fixed; disable on this page.
     document.body.setAttribute('data-skip-theme', 'true');
     return () => document.body.removeAttribute('data-skip-theme');
   }, []);
@@ -21,24 +93,96 @@ export default function Home() {
       const wrapper = wrapperRef.current;
       const canvas = canvasRef.current;
       if (!wrapper || !canvas) return;
-
       const scale = window.innerWidth / 1440;
       canvas.style.transform = `scale(${scale})`;
       if (stickyRef.current) stickyRef.current.style.transform = `scale(${scale})`;
       wrapper.style.height = `${5959 * scale}px`;
     }
-
     resizeLayout();
     window.addEventListener('resize', resizeLayout);
     return () => window.removeEventListener('resize', resizeLayout);
   }, []);
 
+  // Drag listeners (only active in debug mode)
+  useEffect(() => {
+    if (!debug) return;
+
+    function onMove(e: MouseEvent) {
+      const d = drag.current;
+      if (!d) return;
+      const scale = window.innerWidth / 1440;
+      const dx = (e.clientX - d.startX) / scale;
+      const dy = (e.clientY - d.startY) / scale;
+      setItems(prev =>
+        prev.map(it => {
+          if (it.key !== d.key) return it;
+          if (d.mode === 'move') return { ...it, top: d.start.top + dy, left: d.start.left + dx };
+          if (d.mode === 'resize') {
+            if (it.kind === 'text' || it.kind === 'actions') {
+              return { ...it, scale: Math.max(0.1, +(d.start.scale + dx / 200).toFixed(4)) };
+            }
+            return { ...it, width: Math.max(20, d.start.width + dx) };
+          }
+          if (d.mode === 'rotate') {
+            const angle = (Math.atan2(e.clientY - d.cy, e.clientX - d.cx) * 180) / Math.PI;
+            return { ...it, rotate: +(d.start.rotate + (angle - d.startAngle)).toFixed(2) };
+          }
+          return it;
+        }),
+      );
+    }
+    function onUp() {
+      drag.current = null;
+    }
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+  }, [debug]);
+
+  function onItemDown(e: React.MouseEvent, it: LItem) {
+    if (!debug) return;
+    e.preventDefault();
+    e.stopPropagation();
+    setSelected(it.key);
+    drag.current = {
+      key: it.key,
+      mode: 'move',
+      startX: e.clientX,
+      startY: e.clientY,
+      start: { top: it.top, left: it.left, width: it.width ?? 0, scale: it.scale ?? 1, rotate: it.rotate ?? 0 },
+    };
+  }
+
+  function onHandleDown(e: React.MouseEvent, it: LItem, mode: 'resize' | 'rotate') {
+    e.preventDefault();
+    e.stopPropagation();
+    setSelected(it.key);
+    const wrap = (e.target as HTMLElement).closest('[data-item]') as HTMLElement;
+    const rect = wrap.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const startAngle = (Math.atan2(e.clientY - cy, e.clientX - cx) * 180) / Math.PI;
+    drag.current = {
+      key: it.key,
+      mode,
+      startX: e.clientX,
+      startY: e.clientY,
+      cx,
+      cy,
+      startAngle,
+      start: { top: it.top, left: it.left, width: it.width ?? 0, scale: it.scale ?? 1, rotate: it.rotate ?? 0 },
+    };
+  }
+
   function scrollToSection(id: string) {
+    if (debug) return;
     const el = document.getElementById(id);
     if (el) {
       const yOffset = -150;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset + yOffset;
+      const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   }
@@ -47,39 +191,169 @@ export default function Home() {
     navigator.clipboard.writeText('CharlieStampCreative@gmail.com').then(() => {
       setCopyText('Copied!');
       setTimeout(() => setCopyText('Copy Email'), 2000);
-    }).catch(() => {
-      // fallback
-      const input = document.getElementById('hidden-email') as HTMLInputElement;
-      if (input) {
-        input.select();
-        document.execCommand('copy');
-        setCopyText('Copied!');
-        setTimeout(() => setCopyText('Copy Email'), 2000);
-      }
     });
   }
 
-  return (
-    <div style={{ backgroundColor: '#f1e4d6', fontFamily: 'Arial, sans-serif', overflowX: 'hidden' }}>
+  const output = items
+    .map(it => {
+      const parts = [`top: ${r(it.top)}px`, `left: ${r(it.left)}px`];
+      if (it.width != null) parts.push(`width: ${r(it.width)}px`);
+      if (it.kind === 'text' || it.kind === 'actions') parts.push(`scale: ${it.scale}`);
+      if (it.rotate) parts.push(`rotate: ${it.rotate}deg`);
+      parts.push(`z: ${it.z}`);
+      return `[${it.key}] ${parts.join('; ')}`;
+    })
+    .join('\n');
 
-      {/* Fixed sticky header — lives outside the canvas so position:fixed works */}
+  function copyOutput() {
+    navigator.clipboard.writeText(output).then(() => {
+      setOutputCopied(true);
+      setTimeout(() => setOutputCopied(false), 2000);
+    });
+  }
+
+  function renderContent(it: LItem) {
+    if (it.kind === 'plain') {
+      return <img src={it.src} alt={it.alt} style={{ width: '100%', height: 'auto', display: 'block' }} draggable={false} />;
+    }
+    if (it.kind === 'shadow') {
+      return (
+        <div style={{ filter: SHADOW }}>
+          <img src={it.src} alt={it.alt} style={{ width: '100%', height: 'auto', display: 'block' }} draggable={false} />
+        </div>
+      );
+    }
+    if (it.kind === 'popout') {
+      return <PopInner src={it.src!} alt={it.alt!} disabled={debug} />;
+    }
+    if (it.kind === 'actions') {
+      return <BottomActions copyText={copyText} copyEmail={copyEmail} disabled={debug} />;
+    }
+    // text
+    if (it.key === 'intro-text-left') {
+      return (
+        <div style={textStyle}>
+          Hello,<br />
+          I'm Charlie, a graphic designer<br />
+          and recent UAL graduate. I love<br />
+          turning fun, creative ideas<br />
+          into bold visual identities.
+        </div>
+      );
+    }
+    if (it.key === 'intro-text-right') {
+      return (
+        <div style={textStyle}>
+          BA (HONS)<br />
+          Graphic Branding &amp; Identity
+        </div>
+      );
+    }
+    return <div style={textStyle}>CharlieStampCreative@gmail.com</div>;
+  }
+
+  return (
+    <div style={{ backgroundColor: '#f1e4d6', fontFamily: 'Arial, sans-serif', overflowX: 'hidden', userSelect: debug ? 'none' : 'auto' }}>
+
+      {/* ── Debug control panel (outside canvas, not scaled) ── */}
       <div
-        ref={stickyRef}
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '1440px',
-          zIndex: 10000,
-          transformOrigin: 'top left',
-          pointerEvents: 'none',
+          top: 10,
+          left: 10,
+          zIndex: 100000,
+          fontFamily: 'monospace',
+          fontSize: 12,
+          color: '#fff',
         }}
       >
-        {/* Ripped paper bg */}
+        <label
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 6,
+            background: 'rgba(0,0,0,0.8)',
+            padding: '6px 10px',
+            borderRadius: 6,
+            cursor: 'pointer',
+          }}
+        >
+          <input type="checkbox" checked={debug} onChange={e => setDebug(e.target.checked)} />
+          Debug Mode
+        </label>
+
+        {debug && (
+          <div
+            style={{
+              marginTop: 8,
+              width: 320,
+              maxHeight: '85vh',
+              overflowY: 'auto',
+              background: 'rgba(0,0,0,0.88)',
+              borderRadius: 8,
+              padding: 12,
+            }}
+          >
+            <div style={{ marginBottom: 8, lineHeight: 1.5 }}>
+              Drag any element to move it. Select one to get the{' '}
+              <span style={{ color: '#00aaff' }}>blue</span> resize handle and{' '}
+              <span style={{ color: '#00cc66' }}>green</span> rotate handle. Copy the output below and paste it back to me.
+            </div>
+
+            <label style={{ display: 'block', marginBottom: 4 }}>Mockup image URL (tracing paper):</label>
+            <input
+              type="text"
+              value={mockupUrl}
+              onChange={e => setMockupUrl(e.target.value)}
+              placeholder="https://..."
+              style={{ width: '100%', boxSizing: 'border-box', marginBottom: 8, padding: 4, fontFamily: 'monospace', fontSize: 11 }}
+            />
+
+            <label style={{ display: 'block', marginBottom: 4 }}>
+              Mockup opacity: {mockupOpacity.toFixed(2)}
+            </label>
+            <input
+              type="range"
+              min={0}
+              max={1}
+              step={0.05}
+              value={mockupOpacity}
+              onChange={e => setMockupOpacity(parseFloat(e.target.value))}
+              style={{ width: '100%', marginBottom: 10 }}
+            />
+
+            <div style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+              <button
+                onClick={copyOutput}
+                style={{ flex: 1, padding: '6px 0', cursor: 'pointer', background: '#00aaff', color: '#fff', border: 'none', borderRadius: 4, fontWeight: 'bold' }}
+              >
+                {outputCopied ? 'Copied!' : 'Copy Output'}
+              </button>
+              <button
+                onClick={() => { setItems(INITIAL_ITEMS); setSelected(null); }}
+                style={{ padding: '6px 10px', cursor: 'pointer', background: '#555', color: '#fff', border: 'none', borderRadius: 4 }}
+              >
+                Reset
+              </button>
+            </div>
+
+            <textarea
+              readOnly
+              value={output}
+              style={{ width: '100%', height: 200, boxSizing: 'border-box', fontFamily: 'monospace', fontSize: 10, lineHeight: 1.4 }}
+            />
+          </div>
+        )}
+      </div>
+
+      {/* Fixed sticky header — outside the canvas so position:fixed works */}
+      <div
+        ref={stickyRef}
+        style={{ position: 'fixed', top: 0, left: 0, width: '1440px', zIndex: 10000, transformOrigin: 'top left', pointerEvents: 'none' }}
+      >
         <div style={{ position: 'absolute', top: '-12.0317px', left: '1px', width: '1438.55px', zIndex: 129 }}>
-          <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F61d9e021682643278772567710b1035e" alt="Navigation" />
+          <img src={cdn('61d9e021682643278772567710b1035e')} alt="Navigation" style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
-        {/* Nav text */}
         <div
           style={{
             position: 'absolute',
@@ -133,352 +407,121 @@ export default function Home() {
         <div
           ref={canvasRef}
           id="main-canvas"
-          style={{
-            width: '1440px',
-            height: '5959px',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            transformOrigin: 'top left',
-          }}
+          style={{ width: '1440px', height: '5959px', position: 'absolute', top: 0, left: 0, transformOrigin: 'top left' }}
         >
+          {/* Tracing-paper mockup overlay (aligns 1:1 with canvas coordinates) */}
+          {debug && mockupUrl && (
+            <img
+              src={mockupUrl}
+              alt="mockup overlay"
+              style={{ position: 'absolute', top: 0, left: 0, width: '1440px', height: 'auto', opacity: mockupOpacity, pointerEvents: 'none', zIndex: 99998 }}
+            />
+          )}
 
-          {/* ── Background Elements ── */}
-          <Item style={{ top: 0, left: 0, width: '1440px', zIndex: 1 }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1530d8222ea34ff39c230b8bbbd4ade7" alt="" />
-          </Item>
+          {items.map(it => {
+            const isImg = it.kind !== 'text' && it.kind !== 'actions';
+            const isSel = debug && selected === it.key;
+            return (
+              <div
+                key={it.key}
+                id={it.key}
+                data-item={it.key}
+                onMouseDown={e => onItemDown(e, it)}
+                onClick={() => { if (!debug && it.link) navigate(it.link); }}
+                style={{
+                  position: 'absolute',
+                  top: `${it.top}px`,
+                  left: `${it.left}px`,
+                  width: isImg ? `${it.width}px` : undefined,
+                  zIndex: it.z,
+                  transform: `rotate(${it.rotate || 0}deg) scale(${it.scale || 1})`,
+                  transformOrigin: 'top left',
+                  opacity: it.opacity ?? 1,
+                  cursor: debug ? 'move' : it.link ? 'pointer' : 'default',
+                  outline: isSel ? '2px solid #00aaff' : 'none',
+                }}
+              >
+                {renderContent(it)}
 
-          <Item id="hero-title" style={{ top: '207.902px', left: '14.1656px', width: '1390.74px', zIndex: 133 }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F22c4b55d9b29465ba37f08f5b89c9baa" alt="Stamp Creative" />
-          </Item>
-
-          <Item style={{ top: '4035.58px', left: '1103.83px', width: '338.656px', zIndex: 283, opacity: 0.85 }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F2625da861d76461a9e04a77d76f24720" alt="Tea Spill" />
-          </Item>
-
-          <Item style={{ top: '4730.6px', left: '-9.7947px', width: '1453.03px', zIndex: 293 }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3eb12f515b2f418ba6d144fe0c93b11e" alt="" />
-          </Item>
-
-          {/* ── Brand Assets (Shadows, no pop-out) ── */}
-          <ShadowItem id="starlight-img" style={{ top: '962.722px', left: '80.9073px', width: '1283.72px', zIndex: 0, transform: 'rotate(0.05deg)' }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5e8276c7560844a7bb23960025d476dc" alt="Starlight Image" />
-          </ShadowItem>
-
-          <ShadowItem style={{ top: '911.444px', left: '838.185px', width: '580.742px', zIndex: 166, transform: 'rotate(-0.73deg)' }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F47d3bee759ef4c9682aea6efa4a20ccf" alt="BrandOpus" />
-          </ShadowItem>
-
-          <ShadowItem style={{ top: '1855.1px', left: '-0.298013px', width: '1393.11px', zIndex: 203, transform: 'rotate(-0.18deg)' }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe05478abd26e40589a95040ef320e3cf" alt="Inside Stories Image" />
-          </ShadowItem>
-
-          <ShadowItem style={{ top: '2519.34px', left: '70.9801px', width: '1351.26px', zIndex: 193, transform: 'rotate(-1.24deg)' }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb49bbe412e7146c5b3f9cb83f65a1a55" alt="Aya Image" />
-          </ShadowItem>
-
-          <ShadowItem style={{ top: '2790.28px', left: '1046.54px', width: '404.166px', zIndex: 289, transform: 'rotate(0.25deg)' }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3d73a7328e1a4a77983bd66913be6b02" alt="Phone" />
-          </ShadowItem>
-
-          <ShadowItem style={{ top: '3304px', left: '-4.81457px', width: '1419.68px', zIndex: 287, transform: 'rotate(0.17deg)' }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fddf5aeafe88f4461b4bdcf7178899e70" alt="RegenB Image" />
-          </ShadowItem>
-
-          <ShadowItem style={{ top: '3926.81px', left: '25.9073px', width: '1106px', zIndex: 284, transform: 'rotate(2deg)' }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F8869078d3da3415ab58d8338f1812359" alt="Flow Image" />
-          </ShadowItem>
-
-          {/* ── Logos (Shadows + Pop-out hover) ── */}
-          <PopOutItem
-            style={{ top: '1441.17px', left: '14.9073px', width: '545.351px', zIndex: 205, transform: 'rotate(-0.91deg)' }}
-            onClick={() => navigate('/project/starlight-beer')}
-          >
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F437cd92f7a8143268a3bf09e074fd796" alt="Starlight Logo" />
-          </PopOutItem>
-
-          <PopOutItem
-            style={{ top: '2325.44px', left: '758.815px', width: '382.371px', zIndex: 204, transform: 'rotate(-0.05deg)' }}
-            onClick={() => navigate('/project/inside-stories')}
-          >
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F8f7a3735549d489a91d2536c4c59f821" alt="Inside Stories Logo" />
-          </PopOutItem>
-
-          {/* Aya — no project page yet, hover only */}
-          <PopOutItem
-            style={{ top: '3087.63px', left: '12.6291px', width: '554.464px', zIndex: 288, transform: 'rotate(0.01deg)' }}
-          >
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F30ed9c00fb28428cbefc39036d534225" alt="AYA Logo" />
-          </PopOutItem>
-
-          <PopOutItem
-            style={{ top: '3817.7px', left: '465.834px', width: '589.89px', zIndex: 290, transform: 'rotate(0.57deg)' }}
-            onClick={() => navigate('/project/regenb')}
-          >
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F08b6e5c4bdbe44489df684a204ea604c" alt="RegenB Logo" />
-          </PopOutItem>
-
-          <PopOutItem
-            style={{ top: '4487.3px', left: '871.371px', width: '564px', zIndex: 291, transform: 'rotate(1.87deg)' }}
-            onClick={() => navigate('/project/flow')}
-          >
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3fb99cbbc54243ab9be8466e97e7023a" alt="Flow Logo" />
-          </PopOutItem>
-
-          {/* ── CTA image ── */}
-          <Item style={{ top: '5125px', left: '64.2781px', width: '1328.33px', zIndex: 294 }}>
-            <Img src="https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F072cd11f594b47afbb3cecd540201d87" alt="Let's Create Something" />
-          </Item>
-
-          {/* ── Typography ── */}
-          <div
-            id="intro-text-left"
-            style={{
-              position: 'absolute',
-              top: '764px',
-              left: '65px',
-              transform: 'scale(1.01471)',
-              transformOrigin: 'top left',
-              zIndex: 150,
-              color: '#9d0003',
-              fontFamily: 'Arial, sans-serif',
-              fontWeight: 'bold',
-              fontSize: '24px',
-              lineHeight: 1.3,
-            }}
-          >
-            Hello,<br />
-            I'm Charlie, a graphic designer<br />
-            and recent UAL graduate. I love<br />
-            turning fun, creative ideas<br />
-            into bold visual identities.
-          </div>
-
-          <div
-            style={{
-              position: 'absolute',
-              top: '764.758px',
-              left: '1040px',
-              transformOrigin: 'top left',
-              zIndex: 150,
-              color: '#9d0003',
-              fontFamily: 'Arial, sans-serif',
-              fontWeight: 'bold',
-              fontSize: '24px',
-              lineHeight: 1.3,
-            }}
-          >
-            BA (HONS)<br />
-            Graphic Branding &amp; Identity
-          </div>
-
-          {/* ── Bottom Actions ── */}
-          <div
-            id="bottom-actions"
-            style={{
-              position: 'absolute',
-              top: '5664.47px',
-              left: '62px',
-              transform: 'scale(1.79411)',
-              transformOrigin: 'top left',
-              zIndex: 300,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-            }}
-          >
-            <a
-              href="mailto:CharlieStampCreative@gmail.com"
-              style={{
-                backgroundColor: '#9d0003',
-                color: '#f1e4d6',
-                padding: '8px 24px',
-                borderRadius: '50px',
-                fontFamily: 'Arial, sans-serif',
-                fontWeight: 'bold',
-                fontSize: '16px',
-                textDecoration: 'none',
-                border: '2px solid #9d0003',
-                transition: 'all 0.2s ease',
-                display: 'inline-block',
-              }}
-            >
-              Send Email
-            </a>
-
-            <button
-              onClick={copyEmail}
-              style={{
-                backgroundColor: 'transparent',
-                color: '#9d0003',
-                padding: '8px 16px',
-                borderRadius: '50px',
-                fontFamily: 'Arial, sans-serif',
-                fontWeight: 'bold',
-                fontSize: '16px',
-                textDecoration: 'none',
-                cursor: 'pointer',
-                border: '2px solid #9d0003',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                transition: 'all 0.2s ease',
-              }}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="none" />
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" />
-              </svg>
-              <span>{copyText}</span>
-            </button>
-
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                border: '2px solid #9d0003',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#9d0003',
-                textDecoration: 'none',
-                transition: 'all 0.2s ease',
-              }}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </a>
-
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                border: '2px solid #9d0003',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#9d0003',
-                textDecoration: 'none',
-                transition: 'all 0.2s ease',
-              }}
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" style={{ width: '20px', height: '20px' }}>
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-          </div>
-
-          {/* Email display text */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '5827.29px',
-              left: '75px',
-              transform: 'scale(1.96471)',
-              transformOrigin: 'top left',
-              zIndex: 300,
-              color: '#9d0003',
-              fontFamily: 'Arial, sans-serif',
-              fontWeight: 'bold',
-              fontSize: '24px',
-              lineHeight: 1.3,
-            }}
-          >
-            CharlieStampCreative@gmail.com
-          </div>
+                {isSel && (
+                  <>
+                    <div
+                      onMouseDown={e => onHandleDown(e, it, 'resize')}
+                      style={{ position: 'absolute', right: -8, bottom: -8, width: 16, height: 16, background: '#00aaff', borderRadius: '50%', cursor: 'nwse-resize', zIndex: 99999, border: '2px solid #fff' }}
+                    />
+                    <div
+                      onMouseDown={e => onHandleDown(e, it, 'rotate')}
+                      style={{ position: 'absolute', left: '50%', top: -34, marginLeft: -8, width: 16, height: 16, background: '#00cc66', borderRadius: '50%', cursor: 'grab', zIndex: 99999, border: '2px solid #fff' }}
+                    />
+                  </>
+                )}
+              </div>
+            );
+          })}
 
           {/* Hidden input for clipboard fallback */}
-          <input
-            type="text"
-            id="hidden-email"
-            defaultValue="CharlieStampCreative@gmail.com"
-            style={{ position: 'absolute', left: '-9999px' }}
-            readOnly
-          />
-
+          <input type="text" id="hidden-email" defaultValue="CharlieStampCreative@gmail.com" style={{ position: 'absolute', left: '-9999px' }} readOnly />
         </div>
       </div>
     </div>
   );
 }
 
-// ── Helper sub-components ──
+// ── Sub-components ──
 
-function Item({ id, style, children }: { id?: string; style: React.CSSProperties; children: React.ReactNode }) {
-  return (
-    <div id={id} style={{ position: 'absolute', display: 'block', ...style }}>
-      {children}
-    </div>
-  );
-}
-
-function ShadowItem({ id, style, children }: { id?: string; style: React.CSSProperties; children: React.ReactNode }) {
-  return (
-    <div
-      id={id}
-      style={{ position: 'absolute', display: 'block', ...style }}
-    >
-      <div style={{ filter: 'drop-shadow(8px 12px 15px rgba(80, 10, 5, 0.45))' }}>
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function PopOutItem({
-  id,
-  style,
-  children,
-  onClick,
-}: {
-  id?: string;
-  style: React.CSSProperties;
-  children: React.ReactNode;
-  onClick?: () => void;
-}) {
+function PopInner({ src, alt, disabled }: { src: string; alt: string; disabled: boolean }) {
   const [hovered, setHovered] = useState(false);
+  const active = hovered && !disabled;
   return (
     <div
-      id={id}
-      onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        position: 'absolute',
-        display: 'block',
-        cursor: onClick ? 'pointer' : 'default',
-        zIndex: hovered ? 9999 : style.zIndex,
-        ...style,
+        filter: active ? SHADOW_HOVER : SHADOW,
+        transform: active ? 'scale(1.05) translateY(-8px)' : 'scale(1) translateY(0)',
+        transition: 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease',
       }}
     >
-      <div
-        style={{
-          filter: hovered
-            ? 'drop-shadow(12px 18px 20px rgba(80, 10, 5, 0.6))'
-            : 'drop-shadow(8px 12px 15px rgba(80, 10, 5, 0.45))',
-          transform: hovered ? 'scale(1.05) translateY(-8px)' : 'scale(1) translateY(0)',
-          transition: 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease',
-        }}
-      >
-        {children}
-      </div>
+      <img src={src} alt={alt} style={{ width: '100%', height: 'auto', display: 'block' }} draggable={false} />
     </div>
   );
 }
 
-function Img({ src, alt }: { src: string; alt: string }) {
-  return <img src={src} alt={alt} style={{ width: '100%', height: 'auto', display: 'block' }} />;
+function BottomActions({ copyText, copyEmail, disabled }: { copyText: string; copyEmail: () => void; disabled: boolean }) {
+  const stop = (e: React.MouseEvent) => { if (disabled) e.preventDefault(); };
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <a
+        href="mailto:CharlieStampCreative@gmail.com"
+        onClick={stop}
+        style={{ backgroundColor: '#9d0003', color: '#f1e4d6', padding: '8px 24px', borderRadius: '50px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '16px', textDecoration: 'none', border: '2px solid #9d0003', display: 'inline-block' }}
+      >
+        Send Email
+      </a>
+      <button
+        onClick={e => { if (disabled) { e.preventDefault(); return; } copyEmail(); }}
+        style={{ backgroundColor: 'transparent', color: '#9d0003', padding: '8px 16px', borderRadius: '50px', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', fontSize: '16px', cursor: 'pointer', border: '2px solid #9d0003', display: 'flex', alignItems: 'center', gap: '8px' }}
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="none" />
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" />
+        </svg>
+        <span>{copyText}</span>
+      </button>
+      <a href="https://instagram.com" target="_blank" rel="noreferrer" onClick={stop} style={{ width: '40px', height: '40px', borderRadius: '50%', border: '2px solid #9d0003', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9d0003', textDecoration: 'none' }}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+        </svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noreferrer" onClick={stop} style={{ width: '40px', height: '40px', borderRadius: '50%', border: '2px solid #9d0003', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9d0003', textDecoration: 'none' }}>
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" style={{ width: '20px', height: '20px' }}>
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      </a>
+    </div>
+  );
 }
