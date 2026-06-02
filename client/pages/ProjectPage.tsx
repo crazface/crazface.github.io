@@ -7,6 +7,9 @@ export default function ProjectPage() {
   const { id } = useParams<{ id: string }>();
   const [project, setProject] = useState<Project | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [debug, setDebug] = useState(false);
+  const [topSpacingMobile, setTopSpacingMobile] = useState(220);
+  const [topSpacingDesktop, setTopSpacingDesktop] = useState(260);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,11 +65,28 @@ export default function ProjectPage() {
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }} className="min-h-screen bg-[#f1e4d6] text-[#9d0003] font-sans selection:bg-[#9d0003] selection:text-[#f1e4d6]">
+      {/* Debug Panel */}
+      {debug && (
+        <div style={{ position:'fixed', top:10, left:10, zIndex:100000, fontFamily:'monospace', fontSize:12, color:'#fff', background:'rgba(0,0,0,0.92)', borderRadius:8, padding:12, width:300, maxHeight:'90vh', overflowY:'auto' }}>
+          <label style={{ display:'block', marginBottom:8 }}>
+            <input type="checkbox" checked={debug} onChange={e => setDebug(e.target.checked)} /> Debug Mode
+          </label>
+          <label style={{ display:'block', marginBottom:4 }}>Title Top (Mobile): {topSpacingMobile}px</label>
+          <input type="range" min={0} max={400} step={10} value={topSpacingMobile} onChange={e => setTopSpacingMobile(+e.target.value)} style={{ width:'100%', marginBottom:12 }} />
+          <label style={{ display:'block', marginBottom:4 }}>Title Top (Desktop): {topSpacingDesktop}px</label>
+          <input type="range" min={0} max={400} step={10} value={topSpacingDesktop} onChange={e => setTopSpacingDesktop(+e.target.value)} style={{ width:'100%', marginBottom:12 }} />
+          <button onClick={() => setDebug(false)} style={{ width:'100%', padding:'6px', background:'#555', color:'#fff', border:'none', borderRadius:4, cursor:'pointer' }}>Close</button>
+        </div>
+      )}
+      {!debug && (
+        <button onClick={() => setDebug(true)} style={{ position:'fixed', top:10, left:10, zIndex:99999, padding:'6px 12px', background:'rgba(0,0,0,0.7)', color:'#fff', border:'none', borderRadius:4, cursor:'pointer', fontSize:11 }}>Debug</button>
+      )}
+
       {/* Navigation (matches home page) */}
       <ProjectHeader />
 
       {/* Project Info */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 pt-[220px] md:pt-[260px] relative z-10 pb-16">
+      <section style={{ paddingTop: `${window.innerWidth >= 768 ? topSpacingDesktop : topSpacingMobile}px` }} className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pb-16">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-2">
             {project.title}
