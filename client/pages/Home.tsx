@@ -25,7 +25,7 @@ interface Item {
 
 const ITEMS: Item[] = [
   { key: 'top-bg',       kind: 'plain',  top: 0,         left: 0,        width: 1440,     z: 1,   src: cdn('1530d8222ea34ff39c230b8bbbd4ade7'), alt: '' },
-  { key: 'hero-title',   kind: 'plain',  top: 198.47,    left: 24.63,    width: 1390.74,  z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'),  alt: 'Stamp Creative' },
+  { key: 'hero-title',   kind: 'plain',  top: 172.798,   left: 24.63,    width: 1390.74,  z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'),  alt: 'Stamp Creative' },
   { key: 'tea-spill',    kind: 'plain',  top: 2705.808,  left: 985.779,  width: 452.824,  z: 283, opacity: 0.85, src: cdn('2625da861d76461a9e04a77d76f24720'), alt: 'Tea Spill' },
   { key: 'bottom-bg',    kind: 'plain',  top: 3182.817,  left: -1.587,   width: 1453.03,  z: 293, src: cdn('3eb12f515b2f418ba6d144fe0c93b11e'), alt: '' },
   { key: 'starlight-img',kind: 'shadow', top: 920.011,   left: 321.246,  width: 812.241,  z: 0,   rotate: 0.05,  src: cdn('5e8276c7560844a7bb23960025d476dc'), alt: 'Starlight Image' },
