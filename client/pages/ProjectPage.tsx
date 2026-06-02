@@ -164,17 +164,39 @@ export default function ProjectPage() {
 function ProjectHeader() {
   const navigate = useNavigate();
   const stickyRef = useRef<HTMLDivElement>(null);
+  const scaleRef = useRef(1);
+  const hiddenRef = useRef(false);
+  const lastYRef = useRef(0);
 
   useEffect(() => {
-    function resize() {
+    function applyTransform() {
       if (stickyRef.current) {
-        const scale = window.innerWidth / 1440;
-        stickyRef.current.style.transform = `scale(${scale})`;
+        const offset = hiddenRef.current ? -160 : 0;
+        stickyRef.current.style.transform = `translateY(${offset}px) scale(${scaleRef.current})`;
       }
+    }
+    function resize() {
+      scaleRef.current = window.innerWidth / 1440;
+      applyTransform();
+    }
+    function onScroll() {
+      const y = window.scrollY;
+      // Only start hiding after scrolling past the title/intro area
+      const shouldHide = y > 300 && y > lastYRef.current;
+      if (shouldHide !== hiddenRef.current) {
+        hiddenRef.current = shouldHide;
+        if (stickyRef.current) stickyRef.current.style.transition = "transform 0.3s ease";
+        applyTransform();
+      }
+      lastYRef.current = y;
     }
     resize();
     window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   const navImg =
