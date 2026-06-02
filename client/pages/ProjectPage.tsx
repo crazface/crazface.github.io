@@ -324,7 +324,7 @@ function ProjectGallery({ project }: { project: Project }) {
       return <video key={idx} src={src} className="w-full block" controls playsInline />;
     }
 
-    const useNaturalSize = project.id === "inside-stories";
+    const useNaturalSize = project.id === "inside-stories" || project.id === "aya";
 
     return (
       <div key={idx} className="w-full flex justify-center">
