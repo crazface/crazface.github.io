@@ -94,7 +94,7 @@ export default function Home() {
   const [outputCopied, setOutputCopied] = useState(false);
   const [headerText, setHeaderText] = useState('Charlie Stamp');
   const [headerTop, setHeaderTop] = useState(33);
-  const [headerLeft, setHeaderLeft] = useState(0);
+  const [headerLeft, setHeaderLeft] = useState(-7.83);
   const [canvasHeight, setCanvasHeight] = useState(4140);
   const drag = useRef<DragState|null>(null);
   const moveModeRef = useRef<MoveMode>('both');
