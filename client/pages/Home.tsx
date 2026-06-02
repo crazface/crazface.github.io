@@ -93,6 +93,7 @@ export default function Home() {
   const [outputCopied, setOutputCopied] = useState(false);
   const [headerText, setHeaderText] = useState('Charlie Stamp');
   const [headerTop, setHeaderTop] = useState(33);
+  const [canvasHeight, setCanvasHeight] = useState(5959);
   const drag = useRef<DragState|null>(null);
   const moveModeRef = useRef<MoveMode>('both');
   moveModeRef.current = moveMode;
@@ -110,12 +111,12 @@ export default function Home() {
       const scale = window.innerWidth / 1440;
       canvas.style.transform = `scale(${scale})`;
       if (stickyRef.current) stickyRef.current.style.transform = `scale(${scale})`;
-      wrapper.style.height = `${5959 * scale}px`;
+      wrapper.style.height = `${canvasHeight * scale}px`;
     }
     resizeLayout();
     window.addEventListener('resize', resizeLayout);
     return () => window.removeEventListener('resize', resizeLayout);
-  }, []);
+  }, [canvasHeight]);
 
   useEffect(() => {
     if (!debug) return;
@@ -404,6 +405,9 @@ export default function Home() {
 
             <label style={{ display:'block', marginBottom:4 }}>Header Top: {headerTop.toFixed(2)}px</label>
             <input type="range" min={-50} max={150} step={0.1} value={headerTop} onChange={e => setHeaderTop(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
+
+            <label style={{ display:'block', marginBottom:4 }}>Canvas Height: {canvasHeight}px</label>
+            <input type="range" min={2000} max={6000} step={10} value={canvasHeight} onChange={e => setCanvasHeight(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
 
             <label style={{ display:'block', marginBottom:4 }}>Mockup URL:</label>
             <input type="text" value={mockupUrl} onChange={e => setMockupUrl(e.target.value)} placeholder="https://..." style={{ width:'100%', boxSizing:'border-box', marginBottom:8, padding:4, fontFamily:'monospace', fontSize:11 }} />
