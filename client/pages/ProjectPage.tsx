@@ -328,7 +328,7 @@ function ProjectGallery({ project }: { project: Project }) {
         <img
           src={src}
           alt={`${project.title} ${idx + 1}`}
-          className="h-[clamp(220px,42vw,720px)] w-auto max-w-full object-contain block cursor-zoom-in"
+          className="h-[clamp(280px,56vw,920px)] w-auto max-w-full object-contain block cursor-zoom-in"
           onClick={() => setSelectedImage(src)}
         />
       </div>
