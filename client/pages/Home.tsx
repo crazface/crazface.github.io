@@ -455,7 +455,7 @@ export default function Home() {
             const isImg = item.kind !== 'text' && item.kind !== 'actions';
             const isSel = debug && selected === item.key;
             const isGrouped = grouped.has(item.key);
-            const interactive = item.kind === 'popout' || item.kind === 'actions';
+            const interactive = item.kind === 'popout' || item.kind === 'actions' || !!item.link;
             return (
               <div
                 key={item.key}
