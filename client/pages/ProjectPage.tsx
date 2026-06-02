@@ -1,11 +1,10 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getProjectById, Project } from "@/lib/projects";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
 export default function ProjectPage() {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const [project, setProject] = useState<Project | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -63,80 +62,35 @@ export default function ProjectPage() {
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }} className="min-h-screen bg-[#f1e4d6] text-[#9d0003] font-sans selection:bg-[#9d0003] selection:text-[#f1e4d6]">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-[100] bg-[#f1e4d6]/90 backdrop-blur-md py-4 shadow-xl shadow-black/20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          <Link
-            to="/"
-            className="text-xl font-bold tracking-tighter uppercase cursor-pointer"
-          >
-            STAMP <span className="text-[#9d0003]">.</span>
-          </Link>
-          <button
-            onClick={() => navigate(-1)}
-            className="flex items-center space-x-2 text-sm font-medium uppercase tracking-widest hover:text-[#9d0003] transition-colors"
-          >
-            <ArrowLeft size={16} />
-            <span>Back</span>
-          </button>
-        </div>
-      </nav>
+      {/* Navigation (matches home page) */}
+      <ProjectHeader />
 
       {/* Project Info */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 pt-32 relative z-10 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Left: Title + Description */}
-          <div className="lg:col-span-2">
-            <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-6">
-              {project.title}
-            </h1>
-            {project.id === "starlight-beer" && (
-              <div className="flex flex-wrap gap-3 mb-6">
-                <span className="inline-flex items-center bg-[#9d0003] text-[#f1e4d6] font-bold uppercase tracking-widest text-xs px-4 py-2">
-                  Work in Progress
-                </span>
-                <span className="inline-flex items-center border border-[#9d0003] text-[#9d0003] font-bold uppercase tracking-widest text-xs px-4 py-2">
-                  Shortlisted — Brandopus Hatch Competition
-                </span>
-              </div>
-            )}
-            {project.longDescription ? (
-              <div
-                className="text-lg text-[#9d0003]/70 font-light leading-relaxed space-y-4 [&_p]:mb-4"
-                dangerouslySetInnerHTML={{ __html: project.longDescription }}
-              />
-            ) : (
-              <p className="text-lg text-[#9d0003]/70 font-light leading-relaxed">
-                {project.description}
-              </p>
-            )}
-          </div>
-
-          {/* Right: Details */}
-          <aside className="lg:col-span-1">
-            <div className="border border-[#9d0003]/20 p-8 space-y-6">
-              <DetailItem label="Role" value={project.role || "Designer"} />
-              <DetailItem label="Year" value={project.year} />
-              <DetailItem label="Type" value={project.type} />
-              {project.tools && (
-                <div>
-                  <div className="text-xs text-[#9d0003]/60 uppercase tracking-wider mb-2">
-                    Tools
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className="px-3 py-1 text-xs border border-[#9d0003]/30 text-[#9d0003]/80"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
+      <section className="max-w-7xl mx-auto px-6 md:px-12 pt-[220px] md:pt-[260px] relative z-10 pb-16">
+        <div className="max-w-3xl">
+          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight mb-2">
+            {project.title}
+          </h1>
+          <p className="text-lg text-[#9d0003]/60 font-bold uppercase tracking-widest mb-6">
+            {project.year}
+          </p>
+          {project.id === "starlight-beer" && (
+            <div className="flex flex-wrap gap-3 mb-6">
+              <span className="inline-flex items-center border border-[#9d0003] text-[#9d0003] font-bold uppercase tracking-widest text-xs px-4 py-2">
+                Shortlisted — Brandopus Hatch Competition
+              </span>
             </div>
-          </aside>
+          )}
+          {project.longDescription ? (
+            <div
+              className="text-lg text-[#9d0003]/70 font-light leading-relaxed space-y-4 [&_p]:mb-4"
+              dangerouslySetInnerHTML={{ __html: project.longDescription }}
+            />
+          ) : (
+            <p className="text-lg text-[#9d0003]/70 font-light leading-relaxed">
+              {project.description}
+            </p>
+          )}
         </div>
       </section>
 
@@ -154,11 +108,8 @@ export default function ProjectPage() {
         </section>
       )}
 
-      {/* Gallery */}
-      <section className="w-full px-4 md:px-8 pb-20">
-        <h3 className="text-2xl font-bold uppercase tracking-wide mb-8 text-[#9d0003] max-w-7xl mx-auto">
-          {project.type === "Video Editing" ? "Video" : "Gallery"}
-        </h3>
+      {/* Gallery - full screen-wide scroll */}
+      <section className="w-full pb-20">
         <ProjectGallery project={project} />
       </section>
 
@@ -210,13 +161,76 @@ export default function ProjectPage() {
 
 // --- Sub-components ---
 
-function DetailItem({ label, value }: { label: string; value: string }) {
+function ProjectHeader() {
+  const navigate = useNavigate();
+  const stickyRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function resize() {
+      if (stickyRef.current) {
+        const scale = window.innerWidth / 1440;
+        stickyRef.current.style.transform = `scale(${scale})`;
+      }
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, []);
+
+  const navImg =
+    "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff13df9c3652c4cc8b4ee870c5b3fd59a";
+
   return (
-    <div>
-      <div className="text-xs text-[#9d0003]/60 uppercase tracking-wider mb-1">
-        {label}
+    <div
+      ref={stickyRef}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "1440px",
+        zIndex: 10000,
+        transformOrigin: "top left",
+        pointerEvents: "none",
+      }}
+    >
+      <div style={{ position: "absolute", top: "-12.0317px", left: "1px", width: "1438.55px", zIndex: 129 }}>
+        <img src={navImg} alt="Navigation" style={{ width: "100%", height: "auto", display: "block" }} />
       </div>
-      <div className="text-lg text-[#9d0003]">{value}</div>
+      <div
+        style={{
+          position: "absolute",
+          top: "33px",
+          left: 0,
+          width: "1440px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "0 160px",
+          boxSizing: "border-box",
+          zIndex: 10001,
+          pointerEvents: "auto",
+        }}
+      >
+        <p
+          onClick={() => navigate("/")}
+          style={{ color: "#9d0003", fontFamily: "Arial,sans-serif", fontWeight: "bold", fontSize: "24px", margin: 0, cursor: "pointer" }}
+        >
+          Charlie Stamp
+        </p>
+        <div style={{ display: "flex", gap: "40px" }}>
+          {["home", "work", "contact"].map((label) => (
+            <button
+              key={label}
+              onClick={() => navigate("/")}
+              style={{ background: "none", border: "none", color: "#9d0003", fontFamily: "Arial,sans-serif", fontWeight: "bold", fontSize: "20px", cursor: "pointer", padding: 0 }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -263,249 +277,45 @@ function ProjectGallery({ project }: { project: Project }) {
       ? project.gallery
       : [project.image];
 
-  // Video projects
-  if (project.type === "Video Editing") {
-    const src = gallery[0];
+  // Full-width media you scroll through
+  const renderItem = (src: string, idx: number) => {
     const isYoutube = /youtu(?:\.be|be\.com)/.test(src);
     const isHostedVideo =
       /\.(mp4|webm|mov)(\?|$)/i.test(src) || /o\/assets|compressed\?/.test(src);
 
     if (isYoutube) {
-      const idMatch = src.match(
-        /(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/
-      );
+      const idMatch = src.match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/);
       const videoId = idMatch ? idMatch[1] : src;
-      const embedSrc = videoId && !videoId.startsWith("http")
-        ? `https://www.youtube.com/embed/${videoId}`
-        : src;
+      const embedSrc =
+        videoId && !videoId.startsWith("http")
+          ? `https://www.youtube.com/embed/${videoId}`
+          : src;
       return (
-        <div className="overflow-hidden border border-[#9d0003]/20 w-full max-w-[1600px] mx-auto" style={{ aspectRatio: "16/9", maxHeight: "90vh" }}>
-          <iframe src={embedSrc} title={project.title} className="w-full h-full" allowFullScreen style={{ border: 0 }} />
+        <div key={idx} className="w-full" style={{ aspectRatio: "16/9" }}>
+          <iframe src={embedSrc} title={`${project.title} ${idx + 1}`} className="w-full h-full" allowFullScreen style={{ border: 0 }} />
         </div>
       );
     }
 
     if (isHostedVideo) {
-      return (
-        <div className="overflow-hidden border border-[#9d0003]/20 w-full max-w-[1600px] mx-auto" style={{ aspectRatio: "16/9", maxHeight: "90vh" }}>
-          <video src={src} className="w-full h-full object-cover" controls playsInline />
-        </div>
-      );
+      return <video key={idx} src={src} className="w-full block" controls playsInline />;
     }
 
     return (
-      <div className="overflow-hidden border border-[#9d0003]/20 w-full max-w-[1600px] mx-auto" style={{ aspectRatio: "16/9", maxHeight: "90vh" }}>
-        <img src={src} alt={project.title} className="w-full h-full object-cover" />
-      </div>
+      <img
+        key={idx}
+        src={src}
+        alt={`${project.title} ${idx + 1}`}
+        className="w-full block cursor-zoom-in"
+        onClick={() => setSelectedImage(src)}
+      />
     );
-  }
+  };
 
-  // Schtuff - 3x3 square grid
-  if (project.id === "schtuff-ad-campaign-2022") {
-    const items = gallery.slice(0, 9);
-    while (items.length < 9) items.push(project.image);
-    return (
-      <>
-        <div className="grid grid-cols-3 gap-4">
-          {items.map((src, idx) => (
-            <button key={idx} className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(src)}>
-              <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </button>
-          ))}
-        </div>
-        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
-      </>
-    );
-  }
-
-  // Cacophony - single centered square
-  if (project.id === "cacophony-album-cover") {
-    return (
-      <>
-        <div className="flex justify-center">
-          <button className="overflow-hidden border border-[#9d0003]/20 max-w-[720px] w-full cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[0])}>
-            <img src={gallery[0] || project.image} alt={project.title} className="w-full h-full object-cover" />
-          </button>
-        </div>
-        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
-      </>
-    );
-  }
-
-  // Published Book Cover - two images side by side
-  if (project.id === "published-book-cover") {
-    return (
-      <>
-        <div className="flex flex-col md:flex-row items-stretch gap-6">
-          <button className="overflow-hidden border border-[#9d0003]/20 flex-1 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "3/4" }} onClick={() => setSelectedImage(gallery[0])}>
-            <img src={gallery[0] || project.image} alt={project.title} className="w-full h-full object-cover" />
-          </button>
-          <button className="overflow-hidden border border-[#9d0003]/20 flex-1 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[1])}>
-            <img src={gallery[1] || project.image} alt={`${project.title} secondary`} className="w-full h-full object-cover" />
-          </button>
-        </div>
-        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
-      </>
-    );
-  }
-
-  // Posters - 3:4 tiles
-  if (project.id === "posters-2022") {
-    return (
-      <>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {gallery.map((src, idx) => (
-            <button key={idx} className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "3/4" }} onClick={() => setSelectedImage(src)}>
-              <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </button>
-          ))}
-        </div>
-        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
-      </>
-    );
-  }
-
-  // Old West - 3:2 landscape
-  if (project.id === "old-west-starter-kit") {
-    return (
-      <>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {gallery.map((src, idx) => (
-            <button key={idx} className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "3/2" }} onClick={() => setSelectedImage(src)}>
-              <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </button>
-          ))}
-        </div>
-        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
-      </>
-    );
-  }
-
-  // Pisk Kitchen - large left + 3 stacked right
-  if (project.id === "pisk-kitchen") {
-    return (
-      <>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <button className="md:col-span-3 overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[0])}>
-            <img src={gallery[0] || project.image} alt={project.title} className="w-full h-full object-cover" />
-          </button>
-          <div className="md:col-span-1 grid grid-rows-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <button key={i} className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[i])}>
-                <img src={gallery[i] || project.image} alt={`${project.title} ${i}`} className="w-full h-full object-cover" />
-              </button>
-            ))}
-          </div>
-        </div>
-        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
-      </>
-    );
-  }
-
-  // Inside Stories - alternating 1:1 and 2:1 layout
-  if (project.id === "inside-stories") {
-    return (
-      <>
-        <div className="space-y-4">
-          {/* Row 1: 1:1 left, 2:1 right - fixed row height so both align */}
-          <div className="hidden md:grid md:grid-cols-3 gap-4" style={{ height: "440px" }}>
-            <button className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[0])}>
-              <img src={gallery[0] || project.image} alt={`${project.title} 1`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </button>
-            <button className="md:col-span-2 overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[1])}>
-              <img src={gallery[1] || project.image} alt={`${project.title} 2`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </button>
-          </div>
-          {/* Mobile stack */}
-          <div className="grid grid-cols-1 gap-4 md:hidden">
-            <button className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[0])}>
-              <img src={gallery[0] || project.image} alt={`${project.title} 1`} className="w-full h-full object-cover" />
-            </button>
-            <button className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "2/1" }} onClick={() => setSelectedImage(gallery[1])}>
-              <img src={gallery[1] || project.image} alt={`${project.title} 2`} className="w-full h-full object-cover" />
-            </button>
-          </div>
-
-          {/* Row 2: 2:1 left, 1:1 right - fixed row height so both align */}
-          <div className="hidden md:grid md:grid-cols-3 gap-4" style={{ height: "440px" }}>
-            <button className="md:col-span-2 overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[2])}>
-              <img src={gallery[2] || project.image} alt={`${project.title} 3`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </button>
-            <button className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[3])}>
-              <img src={gallery[3] || project.image} alt={`${project.title} 4`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </button>
-          </div>
-          {/* Mobile stack */}
-          <div className="grid grid-cols-1 gap-4 md:hidden">
-            <button className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "2/1" }} onClick={() => setSelectedImage(gallery[2])}>
-              <img src={gallery[2] || project.image} alt={`${project.title} 3`} className="w-full h-full object-cover" />
-            </button>
-            <button className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "1/1" }} onClick={() => setSelectedImage(gallery[3])}>
-              <img src={gallery[3] || project.image} alt={`${project.title} 4`} className="w-full h-full object-cover" />
-            </button>
-          </div>
-
-          {/* Row 3: 3 A4s in a row - native ratio */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {[4, 5, 6].map((idx) => (
-              <button key={idx} className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" onClick={() => setSelectedImage(gallery[idx])}>
-                <img src={gallery[idx] || project.image} alt={`${project.title} ${idx + 1}`} className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500" />
-              </button>
-            ))}
-          </div>
-
-          {/* Video Section */}
-          {gallery[7] && (
-            <div className="overflow-hidden border border-[#9d0003]/20" style={{ aspectRatio: "16/9" }}>
-              {/youtu(?:\.be|be\.com)/.test(gallery[7]) ? (
-                <iframe
-                  src={`https://www.youtube.com/embed/${gallery[7].match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/)?.[1] || gallery[7]}`}
-                  title={`${project.title} Video`}
-                  className="w-full h-full"
-                  allowFullScreen
-                  style={{ border: 0 }}
-                />
-              ) : (
-                <video src={gallery[7]} className="w-full h-full object-cover" controls playsInline />
-              )}
-            </div>
-          )}
-        </div>
-
-        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
-      </>
-    );
-  }
-
-  // Photography - 2:3 portrait tiles
-  if (project.type === "Photography") {
-    return (
-      <>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {gallery.map((src, idx) => (
-            <button key={idx} className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity" style={{ aspectRatio: "2/3" }} onClick={() => setSelectedImage(src)}>
-              <img src={src} alt={`${project.title} ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </button>
-          ))}
-        </div>
-        <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
-      </>
-    );
-  }
-
-  // Default gallery - masonry-like grid
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {gallery.map((src, idx) => (
-          <button key={idx} className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-90 transition-opacity bg-[#e7d4c0] flex items-center justify-center" onClick={() => setSelectedImage(src)}>
-            <img
-              src={src}
-              alt={`${project.title} ${idx + 1}`}
-              className="w-full h-auto max-h-[85vh] object-contain hover:scale-[1.02] transition-transform duration-500"
-            />
-          </button>
-        ))}
+      <div className="flex flex-col">
+        {gallery.map((src, idx) => renderItem(src, idx))}
       </div>
       <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
     </>
