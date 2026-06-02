@@ -144,7 +144,7 @@ export const projects: Project[] = [
   },
   {
     id: "starlight-beer",
-    title: "Starlight Beer",
+    title: "Starlight",
     type: "Graphic Design",
     year: "2026",
     image:
