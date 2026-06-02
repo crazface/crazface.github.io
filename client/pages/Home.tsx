@@ -118,48 +118,33 @@ export default function Home() {
         }
 
         if (d.mode === 'resize') {
-          // Calculate bounding box of all affected items at start time
-          let minLeft = Infinity, maxRight = -Infinity;
-          let minTop = Infinity, maxBottom = -Infinity;
-
+          // Bounding box anchor (top-left) from start positions
+          let minLeft = Infinity, minTop = Infinity, maxRight = -Infinity;
           affectedKeys.forEach(key => {
             const state = d.start[key];
-            const item = prev.find(it => it.key === key);
-            if (!state || !item) return;
+            if (!state) return;
             minLeft = Math.min(minLeft, state.left);
             minTop = Math.min(minTop, state.top);
-            const right = state.left + (state.width || 0);
-            const bottom = state.top + (item.kind === 'text' || item.kind === 'actions' ? 100 : 100); // approximate height
-            maxRight = Math.max(maxRight, right);
-            maxBottom = Math.max(maxBottom, bottom);
+            maxRight = Math.max(maxRight, state.left + (state.width || 200));
           });
 
-          const originalWidth = maxRight - minLeft;
-          const centerX = minLeft + originalWidth / 2;
-          const centerY = minTop + (maxBottom - minTop) / 2;
-
-          // Calculate scale factor based on drag distance
-          const scaleMultiplier = 1 + dx / Math.max(originalWidth, 1);
+          const originalWidth = Math.max(maxRight - minLeft, 1);
+          // Uniform scale factor driven by horizontal drag (drag right = bigger)
+          const S = Math.max(0.1, 1 + dx / originalWidth);
 
           return prev.map(it => {
             const state = d.start[it.key];
             if (!state) return it;
 
+            // Scale position uniformly around the group's top-left anchor so
+            // every item keeps its relative place to the others (Photoshop-style).
+            const newLeft = minLeft + (state.left - minLeft) * S;
+            const newTop  = minTop  + (state.top  - minTop)  * S;
+
             if (it.kind === 'text' || it.kind === 'actions') {
-              // For text, scale the scale property
-              const newScale = Math.max(0.1, state.scale * scaleMultiplier);
-              return { ...it, scale: +newScale.toFixed(4) };
+              return { ...it, top: +newTop.toFixed(3), left: +newLeft.toFixed(3), scale: +(state.scale * S).toFixed(4) };
             }
-
-            // For images: scale width and reposition around center
-            const newWidth = Math.max(20, state.width * scaleMultiplier);
-            const widthDiff = newWidth - state.width;
-
-            // Reposition based on distance from center, scaled
-            const distFromCenterX = state.left + state.width / 2 - centerX;
-            const newLeft = centerX + distFromCenterX * scaleMultiplier - newWidth / 2;
-
-            return { ...it, width: newWidth, left: +newLeft.toFixed(3) };
+            return { ...it, top: +newTop.toFixed(3), left: +newLeft.toFixed(3), width: +(state.width * S).toFixed(3) };
           });
         }
 
