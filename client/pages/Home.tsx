@@ -475,7 +475,7 @@ export default function Home() {
           <img src={cdn('f13df9c3652c4cc8b4ee870c5b3fd59a')} alt="Navigation" style={{ width:'100%', height:'auto', display:'block' }} />
         </div>
         <div style={{ position:'absolute', top:`${headerTop}px`, left:0, width:'1440px', display:'flex', justifyContent:'space-between', alignItems:'center', padding:'0 160px', boxSizing:'border-box', zIndex:10001, pointerEvents:'auto' }}>
-          <p style={{ color:'#9d0003', fontFamily:'Brawler,serif', fontWeight:'bold', fontSize:'24px', margin:0 }}>{headerText}</p>
+          <p style={{ color:'#9d0003', fontFamily:'Brawler,serif', fontWeight: 900, fontSize:'24px', margin:0 }}>{headerText}</p>
           <div style={{ display:'flex', gap:'40px' }}>
             {[{ label:'home', id:'hero-title' }, { label:'work', id:'starlight-img' }, { label:'contact', id:'bottom-actions' }].map(({ label, id }) => (
               <button key={id} onClick={() => scrollToSection(id)} style={{ background:'none', border:'none', color:'#9d0003', fontFamily:'Brawler,serif', fontWeight:'bold', fontSize:'20px', cursor:'pointer', padding:0 }} onMouseEnter={e => (e.currentTarget.style.opacity='0.7')} onMouseLeave={e => (e.currentTarget.style.opacity='1')}>{label}</button>
