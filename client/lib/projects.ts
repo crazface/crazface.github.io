@@ -160,6 +160,14 @@ export const projects: Project[] = [
       secondary: "#1e3a8a",
       accent: "#3b82f6",
     },
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0be1fa99375746168c8378b29d9d0501",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F986fd3338ac0435ea818356692dd6cfc",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F6b998389174a406ebd667ed0a64c8a82",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F146d5acde76b4d15927297d739276169",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe4abfce42ace4e5883556089830b7195",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3dd06fc66dba42828742ca1c6b2c0c13",
+    ],
   },
   {
     id: "aya",
