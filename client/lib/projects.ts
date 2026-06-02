@@ -175,6 +175,28 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "aya",
+    title: "AYA",
+    type: "Graphic Design",
+    year: "2025",
+    image:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb49bbe412e7146c5b3f9cb83f65a1a55",
+    appIcon:
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F30ed9c00fb28428cbefc39036d534225",
+    description: "Brand identity project.",
+    longDescription: `<p>AYA is a brand identity project.</p>`,
+    role: "Brand Designer",
+    tools: ["Adobe Illustrator", "Photoshop"],
+    colors: {
+      primary: "#000000",
+      secondary: "#333333",
+      accent: "#666666",
+    },
+    gallery: [
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb49bbe412e7146c5b3f9cb83f65a1a55",
+    ],
+  },
+  {
     id: "flow",
     title: "Flow",
     type: "Graphic Design",
