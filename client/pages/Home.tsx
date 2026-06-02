@@ -48,8 +48,8 @@ const ITEMS: Item[] = [
 ];
 
 const CATEGORIES: { label: string; keys: string[] }[] = [
-  { label: 'Backgrounds', keys: ['top-bg', 'hero-title', 'tea-spill', 'bottom-bg', 'cta-img'] },
-  { label: 'Brand Images', keys: ['starlight-img', 'brandopus', 'inside-img', 'aya-img', 'phone', 'regenb-img', 'flow-img'] },
+  { label: 'Backgrounds', keys: ['top-bg', 'hero-title', 'tea-spill', 'bottom-bg', 'phone', 'cta-img'] },
+  { label: 'Brand Images', keys: ['starlight-img', 'brandopus', 'inside-img', 'aya-img', 'regenb-img', 'flow-img'] },
   { label: 'Logos', keys: ['starlight-logo', 'inside-logo', 'aya-logo', 'regenb-logo', 'flow-logo'] },
   { label: 'Text / UI', keys: ['intro-text-left', 'intro-text-right', 'bottom-actions', 'email-text'] },
 ];
