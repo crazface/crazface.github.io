@@ -129,7 +129,7 @@ export default function ProjectPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/#contact"
+              href="/#bottom-actions"
               className="inline-flex items-center justify-center space-x-2 bg-[#9d0003] text-[#f1e4d6] font-bold uppercase tracking-widest px-8 py-4 hover:bg-[#7a0002] transition-colors"
             >
               <span>Get in Touch</span>
