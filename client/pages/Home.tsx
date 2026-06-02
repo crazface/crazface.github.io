@@ -105,6 +105,21 @@ export default function Home() {
     return () => document.body.removeAttribute('data-skip-theme');
   }, []);
 
+  // Scroll to hash target (e.g. /#bottom-actions from project pages)
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    // Wait for layout/scaling to settle before scrolling
+    const t = setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (el) {
+        const offset = el.getBoundingClientRect().top + window.pageYOffset - 150;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    }, 300);
+    return () => clearTimeout(t);
+  }, []);
+
   useEffect(() => {
     function resizeLayout() {
       const wrapper = wrapperRef.current;
