@@ -82,20 +82,8 @@ export default function ProjectPage() {
         </div>
       </nav>
 
-      {/* Hero Image */}
-      <section className="pt-20">
-        <div className="w-full h-[50vh] md:h-[60vh] overflow-hidden relative">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#f1e4d6] via-transparent to-transparent" />
-        </div>
-      </section>
-
       {/* Project Info */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 -mt-20 relative z-10 pb-16">
+      <section className="max-w-7xl mx-auto px-6 md:px-12 pt-32 relative z-10 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Left: Title + Description */}
           <div className="lg:col-span-2">
@@ -167,8 +155,8 @@ export default function ProjectPage() {
       )}
 
       {/* Gallery */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 pb-20">
-        <h3 className="text-2xl font-bold uppercase tracking-wide mb-8 text-[#9d0003]">
+      <section className="w-full px-4 md:px-8 pb-20">
+        <h3 className="text-2xl font-bold uppercase tracking-wide mb-8 text-[#9d0003] max-w-7xl mx-auto">
           {project.type === "Video Editing" ? "Video" : "Gallery"}
         </h3>
         <ProjectGallery project={project} />
@@ -291,7 +279,7 @@ function ProjectGallery({ project }: { project: Project }) {
         ? `https://www.youtube.com/embed/${videoId}`
         : src;
       return (
-        <div className="overflow-hidden border border-[#9d0003]/20" style={{ aspectRatio: "16/9" }}>
+        <div className="overflow-hidden border border-[#9d0003]/20 w-full max-w-[1600px] mx-auto" style={{ aspectRatio: "16/9", maxHeight: "90vh" }}>
           <iframe src={embedSrc} title={project.title} className="w-full h-full" allowFullScreen style={{ border: 0 }} />
         </div>
       );
@@ -299,14 +287,14 @@ function ProjectGallery({ project }: { project: Project }) {
 
     if (isHostedVideo) {
       return (
-        <div className="overflow-hidden border border-[#9d0003]/20" style={{ aspectRatio: "16/9" }}>
+        <div className="overflow-hidden border border-[#9d0003]/20 w-full max-w-[1600px] mx-auto" style={{ aspectRatio: "16/9", maxHeight: "90vh" }}>
           <video src={src} className="w-full h-full object-cover" controls playsInline />
         </div>
       );
     }
 
     return (
-      <div className="overflow-hidden border border-[#9d0003]/20" style={{ aspectRatio: "16/9" }}>
+      <div className="overflow-hidden border border-[#9d0003]/20 w-full max-w-[1600px] mx-auto" style={{ aspectRatio: "16/9", maxHeight: "90vh" }}>
         <img src={src} alt={project.title} className="w-full h-full object-cover" />
       </div>
     );
@@ -508,19 +496,16 @@ function ProjectGallery({ project }: { project: Project }) {
   // Default gallery - masonry-like grid
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" style={{ gridAutoRows: "220px" }}>
-        {gallery.map((src, idx) => {
-          const isTall = idx === 2 || idx === 3;
-          return (
-            <button key={idx} className={`overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-75 transition-opacity ${isTall ? "md:row-span-2" : ""}`} onClick={() => setSelectedImage(src)}>
-              <img
-                src={src}
-                alt={`${project.title} ${idx + 1}`}
-                className={`w-full ${isTall ? "h-full" : "h-56"} object-cover hover:scale-105 transition-transform duration-500`}
-              />
-            </button>
-          );
-        })}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {gallery.map((src, idx) => (
+          <button key={idx} className="overflow-hidden border border-[#9d0003]/20 cursor-pointer hover:opacity-90 transition-opacity bg-[#e7d4c0] flex items-center justify-center" onClick={() => setSelectedImage(src)}>
+            <img
+              src={src}
+              alt={`${project.title} ${idx + 1}`}
+              className="w-full h-auto max-h-[85vh] object-contain hover:scale-[1.02] transition-transform duration-500"
+            />
+          </button>
+        ))}
       </div>
       <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
     </>
