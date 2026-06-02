@@ -94,6 +94,7 @@ export default function Home() {
   const [outputCopied, setOutputCopied] = useState(false);
   const [headerText, setHeaderText] = useState('Charlie Stamp');
   const [headerTop, setHeaderTop] = useState(33);
+  const [headerLeft, setHeaderLeft] = useState(0);
   const [canvasHeight, setCanvasHeight] = useState(4140);
   const drag = useRef<DragState|null>(null);
   const moveModeRef = useRef<MoveMode>('both');
@@ -407,6 +408,9 @@ export default function Home() {
             <label style={{ display:'block', marginBottom:4 }}>Header Top: {headerTop.toFixed(2)}px</label>
             <input type="range" min={-50} max={150} step={0.1} value={headerTop} onChange={e => setHeaderTop(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
 
+            <label style={{ display:'block', marginBottom:4 }}>Header Left: {headerLeft.toFixed(2)}px</label>
+            <input type="range" min={-200} max={200} step={0.1} value={headerLeft} onChange={e => setHeaderLeft(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
+
             <label style={{ display:'block', marginBottom:4 }}>Canvas Height: {canvasHeight}px</label>
             <input type="range" min={2000} max={6000} step={10} value={canvasHeight} onChange={e => setCanvasHeight(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
 
@@ -448,7 +452,25 @@ export default function Home() {
       </div>
 
       {/* Sticky header */}
-      <div ref={stickyRef} style={{ position:'fixed', top:0, left:0, width:'1440px', zIndex:10000, transformOrigin:'top left', pointerEvents:'none' }}>
+      <div ref={stickyRef}
+        onPointerDown={e => {
+          if (!debug) return;
+          e.preventDefault();
+          const startX = e.clientX;
+          const startLeft = headerLeft;
+          const handleMove = (me: PointerEvent) => {
+            const dx = me.clientX - startX;
+            setHeaderLeft(startLeft + dx);
+          };
+          const handleEnd = () => {
+            document.removeEventListener('pointermove', handleMove);
+            document.removeEventListener('pointerup', handleEnd);
+          };
+          document.addEventListener('pointermove', handleMove);
+          document.addEventListener('pointerup', handleEnd);
+          e.currentTarget?.setPointerCapture(e.pointerId);
+        }}
+        style={{ position:'fixed', top:0, left:`${headerLeft}px`, width:'1440px', zIndex:10000, transformOrigin:'top left', pointerEvents: debug ? 'auto' : 'none', cursor: debug ? 'move' : 'default' }}>
         <div style={{ position:'absolute', top:'-12.0317px', left:'1px', width:'1438.55px', zIndex:129 }}>
           <img src={cdn('f13df9c3652c4cc8b4ee870c5b3fd59a')} alt="Navigation" style={{ width:'100%', height:'auto', display:'block' }} />
         </div>
