@@ -102,7 +102,7 @@ export default function ProjectPage() {
               <PdfSection title="Process" url={project.processPdf} />
             )}
             {project.finalPdf && (
-              <PdfSection title={project.id === "starlight-beer" ? "Design Outcome v1" : "Final Design Outcome"} url={project.finalPdf} />
+              <PdfSection title={project.id === "starlight-beer" ? "Design Outcome" : "Final Design Outcome"} url={project.finalPdf} />
             )}
           </div>
         </section>
