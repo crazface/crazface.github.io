@@ -337,7 +337,7 @@ function ProjectGallery({ project }: { project: Project }) {
 
   return (
     <>
-      <div className="flex flex-col gap-2 md:gap-3 max-w-6xl mx-auto px-6 md:px-12">
+      <div className="flex flex-col gap-2 md:gap-3 w-full px-2 md:px-4">
         {gallery.map((src, idx) => renderItem(src, idx))}
       </div>
       <GalleryLightbox selectedImage={selectedImage} onClose={() => setSelectedImage(null)} />
