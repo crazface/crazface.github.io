@@ -150,11 +150,9 @@ export const projects: Project[] = [
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fab3595764e0b4b64a80df34cd5a09068",
     description: "Brand identity for craft beer",
-    longDescription: `<p>Starlight Beer is a beer brand concept created to help LGBTQ+ people and their allies more easily identify welcoming nightlife spaces. The idea emerged from recognising that inclusive venues exist, but they are not always clearly visible. Starlight acts as a guiding signal people can trust when choosing where to spend a night out, helping make inclusive spaces more visible within nightlife culture.</p>
+    longDescription: `<p>Starlight is a beer brand concept created to help people in the LGBTQ+ community find bars and pubs that are safe, welcoming and inclusive. Served in approved venues, Starlight acts as a guiding star and visible signal of trust, making it easier for people to discover spaces where they can relax, connect and feel comfortable being themselves.</p>
 
-<p>The project involved developing a full brand identity, including logo design, colour and typography systems, packaging concepts, and a visible certification mark used by venues. Supporting materials such as campaign visuals, bar tap branding, a digital platform concept, and environmental applications were also created to demonstrate how the brand could exist across nightlife environments.</p>
-
-<p>The outcome demonstrates how a drinks brand can go beyond product and act as a visible signal of inclusion, combining community-driven certification with a bold, nightlife-inspired visual language.</p>`,
+<p>The project involved developing a full brand identity, including logo design, colour and typography systems, packaging concepts, and a visible certification mark used by venues. Supporting materials such as campaign visuals, bar tap branding, a digital platform concept, and environmental applications were also created to demonstrate how the brand could exist across nightlife environments.</p>`,
     role: "Brand Designer",
     tools: ["Adobe Illustrator"],
     colors: {
