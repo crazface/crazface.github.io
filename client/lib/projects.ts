@@ -613,7 +613,7 @@ export const projects: Project[] = [
     },
     finalPdf: "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcf75b1feb7b64d7cafd2dd3bf315173d?alt=media&token=1180a3f7-759c-427e-a0f7-acb2bf4503de&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
     gallery: [
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1b181e0936df4deb8c569a342e1e2987",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F022b6784016d4953981d25b248977d1b",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F56dc6f3036794652bcba2c1cc29e1407",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F3e8085b6e1404100b37084ddfcc51acc",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F4532ab70febb494ab9f74934e29a696d"
