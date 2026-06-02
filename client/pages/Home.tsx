@@ -38,7 +38,7 @@ const ITEMS: Item[] = [
   { key: 'flow-img',     kind: 'shadow', top: 2830.506,  left: 286.446,  width: 699.794,  z: 284, rotate: 2,     src: cdn('8869078d3da3415ab58d8338f1812359'), alt: 'Flow Image', link: '/project/flow' },
   { key: 'starlight-logo',kind: 'popout',top: 1222.736,  left: 279.487,  width: 345.057,  z: 205, rotate: -0.91, src: cdn('437cd92f7a8143268a3bf09e074fd796'), alt: 'Starlight Logo',       link: '/project/starlight-beer' },
   { key: 'inside-logo',  kind: 'popout', top: 1780.32,   left: 743.578,  width: 241.936,  z: 204, rotate: -0.05, src: cdn('8f7a3735549d489a91d2536c4c59f821'), alt: 'Inside Stories Logo',  link: '/project/inside-stories' },
-  { key: 'aya-logo',     kind: 'popout', top: 2242.68,   left: 939.13,   width: 350.823,  z: 288, rotate: -0.71, src: cdn('30ed9c00fb28428cbefc39036d534225'), alt: 'AYA Logo' },
+  { key: 'aya-logo',     kind: 'popout', top: 2242.68,   left: 939.13,   width: 350.823,  z: 288, rotate: -0.71, src: cdn('30ed9c00fb28428cbefc39036d534225'), alt: 'AYA Logo', link: '/project/aya' },
   { key: 'regenb-logo',  kind: 'popout', top: 2712.191,  left: 581.722,  width: 373.238,  z: 290, rotate: 4.75,  src: cdn('08b6e5c4bdbe44489df684a204ea604c'), alt: 'RegenB Logo',          link: '/project/regenb' },
   { key: 'flow-logo',    kind: 'popout', top: 3189.946,  left: 821.392,  width: 356.857,  z: 291, rotate: 1.87,  src: cdn('3fb99cbbc54243ab9be8466e97e7023a'), alt: 'Flow Logo',            link: '/project/flow' },
   { key: 'cta-img',      kind: 'plain',  top: 3561.948,  left: 259.274,  width: 921.451,  z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
