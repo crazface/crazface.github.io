@@ -54,8 +54,8 @@ const CATEGORIES: { label: string; keys: string[] }[] = [
   { label: 'Text / UI', keys: ['intro-text-left', 'intro-text-right', 'bottom-actions', 'email-text'] },
 ];
 
-const SHADOW       = 'drop-shadow(8px 12px 15px rgba(80,10,5,0.45))';
-const SHADOW_HOVER = 'drop-shadow(12px 18px 20px rgba(80,10,5,0.6))';
+const SHADOW       = 'drop-shadow(8px 12px 15px rgba(0,0,0,0.55))';
+const SHADOW_HOVER = 'drop-shadow(12px 18px 20px rgba(0,0,0,0.7))';
 const textStyle: React.CSSProperties = { color:'#9d0003', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'24px', lineHeight:1.3 };
 
 type MoveMode = 'both' | 'horizontal' | 'vertical';
