@@ -349,11 +349,11 @@ function ProjectGallery({ project }: { project: Project }) {
 function GalleryLightbox({ selectedImage, onClose }: { selectedImage: string | null; onClose: () => void }) {
   return selectedImage ? (
     <div
-      className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[10050] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
       onClick={onClose}
     >
       <button
-        className="fixed top-8 right-8 text-[#f1e4d6] hover:text-white transition-colors text-5xl font-bold z-[10000] bg-[#9d0003]/80 rounded-full w-16 h-16 flex items-center justify-center"
+        className="fixed top-8 right-8 text-[#f1e4d6] hover:text-white transition-colors text-5xl font-bold z-[10060] bg-[#9d0003]/80 rounded-full w-16 h-16 flex items-center justify-center"
         onClick={onClose}
         aria-label="Close"
       >
