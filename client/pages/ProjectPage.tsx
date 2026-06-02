@@ -324,12 +324,14 @@ function ProjectGallery({ project }: { project: Project }) {
       return <video key={idx} src={src} className="w-full block" controls playsInline />;
     }
 
+    const useNaturalSize = project.id === "inside-stories";
+
     return (
       <div key={idx} className="w-full flex justify-center">
         <img
           src={src}
           alt={`${project.title} ${idx + 1}`}
-          className="h-[clamp(280px,56vw,920px)] w-auto max-w-full object-contain block cursor-zoom-in"
+          className={useNaturalSize ? "w-full max-w-full object-contain block cursor-zoom-in" : "h-[clamp(280px,56vw,920px)] w-auto max-w-full object-contain block cursor-zoom-in"}
           onClick={() => setSelectedImage(src)}
         />
       </div>
