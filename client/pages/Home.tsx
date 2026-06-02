@@ -25,9 +25,9 @@ interface Item {
 
 const ITEMS: Item[] = [
   { key: 'top-bg',       kind: 'plain',  top: 0,         left: 0,        width: 1440,     z: 1,   src: cdn('1530d8222ea34ff39c230b8bbbd4ade7'), alt: '' },
-  { key: 'hero-title',   kind: 'plain',  top: 198.47,    left: 14.166,   width: 1390.74,  z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'),  alt: 'Stamp Creative' },
+  { key: 'hero-title',   kind: 'plain',  top: 198.47,    left: 24.63,    width: 1390.74,  z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'),  alt: 'Stamp Creative' },
   { key: 'tea-spill',    kind: 'plain',  top: 2705.808,  left: 985.779,  width: 452.824,  z: 283, opacity: 0.85, src: cdn('2625da861d76461a9e04a77d76f24720'), alt: 'Tea Spill' },
-  { key: 'bottom-bg',    kind: 'plain',  top: 3182.817,  left: -1.71,    width: 1453.03,  z: 293, src: cdn('3eb12f515b2f418ba6d144fe0c93b11e'), alt: '' },
+  { key: 'bottom-bg',    kind: 'plain',  top: 3182.817,  left: -1.587,   width: 1453.03,  z: 293, src: cdn('3eb12f515b2f418ba6d144fe0c93b11e'), alt: '' },
   { key: 'starlight-img',kind: 'shadow', top: 920.011,   left: 321.246,  width: 812.241,  z: 0,   rotate: 0.05,  src: cdn('5e8276c7560844a7bb23960025d476dc'), alt: 'Starlight Image' },
   { key: 'brandopus',    kind: 'shadow', top: 887.566,   left: 800.395,  width: 367.45,   z: 166, rotate: -0.73, src: cdn('47d3bee759ef4c9682aea6efa4a20ccf'), alt: 'BrandOpus' },
   { key: 'inside-img',   kind: 'shadow', top: 1484.641,  left: 269.866,  width: 881.455,  z: 203, rotate: -0.18, src: cdn('e05478abd26e40589a95040ef320e3cf'), alt: 'Inside Stories Image' },
@@ -36,15 +36,15 @@ const ITEMS: Item[] = [
   { key: 'regenb-img',   kind: 'shadow', top: 2401.396,  left: 267.008,  width: 898.267,  z: 287, rotate: 0.17,  src: cdn('ddf5aeafe88f4461b4bdcf7178899e70'), alt: 'RegenB Image' },
   { key: 'flow-img',     kind: 'shadow', top: 2830.506,  left: 286.446,  width: 699.794,  z: 284, rotate: 2,     src: cdn('8869078d3da3415ab58d8338f1812359'), alt: 'Flow Image' },
   { key: 'starlight-logo',kind: 'popout',top: 1222.736,  left: 279.487,  width: 345.057,  z: 205, rotate: -0.91, src: cdn('437cd92f7a8143268a3bf09e074fd796'), alt: 'Starlight Logo',       link: '/project/starlight-beer' },
-  { key: 'inside-logo',  kind: 'popout', top: 1782.236,  left: 750.175,  width: 241.936,  z: 204, rotate: -0.05, src: cdn('8f7a3735549d489a91d2536c4c59f821'), alt: 'Inside Stories Logo',  link: '/project/inside-stories' },
-  { key: 'aya-logo',     kind: 'popout', top: 2281.704,  left: 823.842,  width: 350.823,  z: 288, rotate: -16.99, src: cdn('30ed9c00fb28428cbefc39036d534225'), alt: 'AYA Logo' },
+  { key: 'inside-logo',  kind: 'popout', top: 1780.32,   left: 743.578,  width: 241.936,  z: 204, rotate: -0.05, src: cdn('8f7a3735549d489a91d2536c4c59f821'), alt: 'Inside Stories Logo',  link: '/project/inside-stories' },
+  { key: 'aya-logo',     kind: 'popout', top: 2242.68,   left: 939.13,   width: 350.823,  z: 288, rotate: -0.71, src: cdn('30ed9c00fb28428cbefc39036d534225'), alt: 'AYA Logo' },
   { key: 'regenb-logo',  kind: 'popout', top: 2712.191,  left: 581.722,  width: 373.238,  z: 290, rotate: 4.75,  src: cdn('08b6e5c4bdbe44489df684a204ea604c'), alt: 'RegenB Logo',          link: '/project/regenb' },
   { key: 'flow-logo',    kind: 'popout', top: 3189.946,  left: 821.392,  width: 356.857,  z: 291, rotate: 1.87,  src: cdn('3fb99cbbc54243ab9be8466e97e7023a'), alt: 'Flow Logo',            link: '/project/flow' },
-  { key: 'cta-img',      kind: 'plain',  top: 3561.948,  left: 236.82,   width: 921.451,  z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
+  { key: 'cta-img',      kind: 'plain',  top: 3561.948,  left: 259.274,  width: 921.451,  z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
   { key: 'intro-text-left',  kind: 'text',    top: 764,        left: 65,        scale: 1.01471, z: 150 },
   { key: 'intro-text-right', kind: 'text',    top: 764.758,    left: 1040,      scale: 1,       z: 150 },
-  { key: 'bottom-actions',   kind: 'actions', top: 3931.245,   left: 235.579,   scale: 1.7189,  z: 300 },
-  { key: 'email-text',       kind: 'text',    top: 4048.18,    left: 246.284,   scale: 1.2118,  z: 300 },
+  { key: 'bottom-actions',   kind: 'actions', top: 3931.009,   left: 258.346,   scale: 1.7189,  z: 300 },
+  { key: 'email-text',       kind: 'text',    top: 4047.944,   left: 269.051,   scale: 1.2118,  z: 300 },
 ];
 
 const CATEGORIES: { label: string; keys: string[] }[] = [
