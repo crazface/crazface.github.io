@@ -8,8 +8,8 @@ export default function ProjectPage() {
   const [project, setProject] = useState<Project | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [debug, setDebug] = useState(false);
-  const [topSpacingMobile, setTopSpacingMobile] = useState(220);
-  const [topSpacingDesktop, setTopSpacingDesktop] = useState(260);
+  const [topSpacingMobile, setTopSpacingMobile] = useState(70);
+  const [topSpacingDesktop, setTopSpacingDesktop] = useState(130);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -65,8 +65,8 @@ export default function ProjectPage() {
 
   return (
     <div style={{ fontFamily: 'Arial, sans-serif' }} className="min-h-screen bg-[#f1e4d6] text-[#9d0003] font-sans selection:bg-[#9d0003] selection:text-[#f1e4d6]">
-      {/* Debug Panel */}
-      {debug && (
+      {/* Debug Panel (hidden) */}
+      {false && debug && (
         <div style={{ position:'fixed', top:10, left:10, zIndex:100000, fontFamily:'monospace', fontSize:12, color:'#fff', background:'rgba(0,0,0,0.92)', borderRadius:8, padding:12, width:300, maxHeight:'90vh', overflowY:'auto' }}>
           <label style={{ display:'block', marginBottom:8 }}>
             <input type="checkbox" checked={debug} onChange={e => setDebug(e.target.checked)} /> Debug Mode
