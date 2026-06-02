@@ -24,27 +24,27 @@ interface Item {
 }
 
 const ITEMS: Item[] = [
-  { key: 'top-bg',       kind: 'plain',  top: 0,        left: 0,         width: 1440,     z: 1,   src: cdn('1530d8222ea34ff39c230b8bbbd4ade7'), alt: '' },
-  { key: 'hero-title',   kind: 'plain',  top: 207.902,  left: 14.166,    width: 1390.74,  z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'),  alt: 'Stamp Creative' },
-  { key: 'tea-spill',    kind: 'plain',  top: 3364.092, left: 1066.924,  width: 362.858,  z: 283, opacity: 0.85, src: cdn('2625da861d76461a9e04a77d76f24720'), alt: 'Tea Spill' },
-  { key: 'bottom-bg',    kind: 'plain',  top: 4729.804, left: -9.672,    width: 1453.03,  z: 293, src: cdn('3eb12f515b2f418ba6d144fe0c93b11e'), alt: '' },
-  { key: 'starlight-img',kind: 'shadow', top: 961.546,  left: 194.538,   width: 1027.765, z: 0,   rotate: 0.05,  src: cdn('5e8276c7560844a7bb23960025d476dc'), alt: 'Starlight Image' },
-  { key: 'brandopus',    kind: 'shadow', top: 920.492,  left: 800.826,   width: 464.951,  z: 166, rotate: -0.73, src: cdn('47d3bee759ef4c9682aea6efa4a20ccf'), alt: 'BrandOpus' },
-  { key: 'inside-img',   kind: 'shadow', top: 1675.997, left: 129.524,   width: 1115.344, z: 203, rotate: -0.18, src: cdn('e05478abd26e40589a95040ef320e3cf'), alt: 'Inside Stories Image' },
-  { key: 'aya-img',      kind: 'shadow', top: 2207.797, left: 186.591,   width: 1081.839, z: 193, rotate: -1.24, src: cdn('b49bbe412e7146c5b3f9cb83f65a1a55'), alt: 'Aya Image' },
-  { key: 'phone',        kind: 'shadow', top: 2385.26,  left: 1013.308,  width: 411.13,   z: 289, rotate: 0.25,  src: cdn('3d73a7328e1a4a77983bd66913be6b02'), alt: 'Phone' },
-  { key: 'regenb-img',   kind: 'shadow', top: 2836.008, left: 125.908,   width: 1136.617, z: 287, rotate: 0.17,  src: cdn('ddf5aeafe88f4461b4bdcf7178899e70'), alt: 'RegenB Image' },
-  { key: 'flow-img',     kind: 'shadow', top: 3334.638, left: 150.504,   width: 885.48,   z: 284, rotate: 2,     src: cdn('8869078d3da3415ab58d8338f1812359'), alt: 'Flow Image' },
-  { key: 'starlight-logo',kind: 'popout',top: 1344.598, left: 141.698,   width: 436.616,  z: 205, rotate: -0.91, src: cdn('437cd92f7a8143268a3bf09e074fd796'), alt: 'Starlight Logo',       link: '/project/starlight-beer' },
-  { key: 'inside-logo',  kind: 'popout', top: 2052.558, left: 737.281,   width: 306.132,  z: 204, rotate: -0.05, src: cdn('8f7a3735549d489a91d2536c4c59f821'), alt: 'Inside Stories Logo',  link: '/project/inside-stories' },
-  { key: 'aya-logo',     kind: 'popout', top: 2662.779, left: 139.874,   width: 443.912,  z: 288, rotate: 0.01,  src: cdn('30ed9c00fb28428cbefc39036d534225'), alt: 'AYA Logo' },
-  { key: 'regenb-logo',  kind: 'popout', top: 3247.283, left: 502.717,   width: 472.275,  z: 290, rotate: 0.57,  src: cdn('08b6e5c4bdbe44489df684a204ea604c'), alt: 'RegenB Logo',          link: '/project/regenb' },
-  { key: 'flow-logo',    kind: 'popout', top: 3783.375, left: 827.395,   width: 451.547,  z: 291, rotate: 1.87,  src: cdn('3fb99cbbc54243ab9be8466e97e7023a'), alt: 'Flow Logo',            link: '/project/flow' },
-  { key: 'cta-img',      kind: 'plain',  top: 5125,     left: 64.278,    width: 1328.33,  z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
+  { key: 'top-bg',       kind: 'plain',  top: 0,         left: 0,        width: 1440,     z: 1,   src: cdn('1530d8222ea34ff39c230b8bbbd4ade7'), alt: '' },
+  { key: 'hero-title',   kind: 'plain',  top: 207.902,   left: 14.166,   width: 1390.74,  z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'),  alt: 'Stamp Creative' },
+  { key: 'tea-spill',    kind: 'plain',  top: 2705.808,  left: 985.779,  width: 452.824,  z: 283, opacity: 0.85, src: cdn('2625da861d76461a9e04a77d76f24720'), alt: 'Tea Spill' },
+  { key: 'bottom-bg',    kind: 'plain',  top: 3182.817,  left: -1.71,    width: 1453.03,  z: 293, src: cdn('3eb12f515b2f418ba6d144fe0c93b11e'), alt: '' },
+  { key: 'starlight-img',kind: 'shadow', top: 920.011,   left: 321.246,  width: 812.241,  z: 0,   rotate: 0.05,  src: cdn('5e8276c7560844a7bb23960025d476dc'), alt: 'Starlight Image' },
+  { key: 'brandopus',    kind: 'shadow', top: 887.566,   left: 800.395,  width: 367.45,   z: 166, rotate: -0.73, src: cdn('47d3bee759ef4c9682aea6efa4a20ccf'), alt: 'BrandOpus' },
+  { key: 'inside-img',   kind: 'shadow', top: 1484.641,  left: 269.866,  width: 881.455,  z: 203, rotate: -0.18, src: cdn('e05478abd26e40589a95040ef320e3cf'), alt: 'Inside Stories Image' },
+  { key: 'aya-img',      kind: 'shadow', top: 1904.921,  left: 314.966,  width: 854.976,  z: 193, rotate: -1.24, src: cdn('b49bbe412e7146c5b3f9cb83f65a1a55'), alt: 'Aya Image' },
+  { key: 'phone',        kind: 'shadow', top: 1931.783,  left: -8.129,   width: 535.816,  z: 289, rotate: 0.25,  src: cdn('3d73a7328e1a4a77983bd66913be6b02'), alt: 'Phone', flipH: true },
+  { key: 'regenb-img',   kind: 'shadow', top: 2401.396,  left: 267.008,  width: 898.267,  z: 287, rotate: 0.17,  src: cdn('ddf5aeafe88f4461b4bdcf7178899e70'), alt: 'RegenB Image' },
+  { key: 'flow-img',     kind: 'shadow', top: 2830.506,  left: 286.446,  width: 699.794,  z: 284, rotate: 2,     src: cdn('8869078d3da3415ab58d8338f1812359'), alt: 'Flow Image' },
+  { key: 'starlight-logo',kind: 'popout',top: 1222.736,  left: 279.487,  width: 345.057,  z: 205, rotate: -0.91, src: cdn('437cd92f7a8143268a3bf09e074fd796'), alt: 'Starlight Logo',       link: '/project/starlight-beer' },
+  { key: 'inside-logo',  kind: 'popout', top: 1782.236,  left: 750.175,  width: 241.936,  z: 204, rotate: -0.05, src: cdn('8f7a3735549d489a91d2536c4c59f821'), alt: 'Inside Stories Logo',  link: '/project/inside-stories' },
+  { key: 'aya-logo',     kind: 'popout', top: 2281.704,  left: 823.842,  width: 350.823,  z: 288, rotate: -16.99, src: cdn('30ed9c00fb28428cbefc39036d534225'), alt: 'AYA Logo' },
+  { key: 'regenb-logo',  kind: 'popout', top: 2712.191,  left: 581.722,  width: 373.238,  z: 290, rotate: 4.75,  src: cdn('08b6e5c4bdbe44489df684a204ea604c'), alt: 'RegenB Logo',          link: '/project/regenb' },
+  { key: 'flow-logo',    kind: 'popout', top: 3189.946,  left: 821.392,  width: 356.857,  z: 291, rotate: 1.87,  src: cdn('3fb99cbbc54243ab9be8466e97e7023a'), alt: 'Flow Logo',            link: '/project/flow' },
+  { key: 'cta-img',      kind: 'plain',  top: 3578.013,  left: 72.24,    width: 1328.33,  z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
   { key: 'intro-text-left',  kind: 'text',    top: 764,        left: 65,        scale: 1.01471, z: 150 },
   { key: 'intro-text-right', kind: 'text',    top: 764.758,    left: 1040,      scale: 1,       z: 150 },
-  { key: 'bottom-actions',   kind: 'actions', top: 5657.838,   left: 62.245,    scale: 2.4779,  z: 300 },
-  { key: 'email-text',       kind: 'text',    top: 5825.934,   left: 77.922,    scale: 1.7469,  z: 300 },
+  { key: 'bottom-actions',   kind: 'actions', top: 4110.614,   left: 70.33,     scale: 2.4779,  z: 300 },
+  { key: 'email-text',       kind: 'text',    top: 4278.947,   left: 85.884,    scale: 1.7469,  z: 300 },
 ];
 
 const CATEGORIES: { label: string; keys: string[] }[] = [
@@ -83,7 +83,7 @@ export default function Home() {
   const [copyText, setCopyText] = useState('Copy Email');
   const navigate = useNavigate();
 
-  const [debug, setDebug] = useState(false);
+  const [debug, setDebug] = useState(false); // Debug mode disabled after finalization
   const [items, setItems] = useState<Item[]>(ITEMS);
   const [selected, setSelected] = useState<string|null>(null);
   const [grouped, setGrouped] = useState<Set<string>>(new Set());
