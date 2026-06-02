@@ -25,7 +25,7 @@ interface Item {
 
 const ITEMS: Item[] = [
   { key: 'top-bg',       kind: 'plain',  top: 0,         left: 0,        width: 1440,     z: 1,   src: cdn('1530d8222ea34ff39c230b8bbbd4ade7'), alt: '' },
-  { key: 'hero-title',   kind: 'plain',  top: 207.902,   left: 14.166,   width: 1390.74,  z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'),  alt: 'Stamp Creative' },
+  { key: 'hero-title',   kind: 'plain',  top: 198.47,    left: 14.166,   width: 1390.74,  z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'),  alt: 'Stamp Creative' },
   { key: 'tea-spill',    kind: 'plain',  top: 2705.808,  left: 985.779,  width: 452.824,  z: 283, opacity: 0.85, src: cdn('2625da861d76461a9e04a77d76f24720'), alt: 'Tea Spill' },
   { key: 'bottom-bg',    kind: 'plain',  top: 3182.817,  left: -1.71,    width: 1453.03,  z: 293, src: cdn('3eb12f515b2f418ba6d144fe0c93b11e'), alt: '' },
   { key: 'starlight-img',kind: 'shadow', top: 920.011,   left: 321.246,  width: 812.241,  z: 0,   rotate: 0.05,  src: cdn('5e8276c7560844a7bb23960025d476dc'), alt: 'Starlight Image' },
@@ -40,11 +40,11 @@ const ITEMS: Item[] = [
   { key: 'aya-logo',     kind: 'popout', top: 2281.704,  left: 823.842,  width: 350.823,  z: 288, rotate: -16.99, src: cdn('30ed9c00fb28428cbefc39036d534225'), alt: 'AYA Logo' },
   { key: 'regenb-logo',  kind: 'popout', top: 2712.191,  left: 581.722,  width: 373.238,  z: 290, rotate: 4.75,  src: cdn('08b6e5c4bdbe44489df684a204ea604c'), alt: 'RegenB Logo',          link: '/project/regenb' },
   { key: 'flow-logo',    kind: 'popout', top: 3189.946,  left: 821.392,  width: 356.857,  z: 291, rotate: 1.87,  src: cdn('3fb99cbbc54243ab9be8466e97e7023a'), alt: 'Flow Logo',            link: '/project/flow' },
-  { key: 'cta-img',      kind: 'plain',  top: 3560.181,  left: 190.317,  width: 1085.744, z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
+  { key: 'cta-img',      kind: 'plain',  top: 3561.948,  left: 236.82,   width: 921.451,  z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
   { key: 'intro-text-left',  kind: 'text',    top: 764,        left: 65,        scale: 1.01471, z: 150 },
   { key: 'intro-text-right', kind: 'text',    top: 764.758,    left: 1040,      scale: 1,       z: 150 },
-  { key: 'bottom-actions',   kind: 'actions', top: 3995.323,   left: 188.855,   scale: 2.0254,  z: 300 },
-  { key: 'email-text',       kind: 'text',    top: 4133.107,   left: 201.469,   scale: 1.4279,  z: 300 },
+  { key: 'bottom-actions',   kind: 'actions', top: 3931.245,   left: 235.579,   scale: 1.7189,  z: 300 },
+  { key: 'email-text',       kind: 'text',    top: 4048.18,    left: 246.284,   scale: 1.2118,  z: 300 },
 ];
 
 const CATEGORIES: { label: string; keys: string[] }[] = [
