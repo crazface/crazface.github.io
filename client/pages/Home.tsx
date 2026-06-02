@@ -325,8 +325,8 @@ export default function Home() {
   return (
     <div style={{ backgroundColor:'#f1e4d6', fontFamily:'Arial,sans-serif', overflowX:'hidden', userSelect: debug ? 'none' : 'auto' }}>
 
-      {/* Debug panel */}
-      <div style={{ position:'fixed', top:10, left:10, zIndex:100000, fontFamily:'monospace', fontSize:12, color:'#fff' }}>
+      {/* Debug panel (disabled) */}
+      <div style={{ display:'none', position:'fixed', top:10, left:10, zIndex:100000, fontFamily:'monospace', fontSize:12, color:'#fff' }}>
         <label style={{ display:'inline-flex', alignItems:'center', gap:6, background:'rgba(0,0,0,0.82)', padding:'6px 12px', borderRadius:6, cursor:'pointer' }}>
           <input type="checkbox" checked={debug} onChange={e => setDebug(e.target.checked)} />
           Debug Mode
