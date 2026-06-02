@@ -12,6 +12,7 @@ interface Item {
   top: number;
   left: number;
   width?: number;
+  height?: number;
   z: number;
   rotate?: number;
   scale?: number;
@@ -409,6 +410,23 @@ export default function Home() {
             <label style={{ display:'block', marginBottom:4 }}>Canvas Height: {canvasHeight}px</label>
             <input type="range" min={2000} max={6000} step={10} value={canvasHeight} onChange={e => setCanvasHeight(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
 
+            {selected && items.find(it => it.key === selected)?.kind === 'text' && (
+              <>
+                <p style={{ margin:'8px 0 4px', fontSize:11, color:'#ccc', fontWeight:'bold' }}>Text Boundary Box:</p>
+                <label style={{ display:'block', marginBottom:4 }}>Width: {(items.find(it => it.key === selected)?.width || 'auto')}</label>
+                <input type="range" min={100} max={1200} step={10} value={items.find(it => it.key === selected)?.width || 500} onChange={e => {
+                  const idx = items.findIndex(it => it.key === selected);
+                  if (idx >= 0) setItems([...items.slice(0, idx), {...items[idx], width: +e.target.value}, ...items.slice(idx+1)]);
+                }} style={{ width:'100%', marginBottom:8 }} />
+
+                <label style={{ display:'block', marginBottom:4 }}>Height: {(items.find(it => it.key === selected)?.height || 'auto')}</label>
+                <input type="range" min={20} max={400} step={5} value={items.find(it => it.key === selected)?.height || 100} onChange={e => {
+                  const idx = items.findIndex(it => it.key === selected);
+                  if (idx >= 0) setItems([...items.slice(0, idx), {...items[idx], height: +e.target.value}, ...items.slice(idx+1)]);
+                }} style={{ width:'100%', marginBottom:10 }} />
+              </>
+            )}
+
             <label style={{ display:'block', marginBottom:4 }}>Mockup URL:</label>
             <input type="text" value={mockupUrl} onChange={e => setMockupUrl(e.target.value)} placeholder="https://..." style={{ width:'100%', boxSizing:'border-box', marginBottom:8, padding:4, fontFamily:'monospace', fontSize:11 }} />
 
@@ -466,7 +484,8 @@ export default function Home() {
                   position: 'absolute',
                   top: `${item.top}px`,
                   left: `${item.left}px`,
-                  width: isImg ? `${item.width}px` : undefined,
+                  width: isImg || item.width ? `${item.width}px` : undefined,
+                  height: item.height ? `${item.height}px` : undefined,
                   zIndex: item.z,
                   transform: itemTransform(item),
                   transformOrigin: 'top left',
