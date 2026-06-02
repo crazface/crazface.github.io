@@ -91,6 +91,8 @@ export default function Home() {
   const [mockupUrl, setMockupUrl] = useState('');
   const [mockupOpacity, setMockupOpacity] = useState(0.3);
   const [outputCopied, setOutputCopied] = useState(false);
+  const [headerText, setHeaderText] = useState('Charlie Stamp');
+  const [headerTop, setHeaderTop] = useState(57.5294);
   const drag = useRef<DragState|null>(null);
   const moveModeRef = useRef<MoveMode>('both');
   moveModeRef.current = moveMode;
@@ -397,6 +399,12 @@ export default function Home() {
               })}
             </div>
 
+            <label style={{ display:'block', marginBottom:4 }}>Header Text:</label>
+            <input type="text" value={headerText} onChange={e => setHeaderText(e.target.value)} style={{ width:'100%', boxSizing:'border-box', marginBottom:8, padding:4, fontFamily:'monospace', fontSize:11 }} />
+
+            <label style={{ display:'block', marginBottom:4 }}>Header Top: {headerTop.toFixed(2)}px</label>
+            <input type="range" min={-50} max={150} step={0.1} value={headerTop} onChange={e => setHeaderTop(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
+
             <label style={{ display:'block', marginBottom:4 }}>Mockup URL:</label>
             <input type="text" value={mockupUrl} onChange={e => setMockupUrl(e.target.value)} placeholder="https://..." style={{ width:'100%', boxSizing:'border-box', marginBottom:8, padding:4, fontFamily:'monospace', fontSize:11 }} />
 
@@ -420,10 +428,10 @@ export default function Home() {
       {/* Sticky header */}
       <div ref={stickyRef} style={{ position:'fixed', top:0, left:0, width:'1440px', zIndex:10000, transformOrigin:'top left', pointerEvents:'none' }}>
         <div style={{ position:'absolute', top:'-12.0317px', left:'1px', width:'1438.55px', zIndex:129 }}>
-          <img src={cdn('61d9e021682643278772567710b1035e')} alt="Navigation" style={{ width:'100%', height:'auto', display:'block' }} />
+          <img src={cdn('f13df9c3652c4cc8b4ee870c5b3fd59a')} alt="Navigation" style={{ width:'100%', height:'auto', display:'block' }} />
         </div>
-        <div style={{ position:'absolute', top:'57.5294px', left:0, width:'1440px', display:'flex', justifyContent:'space-between', alignItems:'center', padding:'0 160px', boxSizing:'border-box', zIndex:10001, pointerEvents:'auto' }}>
-          <p style={{ color:'#9d0003', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'24px', margin:0 }}>Charlie Stamp</p>
+        <div style={{ position:'absolute', top:`${headerTop}px`, left:0, width:'1440px', display:'flex', justifyContent:'space-between', alignItems:'center', padding:'0 160px', boxSizing:'border-box', zIndex:10001, pointerEvents:'auto' }}>
+          <p style={{ color:'#9d0003', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'24px', margin:0 }}>{headerText}</p>
           <div style={{ display:'flex', gap:'40px' }}>
             {[{ label:'home', id:'hero-title' }, { label:'work', id:'starlight-img' }, { label:'contact', id:'bottom-actions' }].map(({ label, id }) => (
               <button key={id} onClick={() => scrollToSection(id)} style={{ background:'none', border:'none', color:'#9d0003', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'20px', cursor:'pointer', padding:0 }} onMouseEnter={e => (e.currentTarget.style.opacity='0.7')} onMouseLeave={e => (e.currentTarget.style.opacity='1')}>{label}</button>
