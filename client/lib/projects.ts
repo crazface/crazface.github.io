@@ -181,8 +181,8 @@ export const projects: Project[] = [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb49bbe412e7146c5b3f9cb83f65a1a55",
     appIcon:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F30ed9c00fb28428cbefc39036d534225",
-    description: "Brand identity project.",
-    longDescription: `<p>AYA is a brand identity project.</p>`,
+    description: "Modular phone brand concept for sustainable technology.",
+    longDescription: `<p>AYA is a modular phone brand designed to combat planned obsolescence, upgrade culture, and wasteful consumption. Set in West Africa, the concept responds to places where regularly replacing technology can be limited by cost, access, and repair infrastructure. Inspired by the Ghanaian Aya fern symbol, the brand focuses on endurance, adaptability, and repairability. Users can customise, repair, and evolve their phone over time, creating technology that feels personal, purposeful, sustainable, and long-lasting.</p>`,
     role: "Brand Designer",
     tools: ["Adobe Illustrator", "Photoshop"],
     colors: {
