@@ -176,7 +176,7 @@ export const projects: Project[] = [
     id: "aya",
     title: "AYA",
     type: "Graphic Design",
-    year: "2025",
+    year: "2026",
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb49bbe412e7146c5b3f9cb83f65a1a55",
     appIcon:
