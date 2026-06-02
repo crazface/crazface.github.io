@@ -245,10 +245,25 @@ export default function Home() {
   }
 
   function copyEmail() {
-    navigator.clipboard.writeText('CharlieStampCreative@gmail.com').then(() => {
+    const email = 'CharlieStampCreative@gmail.com';
+    const done = () => {
       setCopyText('Copied!');
       setTimeout(() => setCopyText('Copy Email'), 2000);
-    });
+    };
+    const fallback = () => {
+      const input = document.getElementById('hidden-email') as HTMLInputElement | null;
+      if (input) {
+        input.focus();
+        input.select();
+        try { document.execCommand('copy'); done(); } catch { /* noop */ }
+        input.blur();
+      }
+    };
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(email).then(done).catch(fallback);
+    } else {
+      fallback();
+    }
   }
 
   const output = items.map(it => {
@@ -422,6 +437,7 @@ export default function Home() {
             const isImg = item.kind !== 'text' && item.kind !== 'actions';
             const isSel = debug && selected === item.key;
             const isGrouped = grouped.has(item.key);
+            const interactive = item.kind === 'popout' || item.kind === 'actions';
             return (
               <div
                 key={item.key}
@@ -440,6 +456,7 @@ export default function Home() {
                   cursor: debug ? 'move' : item.link ? 'pointer' : 'default',
                   outline: isSel ? '2px solid #00aaff' : isGrouped && debug ? '2px dashed #00ff00' : 'none',
                   touchAction: debug ? 'none' : 'auto',
+                  pointerEvents: debug ? 'auto' : interactive ? 'auto' : 'none',
                 }}
               >
                 {renderContent(item)}
