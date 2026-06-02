@@ -251,13 +251,19 @@ export default function Home() {
       setTimeout(() => setCopyText('Copy Email'), 2000);
     };
     const fallback = () => {
-      const input = document.getElementById('hidden-email') as HTMLInputElement | null;
-      if (input) {
-        input.focus();
-        input.select();
-        try { document.execCommand('copy'); done(); } catch { /* noop */ }
-        input.blur();
-      }
+      const ta = document.createElement('textarea');
+      ta.value = email;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '0';
+      ta.style.left = '0';
+      ta.style.opacity = '0';
+      ta.style.pointerEvents = 'none';
+      document.body.appendChild(ta);
+      ta.focus({ preventScroll: true });
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch { /* noop */ }
+      document.body.removeChild(ta);
     };
     if (navigator.clipboard?.writeText) {
       navigator.clipboard.writeText(email).then(done).catch(fallback);
