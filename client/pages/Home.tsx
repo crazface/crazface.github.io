@@ -509,8 +509,8 @@ function BottomActions({ copyText, copyEmail, disabled }: { copyText:string; cop
   return (
     <div style={{ display:'flex', alignItems:'center', gap:'12px' }}>
       <a href="mailto:CharlieStampCreative@gmail.com" onClick={s} style={{ backgroundColor:'#9d0003', color:'#f1e4d6', padding:'8px 24px', borderRadius:'50px', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'16px', textDecoration:'none', border:'2px solid #9d0003', display:'inline-block' }}>Send Email</a>
-      <button onClick={e => { if (disabled) return; copyEmail(); }} style={{ backgroundColor:'transparent', color:'#9d0003', padding:'8px 16px', borderRadius:'50px', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'16px', cursor:'pointer', border:'2px solid #9d0003', display:'flex', alignItems:'center', gap:'8px' }}>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width:'20px', height:'20px' }}><rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none"/></svg>
+      <button onClick={e => { if (disabled) return; copyEmail(); }} style={{ backgroundColor:'transparent', color:'#9d0003', padding:'8px 16px', borderRadius:'50px', fontFamily:'Arial,sans-serif', fontWeight:'bold', fontSize:'16px', cursor:'pointer', border:'2px solid #9d0003', display:'flex', alignItems:'center', gap:'8px', minWidth:'155px', justifyContent:'center' }}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width:'20px', height:'20px', flexShrink:0 }}><rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none"/></svg>
         <span>{copyText}</span>
       </button>
       <a href="https://instagram.com" target="_blank" rel="noreferrer" onClick={s} style={{ width:'40px', height:'40px', borderRadius:'50%', border:'2px solid #9d0003', display:'flex', alignItems:'center', justifyContent:'center', color:'#9d0003', textDecoration:'none' }}>
