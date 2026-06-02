@@ -160,6 +160,8 @@ export const projects: Project[] = [
       secondary: "#1e3a8a",
       accent: "#3b82f6",
     },
+    processPdf: "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F81ede9232086412f858a02a383629d32?alt=media&token=959e7216-c61c-4dd3-b7b2-ed4cd280aca1&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
+    finalPdf: "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F58b4d059125446df8ba6350aef620e43?alt=media&token=3137bd3f-c01c-4546-a2f9-1e438987566e&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F0be1fa99375746168c8378b29d9d0501",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F986fd3338ac0435ea818356692dd6cfc",
