@@ -271,7 +271,7 @@ export default function Home() {
 
   function renderContent(item: Item) {
     if (item.kind === 'plain') {
-      return <img src={item.src} alt={item.alt} style={{ width:'100%', height:'auto', display:'block' }} />;
+      return <img src={item.src} alt={item.alt} style={{ width:'100%', height:'auto', display:'block', pointerEvents:'none' }} />;
     }
     if (item.kind === 'shadow') {
       return <div style={{ filter: SHADOW }}><img src={item.src} alt={item.alt} style={{ width:'100%', height:'auto', display:'block' }} /></div>;
@@ -280,7 +280,7 @@ export default function Home() {
       return <PopInner src={item.src!} alt={item.alt!} disabled={debug} />;
     }
     if (item.kind === 'actions') {
-      return <BottomActions copyText={copyText} copyEmail={copyEmail} disabled={debug} />;
+      return <BottomActions copyText={copyText} copyEmail={copyEmail} disabled={false} />;
     }
     if (item.key === 'intro-text-left') {
       return <div style={textStyle}>Hello,<br/>I'm Charlie, a graphic designer<br/>and recent UAL graduate. I love<br/>turning fun, creative ideas<br/>into bold visual identities.</div>;
@@ -327,6 +327,23 @@ export default function Home() {
             <div style={{ display:'flex', gap:6, marginBottom:10 }}>
               <button disabled={!selected} style={{ ...btn(false), opacity: selected ? 1 : 0.4 }} onClick={() => flipSelected('h')}>Flip Horizontal ↔</button>
               <button disabled={!selected} style={{ ...btn(false), opacity: selected ? 1 : 0.4 }} onClick={() => flipSelected('v')}>Flip Vertical ↕</button>
+            </div>
+
+            {/* Center Horizontally */}
+            <p style={{ margin:'0 0 4px', fontSize:11 }}>
+              <strong>Alignment:</strong>
+            </p>
+            <div style={{ display:'flex', gap:6, marginBottom:10 }}>
+              <button disabled={!selected} style={{ ...btn(false), flex: 1, opacity: selected ? 1 : 0.4 }} onClick={() => {
+                if (!selected) return;
+                const keys = affectedFor(selected);
+                setItems(prev => prev.map(it => {
+                  if (!keys.includes(it.key)) return it;
+                  const w = it.width ?? 200;
+                  const newLeft = (1440 - w) / 2;
+                  return { ...it, left: +newLeft.toFixed(3) };
+                }));
+              }}>Center Horizontally</button>
             </div>
 
             {/* Grouping */}
