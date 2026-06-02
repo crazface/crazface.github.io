@@ -302,13 +302,14 @@ function ProjectGallery({ project }: { project: Project }) {
     }
 
     return (
-      <img
-        key={idx}
-        src={src}
-        alt={`${project.title} ${idx + 1}`}
-        className="w-full block cursor-zoom-in"
-        onClick={() => setSelectedImage(src)}
-      />
+      <div key={idx} className="w-full" style={{ aspectRatio: "2.25 / 1" }}>
+        <img
+          src={src}
+          alt={`${project.title} ${idx + 1}`}
+          className="w-full h-full object-contain block cursor-zoom-in"
+          onClick={() => setSelectedImage(src)}
+        />
+      </div>
     );
   };
 
