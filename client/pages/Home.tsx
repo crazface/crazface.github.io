@@ -92,7 +92,7 @@ export default function Home() {
   const [mockupOpacity, setMockupOpacity] = useState(0.3);
   const [outputCopied, setOutputCopied] = useState(false);
   const [headerText, setHeaderText] = useState('Charlie Stamp');
-  const [headerTop, setHeaderTop] = useState(57.5294);
+  const [headerTop, setHeaderTop] = useState(33);
   const drag = useRef<DragState|null>(null);
   const moveModeRef = useRef<MoveMode>('both');
   moveModeRef.current = moveMode;
