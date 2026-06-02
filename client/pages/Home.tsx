@@ -42,8 +42,8 @@ const ITEMS: Item[] = [
   { key: 'regenb-logo',  kind: 'popout', top: 2712.191,  left: 581.722,  width: 373.238,  z: 290, rotate: 4.75,  src: cdn('08b6e5c4bdbe44489df684a204ea604c'), alt: 'RegenB Logo',          link: '/project/regenb' },
   { key: 'flow-logo',    kind: 'popout', top: 3189.946,  left: 821.392,  width: 356.857,  z: 291, rotate: 1.87,  src: cdn('3fb99cbbc54243ab9be8466e97e7023a'), alt: 'Flow Logo',            link: '/project/flow' },
   { key: 'cta-img',      kind: 'plain',  top: 3561.948,  left: 259.274,  width: 921.451,  z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
-  { key: 'intro-text-left',  kind: 'text',    top: 764,        left: 57.773,    width: 450,     scale: 0.9201,  z: 150 },
-  { key: 'intro-text-right', kind: 'text',    top: 764.758,    left: 1083.172,  scale: 0.8786,  z: 150 },
+  { key: 'intro-text-left',  kind: 'text',    top: 763.204,    left: 57.896,    width: 490,     scale: 0.8391,  z: 150 },
+  { key: 'intro-text-right', kind: 'text',    top: 764.758,    left: 1053.615,  scale: 0.8786,  z: 150 },
   { key: 'bottom-actions',   kind: 'actions', top: 3931.009,   left: 258.346,   scale: 1.7189,  z: 300 },
   { key: 'email-text',       kind: 'text',    top: 4047.944,   left: 269.051,   scale: 1.2118,  z: 300 },
 ];
