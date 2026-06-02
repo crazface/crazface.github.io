@@ -106,25 +106,74 @@ export default function Home() {
       const dx = (e.clientX - d.startX) / scale;
       const dy = (e.clientY - d.startY) / scale;
 
-      setItems(prev => prev.map(it => {
-        const state = d.start[it.key];
-        if (!state) return it;
+      setItems(prev => {
+        const affectedKeys = Object.keys(d.start);
 
-        if (d.mode === 'move')
-          return { ...it, top: state.top + dy, left: state.left + dx };
+        if (d.mode === 'move') {
+          return prev.map(it => {
+            const state = d.start[it.key];
+            if (!state) return it;
+            return { ...it, top: state.top + dy, left: state.left + dx };
+          });
+        }
 
         if (d.mode === 'resize') {
-          if (it.kind === 'text' || it.kind === 'actions')
-            return { ...it, scale: Math.max(0.1, +(state.scale + dx / 200).toFixed(4)) };
-          return { ...it, width: Math.max(20, state.width + dx) };
+          // Calculate bounding box of all affected items at start time
+          let minLeft = Infinity, maxRight = -Infinity;
+          let minTop = Infinity, maxBottom = -Infinity;
+
+          affectedKeys.forEach(key => {
+            const state = d.start[key];
+            const item = prev.find(it => it.key === key);
+            if (!state || !item) return;
+            minLeft = Math.min(minLeft, state.left);
+            minTop = Math.min(minTop, state.top);
+            const right = state.left + (state.width || 0);
+            const bottom = state.top + (item.kind === 'text' || item.kind === 'actions' ? 100 : 100); // approximate height
+            maxRight = Math.max(maxRight, right);
+            maxBottom = Math.max(maxBottom, bottom);
+          });
+
+          const originalWidth = maxRight - minLeft;
+          const centerX = minLeft + originalWidth / 2;
+          const centerY = minTop + (maxBottom - minTop) / 2;
+
+          // Calculate scale factor based on drag distance
+          const scaleMultiplier = 1 + dx / Math.max(originalWidth, 1);
+
+          return prev.map(it => {
+            const state = d.start[it.key];
+            if (!state) return it;
+
+            if (it.kind === 'text' || it.kind === 'actions') {
+              // For text, scale the scale property
+              const newScale = Math.max(0.1, state.scale * scaleMultiplier);
+              return { ...it, scale: +newScale.toFixed(4) };
+            }
+
+            // For images: scale width and reposition around center
+            const newWidth = Math.max(20, state.width * scaleMultiplier);
+            const widthDiff = newWidth - state.width;
+
+            // Reposition based on distance from center, scaled
+            const distFromCenterX = state.left + state.width / 2 - centerX;
+            const newLeft = centerX + distFromCenterX * scaleMultiplier - newWidth / 2;
+
+            return { ...it, width: newWidth, left: +newLeft.toFixed(3) };
+          });
         }
 
         if (d.mode === 'rotate') {
           const angle = Math.atan2(e.clientY - d.cy!, e.clientX - d.cx!) * 180 / Math.PI;
-          return { ...it, rotate: +(state.rotate + (angle - d.startAngle!)).toFixed(2) };
+          return prev.map(it => {
+            const state = d.start[it.key];
+            if (!state) return it;
+            return { ...it, rotate: +(state.rotate + (angle - d.startAngle!)).toFixed(2) };
+          });
         }
-        return it;
-      }));
+
+        return prev;
+      });
     }
 
     function onUp() { drag.current = null; }
