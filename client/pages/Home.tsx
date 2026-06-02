@@ -40,11 +40,11 @@ const ITEMS: Item[] = [
   { key: 'aya-logo',     kind: 'popout', top: 2281.704,  left: 823.842,  width: 350.823,  z: 288, rotate: -16.99, src: cdn('30ed9c00fb28428cbefc39036d534225'), alt: 'AYA Logo' },
   { key: 'regenb-logo',  kind: 'popout', top: 2712.191,  left: 581.722,  width: 373.238,  z: 290, rotate: 4.75,  src: cdn('08b6e5c4bdbe44489df684a204ea604c'), alt: 'RegenB Logo',          link: '/project/regenb' },
   { key: 'flow-logo',    kind: 'popout', top: 3189.946,  left: 821.392,  width: 356.857,  z: 291, rotate: 1.87,  src: cdn('3fb99cbbc54243ab9be8466e97e7023a'), alt: 'Flow Logo',            link: '/project/flow' },
-  { key: 'cta-img',      kind: 'plain',  top: 3578.013,  left: 72.24,    width: 1328.33,  z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
+  { key: 'cta-img',      kind: 'plain',  top: 3560.181,  left: 190.317,  width: 1085.744, z: 294, src: cdn('072cd11f594b47afbb3cecd540201d87'), alt: "Let's Create Something" },
   { key: 'intro-text-left',  kind: 'text',    top: 764,        left: 65,        scale: 1.01471, z: 150 },
   { key: 'intro-text-right', kind: 'text',    top: 764.758,    left: 1040,      scale: 1,       z: 150 },
-  { key: 'bottom-actions',   kind: 'actions', top: 4110.614,   left: 70.33,     scale: 2.4779,  z: 300 },
-  { key: 'email-text',       kind: 'text',    top: 4278.947,   left: 85.884,    scale: 1.7469,  z: 300 },
+  { key: 'bottom-actions',   kind: 'actions', top: 3995.323,   left: 188.855,   scale: 2.0254,  z: 300 },
+  { key: 'email-text',       kind: 'text',    top: 4133.107,   left: 201.469,   scale: 1.4279,  z: 300 },
 ];
 
 const CATEGORIES: { label: string; keys: string[] }[] = [
