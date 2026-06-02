@@ -32,7 +32,7 @@ const ITEMS: Item[] = [
   { key: 'brandopus',    kind: 'shadow', top: 887.566,   left: 800.395,  width: 367.45,   z: 166, rotate: -0.73, src: cdn('47d3bee759ef4c9682aea6efa4a20ccf'), alt: 'BrandOpus' },
   { key: 'inside-img',   kind: 'shadow', top: 1484.641,  left: 269.866,  width: 881.455,  z: 203, rotate: -0.18, src: cdn('e05478abd26e40589a95040ef320e3cf'), alt: 'Inside Stories Image' },
   { key: 'aya-img',      kind: 'shadow', top: 1904.921,  left: 314.966,  width: 854.976,  z: 193, rotate: -1.24, src: cdn('b49bbe412e7146c5b3f9cb83f65a1a55'), alt: 'Aya Image' },
-  { key: 'phone',        kind: 'shadow', top: 1931.783,  left: -8.129,   width: 535.816,  z: 289, rotate: 0.25,  src: cdn('0f86a5bd31274b77ad1265f28fedc7f1'), alt: 'Phone', flipH: true },
+  { key: 'phone',        kind: 'shadow', top: 2614.847,  left: -631.292, width: 1063.011, z: 289, rotate: -34.63, src: cdn('0f86a5bd31274b77ad1265f28fedc7f1'), alt: 'Phone', flipH: true },
   { key: 'regenb-img',   kind: 'shadow', top: 2401.396,  left: 267.008,  width: 898.267,  z: 287, rotate: 0.17,  src: cdn('ddf5aeafe88f4461b4bdcf7178899e70'), alt: 'RegenB Image' },
   { key: 'flow-img',     kind: 'shadow', top: 2830.506,  left: 286.446,  width: 699.794,  z: 284, rotate: 2,     src: cdn('8869078d3da3415ab58d8338f1812359'), alt: 'Flow Image' },
   { key: 'starlight-logo',kind: 'popout',top: 1222.736,  left: 279.487,  width: 345.057,  z: 205, rotate: -0.91, src: cdn('437cd92f7a8143268a3bf09e074fd796'), alt: 'Starlight Logo',       link: '/project/starlight-beer' },
