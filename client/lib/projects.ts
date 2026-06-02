@@ -613,13 +613,10 @@ export const projects: Project[] = [
     },
     finalPdf: "https://cdn.builder.io/o/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcf75b1feb7b64d7cafd2dd3bf315173d?alt=media&token=1180a3f7-759c-427e-a0f7-acb2bf4503de&apiKey=1a7d8b4d8c7d4879aa4c7843b68daea6",
     gallery: [
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fb18d9b23d4c84f28a3767ed8d2dadf89",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ffe3ba541b10d4511a2a88441a604879a",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fff9a6094c1004f81991189cb3cc5e253",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5348112c68024cfe99175dd3449e53a4",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F4cfc4fb99e244cbc870836e3b2374f63",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fcadcd6fca59f40ad932bd43d5821c1ba",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F47e8b94792204c55bbf471dbd5c7abb3"
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1b181e0936df4deb8c569a342e1e2987",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F5bcfe57413a14a40beb069055aae482d",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F250fd5cda19042f9aaf7ea74395a3145",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F4532ab70febb494ab9f74934e29a696d"
     ],
   },
 ];
