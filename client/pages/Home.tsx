@@ -307,10 +307,10 @@ export default function Home() {
       return <BottomActions copyText={copyText} copyEmail={copyEmail} disabled={false} />;
     }
     if (item.key === 'intro-text-left') {
-      return <div style={textStyle}>Hello,<br/>I'm Charlie, a graphic designer<br/>and recent UAL graduate. I love<br/>turning fun, creative ideas<br/>into bold visual identities.</div>;
+      return <div style={textStyle}>Hello,<br/>I'm Charlie, a graphic designer focused on branding and identity. I create thoughtful, memorable visual systems that give brands a clearer voice and a stronger connection with their audience.</div>;
     }
     if (item.key === 'intro-text-right') {
-      return <div style={textStyle}>BA (HONS)<br/>Graphic Branding &amp; Identity</div>;
+      return <div style={textStyle}>BA (HONS)<br/>Graphic Branding &amp; Identity<br/>UAL</div>;
     }
     return <div style={textStyle}>CharlieStampCreative@gmail.com</div>;
   }
