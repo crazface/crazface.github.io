@@ -33,7 +33,7 @@ export const projects: Project[] = [
     image:
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F70ca1e45157e402da205498655746b1d",
     gallery: [
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe1ebe81ed4a645e7922697f4d6699d27",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fc4de172b668d483d9e247db781cb4051",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fba4b3743e61947488aa6e0867d99c9d8",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa6ed5ff4c4834e3da6c97557bc2c7cc7",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1cc78cb42ee7484b9c4efc78d694804d",
