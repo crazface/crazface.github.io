@@ -35,8 +35,8 @@ export const projects: Project[] = [
     gallery: [
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1e15615a7f8041c5b290ff9d6b6b14dc",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fba4b3743e61947488aa6e0867d99c9d8",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F706526fd94b841d6a4238cf22f87a917",
-      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fbf5ecc157dfa4da08bc34da6c680f649",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F60d10b94074744299fe5851004472df3",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fe1ebe81ed4a645e7922697f4d6699d27",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Ff506d1cd8b1142b4abf9c6477d1f8594",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2Fa6ed5ff4c4834e3da6c97557bc2c7cc7",
       "https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F1cc78cb42ee7484b9c4efc78d694804d",
