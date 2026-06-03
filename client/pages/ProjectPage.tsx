@@ -209,7 +209,7 @@ function ProjectHeader() {
       style={{
         position: "fixed",
         top: 0,
-        left: 0,
+        left: "-7.83px",
         width: "1440px",
         zIndex: 10000,
         transformOrigin: "top left",
