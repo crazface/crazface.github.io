@@ -236,7 +236,7 @@ function ProjectHeader() {
       >
         <p
           onClick={() => navigate("/")}
-          style={{ color: "#9d0003", fontFamily: "Arial,sans-serif", fontWeight: "bold", fontSize: "24px", margin: 0, cursor: "pointer" }}
+          style={{ color: "#9d0003", fontFamily: "Brawler,serif", fontWeight: 900, fontSize: "24px", margin: 0, cursor: "pointer" }}
         >
           Charlie Stamp
         </p>
@@ -245,7 +245,7 @@ function ProjectHeader() {
             <button
               key={label}
               onClick={() => navigate("/")}
-              style={{ background: "none", border: "none", color: "#9d0003", fontFamily: "Arial,sans-serif", fontWeight: "bold", fontSize: "20px", cursor: "pointer", padding: 0 }}
+              style={{ background: "none", border: "none", color: "#9d0003", fontFamily: "Brawler,serif", fontWeight: "bold", fontSize: "20px", cursor: "pointer", padding: 0 }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
             >
