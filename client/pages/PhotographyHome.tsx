@@ -7,9 +7,9 @@ const NEW_ITEMS: Item[] = [
   {
     key: "capture-moment-title",
     kind: "plain",
-    top: 850,
-    left: 300,
-    width: 850,
+    top: 3575.145,
+    left: 250.676,
+    width: 938.647,
     z: 400,
     src: cdn("48e345f7b74d46308fa40e18b1e8999e"),
     alt: "Let's Capture the Moment",
@@ -64,6 +64,7 @@ const PROJECT_KEYS = new Set([
   "flow-logo",
   "phone",
   "tea-spill",
+  "cta-img",
 ]);
 
 const PHOTO_ITEMS = [...ITEMS.filter((item) => !PROJECT_KEYS.has(item.key)), ...NEW_ITEMS];
