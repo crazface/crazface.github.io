@@ -87,26 +87,18 @@ const EXTRA_CATEGORIES: Category[] = [
   },
 ];
 
-const PHOTO_INTRO_LEFT = (
-  <>
-    Hello,<br />
-    I'm Charlie, a photographer<br />
-    who loves the art of making images<br />
-    that feel cool, striking, and meaningful.<br />
-    From natural moments to styled shoots,<br />
-    I'm drawn to photos with energy,<br />
-    emotion, and a story behind them.
-  </>
-);
+const PHOTO_INTRO_LEFT = `Hello,
+I'm Charlie, a photographer
+who loves the art of making images
+that feel cool, striking, and meaningful.
+From natural moments to styled shoots,
+I'm drawn to photos with energy,
+emotion, and a story behind them.`;
 
-const PHOTO_INTRO_RIGHT = (
-  <>
-    PHOTOGRAPHY<br />
-    People, events<br />
-    &amp; creative projects<br />
-    London + beyond
-  </>
-);
+const PHOTO_INTRO_RIGHT = `PHOTOGRAPHY
+People, events
+& creative projects
+London + beyond`;
 
 export default function PhotographyHome() {
   return (

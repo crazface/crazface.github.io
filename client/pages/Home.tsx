@@ -79,10 +79,10 @@ function itemTransform(it: Item) {
   return `rotate(${it.rotate || 0}deg) translate(${tx}, ${ty}) scale(${sx}, ${sy})`;
 }
 
-const DEFAULT_INTRO_LEFT = <>Hello,<br/>I'm Charlie, a graphic designer focused on branding and identity. I create thoughtful, memorable visual systems that give brands a clearer voice and a stronger connection with their audience.</>;
-const DEFAULT_INTRO_RIGHT = <>BA (HONS)<br/>Graphic Branding &amp; Identity<br/>UAL</>;
+const DEFAULT_INTRO_LEFT = "Hello,\nI'm Charlie, a graphic designer focused on branding and identity. I create thoughtful, memorable visual systems that give brands a clearer voice and a stronger connection with their audience.";
+const DEFAULT_INTRO_RIGHT = "BA (HONS)\nGraphic Branding & Identity\nUAL";
 
-export default function Home({ initialItems = ITEMS, enableDebug = false, extraCategories = [], initialCanvasHeight = 4140, introTextLeft = DEFAULT_INTRO_LEFT, introTextRight = DEFAULT_INTRO_RIGHT }: { initialItems?: Item[], enableDebug?: boolean, extraCategories?: Category[], initialCanvasHeight?: number, introTextLeft?: React.ReactNode, introTextRight?: React.ReactNode } = {}) {
+export default function Home({ initialItems = ITEMS, enableDebug = false, extraCategories = [], initialCanvasHeight = 4140, introTextLeft = DEFAULT_INTRO_LEFT, introTextRight = DEFAULT_INTRO_RIGHT }: { initialItems?: Item[], enableDebug?: boolean, extraCategories?: Category[], initialCanvasHeight?: number, introTextLeft?: string, introTextRight?: string } = {}) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef  = useRef<HTMLDivElement>(null);
   const stickyRef  = useRef<HTMLDivElement>(null);
@@ -102,6 +102,8 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
   const [headerTop, setHeaderTop] = useState(33);
   const [headerLeft, setHeaderLeft] = useState(-7.83);
   const [canvasHeight, setCanvasHeight] = useState(initialCanvasHeight);
+  const [introLeftText, setIntroLeftText] = useState(introTextLeft);
+  const [introRightText, setIntroRightText] = useState(introTextRight);
   const drag = useRef<DragState|null>(null);
   const moveModeRef = useRef<MoveMode>('both');
   moveModeRef.current = moveMode;
@@ -368,10 +370,10 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
       return <BottomActions copyText={copyText} copyEmail={copyEmail} disabled={false} />;
     }
     if (item.key === 'intro-text-left') {
-      return <div style={textStyle}>{introTextLeft}</div>;
+      return <div style={textStyle}>{introLeftText.split('\n').map((line, i) => <React.Fragment key={i}>{i > 0 && <br/>}{line}</React.Fragment>)}</div>;
     }
     if (item.key === 'intro-text-right') {
-      return <div style={textStyle}>{introTextRight}</div>;
+      return <div style={textStyle}>{introRightText.split('\n').map((line, i) => <React.Fragment key={i}>{i > 0 && <br/>}{line}</React.Fragment>)}</div>;
     }
     return <div style={textStyle}>CharlieStampCreative@gmail.com</div>;
   }
@@ -481,6 +483,22 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
 
             <label style={{ display:'block', marginBottom:4 }}>Canvas Height: {canvasHeight}px</label>
             <input type="range" min={2000} max={6000} step={10} value={canvasHeight} onChange={e => setCanvasHeight(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
+
+            {(selected === 'intro-text-left' || selected === 'intro-text-right') && (
+              <>
+                <p style={{ margin:'8px 0 4px', fontSize:11, color:'#ccc', fontWeight:'bold' }}>Edit Text ("{selected}"):</p>
+                <textarea
+                  value={selected === 'intro-text-left' ? introLeftText : introRightText}
+                  onChange={e => {
+                    if (selected === 'intro-text-left') setIntroLeftText(e.target.value);
+                    else setIntroRightText(e.target.value);
+                  }}
+                  rows={5}
+                  style={{ width:'100%', boxSizing:'border-box', marginBottom:10, padding:6, fontFamily:'monospace', fontSize:11, resize:'vertical' }}
+                  placeholder="Use new lines for line breaks"
+                />
+              </>
+            )}
 
             {selected && items.find(it => it.key === selected)?.kind === 'text' && (
               <>
