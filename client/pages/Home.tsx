@@ -82,7 +82,7 @@ function itemTransform(it: Item) {
 const DEFAULT_INTRO_LEFT = "Hello,\nI'm Charlie, a graphic designer focused on branding and identity. I create thoughtful, memorable visual systems that give brands a clearer voice and a stronger connection with their audience.";
 const DEFAULT_INTRO_RIGHT = "BA (HONS)\nGraphic Branding & Identity\nUAL";
 
-export default function Home({ initialItems = ITEMS, enableDebug = false, extraCategories = [], initialCanvasHeight = 4140, introTextLeft = DEFAULT_INTRO_LEFT, introTextRight = DEFAULT_INTRO_RIGHT }: { initialItems?: Item[], enableDebug?: boolean, extraCategories?: Category[], initialCanvasHeight?: number, introTextLeft?: string, introTextRight?: string } = {}) {
+export default function Home({ initialItems = ITEMS, enableDebug = false, extraCategories = [], initialCanvasHeight = 4140, introTextLeft = DEFAULT_INTRO_LEFT, introTextRight = DEFAULT_INTRO_RIGHT, workSectionId = 'starlight-img' }: { initialItems?: Item[], enableDebug?: boolean, extraCategories?: Category[], initialCanvasHeight?: number, introTextLeft?: string, introTextRight?: string, workSectionId?: string } = {}) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef  = useRef<HTMLDivElement>(null);
   const stickyRef  = useRef<HTMLDivElement>(null);
@@ -598,7 +598,7 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
         <div style={{ position:'absolute', top:`${headerTop}px`, left:0, width:'1440px', display:'flex', justifyContent:'space-between', alignItems:'center', padding:'0 160px', boxSizing:'border-box', zIndex:10001, pointerEvents:'auto' }}>
           <p style={{ color:'#9d0003', fontFamily:'Brawler,serif', fontWeight: 900, fontSize:'24px', margin:0 }}>{headerText}</p>
           <div style={{ display:'flex', gap:'40px' }}>
-            {[{ label:'home', id:'hero-title' }, { label:'work', id:'starlight-img' }, { label:'contact', id:'bottom-actions' }].map(({ label, id }) => (
+            {[{ label:'home', id:'hero-title' }, { label:'work', id:workSectionId }, { label:'contact', id:'bottom-actions' }].map(({ label, id }) => (
               <button key={id} onClick={() => scrollToSection(id)} style={{ background:'none', border:'none', color:'#9d0003', fontFamily:'Brawler,serif', fontWeight:'bold', fontSize:'20px', cursor:'pointer', padding:0 }} onMouseEnter={e => (e.currentTarget.style.opacity='0.7')} onMouseLeave={e => (e.currentTarget.style.opacity='1')}>{label}</button>
             ))}
           </div>

@@ -114,6 +114,7 @@ export default function PhotographyHome() {
       initialCanvasHeight={2860}
       introTextLeft={PHOTO_INTRO_LEFT}
       introTextRight={PHOTO_INTRO_RIGHT}
+      workSectionId="polaroid-1"
     />
   );
 }
