@@ -343,7 +343,7 @@ function ProjectGallery({ project }: { project: Project }) {
   return (
     <>
       {isGrid ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 w-full max-w-[1700px] mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 w-full max-w-[1700px] mx-auto px-4 md:px-8">
           {gallery.map((src, idx) => (
             <div key={idx} className="w-full">
               <img
