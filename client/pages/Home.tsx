@@ -24,7 +24,7 @@ interface Item {
   link?: string;
 }
 
-const ITEMS: Item[] = [
+export const ITEMS: Item[] = [
   { key: 'top-bg',       kind: 'plain',  top: 0,         left: -3.675,   width: 1440,     z: 1,   src: cdn('1530d8222ea34ff39c230b8bbbd4ade7'), alt: '' },
   { key: 'hero-title',   kind: 'plain',  top: 161.362,   left: 24.63,    width: 1390.74,  z: 133, src: cdn('22c4b55d9b29465ba37f08f5b89c9baa'),  alt: 'Stamp Creative' },
   { key: 'tea-spill',    kind: 'plain',  top: 2705.808,  left: 985.779,  width: 452.824,  z: 283, opacity: 0.85, src: cdn('c4013e36f48c4682831a3a0ba7931d5f'), alt: 'Tea Spill' },
@@ -77,7 +77,7 @@ function itemTransform(it: Item) {
   return `rotate(${it.rotate || 0}deg) translate(${tx}, ${ty}) scale(${sx}, ${sy})`;
 }
 
-export default function Home() {
+export default function Home({ initialItems = ITEMS }: { initialItems?: Item[] } = {}) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef  = useRef<HTMLDivElement>(null);
   const stickyRef  = useRef<HTMLDivElement>(null);
@@ -85,7 +85,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   const [debug, setDebug] = useState(false); // Debug mode disabled after finalization
-  const [items, setItems] = useState<Item[]>(ITEMS);
+  const [items, setItems] = useState<Item[]>(initialItems);
   const [selected, setSelected] = useState<string|null>(null);
   const [grouped, setGrouped] = useState<Set<string>>(new Set());
   const [moveMode, setMoveMode] = useState<MoveMode>('both');
@@ -456,7 +456,7 @@ export default function Home() {
               <button onClick={copyOutput} style={{ flex:1, padding:'6px 0', cursor:'pointer', background:'#00aaff', color:'#fff', border:'none', borderRadius:4, fontWeight:'bold', fontSize:11 }}>
                 {outputCopied ? 'Copied ✓' : 'Copy Output'}
               </button>
-              <button onClick={() => { setItems(ITEMS); setSelected(null); setGrouped(new Set()); }} style={{ padding:'6px 10px', cursor:'pointer', background:'#555', color:'#fff', border:'none', borderRadius:4, fontSize:11 }}>
+              <button onClick={() => { setItems(initialItems); setSelected(null); setGrouped(new Set()); }} style={{ padding:'6px 10px', cursor:'pointer', background:'#555', color:'#fff', border:'none', borderRadius:4, fontSize:11 }}>
                 Reset
               </button>
             </div>
