@@ -109,7 +109,7 @@ export default function PhotographyHome() {
   return (
     <Home
       initialItems={PHOTO_ITEMS}
-      enableDebug={true}
+      enableDebug={false}
       extraCategories={EXTRA_CATEGORIES}
       initialCanvasHeight={2860}
       introTextLeft={PHOTO_INTRO_LEFT}
