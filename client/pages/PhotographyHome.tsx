@@ -99,6 +99,15 @@ const PHOTO_INTRO_LEFT = (
   </>
 );
 
+const PHOTO_INTRO_RIGHT = (
+  <>
+    PHOTOGRAPHY<br />
+    People, events<br />
+    &amp; creative projects<br />
+    London + beyond
+  </>
+);
+
 export default function PhotographyHome() {
   return (
     <Home
@@ -107,6 +116,7 @@ export default function PhotographyHome() {
       extraCategories={EXTRA_CATEGORIES}
       initialCanvasHeight={2860}
       introTextLeft={PHOTO_INTRO_LEFT}
+      introTextRight={PHOTO_INTRO_RIGHT}
     />
   );
 }
