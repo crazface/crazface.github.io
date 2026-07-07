@@ -24,6 +24,7 @@ const NEW_ITEMS: Item[] = [
     rotate: 7.72,
     src: cdn("009bf116fb9b45108b5f3243c2d41dac"),
     alt: "Weddings",
+    link: "/project/portrait-series",
   },
   {
     key: "polaroid-1",
@@ -35,6 +36,7 @@ const NEW_ITEMS: Item[] = [
     rotate: -1.54,
     src: cdn("a64fb8aeed43474cba782ece6ad94994"),
     alt: "Wedding Photo Polaroid",
+    link: "/project/portrait-series",
   },
   {
     key: "polaroid-2",
@@ -46,6 +48,7 @@ const NEW_ITEMS: Item[] = [
     rotate: -0.91,
     src: cdn("65ad2c9f05ba4beeb41b4d697d7cdb97"),
     alt: "Candle Photo Polaroid",
+    link: "/project/portrait-series",
   },
 ];
 
