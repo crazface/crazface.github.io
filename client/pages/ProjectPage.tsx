@@ -64,7 +64,7 @@ export default function ProjectPage() {
     <div style={{ fontFamily: 'Arial, sans-serif' }} className="min-h-screen bg-[#f1e4d6] text-[#9d0003] font-sans selection:bg-[#9d0003] selection:text-[#f1e4d6]">
 
       {/* Navigation (matches home page) */}
-      <ProjectHeader />
+      <ProjectHeader homePath={project.type === "Photography" ? "/photography" : "/"} />
 
       {/* Project Info */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 pt-[70px] md:pt-[130px] relative z-10 pb-16">
@@ -162,7 +162,7 @@ export default function ProjectPage() {
 
 // --- Sub-components ---
 
-function ProjectHeader() {
+function ProjectHeader({ homePath = "/" }: { homePath?: string }) {
   const navigate = useNavigate();
   const stickyRef = useRef<HTMLDivElement>(null);
   const scaleRef = useRef(1);
@@ -235,7 +235,7 @@ function ProjectHeader() {
         }}
       >
         <p
-          onClick={() => navigate("/")}
+          onClick={() => navigate(homePath)}
           style={{ color: "#9d0003", fontFamily: "Brawler,serif", fontWeight: 900, fontSize: "24px", margin: 0, cursor: "pointer" }}
         >
           Charlie Stamp
@@ -244,7 +244,7 @@ function ProjectHeader() {
           {["home", "work", "contact"].map((label) => (
             <button
               key={label}
-              onClick={() => navigate("/")}
+              onClick={() => navigate(homePath)}
               style={{ background: "none", border: "none", color: "#9d0003", fontFamily: "Brawler,serif", fontWeight: "bold", fontSize: "20px", cursor: "pointer", padding: 0 }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
