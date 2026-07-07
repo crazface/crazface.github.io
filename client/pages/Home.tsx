@@ -6,7 +6,7 @@ const cdn = (id: string) =>
 
 type Kind = 'plain' | 'shadow' | 'popout' | 'text' | 'actions';
 
-interface Item {
+export interface Item {
   key: string;
   kind: Kind;
   top: number;
