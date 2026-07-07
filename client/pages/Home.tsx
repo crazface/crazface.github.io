@@ -79,7 +79,7 @@ function itemTransform(it: Item) {
   return `rotate(${it.rotate || 0}deg) translate(${tx}, ${ty}) scale(${sx}, ${sy})`;
 }
 
-export default function Home({ initialItems = ITEMS, enableDebug = false, extraCategories = [] }: { initialItems?: Item[], enableDebug?: boolean, extraCategories?: Category[] } = {}) {
+export default function Home({ initialItems = ITEMS, enableDebug = false, extraCategories = [], initialCanvasHeight = 4140 }: { initialItems?: Item[], enableDebug?: boolean, extraCategories?: Category[], initialCanvasHeight?: number } = {}) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef  = useRef<HTMLDivElement>(null);
   const stickyRef  = useRef<HTMLDivElement>(null);
@@ -97,7 +97,7 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
   const [headerText, setHeaderText] = useState('Charlie Stamp');
   const [headerTop, setHeaderTop] = useState(33);
   const [headerLeft, setHeaderLeft] = useState(-7.83);
-  const [canvasHeight, setCanvasHeight] = useState(4140);
+  const [canvasHeight, setCanvasHeight] = useState(initialCanvasHeight);
   const drag = useRef<DragState|null>(null);
   const moveModeRef = useRef<MoveMode>('both');
   moveModeRef.current = moveMode;

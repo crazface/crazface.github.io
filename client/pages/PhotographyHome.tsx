@@ -88,5 +88,5 @@ const EXTRA_CATEGORIES: Category[] = [
 ];
 
 export default function PhotographyHome() {
-  return <Home initialItems={PHOTO_ITEMS} enableDebug={true} extraCategories={EXTRA_CATEGORIES} />;
+  return <Home initialItems={PHOTO_ITEMS} enableDebug={true} extraCategories={EXTRA_CATEGORIES} initialCanvasHeight={2860} />;
 }
