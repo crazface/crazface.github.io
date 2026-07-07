@@ -17,8 +17,8 @@ const NEW_ITEMS: Item[] = [
   {
     key: "weddings-label",
     kind: "plain",
-    top: 962.51,
-    left: 723.624,
+    top: 935.987,
+    left: 718.173,
     width: 687.682,
     z: 2,
     rotate: 7.72,
