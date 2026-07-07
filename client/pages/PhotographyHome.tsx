@@ -7,7 +7,7 @@ const NEW_ITEMS: Item[] = [
   {
     key: "capture-moment-title",
     kind: "plain",
-    top: 3575.145,
+    top: 2271.782,
     left: 250.676,
     width: 938.647,
     z: 400,
@@ -17,30 +17,30 @@ const NEW_ITEMS: Item[] = [
   {
     key: "weddings-label",
     kind: "plain",
-    top: 1084.646,
-    left: 1020.964,
-    width: 320,
+    top: 962.51,
+    left: 723.624,
+    width: 687.682,
     z: 401,
-    rotate: -4,
+    rotate: 7.72,
     src: cdn("009bf116fb9b45108b5f3243c2d41dac"),
     alt: "Weddings",
   },
   {
     key: "polaroid-1",
     kind: "shadow",
-    top: 1045.721,
-    left: 37.094,
+    top: 993.645,
+    left: 36.402,
     width: 863.35,
     z: 402,
-    rotate: -6,
+    rotate: -1.54,
     src: cdn("a64fb8aeed43474cba782ece6ad94994"),
     alt: "Wedding Photo Polaroid",
   },
   {
     key: "polaroid-2",
     kind: "shadow",
-    top: 1318.091,
-    left: 531.661,
+    top: 1266.432,
+    left: 529.485,
     width: 863.35,
     z: 403,
     rotate: -0.91,
@@ -67,7 +67,18 @@ const PROJECT_KEYS = new Set([
   "cta-img",
 ]);
 
-const PHOTO_ITEMS = [...ITEMS.filter((item) => !PROJECT_KEYS.has(item.key)), ...NEW_ITEMS];
+// Position overrides for shared items, scoped to the photography page only
+const ITEM_OVERRIDES: Record<string, Partial<Item>> = {
+  "bottom-bg": { top: 1879.454 },
+  "bottom-actions": { top: 2627.646 },
+  "email-text": { top: 2744.581 },
+};
+
+const BASE_ITEMS = ITEMS.filter((item) => !PROJECT_KEYS.has(item.key)).map((item) =>
+  ITEM_OVERRIDES[item.key] ? { ...item, ...ITEM_OVERRIDES[item.key] } : item,
+);
+
+const PHOTO_ITEMS = [...BASE_ITEMS, ...NEW_ITEMS];
 
 const EXTRA_CATEGORIES: Category[] = [
   {
