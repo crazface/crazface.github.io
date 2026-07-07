@@ -87,6 +87,26 @@ const EXTRA_CATEGORIES: Category[] = [
   },
 ];
 
+const PHOTO_INTRO_LEFT = (
+  <>
+    Hello,<br />
+    I'm Charlie, a photographer<br />
+    who loves the art of making images<br />
+    that feel cool, striking, and meaningful.<br />
+    From natural moments to styled shoots,<br />
+    I'm drawn to photos with energy,<br />
+    emotion, and a story behind them.
+  </>
+);
+
 export default function PhotographyHome() {
-  return <Home initialItems={PHOTO_ITEMS} enableDebug={true} extraCategories={EXTRA_CATEGORIES} initialCanvasHeight={2860} />;
+  return (
+    <Home
+      initialItems={PHOTO_ITEMS}
+      enableDebug={true}
+      extraCategories={EXTRA_CATEGORIES}
+      initialCanvasHeight={2860}
+      introTextLeft={PHOTO_INTRO_LEFT}
+    />
+  );
 }

@@ -79,7 +79,10 @@ function itemTransform(it: Item) {
   return `rotate(${it.rotate || 0}deg) translate(${tx}, ${ty}) scale(${sx}, ${sy})`;
 }
 
-export default function Home({ initialItems = ITEMS, enableDebug = false, extraCategories = [], initialCanvasHeight = 4140 }: { initialItems?: Item[], enableDebug?: boolean, extraCategories?: Category[], initialCanvasHeight?: number } = {}) {
+const DEFAULT_INTRO_LEFT = <>Hello,<br/>I'm Charlie, a graphic designer focused on branding and identity. I create thoughtful, memorable visual systems that give brands a clearer voice and a stronger connection with their audience.</>;
+const DEFAULT_INTRO_RIGHT = <>BA (HONS)<br/>Graphic Branding &amp; Identity<br/>UAL</>;
+
+export default function Home({ initialItems = ITEMS, enableDebug = false, extraCategories = [], initialCanvasHeight = 4140, introTextLeft = DEFAULT_INTRO_LEFT, introTextRight = DEFAULT_INTRO_RIGHT }: { initialItems?: Item[], enableDebug?: boolean, extraCategories?: Category[], initialCanvasHeight?: number, introTextLeft?: React.ReactNode, introTextRight?: React.ReactNode } = {}) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef  = useRef<HTMLDivElement>(null);
   const stickyRef  = useRef<HTMLDivElement>(null);
@@ -364,10 +367,10 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
       return <BottomActions copyText={copyText} copyEmail={copyEmail} disabled={false} />;
     }
     if (item.key === 'intro-text-left') {
-      return <div style={textStyle}>Hello,<br/>I'm Charlie, a graphic designer focused on branding and identity. I create thoughtful, memorable visual systems that give brands a clearer voice and a stronger connection with their audience.</div>;
+      return <div style={textStyle}>{introTextLeft}</div>;
     }
     if (item.key === 'intro-text-right') {
-      return <div style={textStyle}>BA (HONS)<br/>Graphic Branding &amp; Identity<br/>UAL</div>;
+      return <div style={textStyle}>{introTextRight}</div>;
     }
     return <div style={textStyle}>CharlieStampCreative@gmail.com</div>;
   }
