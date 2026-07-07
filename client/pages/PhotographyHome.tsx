@@ -1,4 +1,4 @@
-import Home, { ITEMS, Item } from "./Home";
+import Home, { ITEMS, Item, Category } from "./Home";
 
 const cdn = (id: string) =>
   `https://cdn.builder.io/api/v1/image/assets%2F1a7d8b4d8c7d4879aa4c7843b68daea6%2F${id}`;
@@ -68,6 +68,13 @@ const PROJECT_KEYS = new Set([
 
 const PHOTO_ITEMS = [...ITEMS.filter((item) => !PROJECT_KEYS.has(item.key)), ...NEW_ITEMS];
 
+const EXTRA_CATEGORIES: Category[] = [
+  {
+    label: "Photography Assets",
+    keys: NEW_ITEMS.map((item) => item.key),
+  },
+];
+
 export default function PhotographyHome() {
-  return <Home initialItems={PHOTO_ITEMS} enableDebug={true} />;
+  return <Home initialItems={PHOTO_ITEMS} enableDebug={true} extraCategories={EXTRA_CATEGORIES} />;
 }

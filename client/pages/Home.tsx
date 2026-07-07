@@ -48,7 +48,9 @@ export const ITEMS: Item[] = [
   { key: 'email-text',       kind: 'text',    top: 4047.944,   left: 269.051,   scale: 1.2118,  z: 300 },
 ];
 
-const CATEGORIES: { label: string; keys: string[] }[] = [
+export type Category = { label: string; keys: string[] };
+
+const CATEGORIES: Category[] = [
   { label: 'Backgrounds', keys: ['top-bg', 'hero-title', 'tea-spill', 'bottom-bg', 'phone', 'cta-img'] },
   { label: 'Brand Images', keys: ['starlight-img', 'brandopus', 'inside-img', 'aya-img', 'regenb-img', 'flow-img'] },
   { label: 'Logos', keys: ['starlight-logo', 'inside-logo', 'aya-logo', 'regenb-logo', 'flow-logo'] },
@@ -77,7 +79,7 @@ function itemTransform(it: Item) {
   return `rotate(${it.rotate || 0}deg) translate(${tx}, ${ty}) scale(${sx}, ${sy})`;
 }
 
-export default function Home({ initialItems = ITEMS, enableDebug = false }: { initialItems?: Item[], enableDebug?: boolean } = {}) {
+export default function Home({ initialItems = ITEMS, enableDebug = false, extraCategories = [] }: { initialItems?: Item[], enableDebug?: boolean, extraCategories?: Category[] } = {}) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef  = useRef<HTMLDivElement>(null);
   const stickyRef  = useRef<HTMLDivElement>(null);
@@ -433,7 +435,7 @@ export default function Home({ initialItems = ITEMS, enableDebug = false }: { in
                 <button style={{ ...btn(false), background:'#333' }} onClick={() => setGrouped(new Set(items.map(i => i.key)))}>Select All</button>
                 <button style={{ ...btn(false), background:'#333' }} onClick={() => setGrouped(new Set())}>Clear</button>
               </div>
-              {CATEGORIES.map(cat => {
+              {[...CATEGORIES, ...extraCategories].map(cat => {
                 const allOn = cat.keys.every(k => grouped.has(k));
                 return (
                   <div key={cat.label} style={{ marginBottom:6 }}>
