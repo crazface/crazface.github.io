@@ -100,6 +100,39 @@ export default function Home({ initialItems = ITEMS, enableDebug = false }: { in
   const moveModeRef = useRef<MoveMode>('both');
   moveModeRef.current = moveMode;
 
+  // Undo/redo history for item transforms
+  const itemsRef = useRef<Item[]>(initialItems);
+  useEffect(() => { itemsRef.current = items; }, [items]);
+  const historyRef = useRef<Item[][]>([initialItems]);
+  const historyIndexRef = useRef(0);
+  const [historyVersion, setHistoryVersion] = useState(0);
+
+  function pushHistory(next: Item[]) {
+    historyRef.current = historyRef.current.slice(0, historyIndexRef.current + 1);
+    historyRef.current.push(next);
+    historyIndexRef.current = historyRef.current.length - 1;
+    setHistoryVersion(v => v + 1);
+  }
+
+  function undo() {
+    if (historyIndexRef.current <= 0) return;
+    historyIndexRef.current -= 1;
+    setItems(historyRef.current[historyIndexRef.current]);
+    setHistoryVersion(v => v + 1);
+  }
+
+  function redo() {
+    if (historyIndexRef.current >= historyRef.current.length - 1) return;
+    historyIndexRef.current += 1;
+    setItems(historyRef.current[historyIndexRef.current]);
+    setHistoryVersion(v => v + 1);
+  }
+
+  // historyVersion forces a re-render whenever the history stack changes
+  const canUndo = historyIndexRef.current > 0;
+  const canRedo = historyIndexRef.current < historyRef.current.length - 1;
+  void historyVersion;
+
   useEffect(() => {
     document.body.setAttribute('data-skip-theme', 'true');
     return () => document.body.removeAttribute('data-skip-theme');
@@ -195,7 +228,10 @@ export default function Home({ initialItems = ITEMS, enableDebug = false }: { in
       });
     }
 
-    function onUp() { drag.current = null; }
+    function onUp() {
+      if (drag.current) pushHistory(itemsRef.current);
+      drag.current = null;
+    }
 
     window.addEventListener('pointermove', onMove);
     window.addEventListener('pointerup',   onUp);
@@ -246,7 +282,9 @@ export default function Home({ initialItems = ITEMS, enableDebug = false }: { in
     if (!selected) return;
     const keys = affectedFor(selected);
     const prop = axis === 'h' ? 'flipH' : 'flipV';
-    setItems(prev => prev.map(it => keys.includes(it.key) ? { ...it, [prop]: !it[prop] } : it));
+    const next = items.map(it => keys.includes(it.key) ? { ...it, [prop]: !it[prop] } : it);
+    setItems(next);
+    pushHistory(next);
   }
 
   function toggleGroup(key: string, on: boolean) {
@@ -378,12 +416,14 @@ export default function Home({ initialItems = ITEMS, enableDebug = false }: { in
               <button disabled={!selected} style={{ ...btn(false), flex: 1, opacity: selected ? 1 : 0.4 }} onClick={() => {
                 if (!selected) return;
                 const keys = affectedFor(selected);
-                setItems(prev => prev.map(it => {
+                const next = items.map(it => {
                   if (!keys.includes(it.key)) return it;
                   const w = it.width ?? 200;
                   const newLeft = (1440 - w) / 2;
                   return { ...it, left: +newLeft.toFixed(3) };
-                }));
+                });
+                setItems(next);
+                pushHistory(next);
               }}>Center Horizontally</button>
             </div>
 
@@ -436,13 +476,13 @@ export default function Home({ initialItems = ITEMS, enableDebug = false }: { in
                 <input type="range" min={100} max={1200} step={10} value={items.find(it => it.key === selected)?.width || 500} onChange={e => {
                   const idx = items.findIndex(it => it.key === selected);
                   if (idx >= 0) setItems([...items.slice(0, idx), {...items[idx], width: +e.target.value}, ...items.slice(idx+1)]);
-                }} style={{ width:'100%', marginBottom:8 }} />
+                }} onPointerUp={() => pushHistory(itemsRef.current)} style={{ width:'100%', marginBottom:8 }} />
 
                 <label style={{ display:'block', marginBottom:4 }}>Height: {(items.find(it => it.key === selected)?.height || 'auto')}</label>
                 <input type="range" min={20} max={400} step={5} value={items.find(it => it.key === selected)?.height || 100} onChange={e => {
                   const idx = items.findIndex(it => it.key === selected);
                   if (idx >= 0) setItems([...items.slice(0, idx), {...items[idx], height: +e.target.value}, ...items.slice(idx+1)]);
-                }} style={{ width:'100%', marginBottom:10 }} />
+                }} onPointerUp={() => pushHistory(itemsRef.current)} style={{ width:'100%', marginBottom:10 }} />
               </>
             )}
 
@@ -453,10 +493,26 @@ export default function Home({ initialItems = ITEMS, enableDebug = false }: { in
             <input type="range" min={0} max={1} step={0.05} value={mockupOpacity} onChange={e => setMockupOpacity(+e.target.value)} style={{ width:'100%', marginBottom:10 }} />
 
             <div style={{ display:'flex', gap:8, marginBottom:8 }}>
+              <button onClick={undo} disabled={!canUndo} style={{ flex:1, padding:'6px 0', cursor: canUndo ? 'pointer' : 'not-allowed', background:'#444', color:'#fff', border:'none', borderRadius:4, fontSize:11, opacity: canUndo ? 1 : 0.4 }}>
+                ↺ Undo
+              </button>
+              <button onClick={redo} disabled={!canRedo} style={{ flex:1, padding:'6px 0', cursor: canRedo ? 'pointer' : 'not-allowed', background:'#444', color:'#fff', border:'none', borderRadius:4, fontSize:11, opacity: canRedo ? 1 : 0.4 }}>
+                ↻ Redo
+              </button>
+            </div>
+
+            <div style={{ display:'flex', gap:8, marginBottom:8 }}>
               <button onClick={copyOutput} style={{ flex:1, padding:'6px 0', cursor:'pointer', background:'#00aaff', color:'#fff', border:'none', borderRadius:4, fontWeight:'bold', fontSize:11 }}>
                 {outputCopied ? 'Copied ✓' : 'Copy Output'}
               </button>
-              <button onClick={() => { setItems(initialItems); setSelected(null); setGrouped(new Set()); }} style={{ padding:'6px 10px', cursor:'pointer', background:'#555', color:'#fff', border:'none', borderRadius:4, fontSize:11 }}>
+              <button onClick={() => {
+                setItems(initialItems);
+                setSelected(null);
+                setGrouped(new Set());
+                historyRef.current = [initialItems];
+                historyIndexRef.current = 0;
+                setHistoryVersion(v => v + 1);
+              }} style={{ padding:'6px 10px', cursor:'pointer', background:'#555', color:'#fff', border:'none', borderRadius:4, fontSize:11 }}>
                 Reset
               </button>
             </div>
