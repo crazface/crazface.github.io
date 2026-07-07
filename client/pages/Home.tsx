@@ -102,8 +102,10 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
   const [headerTop, setHeaderTop] = useState(33);
   const [headerLeft, setHeaderLeft] = useState(-7.83);
   const [canvasHeight, setCanvasHeight] = useState(initialCanvasHeight);
-  const [introLeftText, setIntroLeftText] = useState(introTextLeft);
-  const [introRightText, setIntroRightText] = useState(introTextRight);
+  const [introLeftText, setIntroLeftText] = useState(typeof introTextLeft === 'string' ? introTextLeft : DEFAULT_INTRO_LEFT);
+  const [introRightText, setIntroRightText] = useState(typeof introTextRight === 'string' ? introTextRight : DEFAULT_INTRO_RIGHT);
+  const [panelPos, setPanelPos] = useState({ top: 10, left: 10 });
+  const panelDrag = useRef<{ startX: number; startY: number; startTop: number; startLeft: number } | null>(null);
   const drag = useRef<DragState|null>(null);
   const moveModeRef = useRef<MoveMode>('both');
   moveModeRef.current = moveMode;
@@ -387,8 +389,25 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
     <div style={{ backgroundColor:'#f1e4d6', fontFamily:'Arial,sans-serif', overflowX:'hidden', userSelect: debug ? 'none' : 'auto' }}>
 
       {/* Debug panel */}
-      <div style={{ display: enableDebug ? 'block' : 'none', position:'fixed', top:10, left:10, zIndex:100000, fontFamily:'monospace', fontSize:12, color:'#fff' }}>
-        <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(0,0,0,0.82)', padding:'6px 12px', borderRadius:6 }}>
+      <div style={{ display: enableDebug ? 'block' : 'none', position:'fixed', top:panelPos.top, left:panelPos.left, zIndex:100000, fontFamily:'monospace', fontSize:12, color:'#fff' }}>
+        <div
+          onPointerDown={e => {
+            e.preventDefault();
+            (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+            panelDrag.current = { startX: e.clientX, startY: e.clientY, startTop: panelPos.top, startLeft: panelPos.left };
+          }}
+          onPointerMove={e => {
+            if (!panelDrag.current) return;
+            const dx = e.clientX - panelDrag.current.startX;
+            const dy = e.clientY - panelDrag.current.startY;
+            setPanelPos({ top: panelDrag.current.startTop + dy, left: panelDrag.current.startLeft + dx });
+          }}
+          onPointerUp={() => { panelDrag.current = null; }}
+          style={{ background:'rgba(0,0,0,0.6)', padding:'3px 12px', borderRadius:'6px 6px 0 0', fontSize:10, color:'#999', cursor:'grab', userSelect:'none', textAlign:'center' }}
+        >
+          ⠿⠿⠿ drag to move panel ⠿⠿⠿
+        </div>
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(0,0,0,0.82)', padding:'6px 12px', borderRadius:'0 0 6px 6px' }}>
           <label style={{ display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer' }}>
             <input type="checkbox" checked={debug} onChange={e => setDebug(e.target.checked)} />
             Debug Mode
