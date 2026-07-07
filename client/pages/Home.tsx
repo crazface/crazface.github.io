@@ -77,14 +77,14 @@ function itemTransform(it: Item) {
   return `rotate(${it.rotate || 0}deg) translate(${tx}, ${ty}) scale(${sx}, ${sy})`;
 }
 
-export default function Home({ initialItems = ITEMS }: { initialItems?: Item[] } = {}) {
+export default function Home({ initialItems = ITEMS, enableDebug = false }: { initialItems?: Item[], enableDebug?: boolean } = {}) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef  = useRef<HTMLDivElement>(null);
   const stickyRef  = useRef<HTMLDivElement>(null);
   const [copyText, setCopyText] = useState('Copy Email');
   const navigate = useNavigate();
 
-  const [debug, setDebug] = useState(false); // Debug mode disabled after finalization
+  const [debug, setDebug] = useState(enableDebug); // Debug mode disabled after finalization
   const [items, setItems] = useState<Item[]>(initialItems);
   const [selected, setSelected] = useState<string|null>(null);
   const [grouped, setGrouped] = useState<Set<string>>(new Set());

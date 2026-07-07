@@ -18,5 +18,5 @@ const PROJECT_KEYS = new Set([
 const PHOTO_ITEMS = ITEMS.filter((item) => !PROJECT_KEYS.has(item.key));
 
 export default function PhotographyHome() {
-  return <Home initialItems={PHOTO_ITEMS} />;
+  return <Home initialItems={PHOTO_ITEMS} enableDebug={true} />;
 }
