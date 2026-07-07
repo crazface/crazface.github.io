@@ -130,14 +130,14 @@ export default function ProjectPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/#bottom-actions"
+              href={project.type === "Photography" ? "/photography#bottom-actions" : "/#bottom-actions"}
               className="inline-flex items-center justify-center space-x-2 bg-[#9d0003] text-[#f1e4d6] font-bold uppercase tracking-widest px-8 py-4 hover:bg-[#7a0002] transition-colors"
             >
               <span>Get in Touch</span>
               <ArrowUpRight size={18} />
             </a>
             <a
-              href="/#work"
+              href={project.type === "Photography" ? "/photography#work" : "/#work"}
               className="inline-flex items-center justify-center space-x-2 border border-[#9d0003]/30 text-[#9d0003] font-bold uppercase tracking-widest px-8 py-4 hover:border-[#9d0003] hover:text-[#9d0003] transition-colors"
             >
               <span>View More Work</span>
