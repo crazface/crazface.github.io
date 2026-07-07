@@ -13,6 +13,8 @@ const PROJECT_KEYS = new Set([
   "aya-logo",
   "regenb-logo",
   "flow-logo",
+  "phone",
+  "tea-spill",
 ]);
 
 const PHOTO_ITEMS = ITEMS.filter((item) => !PROJECT_KEYS.has(item.key));
