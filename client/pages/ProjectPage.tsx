@@ -345,11 +345,11 @@ function ProjectGallery({ project }: { project: Project }) {
       {isGrid ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 w-full max-w-[1700px] mx-auto px-4 md:px-8">
           {gallery.map((src, idx) => (
-            <div key={idx} className="w-full aspect-square overflow-hidden">
+            <div key={idx} className="w-full">
               <img
                 src={src}
                 alt={`${project.title} ${idx + 1}`}
-                className="w-full h-full object-cover block cursor-zoom-in"
+                className="w-full h-auto object-contain block cursor-zoom-in"
                 onClick={() => setSelectedImage(src)}
               />
             </div>
