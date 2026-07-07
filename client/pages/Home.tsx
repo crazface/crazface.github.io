@@ -90,6 +90,7 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
   const navigate = useNavigate();
 
   const [debug, setDebug] = useState(enableDebug); // Debug mode disabled after finalization
+  const [panelVisible, setPanelVisible] = useState(true);
   const [items, setItems] = useState<Item[]>(initialItems);
   const [selected, setSelected] = useState<string|null>(null);
   const [grouped, setGrouped] = useState<Set<string>>(new Set());
@@ -385,12 +386,19 @@ export default function Home({ initialItems = ITEMS, enableDebug = false, extraC
 
       {/* Debug panel */}
       <div style={{ display: enableDebug ? 'block' : 'none', position:'fixed', top:10, left:10, zIndex:100000, fontFamily:'monospace', fontSize:12, color:'#fff' }}>
-        <label style={{ display:'inline-flex', alignItems:'center', gap:6, background:'rgba(0,0,0,0.82)', padding:'6px 12px', borderRadius:6, cursor:'pointer' }}>
-          <input type="checkbox" checked={debug} onChange={e => setDebug(e.target.checked)} />
-          Debug Mode
-        </label>
+        <div style={{ display:'inline-flex', alignItems:'center', gap:8, background:'rgba(0,0,0,0.82)', padding:'6px 12px', borderRadius:6 }}>
+          <label style={{ display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer' }}>
+            <input type="checkbox" checked={debug} onChange={e => setDebug(e.target.checked)} />
+            Debug Mode
+          </label>
+          {debug && (
+            <button onClick={() => setPanelVisible(v => !v)} style={{ background:'#444', color:'#fff', border:'none', borderRadius:4, padding:'3px 8px', cursor:'pointer', fontSize:11 }}>
+              {panelVisible ? 'Hide Panel' : 'Show Panel'}
+            </button>
+          )}
+        </div>
 
-        {debug && (
+        {debug && panelVisible && (
           <div style={{ marginTop:8, width:390, maxHeight:'88vh', overflowY:'auto', background:'rgba(0,0,0,0.92)', borderRadius:8, padding:12 }}>
             <p style={{ margin:'0 0 8px', lineHeight:1.5, color:'#ccc', fontSize:11 }}>
               Drag to move. Click to select, then use <span style={{color:'#00aaff'}}>● blue</span> to resize / <span style={{color:'#00cc66'}}>● green</span> to rotate. Group items to transform together.
