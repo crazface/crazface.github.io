@@ -241,10 +241,14 @@ function ProjectHeader({ homePath = "/" }: { homePath?: string }) {
           Charlie Stamp
         </p>
         <div style={{ display: "flex", gap: "40px" }}>
-          {["home", "work", "contact"].map((label) => (
+          {[
+            { label: "home", hash: "" },
+            { label: "work", hash: homePath === "/photography" ? "polaroid-1" : "starlight-img" },
+            { label: "contact", hash: "bottom-actions" },
+          ].map(({ label, hash }) => (
             <button
               key={label}
-              onClick={() => navigate(homePath)}
+              onClick={() => navigate(hash ? `${homePath}#${hash}` : homePath)}
               style={{ background: "none", border: "none", color: "#9d0003", fontFamily: "Brawler,serif", fontWeight: "bold", fontSize: "20px", cursor: "pointer", padding: 0 }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
