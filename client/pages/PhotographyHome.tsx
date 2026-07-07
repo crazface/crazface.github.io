@@ -72,8 +72,8 @@ const ITEM_OVERRIDES: Record<string, Partial<Item>> = {
   "bottom-bg": { top: 1879.454 },
   "bottom-actions": { top: 2627.646 },
   "email-text": { top: 2744.581 },
-  "intro-text-left": { width: 540 },
-  "intro-text-right": { left: 1103.315 },
+  "intro-text-left": { width: 540, top: 729.336 },
+  "intro-text-right": { left: 1103.315, top: 730.89 },
 };
 
 const BASE_ITEMS = ITEMS.filter((item) => !PROJECT_KEYS.has(item.key)).map((item) =>
